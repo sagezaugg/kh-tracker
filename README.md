@@ -4,6 +4,8 @@ An unofficial, fan-made 100% completion tracker for **Kingdom Hearts Final Mix**
 with save-file import. It's a single-page app (Vite + React 18 + TypeScript, React Router v6, Zustand) styled after
 the KH2 pause menu. One site, with a game switcher in the header.
 
+**Live site: https://kh-tracker.vercel.app**
+
 Each game tracks three definitions of 100% from one checklist: **Jiminy's Journal**, **Trophies** (Platinum
 excluded from the count) and **Everything**. Importing a PC save fills in most of the checklist; the file never
 leaves the browser. In Chrome and Edge the tracker can also watch the save file and re-import it every time the game
@@ -108,6 +110,9 @@ python3 scripts/kh1/extract_locations.py ap/worlds/kh1/Locations.py kh1lua/1fmAP
 Then run `npm test`: the data tests check totals and id uniqueness, and the fixture tests check real saves.
 
 ## Deploying (Vercel)
+
+The live site is the Vercel project `kh-tracker`, linked to this repository: every push to `main` deploys to
+production at https://kh-tracker.vercel.app, and other branches get preview URLs.
 
 `vercel.json` sets the build command (`npm run build`), the output directory (`dist`) and an SPA rewrite so deep links
 like `/kh2/worlds/tt` work on a hard refresh.

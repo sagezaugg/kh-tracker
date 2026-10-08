@@ -57,27 +57,51 @@ describe('game switcher', () => {
   it('lists the games on the home page and marks the active one elsewhere', async () => {
     renderAt('/');
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Choose a Game');
-    const games = screen.getByRole('navigation', { name: 'Games' });
+    const games = screen.getByRole('navigation', { name: 'Site' });
     expect(
       within(games)
         .getAllByRole('link')
         .map((a) => a.textContent),
-    ).toEqual(['KH1FM: Kingdom Hearts Final Mix', 'KH2FM: Kingdom Hearts II Final Mix']);
+    ).toEqual(['Home', 'KH1FM: Kingdom Hearts Final Mix', 'KH2FM: Kingdom Hearts II Final Mix', 'Save Diff']);
+    expect(within(games).getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page');
     await userEvent.click(within(games).getByRole('link', { name: /KH2FM/ }));
     expect(
-      within(screen.getByRole('navigation', { name: 'Games' })).getByRole('link', { name: /KH2FM/ }),
+      within(screen.getByRole('navigation', { name: 'Site' })).getByRole('link', { name: /KH2FM/ }),
     ).toHaveAttribute('aria-current', 'true');
   });
 
   it('keeps the same screen when the other game has it', () => {
     renderAt('/kh2/config');
-    const games = screen.getByRole('navigation', { name: 'Games' });
+    const games = screen.getByRole('navigation', { name: 'Site' });
     expect(within(games).getByRole('link', { name: /KH1FM/ })).toHaveAttribute('href', '/kh1/config');
   });
 
   it("falls back to the other game's Status for screens it lacks", () => {
     renderAt('/kh2/drive');
-    const games = screen.getByRole('navigation', { name: 'Games' });
+    const games = screen.getByRole('navigation', { name: 'Site' });
     expect(within(games).getByRole('link', { name: /KH1FM/ })).toHaveAttribute('href', '/kh1');
+  });
+});
+
+describe('site navigation and themes', () => {
+  it('links home and to the save diff tool from inside a game', () => {
+    renderAt('/kh1/journal');
+    const site = screen.getByRole('navigation', { name: 'Site' });
+    expect(within(site).getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
+    expect(within(site).getByRole('link', { name: 'Save Diff' })).toHaveAttribute('href', '/tools/save-diff');
+  });
+
+  it('tags each game frame for its colour theme', () => {
+    renderAt('/kh1');
+    expect(document.querySelector('[data-game]')).toHaveAttribute('data-game', 'kh1');
+  });
+
+  it('links Config to the save diff tool', () => {
+    renderAt('/kh2/config');
+    const main = screen.getByRole('main');
+    expect(within(main).getByRole('link', { name: 'save diff tool' })).toHaveAttribute(
+      'href',
+      '/tools/save-diff',
+    );
   });
 });

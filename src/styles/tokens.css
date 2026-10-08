@@ -22,6 +22,20 @@
   --c-label: #3fa0ff;
   --c-shadow-blue: #0a1a6a;
   --c-row-line: rgba(120, 170, 255, 0.28);
+  --c-divider: rgba(120, 170, 255, 0.22);
+  --c-tag-line: rgba(143, 208, 255, 0.5);
+  --c-box: #8fb4ff;
+  --c-head-1: #0d2a8a;
+  --c-head-2: #081a5c;
+  --c-glow: rgba(60, 140, 255, 0.6);
+  --c-hover-tint: rgba(60, 140, 255, 0.18);
+  --c-frame-soft: rgba(42, 107, 255, 0.3);
+  --c-panel-glow: rgba(30, 90, 255, 0.25);
+  --c-panel-inset: rgba(150, 205, 255, 0.25);
+  --c-scan-1: rgba(60, 140, 255, 0.06);
+  --c-scan-2: rgba(150, 215, 255, 0.13);
+  --c-scan-lines: rgba(120, 190, 255, 0.035);
+  --c-placeholder: #8aa6d6;
 
   /* Text */
   --c-text: #eef4ff;
@@ -78,4 +92,52 @@
   /* Sizing */
   --touch: 44px;
   --focus-ring: 3px solid var(--c-ice);
+}
+
+/*
+ * Per-game themes. Each game shell sets data-game on the frame; only the "blue" family changes, so
+ * the KH selection red, gold and orange accents stay shared. KH2 uses the defaults above.
+ * KH1: sea teal, after Destiny Islands.
+ */
+[data-game='kh1'] {
+  --c-void: #01100f;
+  --c-ground: #032624;
+  --c-deep: #021e1c;
+  --c-navy: #05332f;
+  --c-navy-2: #063a35;
+  --c-help: #042b28;
+  --c-row: rgba(3, 38, 35, 0.72);
+  --c-panel: rgba(6, 84, 76, 0.45);
+
+  --c-royal: #0a6f63;
+  --c-frame: #1fae98;
+  --c-frame-2: #27bfa7;
+  --c-frame-3: #18a08b;
+  --c-frame-dim: #3c8a7f;
+  --c-sky: #4fdcc4;
+  --c-sky-2: #2bb39d;
+  --c-ice: #8eefdf;
+  --c-label: #45d8bf;
+  --c-shadow-blue: #04302b;
+  --c-row-line: rgba(120, 225, 205, 0.28);
+  --c-divider: rgba(120, 225, 205, 0.22);
+  --c-tag-line: rgba(142, 239, 223, 0.5);
+  --c-box: #8ee6d6;
+  --c-head-1: #0a6157;
+  --c-head-2: #063f39;
+  --c-glow: rgba(50, 210, 185, 0.55);
+  --c-hover-tint: rgba(50, 210, 185, 0.18);
+  --c-frame-soft: rgba(31, 174, 152, 0.3);
+  --c-panel-glow: rgba(30, 200, 175, 0.22);
+  --c-panel-inset: rgba(150, 240, 225, 0.22);
+  --c-scan-1: rgba(60, 220, 190, 0.06);
+  --c-scan-2: rgba(150, 245, 230, 0.12);
+  --c-scan-lines: rgba(120, 240, 215, 0.035);
+
+  --c-text-soft: #cdf3ec;
+  --c-text-dim: #a6d9d0;
+  --c-text-sub: #9eeadc;
+  --c-help-text: #a8f0e4;
+  --c-done-text: #a3cfc8;
+  --c-placeholder: #86b8ae;
 }

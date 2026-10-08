@@ -50,7 +50,7 @@
   font: 500 16px var(--font);
 }
 .search::placeholder {
-  color: #8aa6d6;
+  color: var(--c-placeholder);
 }
 
 .pill {
@@ -137,7 +137,7 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  border-bottom: 1px solid rgba(120, 170, 255, 0.25);
+  border-bottom: 1px solid var(--c-divider);
   padding: 4px 0;
   font-size: 15px;
 }

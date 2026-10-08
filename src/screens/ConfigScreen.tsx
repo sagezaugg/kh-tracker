@@ -1,4 +1,5 @@
 import { useMemo, useState, type ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { parseBackup, serializeBackup } from '../core/backup';
 import { canWatchFiles, loadSaveHandle, storeSaveHandle } from '../core/handleStore';
 import { applyImport, importMeta, importSummary, type ImportMode } from '../core/importSave';
@@ -119,6 +120,10 @@ function ImportCard({ save }: { save: SaveSupport }) {
         Import a save file
       </h2>
       <p className={common.note}>{save.formatsNote}</p>
+      <p className={common.note}>
+        Something the tracker doesn&apos;t read yet? The <Link to="/tools/save-diff">save diff tool</Link>{' '}
+        compares a save from before and after an event to find where the game stores it.
+      </p>
       <div className={common.btnrow}>
         {canWatchFiles() ? (
           <button type="button" className={styles.file} onClick={pickWatchable}>

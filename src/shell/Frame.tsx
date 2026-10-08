@@ -12,16 +12,18 @@ interface FrameProps {
   sub: string;
   /** Help-bar text when nothing is hovered and no toast is showing. */
   help: string;
+  /** Game id for the per-game colour theme (tokens.css); omitted on site pages. */
+  gameId?: string;
   children: ReactNode;
 }
 
 /** The KH2-style page frame: scanlines, MENU header with the game switcher, help bar, footer. */
-export function Frame({ title, sub, help, children }: FrameProps) {
+export function Frame({ title, sub, help, gameId, children }: FrameProps) {
   const hint = useUi((s) => s.hint);
   const toast = useUi((s) => s.toast);
   const toastKind = useUi((s) => s.toastKind);
   return (
-    <div className={styles.kh}>
+    <div className={styles.kh} data-game={gameId}>
       <a className={styles.skip} href="#main">
         Skip to content
       </a>

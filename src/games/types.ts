@@ -60,6 +60,8 @@ export interface GameDefinition {
   /** "KH2FM". */
   short: string;
   basePath: string;
+  /** Ground colour of the game's theme, for the browser's theme-color. */
+  themeColor: string;
   nav: readonly NavEntry[];
   /** Child routes under basePath (paths relative, index route = Status). */
   routes: RouteObject[];

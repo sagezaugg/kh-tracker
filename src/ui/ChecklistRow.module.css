@@ -43,7 +43,7 @@
   width: 13px;
   height: 13px;
   transform: rotate(45deg);
-  border: 2px solid #8fb4ff;
+  border: 2px solid var(--c-box);
   margin: 0 4px;
 }
 .on .box {
@@ -72,7 +72,7 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--c-text-sub);
-  border: 1px solid rgba(143, 208, 255, 0.5);
+  border: 1px solid var(--c-tag-line);
   border-radius: 10px;
   padding: 0 7px;
 }

@@ -195,3 +195,9 @@ Choices the brief didn't settle, with the default picked:
     Config toggle drives the three difficulty-clear trophies.
 20. **First in-game check of the derived KH1 flags.** The real save reads all 12 Neverland Clock Tower doors as
     unopened, and the owner confirmed they never opened them.
+21. **Per-game themes.** Each game shell sets `data-game` on the frame, and `tokens.css` overrides the blue colour
+    family for KH1 (sea teal, after Destiny Islands); KH2 keeps the original blue. The selection red, golds and
+    oranges stay shared so the KH look carries across. KH1 text pairs were checked at 6:1 or better.
+22. **Site navigation.** The header holds Home (the game list), the game switcher and a Save Diff link; each game's
+    Config also links to the save diff tool. Below 480px the decorative MENU tag hides and Save Diff shows only its
+    icon, so the nav fits on one row.

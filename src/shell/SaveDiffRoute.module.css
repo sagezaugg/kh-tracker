@@ -67,7 +67,7 @@
 .tbl td,
 .tbl tbody th {
   padding: 6px 10px;
-  border-bottom: 1px solid rgba(120, 170, 255, 0.2);
+  border-bottom: 1px solid var(--c-divider);
   text-align: left;
   font-weight: 500;
   white-space: nowrap;

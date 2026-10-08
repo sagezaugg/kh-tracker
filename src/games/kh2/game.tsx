@@ -41,6 +41,7 @@ export const KH2: GameDefinition = {
   title: 'Kingdom Hearts II Final Mix',
   short: 'KH2FM',
   basePath: '/kh2',
+  themeColor: '#03082a',
   nav: NAV,
   catalog: KH2_CATALOG,
   store: kh2Store,

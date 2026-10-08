@@ -12,7 +12,7 @@
   gap: 6px;
   padding: 4px 12px;
   border-radius: 14px;
-  border: 1px solid rgba(143, 208, 255, 0.5);
+  border: 1px solid var(--c-tag-line);
   font-weight: 700;
   font-size: 15px;
 }

@@ -40,6 +40,7 @@ export const KH1: GameDefinition = {
   title: 'Kingdom Hearts Final Mix',
   short: 'KH1FM',
   basePath: '/kh1',
+  themeColor: '#032624',
   nav: KH1_NAV,
   catalog: KH1_CATALOG,
   store: kh1Store,

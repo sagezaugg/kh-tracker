@@ -3,12 +3,12 @@
   z-index: 1;
   padding: 12px 24px 18px;
   background: var(--c-void);
-  border-top: 1px solid rgba(42, 107, 255, 0.35);
+  border-top: 1px solid var(--c-frame-soft);
 }
 .foot p {
   margin: 4px 0;
   max-width: 110ch;
-  color: #8aa6d6;
+  color: var(--c-placeholder);
   font-size: 13px;
   line-height: 1.45;
 }

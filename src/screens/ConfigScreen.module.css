@@ -60,7 +60,7 @@
 .watch {
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px solid rgba(120, 170, 255, 0.25);
+  border-top: 1px solid var(--c-divider);
 }
 .watchT {
   margin: 0 0 8px;

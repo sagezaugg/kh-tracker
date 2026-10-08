@@ -32,9 +32,21 @@ export function GameShell({ game }: { game: GameDefinition }) {
     document.title = `${title} · ${game.short} 100% Tracker`;
   }, [title, game.short]);
 
+  // Match the browser chrome to the game's ground colour.
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    meta?.setAttribute('content', game.themeColor);
+    return () => meta?.setAttribute('content', '#03082a');
+  }, [game.themeColor]);
+
   return (
     <GameContext.Provider value={game}>
-      <Frame title={title} sub={`${game.title} · 100% Completion Tracker`} help={nav?.help ?? NOT_FOUND_HELP}>
+      <Frame
+        title={title}
+        sub={`${game.title} · 100% Completion Tracker`}
+        help={nav?.help ?? NOT_FOUND_HELP}
+        gameId={game.id}
+      >
         <div className={styles.body}>
           <nav className={styles.cmds} aria-label="Tracker sections">
             <CommandMenu news={news} />

@@ -1,3 +1,10 @@
+.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  align-self: center;
+}
 .switcher {
   display: flex;
   flex: none;
@@ -6,11 +13,12 @@
   border: 2px solid var(--c-ice);
   border-radius: 24px;
   background: var(--c-navy);
-  align-self: center;
 }
-.game {
+.game,
+.tool {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: var(--touch);
   padding: 0 16px;
   border-radius: 20px;
@@ -19,11 +27,21 @@
   letter-spacing: 0.06em;
   text-decoration: none;
 }
-.game:hover {
-  color: var(--c-white);
-  background: rgba(60, 140, 255, 0.18);
+.tool {
+  border: 2px solid var(--c-frame-dim);
+  background: var(--c-navy);
+  border-radius: 24px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
-.game:focus-visible {
+.game:hover,
+.tool:hover {
+  color: var(--c-white);
+  background: var(--c-hover-tint);
+}
+.game:focus-visible,
+.tool:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 1px;
 }
@@ -33,10 +51,31 @@
   background: var(--c-royal);
   box-shadow: inset 0 0 0 2px var(--c-sel);
 }
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
 
 @media (max-width: 720px) {
-  .game {
+  .game,
+  .tool {
     padding: 0 12px;
     font-size: 14px;
+  }
+}
+
+/* On narrow phones the tool link shows only its icon; the text stays for screen readers. */
+@media (max-width: 480px) {
+  .tool {
+    padding: 0 13px;
+  }
+  .toolText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }

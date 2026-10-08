@@ -34,7 +34,7 @@
   min-height: var(--touch);
   padding: 10px 14px;
   border: 0;
-  background: linear-gradient(180deg, #0d2a8a, #081a5c);
+  background: linear-gradient(180deg, var(--c-head-1), var(--c-head-2));
   color: var(--c-white);
   font: inherit;
   text-align: left;
@@ -65,7 +65,7 @@
   flex-direction: column;
   gap: 3px;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(120, 170, 255, 0.2);
+  border-bottom: 1px solid var(--c-divider);
 }
 .tr:last-child {
   border-bottom: 0;

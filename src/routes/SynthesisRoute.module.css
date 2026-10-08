@@ -1,0 +1,354 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card {
+  border: 2px solid var(--c-frame);
+  border-radius: 12px;
+  background: var(--c-navy);
+  padding: 16px;
+  min-width: 0;
+}
+.cardT {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--c-orange);
+}
+.note {
+  color: var(--c-text-dim);
+  font-size: 15px;
+  margin: 4px 0 0;
+  max-width: 72ch;
+}
+
+.goal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+.goalL {
+  flex: 2 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.goalR {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--c-deep);
+  border: 2px solid var(--c-sky);
+}
+.kicker {
+  font-style: italic;
+  font-weight: 800;
+  color: var(--c-label);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.goalName {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--c-gold);
+  text-shadow: 2px 2px 0 var(--c-gold-shadow);
+  line-height: 1;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(143, 208, 255, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-text-soft);
+}
+.ok {
+  border-color: var(--c-green);
+  color: #9dffb6;
+}
+.no {
+  border-color: var(--c-sel-inner);
+  color: #ffb39a;
+}
+.big {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 44px;
+  color: var(--c-gold);
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--c-gold-shadow);
+}
+.big small {
+  font-size: 22px;
+  color: #eaf3ff;
+  text-shadow: none;
+}
+
+.tblWrap {
+  overflow-x: auto;
+}
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.tbl thead th {
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-sub);
+  font-weight: 700;
+  padding: 6px 10px;
+  border-bottom: 2px solid var(--c-frame);
+}
+.tbl td,
+.tbl tbody th {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(120, 170, 255, 0.2);
+  vertical-align: middle;
+  text-align: left;
+  font-weight: 600;
+}
+.numCell {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.mat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gem {
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  flex: none;
+  margin: 0 4px;
+}
+.g-or {
+  background: #ffd54a;
+  box-shadow: 0 0 8px #ffd54a;
+}
+.g-orp {
+  background: #fff2b0;
+  box-shadow: 0 0 10px #ffe14a;
+}
+.g-my {
+  background: #9fd0ff;
+}
+.g-de {
+  background: #b38cff;
+}
+.g-tw {
+  background: #ff9a5c;
+}
+.g-se {
+  background: #7dffcf;
+}
+.g-en {
+  background: #7df0ff;
+  box-shadow: 0 0 8px #7df0ff;
+}
+.num {
+  width: 64px;
+  min-height: var(--touch);
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 2px solid var(--c-sky);
+  background: var(--c-deep);
+  color: inherit;
+  font: italic 800 18px var(--font);
+}
+.short {
+  color: #ffb39a;
+}
+.okt {
+  color: #9dffb6;
+}
+.hb {
+  display: block;
+  width: 120px;
+  height: 6px;
+  background: var(--c-green-bg);
+}
+.hb > span {
+  display: block;
+  height: 100%;
+  background: var(--c-green);
+  transition: width var(--t-bar) var(--ease-out);
+}
+.low > span {
+  background: var(--c-sel-inner);
+}
+.where {
+  color: var(--c-text-soft);
+  font-weight: 500;
+}
+.foot {
+  font-size: 13px;
+  color: #8aa6d6;
+  margin: 8px 0 0;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 18px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+.li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--touch);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--c-row-line);
+  background: var(--c-row);
+}
+.got {
+  border-color: rgba(255, 213, 74, 0.55);
+}
+.pop {
+  background: rgba(255, 210, 63, 0.32);
+}
+.liLab {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.liLab input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+.box {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  transform: rotate(45deg);
+  border: 2px solid #8fb4ff;
+  margin: 0 4px;
+}
+.got .box {
+  background: var(--c-gold-2);
+  border-color: var(--c-gold-pale);
+  box-shadow: 0 0 8px rgba(255, 210, 63, 0.8);
+}
+.liLab input:focus-visible + .box {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+.liB {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.liB b {
+  font-size: 16px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.liB span {
+  font-size: 14px;
+  color: var(--c-text-dim);
+}
+.got .liB b {
+  color: var(--c-done-text);
+}
+.tag {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-sub);
+  border: 1px solid rgba(143, 208, 255, 0.5);
+  border-radius: 10px;
+  padding: 0 7px;
+}
+.trophy {
+  color: var(--c-new);
+  border-color: rgba(255, 225, 74, 0.6);
+}
+.link {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 10px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+.stat b {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--c-gold);
+}
+.stat span {
+  font-size: 14px;
+  color: var(--c-text-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb > span {
+    transition: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .progCol {
+    display: none;
+  }
+  .goalName {
+    font-size: 32px;
+  }
+}

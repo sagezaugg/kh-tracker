@@ -231,12 +231,19 @@ function ruleItemIds(rule: Rule, into: Set<string>): void {
   else if ('or' in rule) rule.or.forEach((r) => ruleItemIds(r, into));
 }
 
+/** Item ids each trophy's rule reads. */
+export const TROPHY_ITEM_SETS: ReadonlyMap<string, ReadonlySet<string>> = new Map(
+  TROPHIES.map((t) => {
+    const s = new Set<string>();
+    if (t.rule) ruleItemIds(t.rule, s);
+    return [t.id, s];
+  }),
+);
+
 /** Every item id that some trophy rule reads. */
-export const TROPHY_ITEM_IDS: ReadonlySet<string> = (() => {
-  const s = new Set<string>();
-  TROPHIES.forEach((t) => t.rule && ruleItemIds(t.rule, s));
-  return s;
-})();
+export const TROPHY_ITEM_IDS: ReadonlySet<string> = new Set(
+  [...TROPHY_ITEM_SETS.values()].flatMap((s) => [...s]),
+);
 
 const JOURNAL_ITEM_IDS = new Set(Object.values(SECTION_ITEMS).flat());
 

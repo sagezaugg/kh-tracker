@@ -2,6 +2,7 @@ import { useGame, useGameHref, useProgress, useTracker } from '../games/context'
 import { Gauge } from '../ui/Gauge';
 import { PartyCard } from '../ui/PartyCard';
 import common from '../ui/common.module.css';
+import { LatestChanges } from './LatestChanges';
 import styles from './StatusScreen.module.css';
 
 export interface GaugeSpec {
@@ -33,10 +34,12 @@ export function StatusScreen({ gauges, cats, tip }: StatusScreenProps) {
   const profile = useTracker((s) => s.profile);
   const setProfile = useTracker((s) => s.setProfile);
   const imp = useProgress().lastImport;
+  const report = useTracker((s) => s.reports[s.activeId]);
   const prof = game.profiles.find((p) => p.id === profile) ?? game.profiles[game.profiles.length - 1];
 
   return (
     <>
+      {report && <LatestChanges report={report} />}
       <div className={styles.gauges}>
         {gauges.map((g) => (
           <Gauge

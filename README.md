@@ -126,6 +126,9 @@ pwsh scripts/brand/render.ps1
 `.github/workflows/ci.yml` runs lint, typecheck, tests and a production build on every pull request and every push
 to `main`. The real-save fixture suites skip there because the saves aren't in the repo.
 
+`.github/dependabot.yml` opens dependency PRs monthly: one grouped PR for npm minor and patch bumps, separate PRs
+for major versions, and one for GitHub Actions.
+
 ## Deploying (Vercel)
 
 The live site is the Vercel project `kh-tracker`, linked to this repository: every push to `main` deploys to
@@ -252,3 +255,18 @@ Choices the brief didn't settle, with the default picked:
     worker registers only in production builds, so `npm run dev` is unaffected.
 27. **One site-wide link preview.** Crawlers don't run JavaScript, so `index.html` carries a single Open Graph and
     Twitter card for the whole site rather than per-game ones; per-page tags would need prerendering.
+28. **Update prompt.** The service worker takes over as soon as a new version installs, but an open tab keeps
+    running the old code, so a tab that was already controlled shows an "Update ready" banner with Reload. Open
+    tabs check for a new version when they regain focus and every 30 minutes, since browsers otherwise only check
+    on navigation. A first visit's worker claiming the page doesn't count as an update.
+29. **Libraries in their own chunk; game data stays in the main one.** `node_modules` code goes to a `vendor`
+    chunk (about half the JavaScript) that rarely changes between deploys, so a returning visitor usually only
+    re-downloads the app chunk. Splitting each game into its own chunk was measured and skipped: each game's data
+    (about 70 KB) is needed by the home page gauges and by every game's save watcher, which run on every page, so
+    the only deferrable code was ~20 KB gzipped of screens, at the cost of async route loading.
+30. **Latest changes from your save.** Each import (by hand or automatic) records what it changed: newly checked
+    items, unchecked items, raised levels and counts, newly earned trophies and Sora's level. Only ids are stored,
+    per playthrough, in the persisted store, and names are looked up when shown. The Status screen shows it as a
+    card grouped by menu screen (eight names per group, then "and n more"). An import that changes nothing keeps
+    the previous report, so saving at a save point doesn't wipe it. Dismissing, restoring a backup or erasing
+    progress clears it.

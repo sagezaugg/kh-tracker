@@ -3,6 +3,12 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import type { Restored } from './backup';
 import { isObj, normalizeProgress } from './backup';
 import { applyImport, type ImportMode } from './importSave';
+import {
+  buildImportReport,
+  normalizeImportReport,
+  reportHasChanges,
+  type ImportReport,
+} from './importReport';
 import { clampValue, emptyProgress, isOn } from './progress';
 import { evaluateTrophies, newlyEarned } from './rules';
 import { createSafeStorage } from './storage';
@@ -36,6 +42,8 @@ export interface TrackerData {
   /** Menu entries (nav keys) showing NEW!. */
   news: Record<string, boolean>;
   watch: WatchSettings;
+  /** Per playthrough id: the latest import that changed something. */
+  reports: Record<string, ImportReport>;
 }
 
 export interface ToggleResult {
@@ -61,6 +69,8 @@ export interface TrackerActions {
   removeCustom: (id: string) => void;
   setProfile: (p: string) => void;
   clearNews: (key: string) => void;
+  /** Dismisses the active playthrough's latest-changes report. */
+  clearReport: () => void;
   importSave: (det: Detected, meta: ImportMeta, difficulty: number | null, mode: ImportMode) => ImportSummary;
   setWatch: (patch: Partial<WatchSettings>) => void;
   restore: (r: Restored) => void;
@@ -91,6 +101,7 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
     profile: cfg.defaultProfile,
     news: {},
     watch: { enabled: true, mode: 'sync' },
+    reports: {},
   });
 
   /** Validates persisted data, dropping anything malformed. */
@@ -116,6 +127,12 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
     if (typeof raw.profile === 'string' && cfg.profiles.includes(raw.profile)) data.profile = raw.profile;
     if (isObj(raw.news)) {
       for (const [k, v] of Object.entries(raw.news)) if (v === true) data.news[k] = true;
+    }
+    if (isObj(raw.reports)) {
+      for (const [id, r] of Object.entries(raw.reports)) {
+        const report = id in data.playthroughs ? normalizeImportReport(r) : undefined;
+        if (report) data.reports[id] = report;
+      }
     }
     if (isObj(raw.watch)) {
       const w = raw.watch;
@@ -216,15 +233,28 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
             set({ news: next });
           },
 
+          clearReport() {
+            const { reports, activeId } = get();
+            if (!reports[activeId]) return;
+            const next = { ...reports };
+            delete next[activeId];
+            set({ reports: next });
+          },
+
           importSave(det, meta, difficulty, mode) {
             const before = activeProgress(get());
             const out = applyImport(catalog, before, det, meta, difficulty, mode);
-            const gained =
-              evaluateTrophies(catalog, out.next).earned - evaluateTrophies(catalog, before).earned;
+            const tBefore = evaluateTrophies(catalog, before);
+            const tAfter = evaluateTrophies(catalog, out.next);
+            const gained = tAfter.earned - tBefore.earned;
             const news = { ...get().news };
             out.news.forEach((k) => (news[k] = true));
             if (gained > 0) news.trophies = true;
-            update(() => out.next, { news });
+            const report = buildImportReport(catalog, before, out.next, meta, tBefore, tAfter);
+            const reports = reportHasChanges(report)
+              ? { ...get().reports, [get().activeId]: report }
+              : get().reports;
+            update(() => out.next, { news, reports });
             return { added: out.added, removed: out.removed, trophiesGained: Math.max(0, gained) };
           },
 
@@ -233,11 +263,17 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
           },
 
           restore({ progress, profile }) {
-            update(() => progress, profile && cfg.profiles.includes(profile) ? { profile } : {});
+            // A restored backup makes the old "latest changes" meaningless.
+            const reports = { ...get().reports };
+            delete reports[get().activeId];
+            update(() => progress, {
+              reports,
+              ...(profile && cfg.profiles.includes(profile) ? { profile } : {}),
+            });
           },
 
           reset() {
-            update(() => emptyProgress(), { news: {} });
+            update(() => emptyProgress(), { news: {}, reports: {} });
           },
         };
       },
@@ -251,6 +287,7 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
           profile: s.profile,
           news: s.news,
           watch: s.watch,
+          reports: s.reports,
         }),
         // Future store versions migrate here; v1 is the first.
         migrate: (persisted) => normalizeData(persisted),
@@ -268,5 +305,6 @@ export function blankTrackerData(defaultProfile: string): TrackerData {
     profile: defaultProfile,
     news: {},
     watch: { enabled: true, mode: 'sync' },
+    reports: {},
   };
 }

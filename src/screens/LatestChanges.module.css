@@ -1,0 +1,65 @@
+.card {
+  box-shadow: 0 0 14px var(--c-panel-glow);
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.head h2 {
+  margin: 0;
+}
+.meta {
+  margin: 4px 0 0;
+  color: var(--c-text-dim);
+  font-size: 15px;
+}
+.summary {
+  margin: 6px 0 4px;
+  color: var(--c-new);
+  font-size: 17px;
+  font-weight: 700;
+}
+.group {
+  margin-top: 12px;
+}
+.groupT {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-text-sub);
+}
+.groupT a {
+  color: inherit;
+}
+.groupT a:hover {
+  color: var(--c-white);
+}
+.count {
+  color: var(--c-ok);
+  font-weight: 700;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px 18px;
+  color: var(--c-text);
+  font-size: 15px;
+}
+.list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tag {
+  margin-left: 8px;
+  color: var(--c-text-dim);
+  font-size: 13px;
+}
+.more {
+  color: var(--c-text-dim);
+  font-style: italic;
+}

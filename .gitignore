@@ -8,3 +8,6 @@ coverage
 tests/fixtures/KHIIFM.png
 tests/fixtures/*.png
 tests/fixtures/*.ps2
+
+# Local tooling
+.claude/

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { REPO_URL } from '../site';
 import styles from './SiteFooter.module.css';
 
 /** Fan-project disclaimer and credits. */
@@ -26,7 +27,11 @@ export function SiteFooter() {
         Exophase, PSTHC, PlayStation LifeStyle and Gamer Guides. Your save file never leaves your browser.
       </p>
       <p>
-        Mapping a new flag? Try the <Link to="/tools/save-diff">save diff tool</Link>.
+        Mapping a new flag? Try the <Link to="/tools/save-diff">save diff tool</Link>. Source code (MIT) is on{' '}
+        <a href={REPO_URL} rel="noreferrer" target="_blank">
+          GitHub
+        </a>
+        ; issues and pull requests are welcome.
       </p>
     </footer>
   );

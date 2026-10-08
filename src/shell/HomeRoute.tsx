@@ -4,6 +4,7 @@ import { useStore } from 'zustand';
 import { activeProgress } from '../core/store';
 import { GAMES } from '../games/registry';
 import type { GameDefinition } from '../games/types';
+import { REPO_URL } from '../site';
 import { ProgressBar } from '../ui/ProgressBar';
 import { Frame } from './Frame';
 import shell from './Shell.module.css';
@@ -45,6 +46,13 @@ export function HomeRoute() {
           <p className={styles.note}>
             Each game keeps its own checklist, save import and backups in this browser. Use the switcher at
             the top to move between them.
+          </p>
+          <p className={styles.note}>
+            This is an open-source fan project.{' '}
+            <a href={REPO_URL} rel="noreferrer" target="_blank">
+              Source code on GitHub
+            </a>
+            .
           </p>
         </main>
       </div>

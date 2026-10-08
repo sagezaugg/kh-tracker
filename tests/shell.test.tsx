@@ -105,3 +105,12 @@ describe('site navigation and themes', () => {
     );
   });
 });
+
+describe('source link', () => {
+  it('links to the GitHub repository from the footer and the home page', () => {
+    renderAt('/');
+    const links = screen.getAllByRole('link', { name: /GitHub/ });
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const a of links) expect(a).toHaveAttribute('href', 'https://github.com/sagezaugg/kh-tracker');
+  });
+});

@@ -1,0 +1,27 @@
+.foot {
+  position: relative;
+  z-index: 1;
+  padding: 12px 24px 18px;
+  background: var(--c-void);
+  border-top: 1px solid rgba(42, 107, 255, 0.35);
+}
+.foot p {
+  margin: 4px 0;
+  max-width: 110ch;
+  color: #8aa6d6;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.foot strong {
+  color: var(--c-text-soft);
+}
+.foot a {
+  display: inline-block;
+  padding: 2px 0;
+}
+
+@media (max-width: 720px) {
+  .foot {
+    padding: 12px 16px 18px;
+  }
+}

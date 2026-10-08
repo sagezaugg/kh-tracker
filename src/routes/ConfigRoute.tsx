@@ -3,14 +3,15 @@ import { DIFFICULTIES, FORMS, MAGIC, type Difficulty } from '../data/constants';
 import { KEYBLADES } from '../data/keyblades';
 import { FINAL_XEMNAS_ID, LOCATIONS, type LocationType } from '../data/locations';
 import { SCORED_TROPHY_COUNT } from '../data/trophies';
-import { applyImport, importMeta, type ImportMode } from '../model/importSave';
+import { applyImport, importMeta, importSummary, type ImportMode } from '../model/importSave';
 import { isOn } from '../model/progress';
 import { evaluateTrophies } from '../model/rules';
 import { detect } from '../save/detect';
 import { parseError, parseSave, type SaveSlot } from '../save/parseSave';
 import { parseBackup, serializeBackup } from '../state/backup';
 import { useProgress, useTracker } from '../state/store';
-import { useUi } from '../state/ui';
+import { canWatchFiles, loadSaveHandle, storeSaveHandle } from '../state/handleStore';
+import { useUi, type WatchStatus } from '../state/ui';
 import { fmtNum, useCheckToggle } from '../ui/hooks';
 import common from '../ui/common.module.css';
 import styles from './ConfigRoute.module.css';
@@ -20,9 +21,32 @@ interface PendingImport {
   slots: SaveSlot[];
   sel: number;
   err: string | null;
+  /** Present when picked through the File System Access API, so the file can be watched. */
+  handle?: FileSystemFileHandle;
+  lastModified: number;
 }
 
 const COPY_BLOCKED = 'Copy was blocked. Select the code and copy it by hand.';
+
+function watchText(st: WatchStatus, slot: string | undefined, mode: ImportMode): string {
+  switch (st.kind) {
+    case 'unsupported':
+      return "This browser can't watch files. Auto re-import works in Chrome and Edge; here, import again after you save.";
+    case 'no-file':
+      return 'Import a save above and it will be re-imported every time the game saves.';
+    case 'off':
+      return 'Off. Your next import still remembers the file, so you can turn this back on any time.';
+    case 'needs-permission':
+      return `${st.fileName}: after a reload the browser needs your OK before it reads the file again.`;
+    case 'watching': {
+      const how = `${slot ?? 'its slot'}, ${mode === 'add' ? 'only adding new checks' : 'syncing'}`;
+      const when = st.checkedAt ? ` Last checked ${new Date(st.checkedAt).toLocaleTimeString()}.` : '';
+      return `Watching ${st.fileName} (${how}).${when}`;
+    }
+    case 'error':
+      return st.message;
+  }
+}
 
 export function ConfigRoute() {
   const p = useProgress();
@@ -33,6 +57,10 @@ export function ConfigRoute() {
   const reset = useTracker((s) => s.reset);
   const toggle = useCheckToggle();
   const showToast = useUi((s) => s.showToast);
+  const watch = useTracker((s) => s.watch);
+  const setWatch = useTracker((s) => s.setWatch);
+  const watchStatus = useUi((s) => s.watchStatus);
+  const restartWatch = useUi((s) => s.restartWatch);
 
   const [imp, setImp] = useState<PendingImport | null>(null);
   const [copyMsg, setCopyMsg] = useState('');
@@ -43,20 +71,40 @@ export function ConfigRoute() {
   const cleared = isOn(p, FINAL_XEMNAS_ID);
   const exportText = useMemo(() => serializeBackup(p, profile), [p, profile]);
 
-  const onFile = async (e: ChangeEvent<HTMLInputElement>) => {
-    const input = e.target;
-    const f = input.files?.[0];
-    if (!f) return;
-    const name = f.name;
+  const readFile = async (f: File, handle?: FileSystemFileHandle) => {
+    const base = { name: f.name, handle, lastModified: f.lastModified };
     try {
       // The file never leaves the browser.
       const res = parseSave(await f.arrayBuffer());
-      setImp({ name, slots: res.slots, sel: res.slots.length - 1, err: parseError(res) });
+      setImp({ ...base, slots: res.slots, sel: res.slots.length - 1, err: parseError(res) });
     } catch {
-      setImp({ name, slots: [], sel: -1, err: "Couldn't read that file." });
+      setImp({ ...base, slots: [], sel: -1, err: "Couldn't read that file." });
     }
     useUi.getState().clearToast();
+  };
+
+  const onFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target;
+    const f = input.files?.[0];
+    if (f) await readFile(f);
     input.value = '';
+  };
+
+  /** Chrome/Edge: pick through the File System Access API so the file can be watched afterwards. */
+  const pickWatchable = async () => {
+    try {
+      const [handle] = (await window.showOpenFilePicker?.({ id: 'kh2fm-save' })) ?? [];
+      if (handle) await readFile(await handle.getFile(), handle);
+    } catch (err) {
+      if (!(err instanceof DOMException && err.name === 'AbortError')) {
+        setImp({ name: '', slots: [], sel: -1, err: "Couldn't open that file.", lastModified: 0 });
+      }
+    }
+  };
+
+  const resumeWatching = async () => {
+    const handle = await loadSaveHandle();
+    if ((await handle?.requestPermission?.({ mode: 'read' })) === 'granted') restartWatch();
   };
 
   const slot = imp && imp.sel >= 0 ? imp.slots[imp.sel] : null;
@@ -86,15 +134,13 @@ export function ConfigRoute() {
   const apply = (mode: ImportMode) => {
     if (!imp || !slot || !preview) return;
     const sum = importSave(preview.det, importMeta(imp.name, slot), slot.difficulty, mode);
+    const { handle } = imp;
     setImp(null);
-    showToast(
-      `Imported ${slot.label}: ${sum.added} newly checked` +
-        (sum.removed ? `, ${sum.removed} unchecked` : '') +
-        (sum.trophiesGained > 0
-          ? `, ${sum.trophiesGained} ${sum.trophiesGained === 1 ? 'trophy' : 'trophies'} earned`
-          : '') +
-        '.',
-    );
+    showToast(`Imported ${importSummary(slot.label, sum)}`);
+    if (handle) {
+      setWatch({ slot: slot.label, mode, fileName: imp.name, lastModified: imp.lastModified });
+      void storeSaveHandle(handle).then(restartWatch);
+    }
   };
 
   const copyExport = async () => {
@@ -168,10 +214,16 @@ export function ConfigRoute() {
           anywhere.
         </p>
         <div className={common.btnrow}>
-          <label className={styles.file}>
-            Choose save file
-            <input type="file" onChange={onFile} />
-          </label>
+          {canWatchFiles() ? (
+            <button type="button" className={styles.file} onClick={pickWatchable}>
+              Choose save file
+            </button>
+          ) : (
+            <label className={styles.file}>
+              Choose save file
+              <input type="file" onChange={onFile} />
+            </label>
+          )}
           {imp && (
             <span className={common.note} style={{ margin: 0 }}>
               {imp.name}
@@ -231,6 +283,33 @@ export function ConfigRoute() {
             </p>
           </>
         )}
+
+        <div className={styles.watch}>
+          <h3 className={styles.watchT}>Auto re-import</h3>
+          <div className={common.btnrow}>
+            <button
+              type="button"
+              className={
+                watch.enabled && watchStatus.kind !== 'unsupported'
+                  ? `${common.pill} ${common.on}`
+                  : common.pill
+              }
+              aria-pressed={watch.enabled && watchStatus.kind !== 'unsupported'}
+              disabled={watchStatus.kind === 'unsupported'}
+              onClick={() => setWatch({ enabled: !watch.enabled })}
+            >
+              Re-import when the save changes: {watch.enabled ? 'On' : 'Off'}
+            </button>
+            {watch.enabled && watchStatus.kind === 'needs-permission' && (
+              <button type="button" className={`${common.pill} ${common.blue}`} onClick={resumeWatching}>
+                Resume watching
+              </button>
+            )}
+          </div>
+          <p className={watchStatus.kind === 'error' ? `${common.note} ${common.err}` : common.note}>
+            {watchText(watchStatus, watch.slot, watch.mode)}
+          </p>
+        </div>
       </section>
 
       <section className={common.card} aria-labelledby="cfg-backup">

@@ -84,3 +84,29 @@ export function applyImport(
   };
   return { next, added, removed, news: [...news] };
 }
+
+export interface ImportCounts {
+  added: number;
+  removed: number;
+  trophiesGained: number;
+}
+
+/** "Slot 1: 3 newly checked, 1 unchecked, 1 trophy earned." */
+export function importSummary(slotLabel: string, c: ImportCounts): string {
+  return (
+    `${slotLabel}: ${c.added} newly checked` +
+    (c.removed ? `, ${c.removed} unchecked` : '') +
+    (c.trophiesGained > 0
+      ? `, ${c.trophiesGained} ${c.trophiesGained === 1 ? 'trophy' : 'trophies'} earned`
+      : '') +
+    '.'
+  );
+}
+
+/** The slot to re-import: the one with the remembered label, or the only slot in the file. */
+export function pickSlot<T extends { label: string }>(
+  slots: readonly T[],
+  label: string | undefined,
+): T | undefined {
+  return slots.find((s) => s.label === label) ?? (slots.length === 1 ? slots[0] : undefined);
+}

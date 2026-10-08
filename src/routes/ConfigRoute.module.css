@@ -19,7 +19,8 @@
   width: 1px;
   height: 1px;
 }
-.file:focus-within {
+.file:focus-within,
+.file:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
@@ -54,4 +55,17 @@
 .sel {
   border-color: var(--c-sel);
   box-shadow: 0 0 10px var(--c-sel-glow);
+}
+
+.watch {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(120, 170, 255, 0.25);
+}
+.watchT {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--c-text-soft);
 }

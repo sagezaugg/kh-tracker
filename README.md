@@ -6,6 +6,8 @@ single-page app (Vite + React 18 + TypeScript, React Router v6, Zustand) styled 
 Three definitions of 100% are tracked from one checklist: **Jiminy's Journal** (12 sections), **Trophies** (50 + the
 Platinum) and **Everything**. Importing a PC save fills in chests, event rewards, story bosses, Ansem Reports, Drive
 Forms, magic, summons, Keyblades and more. The save file never leaves the browser.
+In Chrome and Edge the tracker can also watch the save file and re-import it every time the game saves
+(Config, Auto re-import).
 
 > Unofficial fan tool. Not affiliated with Square Enix or Disney. No game logos, artwork, fonts, music or sounds are
 > used.
@@ -141,3 +143,10 @@ Choices the brief didn't settle, with the default picked:
 12. **Credits** sit in the site footer rather than a separate page.
 13. **Copy tweaks.** The Sync note now says it leaves hand-made changes alone, and the import toast pluralizes
     "trophy".
+14. **Auto re-import** uses the File System Access API (Chrome and Edge only; other browsers keep the one-off import
+    and the toggle explains why it's unavailable). The picked file's handle is stored in IndexedDB, and its modified
+    time is checked every 3 seconds. A new version is imported only after it has stayed the same for two checks, so a
+    save the game is still writing isn't read half-finished. Re-imports reuse the slot and mode (Sync or Only add)
+    of the last manual import and, like any import, leave hand-made changes alone. The setting is on by default.
+    After a page reload the browser usually asks again before reading the file, so Config shows "Resume watching".
+15. **No screen transition.** The prototype's wipe-and-shimmer on route change was removed at the owner's request.

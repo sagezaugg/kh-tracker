@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import { CommandMenu } from '../ui/CommandMenu';
 import { HelpBar } from '../ui/HelpBar';
 import { SiteFooter } from '../ui/SiteFooter';
+import { SaveWatcher } from '../state/saveWatcher';
 import { WalletBox } from '../ui/WalletBox';
 import { fmtNum } from '../ui/hooks';
 import { useUi } from '../state/ui';
@@ -87,6 +88,7 @@ export function Layout() {
 
       <HelpBar text={helpText} trophy={toast !== null && toastKind === 'trophy'} announce={toast} />
       <SiteFooter />
+      <SaveWatcher />
       <ScrollRestoration />
     </div>
   );

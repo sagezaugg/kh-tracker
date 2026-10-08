@@ -23,12 +23,25 @@ export interface Playthrough {
   progress: Progress;
 }
 
+/** Auto re-import of a watched save file (File System Access API; the handle lives in IndexedDB). */
+export interface WatchSettings {
+  /** The user's toggle. Watching only happens once a file handle has been picked. */
+  enabled: boolean;
+  mode: ImportMode;
+  /** Slot label to re-import ("Slot 1"). */
+  slot?: string;
+  fileName?: string;
+  /** Modified time of the version last imported, so unchanged files are skipped. */
+  lastModified?: number;
+}
+
 export interface TrackerData {
   activeId: string;
   playthroughs: Record<string, Playthrough>;
   profile: Profile;
   /** Menu entries showing NEW!. */
   news: Partial<Record<NavKey, boolean>>;
+  watch: WatchSettings;
 }
 
 export interface ToggleResult {
@@ -60,6 +73,7 @@ interface TrackerActions {
     difficulty: Difficulty | null,
     mode: ImportMode,
   ) => ImportSummary;
+  setWatch: (patch: Partial<WatchSettings>) => void;
   restore: (r: Restored) => void;
   reset: () => void;
 }
@@ -72,6 +86,7 @@ export function initialData(): TrackerData {
     playthroughs: { [DEFAULT_ID]: { id: DEFAULT_ID, name: 'Playthrough 1', progress: emptyProgress() } },
     profile: 'everything',
     news: {},
+    watch: { enabled: true, mode: 'sync' },
   };
 }
 
@@ -113,6 +128,16 @@ export function normalizeData(raw: unknown): TrackerData {
       : Object.keys(data.playthroughs)[0];
   if (raw.profile === 'journal' || raw.profile === 'trophies' || raw.profile === 'everything') {
     data.profile = raw.profile;
+  }
+  if (isObj(raw.watch)) {
+    const w = raw.watch;
+    data.watch = {
+      enabled: w.enabled !== false,
+      mode: w.mode === 'add' ? 'add' : 'sync',
+      slot: typeof w.slot === 'string' ? w.slot : undefined,
+      fileName: typeof w.fileName === 'string' ? w.fileName : undefined,
+      lastModified: typeof w.lastModified === 'number' ? w.lastModified : undefined,
+    };
   }
   if (isObj(raw.news)) {
     for (const [k, v] of Object.entries(raw.news)) if (v === true) data.news[k as NavKey] = true;
@@ -215,6 +240,10 @@ export const useTracker = create<TrackerState>()(
           return { added: out.added, removed: out.removed, trophiesGained: Math.max(0, gained) };
         },
 
+        setWatch(patch) {
+          set({ watch: { ...get().watch, ...patch } });
+        },
+
         restore({ progress, profile }) {
           update(() => progress, profile ? { profile } : {});
         },
@@ -233,6 +262,7 @@ export const useTracker = create<TrackerState>()(
         playthroughs: s.playthroughs,
         profile: s.profile,
         news: s.news,
+        watch: s.watch,
       }),
       // Future store versions migrate here; v1 is the first.
       migrate: (persisted) => normalizeData(persisted),

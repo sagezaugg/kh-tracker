@@ -220,5 +220,9 @@ Choices the brief didn't settle, with the default picked:
 24. **KH1 map prizes are read from the save.** KH1FM-RANDOMIZER's `globals.lua` gives each of the 24 prizes (Trinity
     marks, Wonderland flowers and chairs, the Hollow Bastion node) an event-flag byte and bit relative to Steam
     `0x2DEA168` (save offset `0xE08`). Against the owner's saves, every Trinity prize reads set in the finished Slot 1
-    (including the three Traverse Town ones the owner confirmed) and the earlier Slot 2 is a strict subset. Cup wins
+    (including the three Traverse Town ones the owner confirmed) and the earlier Slot 2 is a strict subset. The six
+    that read unset (the Wonderland flower pot and Tea Party chairs) are ones the owner hasn't done. Cup wins
     and the full 46-mark Trinity count still have no documented location.
+25. **Work-in-progress notice.** A dismissible banner at the top of every page says save import is incomplete and may
+    be wrong in places, and links to GitHub issues. Dismissal is stored in localStorage (`kh-tracker-notice-v1`;
+    bump the key to show a changed notice again) and falls back to hiding for the visit when storage is blocked.

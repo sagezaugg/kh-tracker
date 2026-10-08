@@ -3,6 +3,7 @@ import { useUi } from '../core/ui';
 import { HelpBar } from '../ui/HelpBar';
 import { SiteFooter } from '../ui/SiteFooter';
 import { GameSwitcher } from './GameSwitcher';
+import { NoticeBanner } from './NoticeBanner';
 import styles from './Shell.module.css';
 
 interface FrameProps {
@@ -27,6 +28,7 @@ export function Frame({ title, sub, help, gameId, children }: FrameProps) {
       <a className={styles.skip} href="#main">
         Skip to content
       </a>
+      <NoticeBanner />
       <header className={styles.top}>
         <div className={styles.menuTag} aria-hidden="true">
           <span>MENU</span>

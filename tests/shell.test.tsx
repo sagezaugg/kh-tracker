@@ -109,8 +109,31 @@ describe('site navigation and themes', () => {
 describe('source link', () => {
   it('links to the GitHub repository from the footer and the home page', () => {
     renderAt('/');
-    const links = screen.getAllByRole('link', { name: /GitHub/ });
-    expect(links.length).toBeGreaterThanOrEqual(2);
+    const links = [
+      screen.getByRole('link', { name: 'Source code on GitHub' }),
+      screen.getByRole('link', { name: 'GitHub' }),
+    ];
     for (const a of links) expect(a).toHaveAttribute('href', 'https://github.com/sagezaugg/kh-tracker');
+  });
+});
+
+describe('work-in-progress notice', () => {
+  it('shows on every page until dismissed, and stays dismissed', async () => {
+    renderAt('/kh1');
+    const notice = screen.getByRole('complementary', { name: 'Site notice' });
+    expect(notice).toHaveTextContent('Work in progress.');
+    expect(within(notice).getByRole('link', { name: 'Report it on GitHub' })).toHaveAttribute(
+      'href',
+      'https://github.com/sagezaugg/kh-tracker/issues',
+    );
+    await userEvent.click(within(notice).getByRole('button', { name: 'Dismiss notice' }));
+    expect(screen.queryByRole('complementary', { name: 'Site notice' })).not.toBeInTheDocument();
+    expect(window.localStorage.getItem('kh-tracker-notice-v1')).toBe('dismissed');
+  });
+
+  it('stays hidden once dismissed', () => {
+    window.localStorage.setItem('kh-tracker-notice-v1', 'dismissed');
+    renderAt('/');
+    expect(screen.queryByRole('complementary', { name: 'Site notice' })).not.toBeInTheDocument();
   });
 });

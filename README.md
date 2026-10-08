@@ -113,9 +113,8 @@ Choices the brief didn't settle, with the default picked:
    Synthesis, Drive & Magic, Keyblades, Records, Config.
 2. **Duplicate location keys.** The extractor truncates keys to 24 characters, so five pairs of chests share a key
    (e.g. two `ElephantGraveyardMythril…` chests with different flags). The first keeps the prototype id; the second
-   gets `-2`. A prototype backup with the shared id checks both rows, matching what the prototype displayed. The
-   fixture's 272/317 chest count was measured by the prototype, which collapsed these pairs, so it may differ by a
-   few once the fixture is available.
+   gets `-2`. A prototype backup with the shared id checks both rows, matching what the prototype displayed. The real-save fixture still gives the expected
+   272/317 chests.
 3. **Data-model extensions.** `SaveProbe` gains a `level` probe (clamped byte, optionally gated by an unlock bit) and
    an item may list several probes (any match counts), which is how a Keyblade counts if owned _or_ equipped. `Rule`
    gains `{ section }` (a Journal section complete), mirroring the prototype's `sec`.

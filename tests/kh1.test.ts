@@ -50,6 +50,16 @@ describe('KH1 data', () => {
   });
 });
 
+describe('KH1 flags the randomizer mod rewrites', () => {
+  it("leaves Geppetto's House and Magician's Study rewards manual", () => {
+    const manual = KH1_LOCATIONS.filter((l) =>
+      /Geppetto Reward|All Summons Reward|Talk to Pinocchio|Magician's Study Obtained/.test(l.name),
+    );
+    expect(manual.length).toBeGreaterThanOrEqual(10);
+    expect(manual.every((l) => !l.flag)).toBe(true);
+  });
+});
+
 describe('parseKh1Save (synthetic)', () => {
   function pcFile(entries: [index: number, magic: number, lv: number][]): Uint8Array {
     const b = new Uint8Array(KH1_PC_FILE_SIZE);
@@ -112,7 +122,7 @@ describe.skipIf(!existsSync(FIXTURE))('real KH1FM PC save (tests/fixtures/KHFM.p
   it('reads Slot 1 progress', () => {
     const d = detectKh1(res().slots[0].bytes);
     const found = (t: string) => KH1_LOCATIONS.filter((l) => l.type === t && d.checks[l.id]).length;
-    expect([found('chest'), found('reward'), found('event')]).toEqual([208, 58, 98]);
+    expect([found('chest'), found('reward'), found('event')]).toEqual([208, 56, 95]);
     expect(Object.keys(d.checks).filter((id) => id.startsWith('r.') && d.checks[id])).toHaveLength(13);
     expect(Object.keys(d.checks).filter((id) => id.startsWith('kb.') && d.checks[id])).toHaveLength(18);
     expect(d.values['kh1.puppies']).toBe(99);

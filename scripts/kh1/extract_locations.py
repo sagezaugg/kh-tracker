@@ -106,6 +106,11 @@ def load_rules(lua_path):
     rules[2659017] = ['b', so(0x2DEAD20), 0]  # Hades Cup: defeat Hades
     rules[2656378] = rules[2657026]  # Defeat Kurt Zisa
     rules[2656379] = rules[2657024]  # Defeat Unknown
+    # Geppetto's House and Magician's Study rewards (0xD2F-0xD3A): the mod rewrites these bytes for its
+    # own logic (write_geppetto_conditions), and in a real unmodded save rewards 4/5, all summons,
+    # Pinocchio and All Arts read 0 even when done. No reliable vanilla flag, so they stay manual.
+    for lid in range(2656303, 2656314):
+        rules.pop(lid, None)
     return rules
 
 

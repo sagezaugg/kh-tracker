@@ -86,7 +86,7 @@ Put real PC saves in `tests/fixtures/` (gitignored, never committed). The fixtur
   story bosses 50/52, reports 13/13, Keyblades 19/24, forms 5/5/2/4/1, magic 3/2/3/3/3/3, summon LV 1, all charms,
   torn pages 5/5, no Proofs, Final Xemnas not detected.
 - `tests/fixtures/KHFM.png`: Slot 1 LV 100, 23,666 munny, Proud, End of the World (chests 208/216, event rewards
-  58, story events 98, reports 13/13, Keyblades 18/18, puppies 99, magic all LV 3, six summons) and Slot 2 LV 54,
+  56, story events 95, reports 13/13, Keyblades 18/18, puppies 99, magic all LV 3, six summons) and Slot 2 LV 54,
   2,479 munny, Proud, Neverland.
 
 ## Regenerating the location data
@@ -211,3 +211,8 @@ Choices the brief didn't settle, with the default picked:
 22. **Site navigation.** The header holds Home (the game list), the game switcher and a Save Diff link; each game's
     Config also links to the save diff tool. Below 480px the decorative MENU tag hides and Save Diff shows only its
     icon, so the nav fits on one row.
+23. **KH1 flags the randomizer mod rewrites are dropped.** Geppetto's House and Magician's Study rewards
+    (0xD2F–0xD3A) are bytes the AP mod writes for its own logic (`write_geppetto_conditions`), and a real unmodded
+    save reads rewards 4/5, all summons, Pinocchio and All Arts as 0 when they were done. Those 11 locations are manual
+    checks now. The rest of the derived flags were checked against the owner's near-complete save: world-progress
+    (50), postcards (10) and reports read correctly.

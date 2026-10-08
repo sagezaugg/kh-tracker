@@ -127,6 +127,11 @@ like `/kh2/worlds/tt` work on a hard refresh.
 - Trophy names, tiers and requirements: KHWiki, Exophase, PSTHC, PlayStation LifeStyle, Gamer Guides. Journal
   sections, synthesis lists and Ultima Weapon recipes: KHWiki and Gamer Guides.
 
+## License
+
+MIT, see [LICENSE](LICENSE). Kingdom Hearts is a trademark of its owners; this is an unofficial fan project and
+includes no game assets.
+
 ## Open questions (left as TODOs, with manual fallbacks)
 
 Nothing below is guessed; each is a manual check or input in the UI.

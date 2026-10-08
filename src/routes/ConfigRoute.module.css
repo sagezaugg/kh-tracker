@@ -1,0 +1,57 @@
+.file {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  padding: 0 22px;
+  border-radius: 22px;
+  border: 2px solid var(--c-sel);
+  background: var(--c-pill-grad);
+  color: var(--c-white);
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 70, 30, 0.5);
+}
+.file input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.file:focus-within {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: var(--touch);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--c-frame-dim);
+  background: var(--c-navy-2);
+  color: var(--c-white);
+  font: 500 14px var(--font);
+  cursor: pointer;
+  text-align: left;
+}
+.slot b {
+  font-size: 17px;
+}
+.slot span {
+  color: var(--c-text-sub);
+}
+.sel {
+  border-color: var(--c-sel);
+  box-shadow: 0 0 10px var(--c-sel-glow);
+}

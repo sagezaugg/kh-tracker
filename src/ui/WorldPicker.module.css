@@ -1,0 +1,50 @@
+.wp {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.wp li {
+  display: flex;
+}
+.wb {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--touch);
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 2px solid var(--c-frame-dim);
+  background: var(--c-navy-2);
+  color: var(--c-white);
+  font: 600 15px var(--font);
+  text-decoration: none;
+  text-align: left;
+}
+.wb:hover {
+  color: var(--c-white);
+  border-color: var(--c-ice);
+}
+.sel,
+.sel:hover {
+  border-color: var(--c-sel);
+  box-shadow: 0 0 10px var(--c-sel-glow);
+}
+.wpct {
+  color: var(--c-text-sub);
+  font-weight: 700;
+  flex: none;
+}
+.full .wpct {
+  color: var(--c-gold);
+}
+
+@media (max-width: 720px) {
+  .wp {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

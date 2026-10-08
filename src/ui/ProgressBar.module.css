@@ -1,0 +1,55 @@
+.bar {
+  display: block;
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  transition: width var(--t-bar) var(--ease-out);
+}
+
+.gauge {
+  height: 10px;
+  border: 2px solid var(--c-sky);
+  border-radius: 6px;
+  background: var(--c-deep);
+}
+.gauge > span {
+  background: repeating-linear-gradient(90deg, var(--c-sky) 0 14px, var(--c-sky-2) 14px 16px);
+}
+
+.overview {
+  flex: 1 1 240px;
+  height: 14px;
+  border: 2px solid var(--c-sky);
+  border-radius: 8px;
+  background: var(--c-deep);
+}
+.overview > span {
+  background: repeating-linear-gradient(90deg, var(--c-sky) 0 18px, var(--c-sky-2) 18px 20px);
+}
+
+.party {
+  height: 4px;
+  background: var(--c-green-bg);
+  margin: 2px 0 6px;
+}
+.party > span {
+  background: var(--c-green);
+}
+
+.trophy {
+  flex: 1;
+  height: 4px;
+  background: var(--c-green-bg);
+  max-width: 200px;
+}
+.trophy > span {
+  background: var(--c-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar > span {
+    transition: none;
+  }
+}

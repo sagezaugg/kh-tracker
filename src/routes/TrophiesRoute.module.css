@@ -1,0 +1,42 @@
+.tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.tierChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(143, 208, 255, 0.5);
+  font-weight: 700;
+  font-size: 15px;
+}
+.tP {
+  color: var(--c-tier-p);
+}
+.tG {
+  color: var(--c-tier-g);
+}
+.tS {
+  color: var(--c-tier-s);
+}
+.tB {
+  color: var(--c-tier-b);
+}
+.trs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+@media (max-width: 720px) {
+  .trs {
+    grid-template-columns: 1fr;
+  }
+}

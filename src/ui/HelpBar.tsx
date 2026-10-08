@@ -1,3 +1,4 @@
+import { CupIcon } from './CupIcon';
 import styles from './HelpBar.module.css';
 
 interface HelpBarProps {
@@ -13,7 +14,8 @@ export function HelpBar({ text, trophy = false }: HelpBarProps) {
       role="status"
       aria-live="polite"
     >
-      <p key={trophy ? text : undefined}>{text}</p>
+      {trophy && <CupIcon key={`cup:${text}`} className={styles.cup} />}
+      <p key={trophy ? `text:${text}` : undefined}>{text}</p>
     </div>
   );
 }

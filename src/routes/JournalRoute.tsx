@@ -1,5 +1,49 @@
-import { Placeholder } from '../ui/Placeholder';
+import { Link } from 'react-router-dom';
+import { JOURNAL } from '../data/journal';
+import { ITEM_BY_ID, SECTION_ITEMS } from '../model/items';
+import type { Item } from '../model/types';
+import { useScores } from '../state/store';
+import { FilterBar } from '../ui/FilterBar';
+import { ItemSection } from '../ui/ItemSection';
+import { Section } from '../ui/Section';
+import { useFilters } from '../ui/hooks';
+import { rowsOf } from '../ui/rows';
+import common from '../ui/common.module.css';
 
 export function JournalRoute() {
-  return <Placeholder>The 12 Journal sections arrive in milestone 4.</Placeholder>;
+  const { needle, hide } = useFilters();
+  const { sections } = useScores();
+  return (
+    <>
+      <FilterBar />
+      {JOURNAL.map((def) => {
+        if (def.kind === 'summary') {
+          const s = sections.find((x) => x.def.id === def.id);
+          const done = s?.done ?? 0;
+          const total = s?.total ?? 0;
+          return (
+            <Section key={def.id} title={def.name} count={`${done} / ${total}`}>
+              <p className={common.note}>
+                Treasures are tracked world by world. {done} of {total} chests found.
+              </p>
+              <Link className={`${common.pill} ${common.blue}`} to="/worlds">
+                Open Worlds
+              </Link>
+            </Section>
+          );
+        }
+        const items = SECTION_ITEMS[def.id].map((id) => ITEM_BY_ID.get(id) as Item);
+        return (
+          <ItemSection
+            key={def.id}
+            title={def.name}
+            note={def.note}
+            rows={rowsOf(items)}
+            needle={needle}
+            hide={hide}
+          />
+        );
+      })}
+    </>
+  );
 }

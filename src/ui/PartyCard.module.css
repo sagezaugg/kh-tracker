@@ -1,0 +1,45 @@
+.pc {
+  display: block;
+  text-align: left;
+  border: 2px solid var(--c-card-border);
+  border-radius: 8px;
+  background: var(--c-card-bg);
+  color: var(--c-white);
+  text-decoration: none;
+  overflow: hidden;
+}
+.pc:hover,
+.pc:focus-visible {
+  color: var(--c-white);
+  border-color: var(--c-sel);
+  box-shadow: 0 0 10px var(--c-sel-glow);
+}
+.pcN {
+  display: block;
+  background: var(--c-card-head);
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 2px solid var(--c-card-border);
+}
+.pcB {
+  display: block;
+  padding: 8px 10px 10px;
+}
+.ln {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 700;
+  font-size: 17px;
+}
+.lv {
+  color: var(--c-lv);
+}
+.hp {
+  color: var(--c-green);
+}
+.mp {
+  color: var(--c-sky);
+}

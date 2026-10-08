@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Synthesis — KH2FM Tracker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#020615}
+a{color:#8fd0ff}a:hover{color:#ffffff}
+.kh{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;background-color:#03082a;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px);color:#eef4ff;font-family:'Saira Semi Condensed',system-ui,sans-serif}
+.top{display:flex;align-items:flex-end;gap:16px;padding:16px 20px 0}
+.menuTag{display:inline-flex;align-items:center;height:46px;padding:0 34px;border-radius:24px;background:#0a2fb8;border:2px solid #8fd0ff;box-shadow:inset 0 -6px 0 rgba(0,0,40,.35),0 0 14px rgba(60,140,255,.6);flex:none}
+.menuTag span{font-weight:800;font-style:italic;font-size:26px;letter-spacing:.14em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.loc{flex:1;display:flex;flex-direction:column;align-items:flex-end;border-bottom:2px solid #2a6bff;padding-bottom:6px;min-width:0}
+.locName{color:#ffa133;font-size:24px;font-weight:600;font-style:italic}
+.locSub{color:#9fd0ff;font-size:14px}
+.body{display:flex;flex-wrap:wrap;gap:20px;padding:20px;align-items:flex-start;flex:1}
+.cmds{flex:1 1 230px;max-width:280px;display:flex;flex-direction:column;gap:6px;padding-left:26px;box-sizing:border-box}
+.cmd{position:relative;display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 14px;border-radius:8px;border:2px solid #7d8597;background:linear-gradient(180deg,#4a505e 0%,#2a2e37 55%,#1f222a 100%);color:#fff;font:600 19px/1 'Saira Semi Condensed',sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.cmd.sel{border-color:#ff4022;box-shadow:inset 0 0 0 1px #ff8a5c,0 0 12px rgba(255,70,30,.75)}
+.hand{position:absolute;left:-30px;top:50%;margin-top:-11px;width:34px;height:22px}
+.new{font-style:italic;font-weight:800;font-size:15px;color:#ffe14a;text-shadow:0 0 3px #e2470f,1px 1px 0 #a22a00}
+.panel{flex:999 1 560px;min-width:0;box-sizing:border-box;border-radius:16px;border:2px solid #2f7bff;background:rgba(9,26,104,.55);box-shadow:inset 0 0 0 1px rgba(150,205,255,.25),0 0 24px rgba(30,90,255,.25);padding:20px;display:flex;flex-direction:column;gap:18px}
+.ptitle{margin:0;font-size:28px;font-weight:800;font-style:italic;letter-spacing:.04em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.card{border:2px solid #2a6bff;border-radius:12px;background:#061048;padding:16px}
+.cardT{margin:0 0 4px;font-size:20px;font-weight:700;font-style:italic;color:#ffa133}
+.note{color:#a9c4ee;font-size:15px;margin:4px 0 0;max-width:72ch}
+.goal{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+.goalL{flex:2 1 320px;display:flex;flex-direction:column;gap:8px}
+.goalR{flex:1 1 220px;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:14px 16px;border-radius:10px;background:#020a30;border:2px solid #4fb0ff}
+.kicker{font-style:italic;font-weight:800;color:#3fa0ff;font-size:15px;letter-spacing:.1em}
+.goalName{margin:0;font-size:40px;font-weight:800;font-style:italic;color:#ffd54a;text-shadow:2px 2px 0 #6b3a00;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:14px;border:1px solid rgba(143,208,255,.5);font-size:14px;font-weight:600;color:#cfe3ff}
+.chip.ok{border-color:#3cff6a;color:#9dffb6}
+.chip.no{border-color:#ff8a5c;color:#ffb39a}
+.big{font-style:italic;font-weight:800;font-size:44px;color:#ffd54a;line-height:1;text-shadow:2px 2px 0 #6b3a00}
+.big small{font-size:22px;color:#eaf3ff;text-shadow:none}
+.gBar{display:block;height:10px;border:2px solid #4fb0ff;border-radius:6px;background:#020a30;overflow:hidden}
+.gBar span{display:block;height:100%;background:repeating-linear-gradient(90deg,#4fb0ff 0 14px,#2b7de0 14px 16px)}
+.seg{display:inline-flex;border:2px solid #7d8597;border-radius:22px;overflow:hidden}
+.seg span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;font-weight:600;font-size:15px;background:#22262f}
+.seg span.on{background:#0a2fb8;box-shadow:inset 0 0 0 2px #ff4022}
+.tbl{width:100%;border-collapse:collapse;font-size:16px}
+.tbl th{text-align:left;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9fd0ff;font-weight:700;padding:6px 10px;border-bottom:2px solid #2a6bff}
+.tbl td{padding:10px;border-bottom:1px solid rgba(120,170,255,.2);vertical-align:middle}
+.tbl td.num{font-weight:800;font-style:italic;font-size:18px;white-space:nowrap}
+.mat{display:flex;align-items:center;gap:10px;font-weight:600}
+.gem{width:12px;height:12px;transform:rotate(45deg);flex:none}
+.g-or{background:#ffd54a;box-shadow:0 0 8px #ffd54a}.g-orp{background:#fff2b0;box-shadow:0 0 10px #ffe14a}.g-my{background:#9fd0ff}.g-de{background:#b38cff}.g-tw{background:#ff9a5c}.g-se{background:#7dffcf}
+.hb{display:block;width:120px;height:6px;background:#13361c}.hb span{display:block;height:100%;background:#3cff6a}
+.hb.low span{background:#ff8a5c}
+.short{color:#ffb39a;font-weight:700}
+.okt{color:#9dffb6;font-weight:700}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}
+.list{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.li{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 10px;box-sizing:border-box;border-radius:6px;border:1px solid rgba(120,170,255,.28);background:rgba(4,12,48,.7)}
+.li.got{border-color:rgba(255,213,74,.55)}
+.box{flex:none;width:13px;height:13px;transform:rotate(45deg);border:2px solid #8fb4ff;margin:0 4px}
+.li.got .box{background:#ffd23f;border-color:#fff2b0;box-shadow:0 0 8px rgba(255,210,63,.8)}
+.liB{flex:1;min-width:0;display:flex;flex-direction:column}
+.liB b{font-size:16px;font-weight:600}
+.liB span{font-size:14px;color:#a9c4ee}
+.li.got .liB b{color:#a9bde6}
+.tag{flex:none;font-size:13px;font-weight:600;color:#9fd0ff;border:1px solid rgba(143,208,255,.5);border-radius:10px;padding:0 7px}
+.tag.trophy{color:#ffe14a;border-color:rgba(255,225,74,.6)}
+.link{flex:none;font-size:14px;font-weight:700;color:#8fd0ff}
+.stats{display:flex;flex-wrap:wrap;gap:24px;margin-top:10px}
+.stat{display:flex;flex-direction:column}
+.stat b{font-style:italic;font-weight:800;font-size:30px;color:#ffd54a}
+.stat span{font-size:14px;color:#a9c4ee}
+.help{border-top:3px solid #1f5bff;background:#040c38;padding:14px 24px;min-height:64px;box-sizing:border-box;display:flex;align-items:center}
+.help p{margin:0;color:#a9d6ff;font-size:20px;font-weight:500}
+.foot{font-size:13px;color:#8aa6d6;margin:8px 0 0}
+.kh{position:relative;overflow-x:hidden}
+.kh::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,transparent 0%,rgba(60,140,255,.06) 40%,rgba(150,215,255,.13) 50%,rgba(60,140,255,.06) 60%,transparent 100%);background-size:100% 360px;background-repeat:no-repeat;animation:scan 8s linear infinite}
+.kh::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,rgba(120,190,255,.035) 0 1px,transparent 1px 3px);animation:drift .9s steps(3) infinite}
+@keyframes scan{from{background-position:0 -360px}to{background-position:0 calc(100vh + 360px)}}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(3px)}}
+.top,.body,.help{position:relative;z-index:1}
+.cmd.sel .hand{animation:bob 1.1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+.panel{animation:scrIn .34s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes scrIn{0%{opacity:0;transform:translateX(30px) scaleY(.97);clip-path:inset(0 0 0 100%)}55%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion: reduce){.kh::before,.kh::after{display:none}.cmd.sel .hand,.panel{animation:none}}
+@media (max-width:720px){.cmds{max-width:none;flex-basis:100%;flex-direction:row;flex-wrap:wrap;padding-left:0}.cmd{flex:1 1 140px}.hand{display:none}.panel{padding:14px}.goalName{font-size:32px}.hb{width:70px}.tbl .where{display:none}}
+</style>
+</helmet>
+<div class="kh">
+  <header class="top">
+    <div class="menuTag"><span>MENU</span></div>
+    <div class="loc"><span class="locName">Synthesis</span><span class="locSub">Kingdom Hearts II Final Mix · 100% Completion Tracker</span></div>
+  </header>
+  <div class="body">
+    <nav class="cmds" aria-label="Tracker sections">
+      <a class="cmd" href="Main.dc.html"><span>Status</span></a>
+      <a class="cmd" href="Remaining.dc.html"><span>What's Left</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Worlds</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Journal</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Trophies</span></a>
+      <a class="cmd sel" href="#top" aria-current="page"><svg class="hand" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 8.5c0-2 1.6-3.5 3.5-3.5H15l2.2-3h3.3l.9 3H31a2 2 0 0 1 0 4H21v1h2.6a2 2 0 0 1 0 4H21v1h1.4a2 2 0 0 1 0 4H9.5C5.4 19 2 15.6 2 11.5z" fill="#ffffff" stroke="#1a1f2e" stroke-width="1.3" stroke-linejoin="round"></path></svg><span>Synthesis</span><span class="new">NEW!</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Drive &amp; Magic</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Keyblades</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Records</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Config</span></a>
+    </nav>
+
+    <main class="panel">
+      <h1 class="ptitle">Synthesis</h1>
+
+      <section class="card goal" aria-label="Current goal">
+        <div class="goalL">
+          <span class="kicker">CURRENT GOAL</span>
+          <h2 class="goalName">Ultima Weapon</h2>
+          <div class="chips">
+            <span class="chip">Rank S</span>
+            <span class="chip ok">Ultimate Recipe: found</span>
+            <span class="chip">Needs Moogle LV 2 or higher</span>
+          </div>
+          <p class="note">Your save shows the Ultimate Recipe chest (Mansion Basement Corridor, Twilight Town) as opened. An Energy Crystal halves the Orichalcum+ needed, from 13 to 7.</p>
+          <div class="seg" role="group" aria-label="Recipe version"><span>Base recipe</span><span class="on">With Energy Crystal</span></div>
+        </div>
+        <div class="goalR">
+          <span class="kicker">READY TO CRAFT</span>
+          <span class="big">3<small> / 6 materials</small></span>
+          <span class="gBar"><span style="width: 50%"></span></span>
+          <span class="note" style="margin: 0">Short on Orichalcum+, Orichalcum and Serenity Crystal.</span>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Ingredients">
+        <h2 class="cardT">Ingredients</h2>
+        <table class="tbl">
+          <thead><tr><th scope="col">Material</th><th scope="col">Need</th><th scope="col">Have*</th><th scope="col">Progress</th><th scope="col" class="where">Where to get more</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mat"><span class="gem g-orp"></span>Orichalcum+</span></td><td class="num">7</td><td class="num short">2</td><td><span class="hb low"><span style="width: 29%"></span></span></td><td class="where">5 one-time sources left (below)</td></tr>
+            <tr><td><span class="mat"><span class="gem g-or"></span>Orichalcum</span></td><td class="num">1</td><td class="num short">0</td><td><span class="hb low"><span style="width: 0%"></span></span></td><td class="where">4 unopened chests</td></tr>
+            <tr><td><span class="mat"><span class="gem g-my"></span>Mythril Crystal</span></td><td class="num">1</td><td class="num okt">3</td><td><span class="hb"><span style="width: 100%"></span></span></td><td class="where">Enough</td></tr>
+            <tr><td><span class="mat"><span class="gem g-de"></span>Dense Crystal</span></td><td class="num">1</td><td class="num okt">1</td><td><span class="hb"><span style="width: 100%"></span></span></td><td class="where">Enough</td></tr>
+            <tr><td><span class="mat"><span class="gem g-tw"></span>Twilight Crystal</span></td><td class="num">1</td><td class="num okt">2</td><td><span class="hb"><span style="width: 100%"></span></span></td><td class="where">Enough</td></tr>
+            <tr><td><span class="mat"><span class="gem g-se"></span>Serenity Crystal</span></td><td class="num">3</td><td class="num short">1</td><td><span class="hb low"><span style="width: 33%"></span></span></td><td class="where">1 unopened chest</td></tr>
+          </tbody>
+        </table>
+        <p class="foot">*Have counts are sample values in this mock-up. The real ones will come from the save once its material counts are mapped. The Orichalcum+ count is real: 2 of the 7 sources show as collected in your save.</p>
+      </section>
+
+      <div class="two">
+        <section class="card" aria-label="Orichalcum+ sources">
+          <h2 class="cardT">Orichalcum+ · 2 of 7</h2>
+          <p class="note">Only 7 exist, and each one is a one-time reward.</p>
+          <div class="list">
+            <div class="li got"><span class="box"></span><span class="liB"><b>Starry Hill event</b><span>100 Acre Wood</span></span><span class="tag">Found</span></div>
+            <div class="li got"><span class="box"></span><span class="liB"><b>Central Computer Mesa chest</b><span>Space Paranoids</span></span><span class="tag">Found</span></div>
+            <div class="li"><span class="box"></span><span class="liB"><b>Sunset Terrace balcony chest</b><span>Twilight Town</span></span><span class="link">Show in What's Left</span></div>
+            <div class="li"><span class="box"></span><span class="liB"><b>Brink of Despair chest</b><span>The World That Never Was</span></span><span class="link">Show in What's Left</span></div>
+            <div class="li"><span class="box"></span><span class="liB"><b>"A New Day is Dawning" musical</b><span>Atlantica</span></span><span class="tag trophy">+ Kindred Spirits</span></div>
+            <div class="li"><span class="box"></span><span class="liB"><b>Goddess of Fate Cup</b><span>Olympus Coliseum</span></span><span class="tag trophy">+ True Hero</span></div>
+            <div class="li"><span class="box"></span><span class="liB"><b>Synthesize one of every item</b><span>Moogle shop</span></span><span class="tag trophy">+ Craftsman</span></div>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Unopened chests with Ultima materials">
+          <h2 class="cardT">Unopened chests with Ultima materials</h2>
+          <p class="note">From your save. Opening these also counts toward Treasure Hunter.</p>
+          <div class="list">
+            <div class="li"><span class="gem g-or" style="margin: 0 4px"></span><span class="liB"><b>Spooky Cave Orichalcum</b><span>100 Acre Wood</span></span><span class="tag">Orichalcum</span></div>
+            <div class="li"><span class="gem g-or" style="margin: 0 4px"></span><span class="liB"><b>Underground Concourse Orichalcum</b><span>Twilight Town</span></span><span class="tag">Orichalcum</span></div>
+            <div class="li"><span class="gem g-or" style="margin: 0 4px"></span><span class="liB"><b>Tunnelway Orichalcum</b><span>Twilight Town</span></span><span class="tag">Orichalcum</span></div>
+            <div class="li"><span class="gem g-or" style="margin: 0 4px"></span><span class="liB"><b>Fragment Crossing Orichalcum</b><span>The World That Never Was</span></span><span class="tag">Orichalcum</span></div>
+            <div class="li"><span class="gem g-se" style="margin: 0 4px"></span><span class="liB"><b>Engine Chamber Serenity Crystal</b><span>Cavern of Remembrance</span></span><span class="tag">Serenity</span></div>
+            <div class="li"><span class="gem g-my" style="margin: 0 4px"></span><span class="liB"><b>Mythril Crystal chests ×4</b><span>Twilight Town ×3, TWTNW ×1</span></span><span class="tag">Mythril</span></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" aria-label="Synthesis Notes">
+        <h2 class="cardT">Synthesis Notes</h2>
+        <p class="note">Make one of every item to fill this Journal section. Doing that earns Craftsman, takes the Moogle to LV 9 and gives an Orichalcum+.</p>
+        <div class="stats">
+          <div class="stat"><b>[n] / 69</b><span>Items synthesized</span></div>
+          <div class="stat"><b>LV [n] / 9</b><span>Moogle level</span></div>
+          <div class="stat"><b>[n] / 6</b><span>Recipe tables unlocked</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer class="help"><p>Track the Ultima Weapon and every synthesis item, and see where to find what you're missing.</p></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

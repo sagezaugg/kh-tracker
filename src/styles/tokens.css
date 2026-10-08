@@ -1,0 +1,82 @@
+/* KH2-style palette, type and motion tokens. Values come from the prototype CSS. */
+:root {
+  /* Ground */
+  --c-void: #020615;
+  --c-ground: #03082a;
+  --c-deep: #020a30;
+  --c-navy: #061048;
+  --c-navy-2: #071450;
+  --c-help: #040c38;
+  --c-row: rgba(4, 12, 48, 0.7);
+  --c-panel: rgba(9, 26, 104, 0.55);
+
+  /* Blues */
+  --c-royal: #0a2fb8;
+  --c-frame: #2a6bff;
+  --c-frame-2: #2f7bff;
+  --c-frame-3: #1f5bff;
+  --c-frame-dim: #4a6db8;
+  --c-sky: #4fb0ff;
+  --c-sky-2: #2b7de0;
+  --c-ice: #8fd0ff;
+  --c-label: #3fa0ff;
+  --c-shadow-blue: #0a1a6a;
+  --c-row-line: rgba(120, 170, 255, 0.28);
+
+  /* Text */
+  --c-text: #eef4ff;
+  --c-white: #ffffff;
+  --c-text-soft: #cfe3ff;
+  --c-text-dim: #a9c4ee;
+  --c-text-sub: #9fd0ff;
+  --c-help-text: #a9d6ff;
+  --c-done-text: #a9bde6;
+
+  /* Accents */
+  --c-orange: #ffa133;
+  --c-munny: #ff8a1f;
+  --c-gold: #ffd54a;
+  --c-gold-2: #ffd23f;
+  --c-gold-pale: #fff2b0;
+  --c-new: #ffe14a;
+  --c-new-glow: #e2470f;
+  --c-new-shadow: #a22a00;
+  --c-gold-shadow: #6b3a00;
+  --c-sel: #ff4022;
+  --c-sel-inner: #ff8a5c;
+  --c-sel-glow: rgba(255, 70, 30, 0.6);
+  --c-green: #3cff6a;
+  --c-green-bg: #13361c;
+  --c-ok: #7dffa0;
+  --c-err: #ffab91;
+  --c-lv: #e6e04a;
+
+  /* Gray command buttons */
+  --c-cmd-border: #7d8597;
+  --c-cmd-border-hover: #b9c3d8;
+  --c-cmd-grad: linear-gradient(180deg, #4a505e 0%, #2a2e37 55%, #1f222a 100%);
+  --c-pill-grad: linear-gradient(180deg, #4a505e, #22262f);
+  --c-card-head: linear-gradient(180deg, #3a404d, #22262f);
+  --c-card-border: #6e778c;
+  --c-card-bg: #070b1c;
+
+  /* Trophy tiers */
+  --c-tier-p: #dbeeff;
+  --c-tier-g: #ffd54a;
+  --c-tier-s: #c9d1de;
+  --c-tier-b: #e0a064;
+
+  /* Type */
+  --font: 'Saira Semi Condensed', system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, monospace;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-pop: cubic-bezier(0.3, 1.6, 0.5, 1);
+  --t-bar: 0.5s;
+  --t-screen: 0.34s;
+
+  /* Sizing */
+  --touch: 44px;
+  --focus-ring: 3px solid var(--c-ice);
+}

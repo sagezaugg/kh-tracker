@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KH2 Final Mix 100% Tracker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#020615}
+a{color:#8fd0ff}a:hover{color:#ffffff}
+.kh{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;background-color:#03082a;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px);color:#eef4ff;font-family:'Saira Semi Condensed',system-ui,sans-serif}
+.top{display:flex;align-items:flex-end;gap:16px;padding:16px 20px 0}
+.menuTag{display:inline-flex;align-items:center;height:46px;padding:0 34px;border-radius:24px;background:#0a2fb8;border:2px solid #8fd0ff;box-shadow:inset 0 -6px 0 rgba(0,0,40,.35),0 0 14px rgba(60,140,255,.6);flex:none}
+.menuTag span{font-weight:800;font-style:italic;font-size:26px;letter-spacing:.14em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.loc{flex:1;display:flex;flex-direction:column;align-items:flex-end;border-bottom:2px solid #2a6bff;box-shadow:0 2px 0 rgba(42,107,255,.25);padding-bottom:6px;min-width:0}
+.locName{color:#ffa133;font-size:24px;font-weight:600;font-style:italic;text-align:right}
+.locSub{color:#9fd0ff;font-size:14px;font-weight:500;text-align:right}
+.body{display:flex;flex-wrap:wrap;gap:20px;padding:20px;align-items:flex-start;flex:1}
+.cmds{flex:1 1 230px;max-width:280px;display:flex;flex-direction:column;gap:18px}
+.cmdlist{display:flex;flex-direction:column;gap:6px;padding-left:26px}
+.cmd{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0 14px;border-radius:8px;border:2px solid #7d8597;background:linear-gradient(180deg,#4a505e 0%,#2a2e37 55%,#1f222a 100%);color:#fff;font:600 19px/1 'Saira Semi Condensed',sans-serif;text-align:left;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.cmd:hover{border-color:#b9c3d8}
+.cmd.sel{border-color:#ff4022;box-shadow:inset 0 0 0 1px #ff8a5c,0 0 12px rgba(255,70,30,.75)}
+.cmd:focus-visible,.pill:focus-visible,.wb:focus-visible,.sb:focus-visible,.slot:focus-visible,.x:focus-visible{outline:3px solid #8fd0ff;outline-offset:2px}
+.hand{position:absolute;left:-30px;top:50%;margin-top:-11px;width:34px;height:22px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.6))}
+.new{font-style:italic;font-weight:800;font-size:15px;color:#ffe14a;text-shadow:0 0 3px #e2470f,1px 1px 0 #a22a00}
+.wal{border-radius:0 20px 20px 0;background:#061048;border:2px solid #2a6bff;padding:10px 16px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline}
+.walL{font-style:italic;font-weight:800;font-size:16px;letter-spacing:.06em}
+.walL.m{color:#ff8a1f}.walL.t{color:#3fa0ff}
+.walV{font-style:italic;font-weight:700;font-size:28px;color:#ffd54a;text-align:right;text-shadow:1px 1px 0 #6b3a00;line-height:1.1}
+.walV.t{color:#eaf3ff;text-shadow:1px 1px 0 #0a1a6a}
+.panel{flex:999 1 560px;min-width:0;box-sizing:border-box;border-radius:16px;border:2px solid #2f7bff;background:rgba(9,26,104,.55);box-shadow:inset 0 0 0 1px rgba(150,205,255,.25),0 0 24px rgba(30,90,255,.25);padding:20px}
+.ptitle{margin:0 0 14px;font-size:28px;font-weight:800;font-style:italic;letter-spacing:.04em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.help{border-top:3px solid #1f5bff;background:#040c38;padding:14px 24px;min-height:64px;box-sizing:border-box;display:flex;align-items:center}
+.help p{margin:0;color:#a9d6ff;font-size:20px;font-weight:500}
+.ov{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-bottom:18px;padding:14px 18px;border:2px solid #2a6bff;border-radius:12px;background:#061048}
+.ovL{font-style:italic;font-weight:800;color:#3fa0ff;font-size:18px;letter-spacing:.08em}
+.ovV{font-style:italic;font-weight:800;font-size:48px;color:#ffd54a;line-height:1;text-shadow:2px 2px 0 #6b3a00}
+.ovBar{flex:1 1 240px;height:14px;border:2px solid #4fb0ff;border-radius:8px;background:#020a30;overflow:hidden}
+.ovBar span{display:block;height:100%;background:repeating-linear-gradient(90deg,#4fb0ff 0 18px,#2b7de0 18px 20px)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.pc{display:block;text-align:left;padding:0;border:2px solid #6e778c;border-radius:8px;background:#070b1c;color:#fff;cursor:pointer;font:inherit;overflow:hidden}
+.pc:hover,.pc:focus-visible{border-color:#ff4022;box-shadow:0 0 10px rgba(255,70,30,.6);outline:none}
+.pcN{display:block;background:linear-gradient(180deg,#3a404d,#22262f);padding:6px 10px;font-weight:700;font-size:18px;text-align:center;border-bottom:2px solid #6e778c}
+.pcB{display:block;padding:8px 10px 10px}
+.ln{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:17px}
+.lvL{color:#e6e04a}.hpL{color:#3cff6a}.mpL{color:#4fb0ff}
+.bar{display:block;height:4px;background:#13361c;margin:2px 0 6px}.bar span{display:block;height:100%;background:#3cff6a}
+.sec{margin-top:18px}
+.secHead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid #2a6bff;padding-bottom:4px;margin-bottom:10px}
+.secT{margin:0;font-size:20px;font-weight:700;font-style:italic;color:#ffa133}
+.secC{font-weight:700;color:#cfe3ff;font-size:16px;flex:none}
+.rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px}
+.row{position:relative;display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 10px;box-sizing:border-box;border-radius:6px;border:1px solid rgba(120,170,255,.28);background:rgba(4,12,48,.7);cursor:pointer}
+.row:hover{border-color:#8fd0ff}
+.row input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.box{flex:none;width:13px;height:13px;transform:rotate(45deg);border:2px solid #8fb4ff;margin:0 4px}
+.row.on .box{background:#ffd23f;border-color:#fff2b0;box-shadow:0 0 8px rgba(255,210,63,.8)}
+.row input:focus-visible + .box{outline:3px solid #8fd0ff;outline-offset:3px}
+.nm{flex:1;min-width:0;font-size:16px;color:#fff}
+.row.on .nm{color:#a9bde6}
+.tag{flex:none;font-size:13px;font-weight:600;color:#9fd0ff;border:1px solid rgba(143,208,255,.5);border-radius:10px;padding:0 7px}
+.auto{flex:none;width:8px;height:8px;border-radius:50%;background:#3cff6a;box-shadow:0 0 5px #3cff6a}
+.x{flex:none;width:40px;height:36px;border-radius:18px;border:1px solid #ff8a5c;background:transparent;color:#ffb39a;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 220px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:22px;border:2px solid #4fb0ff;background:#020a30;color:#fff;font:500 16px 'Saira Semi Condensed',sans-serif}
+.search::placeholder{color:#8aa6d6}
+.pill{min-height:44px;padding:0 18px;border-radius:22px;border:2px solid #7d8597;background:linear-gradient(180deg,#4a505e,#22262f);color:#fff;font:600 16px 'Saira Semi Condensed',sans-serif;cursor:pointer}
+.pill.on{border-color:#ff4022;box-shadow:0 0 8px rgba(255,70,30,.6)}
+.pill.blue{background:#0a2fb8;border-color:#8fd0ff}
+.pill.red{border-color:#ff4022}
+.pill:disabled{opacity:.45;cursor:default}
+.legend{display:flex;align-items:center;gap:8px;color:#a9c4ee;font-size:15px;margin:10px 0 0}
+.wp{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:14px}
+.wb{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:44px;padding:0 12px;border-radius:8px;border:2px solid #4a6db8;background:#071450;color:#fff;font:600 15px 'Saira Semi Condensed',sans-serif;cursor:pointer;text-align:left}
+.wb:hover{border-color:#8fd0ff}
+.wb.sel{border-color:#ff4022;box-shadow:0 0 10px rgba(255,70,30,.6)}
+.wpct{color:#9fd0ff;font-weight:700;flex:none}
+.wb.full .wpct{color:#ffd54a}
+.stps{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px}
+.stp{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:6px 10px;border-radius:8px;border:1px solid rgba(120,170,255,.28);background:rgba(4,12,48,.7)}
+.stpN{display:flex;flex-direction:column}
+.stpN b{font-size:17px;font-weight:700}
+.stpN span{font-size:14px;color:#9fd0ff}
+.stpC{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sb{width:44px;height:44px;border-radius:50%;border:2px solid #8fd0ff;background:#0a2fb8;color:#fff;font:700 22px/1 'Saira Semi Condensed',sans-serif;cursor:pointer}
+.sb.sm{width:auto;border-radius:22px;padding:0 12px;font-size:15px}
+.sb:disabled{opacity:.4;cursor:default}
+.pips{display:flex;gap:4px}
+.pip{width:12px;height:12px;border-radius:50%;border:2px solid #4fb0ff;box-sizing:border-box}
+.pip.on{background:#4fb0ff;box-shadow:0 0 6px #4fb0ff}
+.stpV{min-width:56px;text-align:right;font-weight:800;font-style:italic;color:#ffd54a;font-size:18px}
+.card{border:2px solid #2a6bff;border-radius:12px;background:#061048;padding:16px;margin-bottom:16px}
+.cardT{margin:0 0 6px;font-size:20px;font-weight:700;font-style:italic;color:#ffa133}
+.file{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:22px;border:2px solid #ff4022;background:linear-gradient(180deg,#4a505e,#22262f);color:#fff;font-weight:700;font-size:17px;cursor:pointer;box-shadow:0 0 8px rgba(255,70,30,.5)}
+.file input{position:absolute;opacity:0;width:1px;height:1px}
+.file:focus-within{outline:3px solid #8fd0ff;outline-offset:2px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:12px 0}
+.slot{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:44px;padding:8px 12px;border-radius:8px;border:2px solid #4a6db8;background:#071450;color:#fff;font:500 14px 'Saira Semi Condensed',sans-serif;cursor:pointer;text-align:left}
+.slot b{font-size:17px}
+.slot span{color:#9fd0ff}
+.slot.sel{border-color:#ff4022;box-shadow:0 0 10px rgba(255,70,30,.6)}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px 16px;margin:10px 0 14px}
+.kv div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(120,170,255,.25);padding:4px 0;font-size:15px}
+.kv div span{color:#9fd0ff}
+.kv div b{color:#fff}
+.ta{display:block;width:100%;box-sizing:border-box;min-height:110px;border-radius:10px;border:2px solid #4fb0ff;background:#020a30;color:#cfe3ff;font:13px/1.4 ui-monospace,Menlo,monospace;padding:10px;margin:8px 0}
+.note{color:#a9c4ee;font-size:15px;margin:6px 0 10px;max-width:72ch}
+.err{color:#ffab91;font-weight:600}
+.ok{color:#7dffa0;font-weight:600}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.addrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:18px}
+.gauge{display:flex;flex-direction:column;align-items:stretch;gap:6px;text-align:left;padding:12px 16px;border:2px solid #2a6bff;border-radius:12px;background:#061048;color:#fff;font:inherit;cursor:pointer}
+.gauge:hover{border-color:#8fd0ff}
+.gauge.sel{border-color:#ff4022;box-shadow:0 0 12px rgba(255,70,30,.6)}
+.gauge:focus-visible{outline:3px solid #8fd0ff;outline-offset:2px}
+.gL{font-style:italic;font-weight:800;color:#3fa0ff;font-size:16px;letter-spacing:.08em}
+.gV{font-style:italic;font-weight:800;font-size:40px;color:#ffd54a;line-height:1;text-shadow:2px 2px 0 #6b3a00}
+.gBar{display:block;height:10px;border:2px solid #4fb0ff;border-radius:6px;background:#020a30;overflow:hidden}
+.gBar span{display:block;height:100%;background:repeating-linear-gradient(90deg,#4fb0ff 0 14px,#2b7de0 14px 16px)}
+.gS{font-size:14px;color:#a9c4ee}
+.showing{margin:0 0 10px;font-size:16px;color:#cfe3ff}
+.showing b{color:#ffa133;font-style:italic}
+.tiers{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.tierChip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:14px;border:1px solid rgba(143,208,255,.5);font-weight:700;font-size:15px}
+.trs{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:8px;margin-top:12px}
+.tr{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:8px;border:1px solid rgba(120,170,255,.28);background:rgba(4,12,48,.7)}
+.tr.got{border-color:rgba(255,213,74,.6);background:rgba(40,30,8,.55)}
+.cup{flex:none;width:30px;height:30px;opacity:.45}
+.tr.got .cup{opacity:1;filter:drop-shadow(0 0 6px currentColor)}
+.t-P{color:#dbeeff}.t-G{color:#ffd54a}.t-S{color:#c9d1de}.t-B{color:#e0a064}
+.trB{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.trTop{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.trTop b{font-size:17px}
+.tier{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.trReq{margin:0;font-size:14px;color:#a9c4ee}
+.trProg{display:flex;align-items:center;gap:8px;font-size:14px;color:#cfe3ff}
+.trBar{flex:1;height:4px;background:#13361c;max-width:200px}.trBar span{display:block;height:100%;background:#3cff6a}
+.trS{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.earned{font-style:italic;font-weight:800;color:#ffe14a;text-shadow:0 0 3px #e2470f;font-size:15px}
+.pill.sm{min-height:36px;padding:0 12px;font-size:14px}
+.kh{position:relative;overflow-x:hidden}
+.kh::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,transparent 0%,rgba(60,140,255,.06) 40%,rgba(150,215,255,.13) 50%,rgba(60,140,255,.06) 60%,transparent 100%);background-size:100% 360px;background-repeat:no-repeat;animation:scan 8s linear infinite}
+.kh::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,rgba(120,190,255,.035) 0 1px,transparent 1px 3px);animation:drift .9s steps(3) infinite}
+@keyframes scan{from{background-position:0 -360px}to{background-position:0 calc(100vh + 360px)}}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(3px)}}
+.top,.body,.help{position:relative;z-index:1}
+.hand{opacity:0;transition:opacity .12s}
+.cmd.sel .hand{opacity:1;animation:bob 1.1s ease-in-out infinite}
+.cmdlist:hover .cmd.sel .hand{opacity:0;animation:none}
+.cmdlist:hover .cmd:hover .hand,.cmd:focus-visible .hand{opacity:1;animation:bob 1.1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+.cmd.sel{animation:selGlow 2.2s ease-in-out infinite}
+@keyframes selGlow{0%,100%{box-shadow:inset 0 0 0 1px #ff8a5c,0 0 10px rgba(255,70,30,.6)}50%{box-shadow:inset 0 0 0 1px #ffb08c,0 0 18px rgba(255,90,40,.9)}}
+.scr{position:relative;animation:scrIn .34s cubic-bezier(.2,.8,.2,1) backwards}
+.scr::before{content:'';position:absolute;top:-24px;bottom:-24px;left:-20%;width:140px;background:linear-gradient(90deg,transparent,rgba(160,215,255,.16),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0;animation:sweep .7s ease-out .04s}
+@keyframes scrIn{0%{opacity:0;transform:translateX(30px) scaleY(.97);clip-path:inset(0 0 0 100%)}55%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@keyframes sweep{0%{left:-20%;opacity:1}100%{left:110%;opacity:0}}
+.bar span,.gBar span,.trBar span,.ovBar span{transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.box{position:relative}
+.row.pop{animation:rowFlash .65s ease-out}
+.row.pop .box{animation:boxPop .45s cubic-bezier(.3,1.6,.5,1)}
+.row.pop .box::after{content:'';position:absolute;inset:-4px;border:2px solid #ffe14a;opacity:0;animation:ring .55s ease-out}
+.row.pop .box::before{content:'';position:absolute;left:50%;top:50%;width:3px;height:3px;margin:-1.5px;border-radius:50%;background:#fff;opacity:0;box-shadow:0 -14px #ffe14a,14px 0 #ffe14a,0 14px #ffe14a,-14px 0 #ffe14a;animation:spark .55s ease-out}
+@keyframes rowFlash{0%{background:rgba(255,210,63,.32);border-color:#ffe14a}100%{background:rgba(4,12,48,.7)}}
+@keyframes boxPop{0%{transform:rotate(45deg) scale(.4)}60%{transform:rotate(225deg) scale(1.35)}100%{transform:rotate(225deg) scale(1)}}
+@keyframes ring{0%{opacity:1;transform:scale(.6)}100%{opacity:0;transform:scale(2.6)}}
+@keyframes spark{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.7)}}
+.tr.pop{animation:rowFlash .7s ease-out}
+.tr.pop .cup{animation:cupPop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes cupPop{0%{transform:scale(.5) rotate(-15deg)}60%{transform:scale(1.3) rotate(8deg)}100%{transform:none}}
+.help.trophy{box-shadow:inset 0 3px 0 #ffd54a}
+.help.trophy p{color:#ffe14a;font-weight:700;animation:helpIn .5s ease-out}
+@keyframes helpIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.kh::before,.kh::after{display:none}.cmd.sel,.cmd .hand,.scr,.scr::before,.row.pop,.row.pop .box,.row.pop .box::before,.row.pop .box::after,.tr.pop,.tr.pop .cup,.help.trophy p{animation:none!important}.bar span,.gBar span,.trBar span,.ovBar span{transition:none}}
+@media (max-width:720px){.cmds{max-width:none;flex-basis:100%}.cmdlist{flex-direction:row;flex-wrap:wrap;padding-left:0}.cmd{flex:1 1 140px}.hand{display:none}.panel{padding:14px}.help p{font-size:16px}.locName{font-size:18px}.menuTag{padding:0 20px}.menuTag span{font-size:20px}.body{padding:16px}}
+</style>
+</helmet>
+<div class="kh">
+  <header class="top">
+    <div class="menuTag"><span>MENU</span></div>
+    <div class="loc">
+      <span class="locName">{{tabTitle}}</span>
+      <span class="locSub">Kingdom Hearts II Final Mix · 100% Completion Tracker</span>
+    </div>
+  </header>
+
+  <div class="body">
+    <nav class="cmds" aria-label="Tracker sections">
+      <div class="cmdlist">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="7">
+          <button type="button" class="{{t.cls}}" aria-pressed="{{t.pressed}}" onClick="{{t.go}}" onMouseEnter="{{t.enter}}" onMouseLeave="{{leaveTab}}" onFocus="{{t.enter}}" onBlur="{{leaveTab}}">
+            <svg class="hand" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 8.5c0-2 1.6-3.5 3.5-3.5H15l2.2-3h3.3l.9 3H31a2 2 0 0 1 0 4H21v1h2.6a2 2 0 0 1 0 4H21v1h1.4a2 2 0 0 1 0 4H9.5C5.4 19 2 15.6 2 11.5z" fill="#ffffff" stroke="#1a1f2e" stroke-width="1.3" stroke-linejoin="round"></path></svg>
+            <span>{{t.label}}</span>
+            <sc-if value="{{t.news}}" hint-placeholder-val="{{false}}"><span class="new">NEW!</span></sc-if>
+          </button>
+        </sc-for>
+        <a class="cmd" href="Remaining.dc.html" style="text-decoration: none"><svg class="hand" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 8.5c0-2 1.6-3.5 3.5-3.5H15l2.2-3h3.3l.9 3H31a2 2 0 0 1 0 4H21v1h2.6a2 2 0 0 1 0 4H21v1h1.4a2 2 0 0 1 0 4H9.5C5.4 19 2 15.6 2 11.5z" fill="#ffffff" stroke="#1a1f2e" stroke-width="1.3" stroke-linejoin="round"></path></svg><span>What's Left</span><span class="new">NEW!</span></a>
+        <a class="cmd" href="Synthesis.dc.html" style="text-decoration: none"><svg class="hand" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 8.5c0-2 1.6-3.5 3.5-3.5H15l2.2-3h3.3l.9 3H31a2 2 0 0 1 0 4H21v1h2.6a2 2 0 0 1 0 4H21v1h1.4a2 2 0 0 1 0 4H9.5C5.4 19 2 15.6 2 11.5z" fill="#ffffff" stroke="#1a1f2e" stroke-width="1.3" stroke-linejoin="round"></path></svg><span>Synthesis</span><span class="new">NEW!</span></a>
+      </div>
+      <div class="wal">
+        <span class="walL m">MUNNY</span><span class="walV">{{munnyText}}</span>
+        <span class="walL t">LV</span><span class="walV t">{{soraLv}}</span>
+        <span class="walL t">{{totalLabel}}</span><span class="walV t">{{overallVal}}</span>
+      </div>
+    </nav>
+
+    <main class="panel">
+      <h1 class="ptitle">{{tabTitle}}</h1>
+
+      <sc-if value="{{isStatus}}" hint-placeholder-val="{{true}}">
+        <div class="scr">
+        <div class="gauges">
+          <sc-for list="{{gauges}}" as="g" hint-placeholder-count="3">
+            <button type="button" class="{{g.cls}}" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}">
+              <span class="gL">{{g.label}}</span>
+              <span class="gV">{{g.val}}</span>
+              <span class="gBar"><span style="width: {{g.pct}}%"></span></span>
+              <span class="gS">{{g.sub}}</span>
+            </button>
+          </sc-for>
+        </div>
+        <p class="showing">Showing your <b>{{profileName}}</b> completion. Pick a gauge to switch.</p>
+        <div class="cards">
+          <sc-for list="{{cats}}" as="c" hint-placeholder-count="12">
+            <button type="button" class="pc" onClick="{{c.go}}" aria-label="{{c.aria}}">
+              <span class="pcN">{{c.name}}</span>
+              <span class="pcB">
+                <span class="ln"><span class="lvL">LV</span><span>{{c.pct}}%</span></span>
+                <span class="ln"><span class="hpL">HP</span><span>{{c.done}}/{{c.total}}</span></span>
+                <span class="bar"><span style="width: {{c.pct}}%"></span></span>
+                <span class="ln"><span class="mpL">LEFT</span><span>{{c.left}}</span></span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+        <sc-if value="{{hasImp}}" hint-placeholder-val="{{false}}">
+          <div class="card" style="margin-top: 18px">
+            <h2 class="cardT">Last save import</h2>
+            <div class="kv">
+              <div><span>File</span><b>{{imp.file}}</b></div>
+              <div><span>Slot</span><b>{{imp.slot}}</b></div>
+              <div><span>Difficulty</span><b>{{imp.diff}}</b></div>
+              <div><span>Saved in</span><b>{{imp.world}}</b></div>
+              <div><span>Imported</span><b>{{imp.when}}</b></div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{noImp}}" hint-placeholder-val="{{true}}">
+          <p class="note" style="margin-top: 18px">Tip: open Config to import a save file. Treasures, rewards, story bosses, reports, forms, magic, summons and Keyblades fill in on their own, and most trophies follow from those. Everything else you check off by hand.</p>
+        </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isWorlds}}" hint-placeholder-val="{{false}}">
+        <div class="scr">
+        <sc-if value="{{loading}}" hint-placeholder-val="{{false}}"><p class="note">Loading world data…</p></sc-if>
+        <sc-if value="{{loadErr}}" hint-placeholder-val="{{false}}"><p class="note err">{{loadErr}}</p></sc-if>
+        <div class="wp">
+          <sc-for list="{{worldBtns}}" as="w" hint-placeholder-count="15">
+            <button type="button" class="{{w.cls}}" onClick="{{w.pick}}" aria-pressed="{{w.pressed}}"><span>{{w.n}}</span><span class="wpct">{{w.pct}}%</span></button>
+          </sc-for>
+        </div>
+        <div class="tools">
+          <button type="button" class="pill blue" onClick="{{markWorld}}">Check all in {{worldShort}}</button>
+          <button type="button" class="pill" onClick="{{clearWorld}}">Clear {{worldShort}}</button>
+        </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isTrophies}}" hint-placeholder-val="{{false}}">
+        <div class="scr">
+        <div class="tools">
+          <label style="flex: 1 1 220px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filter trophies</span><input class="search" type="search" placeholder="Filter trophies…" value="{{q}}" onChange="{{onQ}}"></label>
+          <button type="button" class="{{hideCls}}" onClick="{{toggleHide}}" aria-pressed="{{hidePressed}}">Hide earned</button>
+        </div>
+        <div class="tiers">
+          <sc-for list="{{tierChips}}" as="tc" hint-placeholder-count="4"><span class="{{tc.cls}}">{{tc.label}} {{tc.done}}/{{tc.total}}</span></sc-for>
+        </div>
+        <p class="note">Most trophies unlock from your checklist and save imports. If you've earned one the tracker can't see, mark it by hand. The world trophies use each world's last story boss as the trigger.</p>
+        <div class="trs">
+          <sc-for list="{{trophyRows}}" as="t" hint-placeholder-count="8">
+            <div class="{{t.cls}}">
+              <svg class="{{t.cupCls}}" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v2h3.5v2.5A4.5 4.5 0 0 1 16.6 12 5 5 0 0 1 13 14.8V17h3v4H8v-4h3v-2.2A5 5 0 0 1 7.4 12 4.5 4.5 0 0 1 3.5 7.5V5H7zm0 4H5.5v.5A2.5 2.5 0 0 0 7 9.8zm10 0v2.8a2.5 2.5 0 0 0 1.5-2.3V7z" fill="currentColor"></path></svg>
+              <div class="trB">
+                <div class="trTop"><b>{{t.name}}</b><span class="{{t.tierCls}}">{{t.tierName}}</span></div>
+                <p class="trReq">{{t.req}}</p>
+                <div class="trProg"><span class="trBar"><span style="width: {{t.pct}}%"></span></span><span>{{t.progText}}</span></div>
+              </div>
+              <div class="trS">
+                <sc-if value="{{t.earned}}" hint-placeholder-val="{{false}}"><span class="earned">EARNED</span></sc-if>
+                <sc-if value="{{t.canMark}}" hint-placeholder-val="{{false}}"><button type="button" class="pill sm" onClick="{{t.mark}}" aria-label="{{t.markAria}}">{{t.markLabel}}</button></sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{noTrophyRows}}" hint-placeholder-val="{{false}}"><p class="note">Nothing to show here.</p></sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isDrive}}" hint-placeholder-val="{{false}}">
+        <div class="scr">
+        <sc-for list="{{stepGroups}}" as="g" hint-placeholder-count="4">
+          <section class="sec">
+            <div class="secHead"><h2 class="secT">{{g.title}}</h2><span class="secC">{{g.sum}}</span></div>
+            <div class="stps">
+              <sc-for list="{{g.items}}" as="st" hint-placeholder-count="5">
+                <div class="stp">
+                  <div class="stpN"><b>{{st.n}}</b><span>{{st.sub}}</span></div>
+                  <div class="stpC">
+                    <sc-if value="{{st.big}}" hint-placeholder-val="{{false}}"><button type="button" class="sb sm" onClick="{{st.dec10}}" aria-label="Lower level by 10">−10</button></sc-if>
+                    <button type="button" class="sb" onClick="{{st.dec}}" disabled="{{st.atMin}}" aria-label="{{st.decLabel}}">−</button>
+                    <div class="pips"><sc-for list="{{st.pips}}" as="p" hint-placeholder-count="7"><span class="{{p.cls}}"></span></sc-for></div>
+                    <span class="stpV">{{st.valText}}</span>
+                    <button type="button" class="sb" onClick="{{st.inc}}" disabled="{{st.atMax}}" aria-label="{{st.incLabel}}">+</button>
+                    <sc-if value="{{st.big}}" hint-placeholder-val="{{false}}"><button type="button" class="sb sm" onClick="{{st.inc10}}" aria-label="Raise level by 10">+10</button></sc-if>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{showSecs}}" hint-placeholder-val="{{false}}">
+        <div class="scr">
+        <div class="tools" style="margin-top: 12px">
+          <label style="flex: 1 1 220px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filter this list</span><input class="search" type="search" placeholder="Filter…" value="{{q}}" onChange="{{onQ}}"></label>
+          <button type="button" class="{{hideCls}}" onClick="{{toggleHide}}" aria-pressed="{{hidePressed}}">Hide obtained</button>
+        </div>
+        <p class="legend"><span class="auto"></span>Filled in automatically when you import a save. You can still change anything by hand.</p>
+        <sc-for list="{{secs}}" as="sec" hint-placeholder-count="3">
+          <section class="sec">
+            <div class="secHead"><h2 class="secT">{{sec.title}}</h2><span class="secC">{{sec.done}} / {{sec.total}}</span></div>
+            <sc-if value="{{sec.note}}" hint-placeholder-val="{{false}}"><p class="note">{{sec.note}}</p></sc-if>
+            <sc-if value="{{sec.hasCta}}" hint-placeholder-val="{{false}}"><button type="button" class="pill blue" onClick="{{sec.cta}}">{{sec.ctaLabel}}</button></sc-if>
+            <div class="rows">
+              <sc-for list="{{sec.rows}}" as="r" hint-placeholder-count="6">
+                <label class="{{r.cls}}">
+                  <input type="checkbox" checked="{{r.on}}" onChange="{{r.tog}}">
+                  <span class="box"></span>
+                  <span class="nm">{{r.n}}</span>
+                  <sc-if value="{{r.hasTag}}" hint-placeholder-val="{{false}}"><span class="tag">{{r.tag}}</span></sc-if>
+                  <sc-if value="{{r.auto}}" hint-placeholder-val="{{false}}"><span class="auto" title="Detected from save files"></span></sc-if>
+                  <sc-if value="{{r.canDel}}" hint-placeholder-val="{{false}}"><button type="button" class="x" onClick="{{r.del}}" aria-label="Remove this goal"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></sc-if>
+                </label>
+              </sc-for>
+            </div>
+            <sc-if value="{{sec.empty}}" hint-placeholder-val="{{false}}"><p class="note">Nothing to show here.</p></sc-if>
+          </section>
+        </sc-for>
+        <sc-if value="{{isRecords}}" hint-placeholder-val="{{false}}">
+          <section class="sec">
+            <div class="secHead"><h2 class="secT">Add a goal</h2></div>
+            <p class="note">Add anything else you count toward your 100%, like a no-damage run. Custom goals count toward Everything.</p>
+            <div class="addrow">
+              <label style="flex: 1 1 260px; display: flex"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">New goal</span><input class="search" type="text" placeholder="e.g. S-rank every Gummi route" value="{{customText}}" onChange="{{onCustom}}"></label>
+              <button type="button" class="pill blue" onClick="{{addCustom}}" disabled="{{noCustomText}}">Add goal</button>
+            </div>
+          </section>
+        </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isData}}" hint-placeholder-val="{{false}}">
+        <div class="scr">
+        <div class="card">
+          <h2 class="cardT">Playthrough</h2>
+          <p class="note">The difficulty and ending trophies depend on these. Importing a save sets the difficulty for you.</p>
+          <div class="btnrow">
+            <sc-for list="{{diffBtns}}" as="d" hint-placeholder-count="4"><button type="button" class="{{d.cls}}" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}">{{d.label}}</button></sc-for>
+          </div>
+          <div class="btnrow" style="margin-top: 10px">
+            <button type="button" class="{{clearCls}}" onClick="{{toggleClear}}" aria-pressed="{{clearPressed}}">{{clearLabel}}</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="cardT">Import a save file</h2>
+          <p class="note">Supported: the PC save (KHIIFM.png from the Epic or Steam 1.5+2.5 save folder), a raw PS2 save extracted from a memory card, and PCSX2 .ps2 memory cards when the save is stored in one piece. PS4 saves are encrypted and won't read. The file stays in your browser and is never uploaded anywhere.</p>
+          <div class="btnrow">
+            <label class="file">Choose save file<input type="file" onChange="{{onFile}}"></label>
+            <sc-if value="{{impName}}" hint-placeholder-val="{{false}}"><span class="note" style="margin: 0">{{impName}}</span></sc-if>
+          </div>
+          <sc-if value="{{impErr}}" hint-placeholder-val="{{false}}"><p class="note err">{{impErr}}</p></sc-if>
+          <sc-if value="{{hasSlots}}" hint-placeholder-val="{{false}}">
+            <div class="slots">
+              <sc-for list="{{slotBtns}}" as="sl" hint-placeholder-count="3">
+                <button type="button" class="{{sl.cls}}" onClick="{{sl.pick}}" aria-pressed="{{sl.pressed}}"><b>{{sl.label}}</b><span>LV {{sl.lv}} · {{sl.world}}</span><span>{{sl.munny}} munny · {{sl.diff}}</span></button>
+              </sc-for>
+            </div>
+            <div class="kv">
+              <sc-for list="{{preview}}" as="pv" hint-placeholder-count="8"><div><span>{{pv.k}}</span><b>{{pv.v}}</b></div></sc-for>
+            </div>
+            <div class="btnrow">
+              <button type="button" class="pill red" onClick="{{applySync}}">Sync to this save</button>
+              <button type="button" class="pill blue" onClick="{{applyAdd}}">Only add new checks</button>
+              <button type="button" class="pill" onClick="{{cancelImp}}">Cancel</button>
+            </div>
+            <p class="note">Sync makes every save-detected item match this slot exactly. Only add never unchecks anything, so it's the one to use when you track a different playthrough by hand. Items without a save flag are never touched.</p>
+          </sc-if>
+        </div>
+
+        <div class="card">
+          <h2 class="cardT">Back up your progress</h2>
+          <p class="note">Your progress is kept in this browser. Copy this code somewhere safe, or paste it into another browser to move your progress there.</p>
+          <label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Backup code</span><textarea class="ta" readonly="{{true}}" value="{{exportText}}"></textarea></label>
+          <div class="btnrow">
+            <button type="button" class="pill blue" onClick="{{copyExport}}">Copy backup code</button>
+            <sc-if value="{{copyMsg}}" hint-placeholder-val="{{false}}"><span class="ok">{{copyMsg}}</span></sc-if>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="cardT">Restore from a backup</h2>
+          <label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Paste backup code</span><textarea class="ta" placeholder="Paste a backup code here" value="{{pasteText}}" onChange="{{onPaste}}"></textarea></label>
+          <div class="btnrow">
+            <button type="button" class="pill blue" onClick="{{loadPaste}}" disabled="{{noPaste}}">Restore</button>
+            <sc-if value="{{pasteErr}}" hint-placeholder-val="{{false}}"><span class="err">{{pasteErr}}</span></sc-if>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="cardT">Start over</h2>
+          <p class="note">Erases every check, level and custom goal in this browser.</p>
+          <button type="button" class="pill red" onClick="{{resetAll}}">{{resetLabel}}</button>
+        </div>
+        </div>
+      </sc-if>
+    </main>
+  </div>
+
+  <footer class="{{helpCls}}" aria-live="polite"><p>{{helpText}}</p></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+var LS_KEY = 'kh2fm-100-tracker-v1';
+var DATA_URL = '/_blob/63c776f27abdafb68f5cc58e0e426ea6';
+var TABS = [
+  ['status', 'Status', 'Overall completion at a glance. Select a card to jump to it.'],
+  ['worlds', 'Worlds', 'Treasures, reward pop-ups and story bosses for every world.'],
+  ['journal', 'Journal', "The 12 sections of Jiminy's Journal. Filling one also earns its trophy."],
+  ['trophies', 'Trophies', 'All 51 trophies. Most unlock from your checklist; mark the rest by hand.'],
+  ['drive', 'Drive & Magic', "Drive Forms, Summons, Magic, Sora's level, Anti Form and key items."],
+  ['keys', 'Keyblades', 'Every Keyblade Sora can wield.'],
+  ['records', 'Records', 'Superbosses, cups, Mushroom XIII, feats, Gummi Ship and your own goals.'],
+  ['data', 'Config', 'Set your difficulty, import a save, back up your progress, or start over.']
+];
+var PROFILES = [['journal', 'Journal', 'JOURNAL'], ['trophies', 'Trophies', 'TROPHIES'], ['everything', 'Everything', 'ALL']];
+var JOURNAL_SINGLE = 'The full entry list for this section is still being mapped. Check it once the section is complete in the game.';
+var FEATS = [['myhero', 'Rescued by King Mickey in a boss fight'], ['skate', 'Skateboarding: score 5,000 points'], ['struggle', 'Struggle: win by taking every orb']];
+var GUMMI = [['veteran', 'S rank on any Gummi mission', 'Trophy'], ['ace', 'S rank on every route of one mission', 'Trophy'], ['topgun', 'S rank on every route of one special mission', 'Trophy'], ['collector', 'Collect every Gummi Ship model', 'Trophy'], ['alls', 'S rank on every route of every mission', 'Everything only']];
+var AW_IDS = ['pg.1', 'pg.2', 'pg.3', 'pg.4', 'pg.5', 'mg.a-blustery-rescue', 'mg.hunny-slider', 'mg.balloon-bounce', 'mg.the-expotition', 'mg.the-hunny-pot'];
+var DO_IDS = ['do.xemnas', 'do.xigbar', 'do.xaldin', 'do.vexen', 'do.lexaeus', 'do.zexion', 'do.saix', 'do.axel', 'do.demyx', 'do.luxord', 'do.marluxia', 'do.larxene', 'do.roxas'];
+var MU_IDS = ['mu.1', 'mu.2', 'mu.3', 'mu.4', 'mu.5', 'mu.6', 'mu.7', 'mu.8', 'mu.9', 'mu.10', 'mu.11', 'mu.12'];
+var TIER_NAMES = { P: 'Platinum', G: 'Gold', S: 'Silver', B: 'Bronze' };
+var TROPHY_GROUPS = [['story', 'Story'], ['battle', 'Battle'], ['coliseum', 'Coliseum'], ['journal', 'Journal'], ['feats', 'Feats'], ['gummi', 'Gummi Ship']];
+var TROPHIES = [
+  ['plat', 'KINGDOM HEARTS II Master', 'P', 'Earn every other trophy', { plat: 1 }, 'plat'],
+  ['critical', 'Critical Competitor', 'G', 'Finish the game on Critical', { clear: 3 }, 'story'],
+  ['proud', 'Proud Player', 'S', 'Finish the game on Proud or higher', { clear: 2 }, 'story'],
+  ['ambitious', 'Ambitious Adventurer', 'S', 'Finish the game and watch the ending', { clear: 0 }, 'story'],
+  ['level', 'Level Master', 'S', 'Raise Sora to LV 99', { lv: ['sora', 99] }, 'feats'],
+  ['myhero', 'My Hero', 'B', 'Get rescued by King Mickey in a boss fight', { all: ['ft.myhero'] }, 'story'],
+  ['lw', 'Lingering Will', 'S', 'Defeat Lingering Will', { all: ['sb.lw'] }, 'battle'],
+  ['seph', 'One-Winged Angel', 'S', 'Defeat Sephiroth', { all: ['sb.seph'] }, 'battle'],
+  ['data', 'To Rule Them All', 'G', 'Defeat all 13 Data Organization members', { all: DO_IDS }, 'battle'],
+  ['mush', 'Mushroom Master', 'S', 'Satisfy every Mushroom XIII', { all: MU_IDS }, 'battle'],
+  ['cup1', 'Rookie', 'B', 'Win the Pain and Panic Cup', { all: ['cup.pain-and-panic-cup'] }, 'coliseum'],
+  ['cup2', 'Novice Hero', 'B', 'Win the Cerberus Cup', { all: ['cup.cerberus-cup'] }, 'coliseum'],
+  ['cup3', 'Artisan Hero', 'B', 'Win the Titan Cup', { all: ['cup.titan-cup'] }, 'coliseum'],
+  ['cup4', 'True Hero', 'B', 'Win the Goddess of Fate Cup', { all: ['cup.goddess-of-fate-cup'] }, 'coliseum'],
+  ['cup5', 'Coliseum Competitor', 'B', 'Win the Pain and Panic Paradox Cup', { all: ['cup.pain-and-panic-paradox-cup'] }, 'coliseum'],
+  ['cup6', 'Coliseum Star', 'B', 'Win the Cerberus Paradox Cup', { all: ['cup.cerberus-paradox-cup'] }, 'coliseum'],
+  ['cup7', 'Hero of the Coliseum', 'B', 'Win the Titan Paradox Cup', { all: ['cup.titan-paradox-cup'] }, 'coliseum'],
+  ['cup8', 'Coliseum Champion', 'S', 'Win the Hades Paradox Cup', { all: ['cup.hades-paradox-cup'] }, 'coliseum'],
+  ['stt', "Summer's End", 'B', "Finish Roxas's prologue", { all: ['w.Axel2'] }, 'story'],
+  ['tr', 'A Timeless World', 'B', 'Finish Timeless River', { all: ['w.FuturePete'] }, 'story'],
+  ['lod', 'Above Honor', 'B', 'Finish The Land of Dragons', { all: ['w.StormRider'] }, 'story'],
+  ['bc', 'A Budding Romance', 'B', "Finish Beast's Castle", { all: ['w.Xaldin'] }, 'story'],
+  ['oc', 'Hail the Hero', 'B', 'Finish Olympus Coliseum', { all: ['w.Hades'] }, 'story'],
+  ['pr', 'Lifting the Curse', 'B', 'Finish Port Royal', { all: ['w.GrimReaper2'] }, 'story'],
+  ['ag', 'What Friends Are For', 'B', 'Finish Agrabah', { all: ['w.GenieJafar'] }, 'story'],
+  ['ht', 'The Gift of Love', 'B', 'Finish Halloween Town', { all: ['w.Experiment'] }, 'story'],
+  ['pl', 'Return of the King', 'B', 'Finish Pride Lands', { all: ['w.Groundshaker'] }, 'story'],
+  ['sp', 'Electric Spark', 'B', 'Finish Space Paranoids', { all: ['w.MCP'] }, 'story'],
+  ['aw', 'Always Together', 'B', 'Finish 100 Acre Wood', { all: AW_IDS }, 'story'],
+  ['at', 'Kindred Spirits', 'B', 'Finish Atlantica', { all: ['mg.a-new-day-is-dawning'] }, 'story'],
+  ['tt', 'A Taste of the Past', 'B', 'Finish Twilight Town', { all: ['w.BetwixtandBetween'] }, 'story'],
+  ['reunion', 'Reunion', 'B', 'Reunite with Riku and Kairi', { all: ['w.XigbarBonus'] }, 'story'],
+  ['j1', 'Searcher', 'B', 'Journal: every Ansem Report', { sec: 'reports' }, 'journal'],
+  ['j2', 'Professor', 'B', 'Journal: every Character File', { sec: 'charfiles' }, 'journal'],
+  ['j3', 'Heartless Highbrow', 'B', 'Journal: every Heartless entry', { sec: 'heartless' }, 'journal'],
+  ['j4', 'Nobody Know-It-All', 'B', 'Journal: every Nobody entry', { sec: 'nobodies' }, 'journal'],
+  ['j5', 'Treasure Hunter', 'B', 'Journal: every Treasure entry', { sec: 'treasures' }, 'journal'],
+  ['j6', 'Puzzler', 'B', 'Journal: every Puzzle entry', { sec: 'puzzles' }, 'journal'],
+  ['j7', 'Navigator', 'B', 'Journal: every Map entry', { sec: 'maps' }, 'journal'],
+  ['j8', 'Conqueror', 'B', 'Journal: every Mission entry', { sec: 'missions' }, 'journal'],
+  ['j9', 'Minigame Maniac', 'B', 'Journal: every Mini-game entry', { sec: 'minigames' }, 'journal'],
+  ['j10', 'Limit Master', 'B', 'Journal: every Combo Attack entry', { sec: 'combos' }, 'journal'],
+  ['j11', 'Craftsman', 'B', 'Journal: every Synthesis Notes entry', { sec: 'synthesis' }, 'journal'],
+  ['j12', 'Seeker', 'B', 'Journal: every Character Links entry', { sec: 'links' }, 'journal'],
+  ['skate', 'Pro Skater', 'B', 'Score 5,000 points skateboarding', { all: ['ft.skate'] }, 'feats'],
+  ['struggle', 'Struggle Champion', 'B', "Win a Struggle by taking all your opponent's orbs", { all: ['ft.struggle'] }, 'feats'],
+  ['anti', 'Corroded by Darkness', 'B', 'Turn into Anti Form 13 times', { lv: ['anti', 13] }, 'feats'],
+  ['veteran', 'Veteran Pilot', 'B', 'S rank on any Gummi mission', { all: ['gm.veteran'] }, 'gummi'],
+  ['ace', 'Ace Pilot', 'B', 'S rank on every route of one Gummi mission', { all: ['gm.ace'] }, 'gummi'],
+  ['topgun', 'Top Gun', 'B', 'S rank on every route of one special Gummi mission', { all: ['gm.topgun'] }, 'gummi'],
+  ['collector', 'Gummi Ship Collector', 'S', 'Collect every Gummi Ship model', { all: ['gm.collector'] }, 'gummi']
+];
+var REPORT_BITS = [[0x36C4,6],[0x36C4,7],[0x36C5,0],[0x36C5,1],[0x36C5,2],[0x36C5,3],[0x36C5,4],[0x36C5,5],[0x36C5,6],[0x36C5,7],[0x36C6,0],[0x36C6,1],[0x36C6,2]];
+var FORMS = [['valor','Valor Form',0x32F6,0x36C0,1],['wisdom','Wisdom Form',0x332E,0x36C0,2],['limit','Limit Form',0x3366,0x36CA,3],['master','Master Form',0x339E,0x36C0,6],['final','Final Form',0x33D6,0x36C0,4]];
+var SUMMONS = [['chicken','Chicken Little','Baseball Charm',0x36C0,3],['genie','Genie','Lamp Charm',0x36C4,4],['stitch','Stitch','Ukulele Charm',0x36C0,0],['peter','Peter Pan','Feather Charm',0x36C4,5]];
+var MAGIC = [['fire',0x3594,['Fire','Fira','Firaga']],['blizzard',0x3595,['Blizzard','Blizzara','Blizzaga']],['thunder',0x3596,['Thunder','Thundara','Thundaga']],['cure',0x3597,['Cure','Cura','Curaga']],['magnet',0x35CF,['Magnet','Magnera','Magnega']],['reflect',0x35D0,['Reflect','Reflera','Reflega']]];
+var PROOFS = [['conn','Proof of Connection',0x36B2],['non','Proof of Nonexistence',0x36B3],['peace','Proof of Peace',0x36B4],['charm','Promise Charm',0x3694]];
+var PAGES = [[0x1DB7,4],[0x1DB7,7],[0x1DB8,2],[0x1DB8,4],[0x1DB8,7]];
+var KEYS = [['Kingdom Key',41,0x35A1],['Oathkeeper',42,0x35A2],['Oblivion',43,0x35A3],['Star Seeker',480,0x367B],['Hidden Dragon',481,0x367C],["Hero's Crest",484,0x367F],['Monochrome',485,0x3680],['Follow the Wind',486,0x3681],['Circle of Life',487,0x3682],['Photon Debugger',488,0x3683],['Gull Wing',489,0x3684],['Rumbling Rose',490,0x3685],['Guardian Soul',491,0x3686],['Wishing Lamp',492,0x3687],['Decisive Pumpkin',493,0x3688],['Sleeping Lion',494,0x3689],['Sweet Memories',495,0x368A],['Mysterious Abyss',496,0x368B],['Fatal Crest',497,0x368C],['Bond of Flame',498,0x368D],['Fenrir',499,0x368E],['Ultima Weapon',500,0x368F],['Two Become One',543,0x3698],["Winner's Proof",544,0x3699]];
+var PUZZLES = ['Awakening','Heart','Duality','Frontier','Daylight','Sunset'];
+var MINIGAMES = [['Mail Delivery','TT'],['Cargo Climb','TT'],['Bumble-Buster','TT'],['Poster Duty','TT'],['Grandstander','TT'],['Junk Sweep','TT'],['A Blustery Rescue','100AW'],['Hunny Slider','100AW'],['Balloon Bounce','100AW'],['The Expotition','100AW'],['The Hunny Pot','100AW'],['Swim This Way','AT'],['Part of Your World','AT'],['Under the Sea','AT'],["Ursula's Revenge",'AT'],['A New Day is Dawning','AT']];
+var MUSH = [["Memory's Skyscraper",'TWTNW'],['Christmas Tree Plaza','HT'],['Bridge','BC'],['Palace Gates','LoD'],['Treasure Room','AG'],['Atrium','OC'],['Tunnelway','TT'],['Tower','TT'],['Castle Gates','HB'],['Moonlight Nook','PR'],['Waterway','TR'],['Old Mansion','TT']];
+var CUPS = ['Pain and Panic Cup','Cerberus Cup','Titan Cup','Goddess of Fate Cup','Pain and Panic Paradox Cup','Cerberus Paradox Cup','Titan Paradox Cup','Hades Paradox Cup'];
+var AS_LIST = [['vexen','Vexen',0x370C,0],['lexaeus','Lexaeus',0x370C,1],['zexion','Zexion',0x370C,2],['marluxia','Marluxia',0x370C,3],['larxene','Larxene',0x370C,4]];
+var DATA_ORG = [['xemnas','Xemnas',0x1EDA,2],['xigbar','Xigbar',0x1ED9,7],['xaldin','Xaldin',0x1D34,7],['vexen','Vexen'],['lexaeus','Lexaeus'],['zexion','Zexion'],['saix','Saïx',0x1EDA,0],['axel','Axel',0x1CEB,4],['demyx','Demyx',0x1D26,5],['luxord','Luxord',0x1EDA,1],['marluxia','Marluxia'],['larxene','Larxene'],['roxas','Roxas',0x1ED9,6]];
+var SUPER = [['lw','Lingering Will',0x370C,6],['seph','Sephiroth',0x3708,3]];
+var WORLD_IDS = {0:'Unknown',1:'End of Sea',2:'Twilight Town',3:'Destiny Islands',4:'Hollow Bastion',5:"Beast's Castle",6:'Olympus Coliseum',7:'Agrabah',8:'The Land of Dragons',9:'100 Acre Wood',10:'Pride Lands',11:'Atlantica',12:'Disney Castle',13:'Timeless River',14:'Halloween Town',15:'World Map',16:'Port Royal',17:'Space Paranoids',18:'The World That Never Was'};
+var DIFFS = ['Beginner','Standard','Proud','Critical'];
+var SHORT = {LoD:'LoD',AG:'Agrabah',DC:'DC',TR:'TR',AW:'100AW',OC:'Olympus',BC:"Beast's",SP:'SP',HT:'HT',PR:'Port Royal',HB:'HB',PL:'Pride Lands',TT:'TT',TW:'TWTNW',AT:'Atlantica'};
+
+function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+function blank() {
+  return { c: {}, lv: { sora: 1, valor: 0, wisdom: 0, limit: 0, master: 0, final: 0, summon: 1, fire: 0, blizzard: 0, thunder: 0, cure: 0, magnet: 0, reflect: 0, anti: 0 }, custom: [], imp: null, news: {}, profile: 'everything', diff: null };
+}
+function normalize(o) {
+  var b = blank();
+  if (!o || typeof o !== 'object') return b;
+  b.c = (o.c && typeof o.c === 'object') ? o.c : {};
+  var lv = o.lv || {};
+  Object.keys(b.lv).forEach(function (k) { var v = Number(lv[k]); if (isFinite(v)) b.lv[k] = v; });
+  b.custom = Array.isArray(o.custom) ? o.custom.filter(function (x) { return x && x.id && x.t; }) : [];
+  b.imp = o.imp || null;
+  b.news = o.news || {};
+  if (PROFILES.some(function (p) { return p[0] === o.profile; })) b.profile = o.profile;
+  b.diff = (o.diff === 0 || o.diff === 1 || o.diff === 2 || o.diff === 3) ? o.diff : null;
+  return b;
+}
+function tabOfId(id) {
+  var p = id.split('.')[0];
+  if (p === 'w') return 'worlds';
+  if (p === 'r' || p === 'pz' || p === 'mg' || p === 'js') return 'journal';
+  if (p === 'kb') return 'keys';
+  if (p === 'as' || p === 'do' || p === 'sb' || p === 'cup' || p === 'mu' || p === 'cu' || p === 'ft' || p === 'gm' || p === 'ex') return 'records';
+  return 'drive';
+}
+function fmtNum(n) { return (n == null) ? '—' : String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+function parseSave(buf) {
+  var u8 = new Uint8Array(buf);
+  if (u8.length === 8650752) {
+    var out = new Uint8Array(8388608);
+    for (var p = 0; p < 16384; p++) out.set(u8.subarray(p * 528, p * 528 + 512), p * 512);
+    u8 = out;
+  }
+  var isPc = u8.length === 0x6BED08;
+  var slots = [], vanilla = 0;
+  var lim = u8.length - 0x3800;
+  for (var i = 0; i <= lim; i++) {
+    if (u8[i] !== 0x4B || u8[i + 1] !== 0x48 || u8[i + 2] !== 0x32) continue;
+    var r = u8[i + 3];
+    if (r !== 0x4A && r !== 0x55 && r !== 0x45) continue;
+    var ver = u8[i + 4] | (u8[i + 5] << 8) | (u8[i + 6] << 16) | (u8[i + 7] << 24);
+    if (ver === 0x2D || ver === 0x2A) { vanilla++; continue; }
+    if (ver !== 0x3A) continue;
+    var bytes = u8.slice(i, i + 0x3800);
+    var lv = bytes[0x24FF];
+    if (lv < 1 || lv > 99) continue;
+    var label = isPc ? ('Slot ' + Math.round((i - 0x86D0) / 0x10FC0)) : ('Save ' + (slots.length + 1));
+    var munny = (bytes[0x2440] | (bytes[0x2441] << 8) | (bytes[0x2442] << 16) | (bytes[0x2443] << 24)) >>> 0;
+    slots.push({ label: label, bytes: bytes, lv: lv, munny: munny, world: WORLD_IDS[bytes[0x0C]] || 'Unknown', diff: DIFFS[bytes[0x2498]] || 'Unknown' });
+    i += 0x37FF;
+  }
+  return { slots: slots, vanilla: vanilla };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { s: blank(), tab: 'status', hint: null, toast: '', world: 'LoD', q: '', hide: false, worlds: null, loadErr: '', imp: null, copyMsg: '', pasteText: '', pasteErr: '', resetArm: false, customText: '' };
+  }
+
+  componentDidMount() {
+    var saved = null;
+    try { var raw = window.localStorage.getItem(LS_KEY); if (raw) saved = JSON.parse(raw); } catch (e) { saved = null; }
+    if (saved) this.setState({ s: normalize(saved) });
+    var self = this;
+    fetch(DATA_URL).then(function (r) { if (!r.ok) throw new Error('bad'); return r.json(); })
+      .then(function (j) { self.setState({ worlds: j.worlds || [] }); })
+      .catch(function () { self.setState({ worlds: [], loadErr: "World data couldn't load. Reload the page to try again." }); });
+  }
+
+  commit(s) {
+    this.setState({ s: s });
+    try { window.localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {}
+  }
+
+  setTab(id) {
+    var s = this.state.s;
+    if (s.news && s.news[id]) { var n = Object.assign({}, s.news); delete n[id]; this.commit(Object.assign({}, s, { news: n })); }
+    this.setState({ tab: id, q: '', hint: null, toast: '', toastKind: '', resetArm: false, copyMsg: '' });
+  }
+
+  toggle(id) {
+    var self = this; var s = this.state.s; var c = Object.assign({}, s.c);
+    var turningOn = !c[id];
+    if (c[id]) delete c[id]; else c[id] = true;
+    var next = Object.assign({}, s, { c: c });
+    var extra = {};
+    if (turningOn) {
+      var before = {}; this.model(s).trophies.forEach(function (t) { before[t.id] = t.earned; });
+      var fresh = this.model(next).trophies.filter(function (t) { return t.earned && !before[t.id]; });
+      extra.pop = id;
+      if (fresh.length) {
+        extra.toast = 'Trophy earned: ' + fresh.map(function (t) { return t.name; }).join(', ') + '!';
+        extra.toastKind = 'trophy';
+        next.news = Object.assign({}, next.news, { trophies: true });
+      }
+      clearTimeout(this._popTimer);
+      this._popTimer = setTimeout(function () { self.setState({ pop: null }); }, 750);
+    }
+    this.commit(next);
+    if (turningOn) this.setState(extra);
+  }
+
+  setMany(ids, val) {
+    var s = this.state.s; var c = Object.assign({}, s.c);
+    ids.forEach(function (id) { if (val) c[id] = true; else delete c[id]; });
+    this.commit(Object.assign({}, s, { c: c }));
+  }
+
+  setLv(k, v, min, max) {
+    var s = this.state.s; var lv = Object.assign({}, s.lv);
+    lv[k] = Math.max(min, Math.min(max, v));
+    this.commit(Object.assign({}, s, { lv: lv }));
+  }
+
+  probes() {
+    var list = [];
+    (this.state.worlds || []).forEach(function (w) { w[2].forEach(function (r) { list.push(['w.' + r[0], 'bit', r[3], r[4]]); }); });
+    REPORT_BITS.forEach(function (b, i) { list.push(['r.' + (i + 1), 'bit', b[0], b[1]]); });
+    PROOFS.forEach(function (p) { list.push(['pf.' + p[0], 'cnt', p[2]]); });
+    PAGES.forEach(function (b, i) { list.push(['pg.' + (i + 1), 'bit', b[0], b[1]]); });
+    SUMMONS.forEach(function (m) { list.push(['sm.' + m[0], 'bit', m[3], m[4]]); });
+    AS_LIST.forEach(function (a) { list.push(['as.' + a[0], 'bit', a[2], a[3]]); });
+    DATA_ORG.forEach(function (d) { if (d.length > 2) list.push(['do.' + d[0], 'bit', d[2], d[3]]); });
+    SUPER.forEach(function (d) { list.push(['sb.' + d[0], 'bit', d[2], d[3]]); });
+    return list;
+  }
+
+  detect(bytes) {
+    var B = function (o) { return bytes[o] || 0; };
+    var u16 = function (o) { return B(o) | (B(o + 1) << 8); };
+    var c = {};
+    this.probes().forEach(function (p) { c[p[0]] = p[1] === 'bit' ? (((B(p[2]) >> p[3]) & 1) === 1) : B(p[2]) > 0; });
+    var equipped = [u16(0x24F0)];
+    for (var f = 0; f < 5; f++) equipped.push(u16(0x32F4 + f * 0x38));
+    KEYS.forEach(function (k) { c['kb.' + slug(k[0])] = B(k[2]) > 0 || equipped.indexOf(k[1]) >= 0; });
+    var lv = { sora: Math.max(1, Math.min(99, B(0x24FF))), summon: Math.max(1, Math.min(7, B(0x3526))) };
+    FORMS.forEach(function (fm) { var un = ((B(fm[3]) >> fm[4]) & 1) === 1; lv[fm[0]] = un ? Math.max(1, Math.min(7, B(fm[2]))) : 0; });
+    MAGIC.forEach(function (m) { lv[m[0]] = Math.min(3, B(m[1])); });
+    return { c: c, lv: lv };
+  }
+
+  onFile(e) {
+    var input = e && e.target; var f = input && input.files && input.files[0];
+    if (!f) return;
+    var self = this; var name = f.name;
+    f.arrayBuffer().then(function (buf) {
+      var res = parseSave(buf);
+      var err = '';
+      if (!res.slots.length) err = res.vanilla ? 'This looks like an original (non-Final Mix) KH2 save. Only Final Mix saves are supported.' : 'No Kingdom Hearts II Final Mix save data was found in this file.';
+      self.setState({ imp: { name: name, slots: res.slots, sel: res.slots.length ? res.slots.length - 1 : -1, err: err }, toast: '' });
+    }).catch(function () { self.setState({ imp: { name: name, slots: [], sel: -1, err: "Couldn't read that file." } }); });
+    try { input.value = ''; } catch (x) {}
+  }
+
+  applyImport(mode) {
+    var st = this.state; var imp = st.imp; if (!imp || imp.sel < 0) return;
+    var sl = imp.slots[imp.sel]; var det = this.detect(sl.bytes);
+    var s = st.s; var c = Object.assign({}, s.c); var lv = Object.assign({}, s.lv); var news = Object.assign({}, s.news || {});
+    var added = 0, removed = 0;
+    Object.keys(det.c).forEach(function (id) {
+      var v = det.c[id]; var was = !!c[id];
+      if (v && !was) { c[id] = true; added++; news[tabOfId(id)] = true; }
+      else if (!v && was && mode === 'sync') { delete c[id]; removed++; }
+    });
+    Object.keys(det.lv).forEach(function (k) {
+      var v = det.lv[k]; var was = lv[k] || 0; var nv = mode === 'sync' ? v : Math.max(was, v);
+      if (nv > was) news['drive'] = true;
+      lv[k] = nv;
+    });
+    var meta = { file: imp.name, slot: sl.label, lv: sl.lv, munny: sl.munny, world: sl.world, diff: sl.diff, at: new Date().toISOString() };
+    var di = DIFFS.indexOf(sl.diff);
+    var next = Object.assign({}, s, { c: c, lv: lv, news: news, imp: meta, diff: di >= 0 ? di : s.diff });
+    var gained = this.model(next).earned - this.model(s).earned;
+    if (gained > 0) next.news = Object.assign({}, next.news, { trophies: true });
+    this.commit(next);
+    this.setState({ imp: null, toast: 'Imported ' + sl.label + ': ' + added + ' newly checked' + (removed ? ', ' + removed + ' unchecked' : '') + (gained > 0 ? ', ' + gained + ' trophies earned' : '') + '.' });
+  }
+
+  model(s) {
+    var self = this; var worlds = this.state.worlds || []; var lv = s.lv;
+    var on = function (id) { return !!s.c[id]; };
+    var mkRow = function (id, n, tag, auto) {
+      var v = on(id);
+      return { id: id, n: n, tag: tag || '', hasTag: !!tag, on: v, auto: !!auto, cls: 'row' + (v ? ' on' : '') + (v && self.state.pop === id ? ' pop' : ''), tog: function () { self.toggle(id); }, canDel: false, del: null };
+    };
+    var cnt = function (rows) { return rows.filter(function (r) { return r.on; }).length; };
+    var allW = [];
+    worlds.forEach(function (w) { w[2].forEach(function (r) { allW.push(r); }); });
+    var wRows = function (pred) { return allW.filter(pred).map(function (r) { return mkRow('w.' + r[0], r[1], r[2], true); }); };
+    var R = {
+      chest: wRows(function (r) { return r[5] === 'c'; }), reward: wRows(function (r) { return r[5] === 'p'; }), boss: wRows(function (r) { return r[5] === 'b'; }),
+      maps: wRows(function (r) { return / Map$/.test(r[1]); }),
+      reports: REPORT_BITS.map(function (b, i) { return mkRow('r.' + (i + 1), 'Secret Ansem Report ' + (i + 1), '', true); }),
+      puzzles: PUZZLES.map(function (p) { return mkRow('pz.' + slug(p), p + ' Puzzle', ''); }),
+      mg: MINIGAMES.map(function (m) { return mkRow('mg.' + slug(m[0]), m[0], m[1]); }),
+      mu: MUSH.map(function (m, i) { return mkRow('mu.' + (i + 1), 'Mushroom XIII No. ' + (i + 1), m[1] + ' · ' + m[0]); }),
+      keys: KEYS.map(function (k) { return mkRow('kb.' + slug(k[0]), k[0], '', true); }),
+      as: AS_LIST.map(function (a) { return mkRow('as.' + a[0], 'Absent Silhouette: ' + a[1], 'Everything only', true); }),
+      data: DATA_ORG.map(function (d) { return mkRow('do.' + d[0], 'Data ' + d[1], '', d.length > 2); }),
+      sb: SUPER.map(function (d) { return mkRow('sb.' + d[0], d[1], '', true); }),
+      cups: CUPS.map(function (c) { return mkRow('cup.' + slug(c), c, ''); }),
+      charms: SUMMONS.map(function (m) { return mkRow('sm.' + m[0], m[2], m[1], true); }),
+      proofs: PROOFS.map(function (p) { return mkRow('pf.' + p[0], p[1], '', true); }),
+      pages: PAGES.map(function (b, i) { return mkRow('pg.' + (i + 1), 'Torn Page ' + (i + 1) + ' delivered', '100AW', true); }),
+      feats: FEATS.map(function (f) { return mkRow('ft.' + f[0], f[1], 'Trophy'); }),
+      gummi: GUMMI.map(function (g) { return mkRow('gm.' + g[0], g[1], g[2]); }),
+      extras: [mkRow('ex.abilities', 'Every ability learned', 'Everything only')],
+      custom: s.custom.map(function (g) {
+        var r = mkRow(g.id, g.t, ''); r.canDel = true;
+        r.del = function (e) { if (e && e.preventDefault) e.preventDefault(); var c = Object.assign({}, s.c); delete c[g.id]; self.commit(Object.assign({}, s, { c: c, custom: s.custom.filter(function (x) { return x.id !== g.id; }) })); };
+        return r;
+      })
+    };
+    var single = function (id, label) { return [mkRow('js.' + id, label, '')]; };
+    var J = [
+      { id: 'reports', name: 'Ansem Reports', rows: R.reports },
+      { id: 'treasures', name: 'Treasures', rows: R.chest, summary: true },
+      { id: 'puzzles', name: 'Puzzles', rows: R.puzzles, note: 'Mark a puzzle once every piece is placed.' },
+      { id: 'maps', name: 'Maps', rows: R.maps, note: 'These are the same map pickups listed under each world.' },
+      { id: 'minigames', name: 'Mini-games', rows: R.mg, note: 'A partial list for now. The full Journal list is still being mapped.' },
+      { id: 'synthesis', name: 'Synthesis Notes', rows: single('synthesis', 'Every Synthesis Notes entry'), note: JOURNAL_SINGLE },
+      { id: 'charfiles', name: 'Character Files', rows: single('charfiles', 'Every Character File'), note: JOURNAL_SINGLE },
+      { id: 'heartless', name: 'The Heartless', rows: single('heartless', 'Every Heartless entry'), note: JOURNAL_SINGLE },
+      { id: 'nobodies', name: 'The Nobodies', rows: single('nobodies', 'Every Nobody entry'), note: JOURNAL_SINGLE },
+      { id: 'missions', name: 'Missions', rows: single('missions', 'Every mission'), note: JOURNAL_SINGLE },
+      { id: 'combos', name: 'Combo Attacks', rows: single('combos', 'Every Limit used'), note: JOURNAL_SINGLE },
+      { id: 'links', name: 'Character Links', rows: single('links', 'Every Character Links entry'), note: JOURNAL_SINGLE }
+    ];
+    var jById = {};
+    J.forEach(function (j) { j.done = cnt(j.rows); j.total = j.rows.length; j.ratio = j.total ? j.done / j.total : 0; jById[j.id] = j; });
+    var journalRatio = J.reduce(function (a, j) { return a + j.ratio; }, 0) / J.length;
+
+    var cleared = on('w.FinalXemnas');
+    var evalRule = function (r) {
+      if (r.all) return [r.all.filter(on).length, r.all.length];
+      if (r.lv) return [Math.min(lv[r.lv[0]] || 0, r.lv[1]), r.lv[1]];
+      if (r.sec) { var j = jById[r.sec]; return [j.done, j.total]; }
+      if (r.clear != null) {
+        if (!r.clear) return [cleared ? 1 : 0, 1];
+        var dOk = s.diff != null && s.diff >= r.clear;
+        return [(cleared ? 1 : 0) + (dOk ? 1 : 0), 2];
+      }
+      return [0, 1];
+    };
+    var trophies = TROPHIES.filter(function (t) { return t[0] !== 'plat'; }).map(function (t) {
+      var p = evalRule(t[4]); var auto = p[0] >= p[1]; var over = on('tro.' + t[0]);
+      var txt = p[0] + ' / ' + p[1];
+      if (t[4].clear != null) txt = (cleared ? 'Game cleared' : 'Game not cleared') + (t[4].clear ? ' · ' + (s.diff != null ? DIFFS[s.diff] : 'difficulty not set') : '');
+      return { id: t[0], name: t[1], tier: t[2], req: t[3], group: t[5], done: p[0], total: p[1], auto: auto, over: over, earned: auto || over, progText: txt };
+    });
+    var earned = trophies.filter(function (t) { return t.earned; }).length;
+    var platDone = earned === trophies.length;
+    trophies.unshift({ id: 'plat', name: TROPHIES[0][1], tier: 'P', req: TROPHIES[0][3], group: 'plat', done: earned, total: trophies.length, auto: platDone, over: false, earned: platDone, progText: earned + ' / ' + trophies.length });
+
+    var formSum = FORMS.reduce(function (a, f) { return a + (lv[f[0]] || 0); }, 0);
+    var magSum = MAGIC.reduce(function (a, m) { return a + (lv[m[0]] || 0); }, 0);
+    var journalItems = R.reports.concat(R.puzzles, R.mg, J.slice(5).reduce(function (a, j) { return a.concat(j.rows); }, []));
+    var battle = R.as.concat(R.data, R.sb, R.cups, R.mu);
+    var featsGummi = R.feats.concat(R.gummi, R.extras);
+    var everything = [
+      ['Treasures', cnt(R.chest), R.chest.length, 'worlds'], ['Rewards', cnt(R.reward), R.reward.length, 'worlds'], ['Story Bosses', cnt(R.boss), R.boss.length, 'worlds'],
+      ['Journal', cnt(journalItems), journalItems.length, 'journal'],
+      ['Drive Forms', formSum, 35, 'drive'], ['Summons', cnt(R.charms) + (lv.summon - 1), 10, 'drive'], ['Magic', magSum, 18, 'drive'],
+      ['Key Items', cnt(R.proofs) + cnt(R.pages), 9, 'drive'], ['Sora', lv.sora, 99, 'drive'],
+      ['Keyblades', cnt(R.keys), R.keys.length, 'keys'], ['Battle Records', cnt(battle), battle.length, 'records'],
+      ['Feats & Gummi', cnt(featsGummi) + Math.min(lv.anti || 0, 13), featsGummi.length + 13, 'records'],
+      ['Your Goals', cnt(R.custom), R.custom.length, 'records']
+    ].filter(function (c) { return c[2] > 0; });
+    var everythingRatio = everything.reduce(function (a, c) { return a + c[1] / c[2]; }, 0) / everything.length;
+    var journalCats = J.map(function (j) { return [j.name, j.done, j.total, j.id === 'treasures' ? 'worlds' : 'journal']; });
+    var trophyCats = TROPHY_GROUPS.map(function (g) { var ts = trophies.filter(function (t) { return t.group === g[0]; }); return [g[1], ts.filter(function (t) { return t.earned; }).length, ts.length, 'trophies']; });
+    return {
+      R: R, J: J, jById: jById, trophies: trophies, earned: earned, platDone: platDone, allW: allW, formSum: formSum, magSum: magSum,
+      ratio: { journal: journalRatio, trophies: earned / (TROPHIES.length - 1), everything: everythingRatio },
+      cats: { journal: journalCats, trophies: trophyCats, everything: everything },
+      journalDone: J.filter(function (j) { return j.ratio === 1; }).length
+    };
+  }
+
+  copyExport(text) {
+    var self = this;
+    try {
+      navigator.clipboard.writeText(text).then(function () { self.setState({ copyMsg: 'Copied.' }); }, function () { self.setState({ copyMsg: 'Copy was blocked. Select the code and copy it by hand.' }); });
+    } catch (e) { self.setState({ copyMsg: 'Copy was blocked. Select the code and copy it by hand.' }); }
+  }
+
+  loadPaste() {
+    var txt = (this.state.pasteText || '').trim();
+    try {
+      var o = JSON.parse(txt);
+      if (!o || o.app !== 'kh2fm-100' || !o.s) throw new Error('x');
+      this.commit(normalize(o.s));
+      this.setState({ pasteText: '', pasteErr: '', toast: 'Backup restored.' });
+    } catch (e) { this.setState({ pasteErr: "That isn't a backup code from this tracker." }); }
+  }
+
+  renderVals() {
+    var self = this; var st = this.state; var s = st.s; var tab = st.tab;
+    var worlds = st.worlds || [];
+    var q = (st.q || '').trim().toLowerCase(); var hide = !!st.hide;
+    var on = function (id) { return !!s.c[id]; };
+    var mkRow = function (id, n, tag, auto) {
+      var v = on(id);
+      return { id: id, n: n, tag: tag || '', hasTag: !!tag, on: v, auto: !!auto, cls: 'row' + (v ? ' on' : '') + (v && self.state.pop === id ? ' pop' : ''), tog: function () { self.toggle(id); }, canDel: false, del: null };
+    };
+    var cnt = function (rows) { return rows.filter(function (r) { return r.on; }).length; };
+    var sec = function (title, rows, note) {
+      var vis = rows.filter(function (r) { return (!hide || !r.on) && (!q || (r.n + ' ' + r.tag).toLowerCase().indexOf(q) >= 0); });
+      return { title: title, done: cnt(rows), total: rows.length, note: note || '', rows: vis, empty: vis.length === 0 };
+    };
+
+    var M = this.model(s); var R = M.R; var allW = M.allW; var lv = s.lv;
+    var formSum = M.formSum, magSum = M.magSum;
+    var profile = s.profile || 'everything';
+    var profRow = PROFILES.filter(function (p) { return p[0] === profile; })[0] || PROFILES[2];
+    var pctOf = function (k) { return Math.floor((M.ratio[k] || 0) * 100); };
+    var cats = M.cats[profile].map(function (c) {
+      var pct = c[2] ? Math.floor(c[1] / c[2] * 100) : 0;
+      return { name: c[0], done: c[1], total: c[2], left: c[2] - c[1], pct: pct, aria: c[0] + ': ' + c[1] + ' of ' + c[2] + ', open ' + c[3], go: function () { self.setTab(c[3]); } };
+    });
+    var setProfile = function (id) { self.commit(Object.assign({}, s, { profile: id })); };
+    var trophyTotal = TROPHIES.length - 1;
+    var gauges = [
+      { id: 'journal', label: 'JOURNAL', val: pctOf('journal') + '%', pct: pctOf('journal'), sub: M.journalDone + ' of 12 sections complete' },
+      { id: 'trophies', label: 'TROPHIES', val: M.earned + '/' + trophyTotal, pct: pctOf('trophies'), sub: M.platDone ? 'Platinum earned' : 'Platinum locked' },
+      { id: 'everything', label: 'EVERYTHING', val: pctOf('everything') + '%', pct: pctOf('everything'), sub: 'Every goal in the tracker' }
+    ].map(function (g) { var sel = g.id === profile; g.cls = 'gauge' + (sel ? ' sel' : ''); g.pressed = sel ? 'true' : 'false'; g.pick = function () { setProfile(g.id); }; return g; });
+    var overallVal = profile === 'trophies' ? M.earned + '/' + trophyTotal : pctOf(profile) + '%';
+
+    var tabs = TABS.map(function (t) {
+      var sel = t[0] === tab;
+      return { id: t[0], label: t[1], sel: sel, pressed: sel ? 'true' : 'false', cls: 'cmd' + (sel ? ' sel' : ''), news: !!(s.news && s.news[t[0]]) && !sel, go: function () { self.setTab(t[0]); }, enter: function () { self.setState({ hint: t[2] }); } };
+    });
+    var curTab = TABS.filter(function (t) { return t[0] === tab; })[0] || TABS[0];
+
+    var secs = [];
+    var curWorld = null;
+    if (tab === 'worlds') {
+      curWorld = worlds.filter(function (w) { return w[0] === st.world; })[0] || worlds[0] || null;
+      if (curWorld) {
+        var rows = curWorld[2];
+        var mk = function (t) { return rows.filter(function (r) { return r[5] === t; }).map(function (r) { return mkRow('w.' + r[0], r[1], r[2], true); }); };
+        secs = [sec('Story Bosses', mk('b'), ''), sec('Treasures', mk('c'), ''), sec('Rewards', mk('p'), 'Maps, Keyblades, abilities and other items handed out by events.')].filter(function (x) { return x.total > 0; });
+      }
+    } else if (tab === 'journal') {
+      secs = M.J.map(function (j) {
+        if (j.summary) return { title: j.name, done: j.done, total: j.total, note: 'Treasures are tracked world by world. ' + j.done + ' of ' + j.total + ' chests found.', rows: [], empty: false, hasCta: true, ctaLabel: 'Open Worlds', cta: function () { self.setTab('worlds'); } };
+        return sec(j.name, j.rows, j.note);
+      });
+    } else if (tab === 'keys') {
+      secs = [sec('Keyblades', R.keys, 'A Keyblade counts if it is in your inventory or equipped by Sora or a Drive Form.')];
+    } else if (tab === 'records') {
+      secs = [sec('Absent Silhouettes', R.as, 'Not a trophy: only the Data versions count toward To Rule Them All.'), sec('Data Organization XIII', R.data, 'The save has no known flag for five of these, so mark them by hand.'), sec('Superbosses', R.sb), sec('Coliseum Cups', R.cups), sec('Mushroom XIII', R.mu), sec('Feats', R.feats), sec('Gummi Ship', R.gummi), sec('Extras', R.extras), sec('Your goals', R.custom)];
+    } else if (tab === 'drive') {
+      secs = [sec('Summon Charms', R.charms), sec('Key Items', R.proofs.concat(R.pages))];
+    }
+
+    var trophyRows = [], tierChips = [];
+    if (tab === 'trophies') {
+      tierChips = ['P', 'G', 'S', 'B'].map(function (k) { var ts = M.trophies.filter(function (t) { return t.tier === k; }); return { cls: 'tierChip t-' + k, label: TIER_NAMES[k], done: ts.filter(function (t) { return t.earned; }).length, total: ts.length }; });
+      trophyRows = M.trophies.filter(function (t) { return (!hide || !t.earned) && (!q || (t.name + ' ' + t.req).toLowerCase().indexOf(q) >= 0); }).map(function (t) {
+        var canMark = t.id !== 'plat' && !t.auto;
+        return { name: t.name, req: t.req, tierName: TIER_NAMES[t.tier], tierCls: 'tier t-' + t.tier, cupCls: 'cup t-' + t.tier, cls: 'tr' + (t.earned ? ' got' : '') + (t.earned && (st.pop === 'tro.' + t.id || (st.toastKind === 'trophy' && st.pop && (st.toast || '').indexOf(t.name) >= 0)) ? ' pop' : ''),
+          pct: t.total ? Math.floor(Math.min(t.done, t.total) / t.total * 100) : 0, progText: t.progText, earned: t.earned, canMark: canMark,
+          markLabel: t.over ? 'Unmark' : 'Mark earned', markAria: (t.over ? 'Unmark ' : 'Mark earned: ') + t.name, mark: function () { self.toggle('tro.' + t.id); } };
+      });
+    }
+    var diffBtns = DIFFS.map(function (d, i) { var sel = s.diff === i; return { label: d, cls: 'pill' + (sel ? ' on' : ''), pressed: sel ? 'true' : 'false', pick: function () { self.commit(Object.assign({}, s, { diff: sel ? null : i })); } }; });
+    var cleared = on('w.FinalXemnas');
+
+    var worldBtns = worlds.map(function (w) {
+      var sel = curWorld ? w[0] === curWorld[0] : false;
+      var d = w[2].filter(function (r) { return on('w.' + r[0]); }).length;
+      var pct = w[2].length ? Math.floor(d / w[2].length * 100) : 0;
+      return { n: w[1], pct: pct, pressed: sel ? 'true' : 'false', cls: 'wb' + (sel ? ' sel' : '') + (pct === 100 ? ' full' : ''), pick: function () { self.setState({ world: w[0], q: '' }); } };
+    });
+    var worldIds = curWorld ? curWorld[2].map(function (r) { return 'w.' + r[0]; }) : [];
+
+    var pipList = function (n, max) { var a = []; for (var i = 1; i <= max; i++) a.push({ cls: 'pip' + (i <= n ? ' on' : '') }); return a; };
+    var stepper = function (key, name, sub, min, max, pips, valText, big) {
+      var v = lv[key] || 0;
+      return { n: name, sub: sub, pips: pips ? pipList(v, max) : [], valText: valText, big: !!big, atMin: v <= min, atMax: v >= max,
+        decLabel: 'Lower ' + name, incLabel: 'Raise ' + name,
+        dec: function () { self.setLv(key, v - 1, min, max); }, inc: function () { self.setLv(key, v + 1, min, max); },
+        dec10: function () { self.setLv(key, v - 10, min, max); }, inc10: function () { self.setLv(key, v + 10, min, max); } };
+    };
+    var stepGroups = tab !== 'drive' ? [] : [
+      { title: 'Sora', sum: 'LV ' + lv.sora + ' / 99', items: [stepper('sora', 'Sora', 'Level', 1, 99, false, 'LV ' + lv.sora, true)] },
+      { title: 'Drive Forms', sum: formSum + ' / 35', items: FORMS.map(function (f) { var v = lv[f[0]] || 0; return stepper(f[0], f[1], v ? 'Level ' + v : 'Not obtained', 0, 7, true, v ? 'LV ' + v : '—'); }) },
+      { title: 'Summons', sum: 'LV ' + lv.summon + ' / 7', items: [stepper('summon', 'Summon level', 'Shared by all summons', 1, 7, true, 'LV ' + lv.summon)] },
+      { title: 'Magic', sum: magSum + ' / 18', items: MAGIC.map(function (m) { var v = lv[m[0]] || 0; return stepper(m[0], m[2][0], v ? m[2][v - 1] : 'Not learned', 0, 3, true, v ? 'LV ' + v : '—'); }) },
+      { title: 'Anti Form', sum: Math.min(lv.anti || 0, 13) + ' / 13', items: [stepper('anti', 'Anti Form transformations', 'For Corroded by Darkness', 0, 13, false, (lv.anti || 0) + ' / 13')] }
+    ];
+
+    var imp = st.imp; var hasSlots = !!(imp && imp.slots.length);
+    var slotBtns = hasSlots ? imp.slots.map(function (sl, i) { var sel = i === imp.sel; return { label: sl.label, lv: sl.lv, world: sl.world, munny: fmtNum(sl.munny), diff: sl.diff, pressed: sel ? 'true' : 'false', cls: 'slot' + (sel ? ' sel' : ''), pick: function () { self.setState({ imp: Object.assign({}, imp, { sel: i }) }); } }; }) : [];
+    var preview = [];
+    if (hasSlots && imp.sel >= 0) {
+      var det = this.detect(imp.slots[imp.sel].bytes);
+      var dc = function (pred) { return Object.keys(det.c).filter(function (id) { return pred(id) && det.c[id]; }).length; };
+      var wt = function (t) { return dc(function (id) { var r = allW.filter(function (x) { return 'w.' + x[0] === id; })[0]; return !!r && r[5] === t; }); };
+      var simC = Object.assign({}, s.c);
+      Object.keys(det.c).forEach(function (id) { if (det.c[id]) simC[id] = true; else delete simC[id]; });
+      var di = DIFFS.indexOf(imp.slots[imp.sel].diff);
+      var sim = this.model(Object.assign({}, s, { c: simC, lv: Object.assign({}, s.lv, det.lv), diff: di >= 0 ? di : s.diff }));
+      preview = [
+        { k: 'Sora', v: 'LV ' + det.lv.sora }, { k: 'Trophies after sync', v: sim.earned + ' / ' + trophyTotal },
+        { k: 'Treasures', v: wt('c') + ' / ' + R.chest.length }, { k: 'Rewards', v: wt('p') + ' / ' + R.reward.length }, { k: 'Story Bosses', v: wt('b') + ' / ' + R.boss.length },
+        { k: 'Ansem Reports', v: dc(function (id) { return id.indexOf('r.') === 0; }) + ' / 13' }, { k: 'Keyblades', v: dc(function (id) { return id.indexOf('kb.') === 0; }) + ' / ' + KEYS.length },
+        { k: 'Drive Forms', v: FORMS.reduce(function (a, f) { return a + det.lv[f[0]]; }, 0) + ' / 35' }, { k: 'Magic', v: MAGIC.reduce(function (a, m) { return a + det.lv[m[0]]; }, 0) + ' / 18' }
+      ];
+    }
+    var exportText = tab === 'data' ? JSON.stringify({ app: 'kh2fm-100', v: 2, s: { c: s.c, lv: s.lv, custom: s.custom, imp: s.imp, profile: s.profile, diff: s.diff } }) : '';
+    var ip = s.imp;
+    var impView = ip ? { file: ip.file || '—', slot: (ip.slot || '—') + ' · LV ' + ip.lv, diff: ip.diff || '—', world: ip.world || '—', when: ip.at ? new Date(ip.at).toLocaleString() : '—' } : { file: '', slot: '', diff: '', world: '', when: '' };
+
+    return {
+      tabs: tabs, tabTitle: curTab[1], helpText: st.toast || st.hint || curTab[2],
+      helpCls: 'help' + (st.toast && st.toastKind === 'trophy' ? ' trophy' : ''),
+      leaveTab: function () { self.setState({ hint: null }); },
+      munnyText: s.imp ? fmtNum(s.imp.munny) : '—', soraLv: lv.sora, overallVal: overallVal, totalLabel: profRow[2],
+      gauges: gauges, profileName: profRow[1],
+      isStatus: tab === 'status', isWorlds: tab === 'worlds', isDrive: tab === 'drive', isJournal: tab === 'journal', isData: tab === 'data',
+      isTrophies: tab === 'trophies', isRecords: tab === 'records',
+      showSecs: ['worlds', 'journal', 'keys', 'records', 'drive'].indexOf(tab) >= 0,
+      cats: cats, hasImp: !!s.imp, noImp: !s.imp, imp: impView,
+      trophyRows: trophyRows, tierChips: tierChips, noTrophyRows: tab === 'trophies' && trophyRows.length === 0,
+      diffBtns: diffBtns, clearCls: 'pill' + (cleared ? ' on' : ''), clearPressed: cleared ? 'true' : 'false',
+      clearLabel: cleared ? 'Game cleared (Final Xemnas beaten)' : 'Mark game cleared (Final Xemnas beaten)',
+      toggleClear: function () { self.toggle('w.FinalXemnas'); },
+      loading: tab === 'worlds' && st.worlds === null, loadErr: st.loadErr,
+      worldBtns: worldBtns, worldShort: curWorld ? (SHORT[curWorld[0]] || curWorld[1]) : 'world',
+      markWorld: function () { self.setMany(worldIds, true); }, clearWorld: function () { self.setMany(worldIds, false); },
+      stepGroups: stepGroups, secs: secs,
+      q: st.q, onQ: function (e) { self.setState({ q: e.target.value }); },
+      hideCls: 'pill' + (hide ? ' on' : ''), hidePressed: hide ? 'true' : 'false', toggleHide: function () { self.setState({ hide: !hide }); },
+      customText: st.customText, noCustomText: !(st.customText || '').trim(),
+      onCustom: function (e) { self.setState({ customText: e.target.value }); },
+      addCustom: function () { var t = (st.customText || '').trim(); if (!t) return; var id = 'cu.' + Date.now().toString(36); self.commit(Object.assign({}, s, { custom: s.custom.concat([{ id: id, t: t }]) })); self.setState({ customText: '' }); },
+      onFile: function (e) { self.onFile(e); },
+      impName: imp ? imp.name : '', impErr: imp ? imp.err : '', hasSlots: hasSlots, slotBtns: slotBtns, preview: preview,
+      applySync: function () { self.applyImport('sync'); }, applyAdd: function () { self.applyImport('add'); }, cancelImp: function () { self.setState({ imp: null }); },
+      exportText: exportText, copyMsg: st.copyMsg, copyExport: function () { self.copyExport(exportText); },
+      pasteText: st.pasteText, noPaste: !(st.pasteText || '').trim(), pasteErr: st.pasteErr,
+      onPaste: function (e) { self.setState({ pasteText: e.target.value, pasteErr: '' }); }, loadPaste: function () { self.loadPaste(); },
+      resetLabel: st.resetArm ? 'Press again to erase everything' : 'Reset all progress',
+      resetAll: function () { if (!st.resetArm) { self.setState({ resetArm: true }); return; } self.commit(blank()); self.setState({ resetArm: false, toast: 'All progress erased.' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

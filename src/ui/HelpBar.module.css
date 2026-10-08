@@ -1,0 +1,36 @@
+.help {
+  position: relative;
+  z-index: 1;
+  border-top: 3px solid var(--c-frame-3);
+  background: var(--c-help);
+  padding: 14px 24px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+.help p {
+  margin: 0;
+  color: var(--c-help-text);
+  font-size: 20px;
+  font-weight: 500;
+}
+.trophy {
+  box-shadow: inset 0 3px 0 var(--c-gold);
+}
+.trophy p {
+  color: var(--c-new);
+  font-weight: 700;
+  animation: helpIn 0.5s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trophy p {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .help p {
+    font-size: 16px;
+  }
+}

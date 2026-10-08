@@ -1,0 +1,228 @@
+.kh {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--c-ground);
+  background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px);
+  color: var(--c-text);
+  font-family: var(--font);
+}
+
+/* Animated scanline glow: one slow sweeping band plus drifting lines. Never blocks the pointer. */
+.kh::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(60, 140, 255, 0.06) 40%,
+    rgba(150, 215, 255, 0.13) 50%,
+    rgba(60, 140, 255, 0.06) 60%,
+    transparent 100%
+  );
+  background-size: 100% 360px;
+  background-repeat: no-repeat;
+  animation: scan 8s linear infinite;
+}
+.kh::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(0deg, rgba(120, 190, 255, 0.035) 0 1px, transparent 1px 3px);
+  animation: drift 0.9s steps(3) infinite;
+}
+@keyframes scan {
+  from {
+    background-position: 0 -360px;
+  }
+  to {
+    background-position: 0 calc(100vh + 360px);
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(3px);
+  }
+}
+
+.top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 16px 20px 0;
+}
+.menuTag {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 34px;
+  border-radius: 24px;
+  background: var(--c-royal);
+  border: 2px solid var(--c-ice);
+  box-shadow:
+    inset 0 -6px 0 rgba(0, 0, 40, 0.35),
+    0 0 14px rgba(60, 140, 255, 0.6);
+  flex: none;
+}
+.menuTag span {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 26px;
+  letter-spacing: 0.14em;
+  color: var(--c-white);
+  text-shadow: 2px 2px 0 var(--c-shadow-blue);
+}
+.loc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--c-frame);
+  box-shadow: 0 2px 0 rgba(42, 107, 255, 0.25);
+  padding-bottom: 6px;
+  min-width: 0;
+}
+.locName {
+  color: var(--c-orange);
+  font-size: 24px;
+  font-weight: 600;
+  font-style: italic;
+  text-align: right;
+}
+.locSub {
+  color: var(--c-text-sub);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+  flex: 1;
+}
+.cmds {
+  flex: 1 1 230px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel {
+  flex: 999 1 560px;
+  min-width: 0;
+  border-radius: 16px;
+  border: 2px solid var(--c-frame-2);
+  background: var(--c-panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(150, 205, 255, 0.25),
+    0 0 24px rgba(30, 90, 255, 0.25);
+  padding: 20px;
+}
+.ptitle {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--c-white);
+  text-shadow: 2px 2px 0 var(--c-shadow-blue);
+}
+
+/* Screen transition: right-to-left wipe and slide, with a shimmer sweeping across. */
+.scr {
+  position: relative;
+  animation: scrIn var(--t-screen) var(--ease-out) backwards;
+}
+.scr::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  bottom: -24px;
+  left: -20%;
+  width: 140px;
+  background: linear-gradient(90deg, transparent, rgba(160, 215, 255, 0.16), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+  animation: sweep 0.7s ease-out 0.04s;
+}
+@keyframes scrIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px) scaleY(0.97);
+    clip-path: inset(0 0 0 100%);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes sweep {
+  0% {
+    left: -20%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kh::before,
+  .kh::after {
+    display: none;
+  }
+  .scr,
+  .scr::before {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .cmds {
+    max-width: none;
+    flex-basis: 100%;
+  }
+  .panel {
+    padding: 14px;
+  }
+  .locName {
+    font-size: 18px;
+  }
+  .menuTag {
+    padding: 0 20px;
+  }
+  .menuTag span {
+    font-size: 20px;
+  }
+  .body {
+    padding: 16px;
+  }
+  .top {
+    padding: 16px 16px 0;
+  }
+}

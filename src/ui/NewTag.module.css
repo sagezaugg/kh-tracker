@@ -1,0 +1,10 @@
+.new {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--c-new);
+  text-shadow:
+    0 0 3px var(--c-new-glow),
+    1px 1px 0 var(--c-new-shadow);
+  flex: none;
+}

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>What's Left — KH2FM Tracker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#020615}
+a{color:#8fd0ff}a:hover{color:#ffffff}
+.kh{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;background-color:#03082a;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px);color:#eef4ff;font-family:'Saira Semi Condensed',system-ui,sans-serif}
+.top{display:flex;align-items:flex-end;gap:16px;padding:16px 20px 0}
+.menuTag{display:inline-flex;align-items:center;height:46px;padding:0 34px;border-radius:24px;background:#0a2fb8;border:2px solid #8fd0ff;box-shadow:inset 0 -6px 0 rgba(0,0,40,.35),0 0 14px rgba(60,140,255,.6);flex:none}
+.menuTag span{font-weight:800;font-style:italic;font-size:26px;letter-spacing:.14em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.loc{flex:1;display:flex;flex-direction:column;align-items:flex-end;border-bottom:2px solid #2a6bff;padding-bottom:6px;min-width:0}
+.locName{color:#ffa133;font-size:24px;font-weight:600;font-style:italic}
+.locSub{color:#9fd0ff;font-size:14px}
+.body{display:flex;flex-wrap:wrap;gap:20px;padding:20px;align-items:flex-start;flex:1}
+.cmds{flex:1 1 230px;max-width:280px;display:flex;flex-direction:column;gap:6px;padding-left:26px;box-sizing:border-box}
+.cmd{position:relative;display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 14px;border-radius:8px;border:2px solid #7d8597;background:linear-gradient(180deg,#4a505e 0%,#2a2e37 55%,#1f222a 100%);color:#fff;font:600 19px/1 'Saira Semi Condensed',sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.cmd.sel{border-color:#ff4022;box-shadow:inset 0 0 0 1px #ff8a5c,0 0 12px rgba(255,70,30,.75)}
+.hand{position:absolute;left:-30px;top:50%;margin-top:-11px;width:34px;height:22px}
+.new{font-style:italic;font-weight:800;font-size:15px;color:#ffe14a;text-shadow:0 0 3px #e2470f,1px 1px 0 #a22a00}
+.panel{flex:999 1 560px;min-width:0;box-sizing:border-box;border-radius:16px;border:2px solid #2f7bff;background:rgba(9,26,104,.55);box-shadow:inset 0 0 0 1px rgba(150,205,255,.25),0 0 24px rgba(30,90,255,.25);padding:20px;display:flex;flex-direction:column;gap:18px}
+.ptitle{margin:0;font-size:28px;font-weight:800;font-style:italic;letter-spacing:.04em;color:#fff;text-shadow:2px 2px 0 #0a1a6a}
+.controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.ctl{display:flex;align-items:center;gap:8px}
+.ctlL{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9fd0ff}
+.seg{display:inline-flex;border:2px solid #7d8597;border-radius:22px;overflow:hidden}
+.seg span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;font-weight:600;font-size:15px;background:#22262f}
+.seg span.on{background:#0a2fb8;box-shadow:inset 0 0 0 2px #ff4022}
+.here{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:14px 18px;border-radius:12px;border:2px solid #ff4022;background:#1a0c2e;box-shadow:0 0 14px rgba(255,70,30,.35)}
+.hereL{display:flex;flex-direction:column;gap:2px;flex:1 1 300px}
+.kicker{font-style:italic;font-weight:800;color:#ff9a5c;font-size:14px;letter-spacing:.1em}
+.hereT{margin:0;font-size:24px;font-weight:800;font-style:italic;color:#fff}
+.hereS{font-size:15px;color:#cfe3ff}
+.bigN{font-style:italic;font-weight:800;font-size:44px;color:#ffd54a;line-height:1;text-shadow:2px 2px 0 #6b3a00}
+.bigN small{font-size:18px;color:#eaf3ff;text-shadow:none}
+.wins{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.win{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;border:2px solid #2a6bff;background:#061048}
+.winT{margin:0;font-size:19px;font-weight:700;font-style:italic;color:#ffa133}
+.winN{font-size:14px;color:#a9c4ee}
+.winList{margin:0;padding:0 0 0 18px;font-size:15px;color:#eef4ff;display:flex;flex-direction:column;gap:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.tchip{display:inline-flex;align-items:center;padding:2px 10px;border-radius:12px;border:1px solid rgba(255,225,74,.6);color:#ffe14a;font-size:13px;font-weight:700}
+.cols{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.main{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.side{flex:1 1 260px;display:flex;flex-direction:column;gap:12px}
+.wg{border:2px solid #2a6bff;border-radius:12px;background:#061048;overflow:hidden}
+.wgH{display:flex;align-items:center;gap:12px;padding:10px 14px;background:linear-gradient(180deg,#0d2a8a,#081a5c);border-bottom:2px solid #2a6bff}
+.wgT{margin:0;flex:1;font-size:19px;font-weight:700;font-style:italic;color:#fff}
+.cnt{font-weight:800;font-style:italic;color:#ffd54a;font-size:18px}
+.chev{width:16px;height:16px;flex:none;color:#8fd0ff}
+.wgB{display:flex;flex-direction:column;gap:4px;padding:10px}
+.sub{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9fd0ff;margin:6px 4px 2px}
+.row{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 10px;box-sizing:border-box;border-radius:6px;border:1px solid rgba(120,170,255,.22);background:rgba(4,12,48,.7)}
+.box{flex:none;width:13px;height:13px;transform:rotate(45deg);border:2px solid #8fb4ff;margin:0 4px}
+.nm{flex:1;min-width:0;display:flex;flex-direction:column}
+.nm b{font-size:16px;font-weight:600}
+.nm span{font-size:13px;color:#a9c4ee}
+.tag{flex:none;font-size:12px;font-weight:700;color:#9fd0ff;border:1px solid rgba(143,208,255,.5);border-radius:10px;padding:0 7px}
+.tag.boss{color:#ffb39a;border-color:rgba(255,138,92,.6)}
+.tag.rew{color:#b9a3ff;border-color:rgba(185,163,255,.6)}
+.tag.ult{color:#ffd54a;border-color:rgba(255,213,74,.6)}
+.more{align-self:flex-start;min-height:36px;padding:0 14px;border-radius:18px;border:1px solid #8fd0ff;color:#8fd0ff;font-weight:600;font-size:14px;display:inline-flex;align-items:center}
+.coll{display:flex;flex-direction:column;gap:8px}
+.cr{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:10px;border:2px solid #2a6bff;background:#061048}
+.cr b{flex:1;font-size:17px;font-style:italic}
+.cr span{font-size:14px;color:#a9c4ee}
+.card{border:2px solid #2a6bff;border-radius:12px;background:#061048;padding:14px}
+.cardT{margin:0 0 8px;font-size:18px;font-weight:700;font-style:italic;color:#ffa133}
+.tr{display:flex;flex-direction:column;gap:3px;padding:8px 0;border-bottom:1px solid rgba(120,170,255,.2)}
+.tr:last-child{border-bottom:0}
+.tr b{font-size:16px}
+.tr span{font-size:14px;color:#a9c4ee}
+.trBar{display:block;height:4px;background:#13361c}.trBar span{display:block;height:100%;background:#3cff6a}
+.note{color:#a9c4ee;font-size:14px;margin:0}
+.help{border-top:3px solid #1f5bff;background:#040c38;padding:14px 24px;min-height:64px;box-sizing:border-box;display:flex;align-items:center}
+.help p{margin:0;color:#a9d6ff;font-size:20px;font-weight:500}
+.kh{position:relative;overflow-x:hidden}
+.kh::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,transparent 0%,rgba(60,140,255,.06) 40%,rgba(150,215,255,.13) 50%,rgba(60,140,255,.06) 60%,transparent 100%);background-size:100% 360px;background-repeat:no-repeat;animation:scan 8s linear infinite}
+.kh::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,rgba(120,190,255,.035) 0 1px,transparent 1px 3px);animation:drift .9s steps(3) infinite}
+@keyframes scan{from{background-position:0 -360px}to{background-position:0 calc(100vh + 360px)}}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(3px)}}
+.top,.body,.help{position:relative;z-index:1}
+.cmd.sel .hand{animation:bob 1.1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+.panel{animation:scrIn .34s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes scrIn{0%{opacity:0;transform:translateX(30px) scaleY(.97);clip-path:inset(0 0 0 100%)}55%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion: reduce){.kh::before,.kh::after{display:none}.cmd.sel .hand,.panel{animation:none}}
+@media (max-width:720px){.cmds{max-width:none;flex-basis:100%;flex-direction:row;flex-wrap:wrap;padding-left:0}.cmd{flex:1 1 140px}.hand{display:none}.panel{padding:14px}.bigN{font-size:34px}}
+</style>
+</helmet>
+<div class="kh">
+  <header class="top">
+    <div class="menuTag"><span>MENU</span></div>
+    <div class="loc"><span class="locName">What's Left</span><span class="locSub">Kingdom Hearts II Final Mix · 100% Completion Tracker</span></div>
+  </header>
+  <div class="body">
+    <nav class="cmds" aria-label="Tracker sections">
+      <a class="cmd" href="Main.dc.html"><span>Status</span></a>
+      <a class="cmd sel" href="#top" aria-current="page"><svg class="hand" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 8.5c0-2 1.6-3.5 3.5-3.5H15l2.2-3h3.3l.9 3H31a2 2 0 0 1 0 4H21v1h2.6a2 2 0 0 1 0 4H21v1h1.4a2 2 0 0 1 0 4H9.5C5.4 19 2 15.6 2 11.5z" fill="#ffffff" stroke="#1a1f2e" stroke-width="1.3" stroke-linejoin="round"></path></svg><span>What's Left</span><span class="new">NEW!</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Worlds</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Journal</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Trophies</span></a>
+      <a class="cmd" href="Synthesis.dc.html"><span>Synthesis</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Drive &amp; Magic</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Keyblades</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Records</span></a>
+      <a class="cmd" href="Main.dc.html"><span>Config</span></a>
+    </nav>
+
+    <main class="panel">
+      <h1 class="ptitle">What's Left</h1>
+
+      <div class="controls">
+        <div class="ctl"><span class="ctlL">Count toward</span><div class="seg" role="group" aria-label="Completion definition"><span>Journal</span><span>Trophies</span><span class="on">Everything</span></div></div>
+        <div class="ctl"><span class="ctlL">Hints</span><div class="seg" role="group" aria-label="Spoiler level"><span>Counts only</span><span>Area</span><span class="on">Full</span></div></div>
+        <div class="ctl"><span class="ctlL">Group by</span><div class="seg" role="group" aria-label="Grouping"><span class="on">World</span><span>Visit</span></div></div>
+      </div>
+
+      <section class="here" aria-label="Where you are">
+        <div class="hereL">
+          <span class="kicker">YOU'RE SAVED IN</span>
+          <h2 class="hereT">The World That Never Was</h2>
+          <span class="hereS">4 unopened chests in Fragment Crossing and 1 at the Brink of Despair. Final Xemnas is still unchecked.</span>
+        </div>
+        <span class="bigN">6<small> left here</small></span>
+        <span class="bigN">58<small> left in worlds</small></span>
+      </section>
+
+      <div class="wins">
+        <section class="win" aria-label="Quick win: Atlantica">
+          <h2 class="winT">Atlantica · one trip, 4 rewards</h2>
+          <span class="winN">Finish the musicals to collect:</span>
+          <ul class="winList"><li>Mysterious Abyss (Keyblade)</li><li>Blizzard Element, which gets you Blizzaga</li><li>Orichalcum+ for Ultima</li><li>Undersea Kingdom Map</li></ul>
+          <div class="chips"><span class="tchip">Kindred Spirits</span><span class="tchip">Navigator</span></div>
+        </section>
+        <section class="win" aria-label="Quick win: Cavern of Remembrance">
+          <h2 class="winT">Cavern of Remembrance · 14 chests</h2>
+          <span class="winN">Hollow Bastion's optional dungeon, plus the Garden of Assemblage:</span>
+          <ul class="winList"><li>11 cavern chests, including a Serenity Crystal</li><li>3 Garden of Assemblage chests, including its map</li><li>Transport to Remembrance fight</li></ul>
+          <div class="chips"><span class="tchip">Treasure Hunter</span><span class="tchip">Navigator</span></div>
+        </section>
+        <section class="win" aria-label="Quick win: Olympus cups">
+          <h2 class="winT">Olympus Coliseum · cups</h2>
+          <span class="winN">5 rewards are cup prizes:</span>
+          <ul class="winList"><li>Titan Cup: Genji Shield, Skillful Ring</li><li>Goddess of Fate: Fatal Crest, Orichalcum+</li><li>Paradox Cups: Hades Cup Trophy</li></ul>
+          <div class="chips"><span class="tchip">Artisan Hero</span><span class="tchip">True Hero</span></div>
+        </section>
+      </div>
+
+      <div class="cols">
+        <div class="main">
+          <section class="wg" aria-label="The World That Never Was">
+            <div class="wgH"><h2 class="wgT">The World That Never Was</h2><span class="cnt">6</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="wgB">
+              <span class="sub">Treasures · 5</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Orichalcum</b><span>Fragment Crossing · TWTNW</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Mythril Crystal</b><span>Fragment Crossing · TWTNW</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Mythril Stone</b><span>Fragment Crossing · TWTNW</span></span><span class="tag">Chest</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>AP Boost</b><span>Fragment Crossing · TWTNW</span></span><span class="tag">Chest</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Orichalcum+</b><span>The Brink of Despair · TWTNW2</span></span><span class="tag ult">Ultima</span></div>
+              <span class="sub">Story · 1</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Final Xemnas</b><span>Needed for the three ending trophies</span></span><span class="tag boss">Boss</span></div>
+            </div>
+          </section>
+
+          <section class="wg" aria-label="Hollow Bastion">
+            <div class="wgH"><h2 class="wgT">Hollow Bastion</h2><span class="cnt">17</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="wgB">
+              <span class="sub">Rewards · 2</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Winner's Proof</b><span>Event reward · HB2</span></span><span class="tag rew">Keyblade</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Proof of Peace</b><span>Event reward · HB2</span></span><span class="tag rew">Reward</span></div>
+              <span class="sub">Treasures · 14</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Serenity Crystal</b><span>Engine Chamber · Cavern of Remembrance</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Dark Remembrance Map</b><span>Mining Area · Cavern of Remembrance</span></span><span class="tag">Map</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Garden of Assemblage Map</b><span>Garden of Assemblage</span></span><span class="tag">Map</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Manifest Illusion</b><span>Depths · Cavern of Remembrance</span></span><span class="tag">Chest</span></div>
+              <span class="more">Show 10 more</span>
+              <span class="sub">Story · 1</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Transport to Remembrance</b><span>Cavern of Remembrance</span></span><span class="tag boss">Boss</span></div>
+            </div>
+          </section>
+
+          <section class="wg" aria-label="Twilight Town">
+            <div class="wgH"><h2 class="wgT">Twilight Town</h2><span class="cnt">16</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="wgB">
+              <span class="sub">Treasures · 16</span>
+              <div class="row"><span class="box"></span><span class="nm"><b>Orichalcum+</b><span>Sunset Terrace · TT</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Orichalcum</b><span>Underground Concourse · TT</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Orichalcum</b><span>Tunnelway · TT</span></span><span class="tag ult">Ultima</span></div>
+              <div class="row"><span class="box"></span><span class="nm"><b>Potion</b><span>Central Station · Roxas's prologue (STT)</span></span><span class="tag">Chest</span></div>
+              <span class="more">Show 12 more</span>
+            </div>
+          </section>
+
+          <div class="coll">
+            <div class="cr"><b>Olympus Coliseum</b><span>4 chests, 5 cup rewards</span><span class="cnt">9</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="cr"><b>Atlantica</b><span>4 musical rewards</span><span class="cnt">4</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="cr"><b>100 Acre Wood</b><span>3 chests</span><span class="cnt">3</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="cr"><b>Agrabah</b><span>2 chests</span><span class="cnt">2</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+            <div class="cr"><b>Timeless River</b><span>1 chest</span><span class="cnt">1</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <section class="card" aria-label="Trophies within reach">
+            <h2 class="cardT">Trophies within reach</h2>
+            <div class="tr"><b>Ambitious Adventurer, Proud Player, Critical Competitor</b><span>Mark Final Xemnas as beaten. Your save is on Critical, so all three unlock.</span></div>
+            <div class="tr"><b>Navigator</b><span>3 maps left: Dark Remembrance, Garden of Assemblage, Undersea Kingdom</span><span class="trBar"><span style="width: 92%"></span></span></div>
+            <div class="tr"><b>Kindred Spirits</b><span>Finish the last Atlantica musical</span></div>
+            <div class="tr"><b>True Hero</b><span>Win the Goddess of Fate Cup</span></div>
+            <div class="tr"><b>Treasure Hunter</b><span>45 chests left</span><span class="trBar"><span style="width: 85%"></span></span></div>
+          </section>
+          <section class="card" aria-label="Beyond the worlds">
+            <h2 class="cardT">Beyond the worlds</h2>
+            <div class="tr"><b>Keyblades · 19 / 24</b><span>Mysterious Abyss, Fatal Crest, Fenrir, Ultima Weapon, Winner's Proof</span></div>
+            <div class="tr"><b>Superbosses · 0 / 20</b><span>Absent Silhouettes, Data Organization, Lingering Will, Sephiroth</span></div>
+            <div class="tr"><b>Drive Forms · 17 / 35</b><span>Final Form is LV 1</span></div>
+          </section>
+          <p class="note">Counts come from your Slot 1 import. Hints switch to "Area" to hide what's inside each chest.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <footer class="help"><p>Everything you haven't done yet, grouped by world, with the quickest wins first.</p></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

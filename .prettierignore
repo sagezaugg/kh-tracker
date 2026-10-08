@@ -1,0 +1,7 @@
+dist
+coverage
+node_modules
+reference
+data
+package-lock.json
+PROMPT.md

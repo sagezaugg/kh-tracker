@@ -1,0 +1,37 @@
+.wal {
+  margin: 0;
+  border-radius: 0 20px 20px 0;
+  background: var(--c-navy);
+  border: 2px solid var(--c-frame);
+  padding: 10px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.label {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+.m {
+  color: var(--c-munny);
+}
+.t {
+  color: var(--c-label);
+}
+.value {
+  margin: 0;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--c-gold);
+  text-align: right;
+  text-shadow: 1px 1px 0 var(--c-gold-shadow);
+  line-height: 1.1;
+}
+.vt {
+  color: #eaf3ff;
+  text-shadow: 1px 1px 0 var(--c-shadow-blue);
+}

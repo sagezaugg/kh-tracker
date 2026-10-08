@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+*.local
+.vercel
+.env*
+# Real save file used by the fixture tests (owner-supplied, never committed)
+tests/fixtures/KHIIFM.png
+tests/fixtures/*.png
+tests/fixtures/*.ps2

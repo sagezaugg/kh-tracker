@@ -76,7 +76,7 @@ describe('game switcher', () => {
   });
 
   it("falls back to the other game's Status for screens it lacks", () => {
-    renderAt('/kh2/synthesis');
+    renderAt('/kh2/drive');
     const games = screen.getByRole('navigation', { name: 'Games' });
     expect(within(games).getByRole('link', { name: /KH1FM/ })).toHaveAttribute('href', '/kh1');
   });

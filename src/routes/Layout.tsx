@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import { CommandMenu } from '../ui/CommandMenu';
 import { HelpBar } from '../ui/HelpBar';
 import { WalletBox } from '../ui/WalletBox';
@@ -86,7 +86,8 @@ export function Layout() {
         </main>
       </div>
 
-      <HelpBar text={helpText} trophy={toast !== null && toastKind === 'trophy'} />
+      <HelpBar text={helpText} trophy={toast !== null && toastKind === 'trophy'} announce={toast} />
+      <ScrollRestoration />
     </div>
   );
 }

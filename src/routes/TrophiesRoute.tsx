@@ -39,6 +39,7 @@ export function TrophiesRoute() {
         can&apos;t see, mark it by hand. The world trophies use each world&apos;s last story boss as the
         trigger.
       </p>
+      <h2 className="sr-only">Trophy list</h2>
       <div className={styles.trs}>
         {rows.map((t) => (
           <TrophyCard key={t.id} t={t} onMark={() => toggle(trophyOverrideId(t.id))} />

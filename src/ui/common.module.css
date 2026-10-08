@@ -90,7 +90,7 @@
   border-color: var(--c-sel);
 }
 .sm {
-  min-height: 36px;
+  min-height: var(--touch);
   padding: 0 12px;
   font-size: 14px;
 }

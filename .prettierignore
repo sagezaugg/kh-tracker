@@ -5,3 +5,4 @@ reference
 data
 package-lock.json
 PROMPT.md
+src/data/locations.json

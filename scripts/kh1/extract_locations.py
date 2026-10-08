@@ -2,9 +2,11 @@
 """
 Build src/games/kh1/data/locations.json from the Archipelago KH1 world and its game-side mod.
 
-Sources (both MIT):
+Sources (all MIT):
   - ArchipelagoMW/Archipelago  worlds/kh1/Locations.py           (location names, regions, types)
   - gaithern/KH-1FM-AP-LUA      1fmAPConnector.lua                 (how each location is detected)
+  - gaithern/KH1FM-RANDOMIZER   Static Files/scripts/io_packages/globals.lua
+                                (map prize event flags: Trinity marks, flowers, chairs; Steam base 0x2DEA168)
 
 The Lua mod reads *game memory* on Steam/EGS. A KH1FM save slot is a copy of the same block, so
 save offset = Steam address - 0x2DE9360. That base was checked against three independent fields
@@ -17,8 +19,10 @@ Usage:
   (cd ap && git sparse-checkout set worlds/kh1 && git checkout 9b64e832874a50d5d14d5bc599d356d2c5194d7a)
   git clone https://github.com/gaithern/KH-1FM-AP-LUA.git kh1lua
   (cd kh1lua && git checkout 4fe14a5445cabe13b36aa50c7aa3378027f1afb3)
+  git clone https://github.com/gaithern/KH1FM-RANDOMIZER.git kh1rando
+  (cd kh1rando && git checkout 57e701fccc71fc2220d83a86eace198a08136ff9)
   python3 scripts/kh1/extract_locations.py ap/worlds/kh1/Locations.py kh1lua/1fmAPConnector.lua \\
-      src/games/kh1/data/locations.json
+      src/games/kh1/data/locations.json "kh1rando/Static Files/scripts/io_packages/globals.lua"
 
 Output:
   {"v":1,"source":"...","worlds":[[key, name, [[id, name, type, flag], ...]], ...],
@@ -36,6 +40,7 @@ import sys
 STEAM_BASE = 0x2DE9360
 AP_COMMIT = '9b64e832874a50d5d14d5bc599d356d2c5194d7a'
 LUA_COMMIT = '4fe14a5445cabe13b36aa50c7aa3378027f1afb3'
+RANDO_COMMIT = '57e701fccc71fc2220d83a86eace198a08136ff9'
 
 # Region (Archipelago) -> tracker world key, in game order. Homecoming only holds Final Ansem.
 WORLDS = [
@@ -114,9 +119,22 @@ def load_rules(lua_path):
     return rules
 
 
-def main(loc_path, lua_path, out_path):
+def load_prize_rules(globals_path):
+    """Map prizes: {byte offset from the event-flag block (Steam 0x2DEA168), 1-based bit} per location."""
+    src = open(globals_path, encoding='utf-8').read()
+    base = so(0x2DEA168)
+    rules = {}
+    for lid, off, bit in re.findall(r'\[(\d{7})\] = \{(0x[0-9A-Fa-f]+), (\d+), \w+\}', src):
+        rules[int(lid)] = ['b', base + int(off, 16), int(bit) - 1]
+    if len(rules) != 24:
+        raise SystemExit(f'expected 24 map prizes, found {len(rules)}')
+    return rules
+
+
+def main(loc_path, lua_path, out_path, globals_path):
     locs = load_locations(loc_path)
     rules = load_rules(lua_path)
+    rules.update(load_prize_rules(globals_path))
     by_region = {name: [] for _, name in WORLDS}
     reports = []
     for L in locs:
@@ -134,7 +152,8 @@ def main(loc_path, lua_path, out_path):
     out = {
         'v': 1,
         'source': f'ArchipelagoMW/Archipelago@{AP_COMMIT[:8]} worlds/kh1/Locations.py + '
-        f'gaithern/KH-1FM-AP-LUA@{LUA_COMMIT[:8]} 1fmAPConnector.lua (Steam address - 0x{STEAM_BASE:X})',
+        f'gaithern/KH-1FM-AP-LUA@{LUA_COMMIT[:8]} 1fmAPConnector.lua + '
+        f'gaithern/KH1FM-RANDOMIZER@{RANDO_COMMIT[:8]} globals.lua (Steam address - 0x{STEAM_BASE:X})',
         'worlds': [[k, name, by_region[name]] for k, name in WORLDS],
         'reports': sorted(reports),
     }
@@ -146,4 +165,4 @@ def main(loc_path, lua_path, out_path):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], sys.argv[3])
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])

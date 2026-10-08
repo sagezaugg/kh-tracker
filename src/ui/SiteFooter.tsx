@@ -19,7 +19,11 @@ export function SiteFooter() {
         <a href="https://github.com/gaithern/KH-1FM-AP-LUA" rel="noreferrer" target="_blank">
           KH-1FM-AP-LUA
         </a>{' '}
-        connector (MIT). Save structure documented by{' '}
+        connector and{' '}
+        <a href="https://github.com/gaithern/KH1FM-RANDOMIZER" rel="noreferrer" target="_blank">
+          KH1FM-RANDOMIZER
+        </a>{' '}
+        (MIT). Save structure documented by{' '}
         <a href="https://github.com/Xeeynamo/KingdomSaveEditor" rel="noreferrer" target="_blank">
           Kingdom Save Editor
         </a>{' '}

@@ -11,10 +11,10 @@ excluded from the count) and **Everything**. Importing a PC save fills in most o
 leaves the browser. In Chrome and Edge the tracker can also watch the save file and re-import it every time the game
 saves (Config, Auto re-import).
 
-| Game  | Routes   | Save import                                                 | Filled in from the save                                                                                                                          |
-| ----- | -------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| KH1FM | `/kh1/…` | `KHFM.png` / `KHFM_WW.png` (PC)                             | 216 chests, most event rewards and story events, Ansem's Reports, puppies, Sora LV, magic, summons, Keyblades, staves, shields, Ultima materials |
-| KH2FM | `/kh2/…` | `KHIIFM.png` / `KHIIFM_WW.png` (PC), PS2 saves, PCSX2 cards | 317 chests, 89 rewards, 52 bosses, Ansem Reports, Drive Forms, magic, summons, Keyblades, superbosses                                            |
+| Game  | Routes   | Save import                                                 | Filled in from the save                                                                                                                                                 |
+| ----- | -------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| KH1FM | `/kh1/…` | `KHFM.png` / `KHFM_WW.png` (PC)                             | 216 chests, most event rewards and story events, 24 Trinity/map prizes, Ansem's Reports, puppies, Sora LV, magic, summons, Keyblades, staves, shields, Ultima materials |
+| KH2FM | `/kh2/…` | `KHIIFM.png` / `KHIIFM_WW.png` (PC), PS2 saves, PCSX2 cards | 317 chests, 89 rewards, 52 bosses, Ansem Reports, Drive Forms, magic, summons, Keyblades, superbosses                                                                   |
 
 There's also a **save diff tool** at `/tools/save-diff`: load a save from before and after an in-game event to see
 every byte and bit that changed. It's how the remaining unknown flags get mapped.
@@ -86,7 +86,7 @@ Put real PC saves in `tests/fixtures/` (gitignored, never committed). The fixtur
   story bosses 50/52, reports 13/13, Keyblades 19/24, forms 5/5/2/4/1, magic 3/2/3/3/3/3, summon LV 1, all charms,
   torn pages 5/5, no Proofs, Final Xemnas not detected.
 - `tests/fixtures/KHFM.png`: Slot 1 LV 100, 23,666 munny, Proud, End of the World (chests 208/216, event rewards
-  56, story events 95, reports 13/13, Keyblades 18/18, puppies 99, magic all LV 3, six summons) and Slot 2 LV 54,
+  56, story events 95, prizes 18/24, reports 13/13, Keyblades 18/18, puppies 99, magic all LV 3, six summons) and Slot 2 LV 54,
   2,479 munny, Proud, Neverland.
 
 ## Regenerating the location data
@@ -126,7 +126,8 @@ like `/kh2/worlds/tt` work on a hard refresh.
 
 - Location data: [Archipelago](https://github.com/ArchipelagoMW/Archipelago) KH1 and KH2 worlds (MIT).
 - KH1 save flags: derived from [KH-1FM-AP-LUA](https://github.com/gaithern/KH-1FM-AP-LUA)'s `1fmAPConnector.lua`
-  (MIT): its Steam memory addresses minus `0x2DE9360` give the save offset.
+  (MIT): its Steam memory addresses minus `0x2DE9360` give the save offset. Map prize (Trinity mark, flower, chair)
+  flags come from [KH1FM-RANDOMIZER](https://github.com/gaithern/KH1FM-RANDOMIZER)'s `globals.lua` (MIT).
 - Save structure: [Kingdom Save Editor](https://github.com/Xeeynamo/KingdomSaveEditor) (GPL-3.0). Its documented
   offsets, item ids and enums are referenced; none of its code is copied.
 - Trophy names, tiers and requirements: KHWiki, Exophase, PSTHC, PlayStation LifeStyle, Gamer Guides. Journal
@@ -147,7 +148,7 @@ synthesis materials, Synthesis Notes and Moogle level.
 
 **KH1:** entry counts for Chronicles, Characters and Mini-games; the Trinity mark
 counter; cup wins, solo and time-trial records (outside the save slot by the connector's addresses); synthesis
-record; gummi records; prizes; whether `0x1400` counts torn pages held or delivered; which staves and shields Master
+record; gummi records; whether `0x1400` counts torn pages held or delivered; which staves and shields Master
 Magician and Master Defender need.
 
 ## Decisions
@@ -199,7 +200,7 @@ Choices the brief didn't settle, with the default picked:
     Dive-to-the-Heart Dream weapons or the Wooden Sword). Level Master is Silver (PlayStation LifeStyle; KHWiki shows
     Bronze), which matches the 1/2/4/49 tier split.
 18. **KH1 location types.** Worlds list chests, event rewards and story events from the Archipelago data, plus prizes
-    (manual). Randomizer-only types (level slots, synth slots, starting accessories) and Destiny Islands' unflagged
+    (read from the save; see 24). Randomizer-only types (level slots, synth slots, starting accessories) and Destiny Islands' unflagged
     raft-gathering chores are left out; Ansem's Report events move to the Journal.
 19. **KH1 game cleared is manual by design.** KH1FM can't save after the final battle, so no save can show it; the
     Config toggle drives the three difficulty-clear trophies.
@@ -216,3 +217,8 @@ Choices the brief didn't settle, with the default picked:
     save reads rewards 4/5, all summons, Pinocchio and All Arts as 0 when they were done. Those 11 locations are manual
     checks now. The rest of the derived flags were checked against the owner's near-complete save: world-progress
     (50), postcards (10) and reports read correctly.
+24. **KH1 map prizes are read from the save.** KH1FM-RANDOMIZER's `globals.lua` gives each of the 24 prizes (Trinity
+    marks, Wonderland flowers and chairs, the Hollow Bastion node) an event-flag byte and bit relative to Steam
+    `0x2DEA168` (save offset `0xE08`). Against the owner's saves, every Trinity prize reads set in the finished Slot 1
+    (including the three Traverse Town ones the owner confirmed) and the earlier Slot 2 is a strict subset. Cup wins
+    and the full 46-mark Trinity count still have no documented location.

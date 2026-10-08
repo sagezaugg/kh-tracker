@@ -50,6 +50,14 @@ describe('KH1 data', () => {
   });
 });
 
+describe('KH1 map prizes', () => {
+  it('reads all 24 prizes from the event-flag block', () => {
+    const prizes = KH1_LOCATIONS.filter((l) => l.type === 'prize');
+    expect(prizes).toHaveLength(24);
+    expect(prizes.every((l) => l.flag?.kind === 'bit')).toBe(true);
+  });
+});
+
 describe('KH1 flags the randomizer mod rewrites', () => {
   it("leaves Geppetto's House and Magician's Study rewards manual", () => {
     const manual = KH1_LOCATIONS.filter((l) =>
@@ -123,6 +131,7 @@ describe.skipIf(!existsSync(FIXTURE))('real KH1FM PC save (tests/fixtures/KHFM.p
     const d = detectKh1(res().slots[0].bytes);
     const found = (t: string) => KH1_LOCATIONS.filter((l) => l.type === t && d.checks[l.id]).length;
     expect([found('chest'), found('reward'), found('event')]).toEqual([208, 56, 95]);
+    expect(found('prize')).toBe(18);
     expect(Object.keys(d.checks).filter((id) => id.startsWith('r.') && d.checks[id])).toHaveLength(13);
     expect(Object.keys(d.checks).filter((id) => id.startsWith('kb.') && d.checks[id])).toHaveLength(18);
     expect(d.values['kh1.puppies']).toBe(99);

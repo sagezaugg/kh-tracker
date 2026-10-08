@@ -14,11 +14,7 @@ const SECTIONS = [
     'Story Events',
     'Other one-time events: postcards, clams, puppies returned, Trinity unlocks and more.',
   ],
-  [
-    'prize',
-    'Prizes',
-    "Prizes from Trinity marks, flower pots and the like. The save flags for these aren't mapped yet, so check them by hand.",
-  ],
+  ['prize', 'Prizes', 'Prizes from Trinity marks, flowers, chairs and the like, read from the save.'],
 ] as const;
 
 export function Kh1WorldsRoute() {

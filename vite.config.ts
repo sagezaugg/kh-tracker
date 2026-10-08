@@ -48,6 +48,16 @@ function pwaPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [react(), pwaPlugin()],
+  build: {
+    rollupOptions: {
+      output: {
+        // Libraries change far less often than the app, so they get their own long-lived file and a
+        // deploy usually only re-downloads the app chunk. Game data stays in the app chunk: the home page
+        // gauges and every game's save watcher need it on every page.
+        manualChunks: (id) => (id.includes('node_modules') ? 'vendor' : undefined),
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],

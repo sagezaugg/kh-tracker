@@ -22,12 +22,15 @@ interface UiState {
   watchStatus: Record<string, WatchStatus>;
   /** Per game id; bumped to restart that game's watcher (new file picked, permission granted). */
   watchNonce: Record<string, number>;
+  /** A new version of the site took over this tab; it shows once the page reloads. */
+  updateReady: boolean;
   setHint: (hint: string | null) => void;
   showToast: (text: string, kind?: ToastKind) => void;
   clearToast: () => void;
   setPop: (id: string | null) => void;
   setWatchStatus: (gameId: string, status: WatchStatus) => void;
   restartWatch: (gameId: string) => void;
+  setUpdateReady: (ready: boolean) => void;
 }
 
 export const NO_FILE: WatchStatus = { kind: 'no-file' };
@@ -40,6 +43,7 @@ export const useUi = create<UiState>()((set) => ({
   pop: null,
   watchStatus: {},
   watchNonce: {},
+  updateReady: false,
   setHint: (hint) => set({ hint }),
   showToast: (text, kind = 'info') => set({ toast: text, toastKind: kind }),
   clearToast: () => set({ toast: null, toastKind: 'info' }),
@@ -47,4 +51,5 @@ export const useUi = create<UiState>()((set) => ({
   setWatchStatus: (gameId, status) => set((s) => ({ watchStatus: { ...s.watchStatus, [gameId]: status } })),
   restartWatch: (gameId) =>
     set((s) => ({ watchNonce: { ...s.watchNonce, [gameId]: (s.watchNonce[gameId] ?? 0) + 1 } })),
+  setUpdateReady: (updateReady) => set({ updateReady }),
 }));

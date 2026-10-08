@@ -7,6 +7,9 @@ const progress = kh2Progress;
 
 beforeEach(resetAll);
 
+/** The help bar's live region (the update banner has its own). */
+const helpStatus = () => within(screen.getByRole('complementary', { name: 'Help' })).getByRole('status');
+
 describe('Status', () => {
   it('switches the profile from the gauges', async () => {
     renderAt('/kh2/');
@@ -28,7 +31,7 @@ describe('Worlds', () => {
     await userEvent.click(screen.getByRole('checkbox', { name: /^Betwixt and Between TT3/ }));
     expect(progress().checks['w.BetwixtandBetween']).toBe(true);
     expect(progress().overrides['w.BetwixtandBetween']).toBe('manual');
-    expect(screen.getByRole('status')).toHaveTextContent('Trophy earned: A Taste of the Past!');
+    expect(helpStatus()).toHaveTextContent('Trophy earned: A Taste of the Past!');
     const nav = screen.getByRole('navigation', { name: 'Tracker sections' });
     expect(within(nav).getByRole('link', { name: /Trophies/ })).toHaveTextContent('NEW!');
   });
@@ -38,7 +41,7 @@ describe('Worlds', () => {
     expect(screen.getAllByRole('checkbox')).toHaveLength(1);
     await userEvent.click(screen.getByRole('button', { name: 'Check all in Atlantica' }));
     expect(progress().checks['w.MusicalOrichalcumPlus']).toBe(true);
-    expect(screen.getByRole('status')).not.toHaveTextContent('Trophy earned');
+    expect(helpStatus()).not.toHaveTextContent('Trophy earned');
   });
 
   it('keeps the hide filter in the URL', async () => {

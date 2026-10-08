@@ -30,6 +30,7 @@ export function resetAll() {
       pop: null,
       watchStatus: {},
       watchNonce: {},
+      updateReady: false,
     });
   });
 }

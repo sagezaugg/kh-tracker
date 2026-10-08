@@ -1,0 +1,24 @@
+# Monthly dependency updates. Minor and patch bumps arrive as one grouped PR per ecosystem;
+# major versions get their own PRs so breaking changes can be reviewed one at a time. CI checks each PR.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: deps
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ['*']
+    commit-message:
+      prefix: ci

@@ -17,6 +17,7 @@ const PATHS = [
   '/kh2/missing',
   '/kh1',
   '/kh1/config',
+  '/tools/save-diff',
   '/missing',
 ];
 

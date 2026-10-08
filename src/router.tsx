@@ -5,6 +5,7 @@ import { HomeRoute } from './shell/HomeRoute';
 import { NotFoundPage } from './shell/NotFoundPage';
 import { NotFoundRoute } from './shell/NotFoundRoute';
 import { RootLayout } from './shell/RootLayout';
+import { SaveDiffRoute } from './shell/SaveDiffRoute';
 
 export const routes: RouteObject[] = [
   {
@@ -17,6 +18,7 @@ export const routes: RouteObject[] = [
         element: <GameShell game={g} />,
         children: [...g.routes, { path: '*', element: <NotFoundRoute /> }],
       })),
+      { path: 'tools/save-diff', element: <SaveDiffRoute /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

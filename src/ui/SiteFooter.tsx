@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './SiteFooter.module.css';
 
 /** Fan-project disclaimer and credits. */
@@ -23,6 +24,9 @@ export function SiteFooter() {
         </a>{' '}
         (GPL-3.0; offsets referenced, no code copied). Trophy and Journal details from the Exophase, PSTHC,
         Gamer Guides and KH Wiki lists. Your save file never leaves your browser.
+      </p>
+      <p>
+        Mapping a new flag? Try the <Link to="/tools/save-diff">save diff tool</Link>.
       </p>
     </footer>
   );

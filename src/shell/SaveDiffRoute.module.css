@@ -1,0 +1,95 @@
+.controls {
+  margin: 12px 0;
+}
+.sides {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 0 16px;
+}
+.file {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  padding: 0 22px;
+  border-radius: 22px;
+  border: 2px solid var(--c-sel);
+  background: var(--c-pill-grad);
+  color: var(--c-white);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+.file input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.file:focus-within {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+.slotPick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--c-text-soft);
+}
+.slotPick select {
+  min-height: var(--touch);
+  border-radius: 10px;
+  border: 2px solid var(--c-sky);
+  background: var(--c-deep);
+  color: var(--c-white);
+  font: 500 15px var(--font);
+  padding: 0 8px;
+}
+.tblWrap {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font: 14px/1.4 var(--font-mono);
+}
+.tbl thead th {
+  text-align: left;
+  font: 700 13px var(--font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-sub);
+  padding: 6px 10px;
+  border-bottom: 2px solid var(--c-frame);
+}
+.tbl td,
+.tbl tbody th {
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(120, 170, 255, 0.2);
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.dec,
+.bin {
+  color: var(--c-text-dim);
+}
+.setBit,
+.clrBit {
+  display: inline-block;
+  margin-right: 6px;
+  font-weight: 700;
+}
+.setBit {
+  color: var(--c-ok);
+}
+.clrBit {
+  color: var(--c-err);
+}
+.known {
+  font-family: var(--font);
+  color: var(--c-text-soft);
+  white-space: normal;
+}

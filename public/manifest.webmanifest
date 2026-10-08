@@ -1,0 +1,16 @@
+{
+  "name": "Kingdom Hearts 100% Tracker",
+  "short_name": "KH Tracker",
+  "description": "Unofficial 100% completion tracker for Kingdom Hearts Final Mix and Kingdom Hearts II Final Mix, with save-file import.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020615",
+  "theme_color": "#03082a",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

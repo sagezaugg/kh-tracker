@@ -60,7 +60,9 @@ src/
   styles/    tokens.css (palette, fonts, motion), global.css
 reference/   the prototype and designs KH2 was ported from
 data/        source copy of the KH2 location data
-scripts/     extract_locations.py (KH2), kh1/extract_locations.py (KH1)
+scripts/     extract_locations.py (KH2), kh1/extract_locations.py (KH1), brand/ (share image and icon sources)
+pwa/         service worker template (the build fills in the file list)
+public/      favicon, app icons, web app manifest, og.png link preview
 ```
 
 Adding a game means adding a `games/<id>/` folder that exports a `GameDefinition` and listing it in the registry.
@@ -100,14 +102,29 @@ python3 scripts/extract_locations.py ap/worlds/kh2 data/kh2fm-locations.json
 cp data/kh2fm-locations.json src/games/kh2/data/locations.json
 ```
 
-**KH1** is built from the Archipelago KH1 world plus the KH-1FM-AP-LUA connector, pinned to the commits the current
-data came from. The usage line at the top of `scripts/kh1/extract_locations.py` has the exact clone commands:
+**KH1** is built from the Archipelago KH1 world, the KH-1FM-AP-LUA connector and KH1FM-RANDOMIZER's `globals.lua`,
+pinned to the commits the current data came from. The usage line at the top of `scripts/kh1/extract_locations.py`
+has the exact clone commands:
 
 ```bash
-python3 scripts/kh1/extract_locations.py ap/worlds/kh1/Locations.py kh1lua/1fmAPConnector.lua src/games/kh1/data/locations.json
+python3 scripts/kh1/extract_locations.py ap/worlds/kh1/Locations.py kh1lua/1fmAPConnector.lua     src/games/kh1/data/locations.json "kh1rando/Static Files/scripts/io_packages/globals.lua"
 ```
 
 Then run `npm test`: the data tests check totals and id uniqueness, and the fixture tests check real saves.
+
+## Share image and app icons
+
+`public/og.png` (the 1200×630 link preview) and the PNG app icons are screenshots of `scripts/brand/og.html` and
+`scripts/brand/icon.html`. After editing either, regenerate them on Windows with Edge or Chrome installed:
+
+```powershell
+pwsh scripts/brand/render.ps1
+```
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs lint, typecheck, tests and a production build on every pull request and every push
+to `main`. The real-save fixture suites skip there because the saves aren't in the repo.
 
 ## Deploying (Vercel)
 
@@ -226,3 +243,12 @@ Choices the brief didn't settle, with the default picked:
 25. **Work-in-progress notice.** A dismissible banner at the top of every page says save import is incomplete and may
     be wrong in places, and links to GitHub issues. Dismissal is stored in localStorage (`kh-tracker-notice-v1`;
     bump the key to show a changed notice again) and falls back to hiding for the visit when storage is blocked.
+26. **Offline support without a plugin.** The site installs as an app (`public/manifest.webmanifest`) and opens
+    offline after one online visit. `pwa/sw.js` is a ~60-line hand-written worker, and a small Vite plugin in
+    `vite.config.ts` writes `dist/sw.js` with the build's file list and a content-hash version, rather than pulling
+    in vite-plugin-pwa/Workbox for one bundle and a few icons. Pages are network-first, so a new deploy shows up on the
+    next load, and fall back to the cached shell offline. Hashed assets are cache-first, and Google Fonts are
+    stale-while-revalidate. Progress was never in the worker's caches: it stays in localStorage and IndexedDB. The
+    worker registers only in production builds, so `npm run dev` is unaffected.
+27. **One site-wide link preview.** Crawlers don't run JavaScript, so `index.html` carries a single Open Graph and
+    Twitter card for the whole site rather than per-game ones; per-page tags would need prerendering.

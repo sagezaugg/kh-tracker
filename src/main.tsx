@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { createAppRouter } from './router';
+import { registerServiceWorker } from './registerServiceWorker';
 import './styles/global.css';
 
 const root = document.getElementById('root');
@@ -12,3 +13,5 @@ createRoot(root).render(
     <RouterProvider router={createAppRouter()} future={{ v7_startTransition: true }} />
   </StrictMode>,
 );
+
+registerServiceWorker();

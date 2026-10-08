@@ -25,7 +25,10 @@ export const KH1_TROPHY_GROUPS: readonly (readonly [Exclude<Kh1TrophyGroup, 'pla
   ['feats', 'Feats'],
 ];
 
-/** The game-cleared toggle (Final Ansem has no known save flag). */
+/**
+ * The game-cleared toggle. KH1FM can't save after the final battle, so no save will ever show it:
+ * this stays a manual check by design.
+ */
 export const KH1_CLEARED_ID = 'kh1.cleared';
 
 const cleared: Rule = { all: [KH1_CLEARED_ID] };

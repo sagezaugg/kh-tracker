@@ -135,7 +135,7 @@ Nothing below is guessed; each is a manual check or input in the UI.
 sections, the full mini-game list, Mushroom XIII count, and save offsets for the Anti Form counter, feats, Gummi ranks,
 synthesis materials, Synthesis Notes and Moogle level.
 
-**KH1:** the final battle (game cleared) flag; entry counts for Chronicles, Characters and Mini-games; the Trinity mark
+**KH1:** entry counts for Chronicles, Characters and Mini-games; the Trinity mark
 counter; cup wins, solo and time-trial records (outside the save slot by the connector's addresses); synthesis
 record; gummi records; prizes; whether `0x1400` counts torn pages held or delivered; which staves and shields Master
 Magician and Master Defender need.
@@ -191,3 +191,7 @@ Choices the brief didn't settle, with the default picked:
 18. **KH1 location types.** Worlds list chests, event rewards and story events from the Archipelago data, plus prizes
     (manual). Randomizer-only types (level slots, synth slots, starting accessories) and Destiny Islands' unflagged
     raft-gathering chores are left out; Ansem's Report events move to the Journal.
+19. **KH1 game cleared is manual by design.** KH1FM can't save after the final battle, so no save can show it; the
+    Config toggle drives the three difficulty-clear trophies.
+20. **First in-game check of the derived KH1 flags.** The real save reads all 12 Neverland Clock Tower doors as
+    unopened, and the owner confirmed they never opened them.

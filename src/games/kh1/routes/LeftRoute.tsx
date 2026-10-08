@@ -10,6 +10,7 @@ import common from '../../../ui/common.module.css';
 import { useProgress, useTracker } from '../../context';
 import { SAVE_WORLD_TO_KEY } from '../data/constants';
 import { KH1_WORLDS } from '../data/locations';
+import { KH1_CLEARED_ID } from '../data/trophies';
 import { isOn } from '../model/catalog';
 import { KH1_ITEM_BY_ID } from '../model/items';
 import { isKh1Profile, type Kh1Profile } from '../model/scoring';
@@ -145,6 +146,12 @@ export function Kh1LeftRoute() {
               </div>
             ))}
             {reach.length === 0 && <p className={common.note}>Every trophy is earned.</p>}
+            {!isOn(p, KH1_CLEARED_ID) && (
+              <p className={common.note}>
+                Beaten the final battle? KH1FM can&apos;t save afterwards, so mark the game cleared on Config
+                to unlock the ending trophies.
+              </p>
+            )}
           </Section>
           <Section title="Beyond the worlds">
             {scores.cats.everything

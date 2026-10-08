@@ -49,7 +49,7 @@ export const KH1: GameDefinition = {
     { id: KH1_CLEARED_ID, on: 'Game cleared (Ansem defeated)', off: 'Mark game cleared (Ansem defeated)' },
   ],
   playthroughNote:
-    'The difficulty and ending trophies depend on these. Importing a save sets the difficulty for you; the final battle has no known save flag yet.',
+    "The difficulty and ending trophies depend on these. Importing a save sets the difficulty for you. KH1FM can't save after the final battle, so mark the game cleared here yourself.",
   backup: {
     app: 'kh1fm-100',
     catalog: KH1_CATALOG,

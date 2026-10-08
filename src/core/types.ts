@@ -9,7 +9,11 @@ export type SaveProbe =
   | { type: 'byte'; offset: number }
   | { type: 'equip'; itemId: number }
   /** A clamped level byte. With `unlock`, the level reads as 0 until that bit is set. */
-  | { type: 'level'; offset: number; min: number; max: number; unlock?: { offset: number; bit: number } };
+  | { type: 'level'; offset: number; min: number; max: number; unlock?: { offset: number; bit: number } }
+  /** Number of set bits in `length` bytes, capped at `max` (e.g. 99 puppy flags). */
+  | { type: 'bitCount'; offset: number; length: number; max: number }
+  /** A byte list (ended by 0xFF) contains `value` (e.g. owned summon ids). */
+  | { type: 'listHas'; offset: number; length: number; value: number };
 
 export type ItemKind = 'check' | 'level' | 'counter';
 
@@ -41,6 +45,8 @@ export interface Item {
 export type Rule =
   | { all: readonly string[] }
   | { item: string; atLeast: number }
+  /** At least `atLeast` of these checks. */
+  | { count: readonly string[]; atLeast: number }
   | { save: 'difficulty'; atLeast: number }
   | { section: string }
   | { and: readonly Rule[] }

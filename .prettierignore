@@ -6,3 +6,4 @@ data
 package-lock.json
 PROMPT.md
 src/data/locations.json
+src/games/kh1/data/locations.json

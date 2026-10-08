@@ -15,6 +15,7 @@ export function evalRule(cat: Catalog, rule: Rule, p: Progress): RuleProgress {
   if ('all' in rule) return { done: countOn(p, rule.all), total: rule.all.length };
   if ('item' in rule)
     return { done: Math.min(valueOf(cat, p, rule.item), rule.atLeast), total: rule.atLeast };
+  if ('count' in rule) return { done: Math.min(countOn(p, rule.count), rule.atLeast), total: rule.atLeast };
   if ('save' in rule) {
     return { done: p.difficulty !== undefined && p.difficulty >= rule.atLeast ? 1 : 0, total: 1 };
   }
@@ -97,6 +98,7 @@ export function newlyEarned(before: TrophyEvaluation, after: TrophyEvaluation): 
 export function ruleItemIds(cat: Pick<Catalog, 'sectionItems'>, rule: Rule, into: Set<string>): Set<string> {
   if ('all' in rule) rule.all.forEach((id) => into.add(id));
   else if ('item' in rule) into.add(rule.item);
+  else if ('count' in rule) rule.count.forEach((id) => into.add(id));
   else if ('section' in rule) (cat.sectionItems[rule.section] ?? []).forEach((id) => into.add(id));
   else if ('and' in rule) rule.and.forEach((r) => ruleItemIds(cat, r, into));
   else if ('or' in rule) rule.or.forEach((r) => ruleItemIds(cat, r, into));

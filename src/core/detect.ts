@@ -14,8 +14,22 @@ export function detectProbes(
   const B = (o: number) => bytes[o] ?? 0;
   const bit = (o: number, b: number) => ((B(o) >> b) & 1) === 1;
 
+  const bitsIn = (o: number, len: number) => {
+    let n = 0;
+    for (let i = 0; i < len; i++) for (let x = B(o + i); x; x &= x - 1) n++;
+    return n;
+  };
+  const listHas = (o: number, len: number, v: number) => {
+    for (let i = 0; i < len && B(o + i) !== 0xff; i++) if (B(o + i) === v) return true;
+    return false;
+  };
+
   const readValue = (p: SaveProbe): number => {
     switch (p.type) {
+      case 'bitCount':
+        return Math.min(p.max, bitsIn(p.offset, p.length));
+      case 'listHas':
+        return listHas(p.offset, p.length, p.value) ? 1 : 0;
       case 'level':
         if (p.unlock && !bit(p.unlock.offset, p.unlock.bit)) return 0;
         return clamp(B(p.offset), p.min, p.max);
@@ -38,7 +52,10 @@ export function detectProbes(
       case 'equip':
         return equipped.includes(p.itemId);
       case 'level':
+      case 'bitCount':
         return readValue(p) > 0;
+      case 'listHas':
+        return listHas(p.offset, p.length, p.value);
     }
   };
 

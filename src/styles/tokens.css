@@ -74,7 +74,6 @@
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-pop: cubic-bezier(0.3, 1.6, 0.5, 1);
   --t-bar: 0.5s;
-  --t-screen: 0.34s;
 
   /* Sizing */
   --touch: 44px;

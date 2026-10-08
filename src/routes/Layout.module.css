@@ -147,58 +147,10 @@
   text-shadow: 2px 2px 0 var(--c-shadow-blue);
 }
 
-/* Screen transition: right-to-left wipe and slide, with a shimmer sweeping across. */
-.scr {
-  position: relative;
-  animation: scrIn var(--t-screen) var(--ease-out) backwards;
-}
-.scr::before {
-  content: '';
-  position: absolute;
-  top: -24px;
-  bottom: -24px;
-  left: -20%;
-  width: 140px;
-  background: linear-gradient(90deg, transparent, rgba(160, 215, 255, 0.16), transparent);
-  transform: skewX(-20deg);
-  pointer-events: none;
-  opacity: 0;
-  animation: sweep 0.7s ease-out 0.04s;
-}
-@keyframes scrIn {
-  0% {
-    opacity: 0;
-    transform: translateX(30px) scaleY(0.97);
-    clip-path: inset(0 0 0 100%);
-  }
-  55% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-    clip-path: inset(0 0 0 0);
-  }
-}
-@keyframes sweep {
-  0% {
-    left: -20%;
-    opacity: 1;
-  }
-  100% {
-    left: 110%;
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .kh::before,
   .kh::after {
     display: none;
-  }
-  .scr,
-  .scr::before {
-    animation: none !important;
   }
 }
 

@@ -81,9 +81,7 @@ export function Layout() {
 
         <main className={styles.panel} id="main" tabIndex={-1}>
           <h1 className={styles.ptitle}>{title}</h1>
-          <div className={styles.scr} key={screenKey}>
-            <Outlet />
-          </div>
+          <Outlet />
         </main>
       </div>
 

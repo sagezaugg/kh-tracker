@@ -14,9 +14,11 @@
 .seg {
   display: inline-flex;
   flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
   border: 2px solid var(--c-cmd-border);
-  border-radius: 22px;
-  overflow: hidden;
+  border-radius: 24px;
+  background: #22262f;
 }
 .opt {
   display: inline-flex;
@@ -24,7 +26,8 @@
   min-height: var(--touch);
   padding: 0 14px;
   border: 0;
-  background: #22262f;
+  border-radius: 20px;
+  background: transparent;
   color: var(--c-white);
   font: 600 15px var(--font);
   cursor: pointer;
@@ -34,7 +37,7 @@
 }
 .opt:focus-visible {
   outline: var(--focus-ring);
-  outline-offset: -3px;
+  outline-offset: 1px;
 }
 .on,
 .on:hover {

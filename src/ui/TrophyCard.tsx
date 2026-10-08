@@ -1,6 +1,6 @@
-import { TIER_NAMES } from '../data/trophies';
-import type { TrophyStatus } from '../model/rules';
-import { useUi } from '../state/ui';
+import { TIER_NAMES } from '../core/rules';
+import type { TrophyStatus } from '../core/types';
+import { useUi } from '../core/ui';
 import { CupIcon } from './CupIcon';
 import { ProgressBar } from './ProgressBar';
 import common from './common.module.css';

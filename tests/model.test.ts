@@ -1,12 +1,17 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { evalRule, evaluateTrophies } from '../src/model/rules';
-import { computeScores, pct } from '../src/model/scoring';
-import { applyImport, navKeyOfId } from '../src/model/importSave';
-import { emptyProgress } from '../src/model/progress';
-import { SECTION_ITEMS } from '../src/model/items';
-import { FINAL_XEMNAS_ID } from '../src/data/locations';
-import type { ImportMeta, Progress } from '../src/model/types';
+import { evalRule as coreEvalRule } from '../src/core/rules';
+import { evaluateTrophies, KH2_CATALOG, navKeyOfId } from '../src/games/kh2/model/catalog';
+import { computeScores, pct } from '../src/games/kh2/model/scoring';
+import { applyImport as coreApplyImport } from '../src/core/importSave';
+import { emptyProgress } from '../src/core/progress';
+import { SECTION_ITEMS } from '../src/games/kh2/model/items';
+import { FINAL_XEMNAS_ID } from '../src/games/kh2/data/locations';
+import type { Detected, ImportMeta, Progress, Rule } from '../src/core/types';
+
+const evalRule = (r: Rule, p: Progress) => coreEvalRule(KH2_CATALOG, r, p);
+const applyImport = (p: Progress, det: Detected, meta: ImportMeta, d: number | null, mode: 'sync' | 'add') =>
+  coreApplyImport(KH2_CATALOG, p, det, meta, d, mode);
 
 const withChecks = (ids: string[], extra: Partial<Progress> = {}): Progress => ({
   ...emptyProgress(),

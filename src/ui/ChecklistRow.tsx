@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { useUi } from '../state/ui';
+import { useUi } from '../core/ui';
 import styles from './ChecklistRow.module.css';
 import common from './common.module.css';
 

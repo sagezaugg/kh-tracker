@@ -1,10 +1,10 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { LEGACY_SHARED_IDS, LOCATIONS, WORLDS } from '../src/data/locations';
-import { TROPHIES } from '../src/data/trophies';
-import { KEYBLADES } from '../src/data/keyblades';
-import { ITEM_BY_ID, ITEMS, SECTION_ITEMS, TROPHY_ITEM_IDS } from '../src/model/items';
-import { WORLD_ROUTE_IDS } from '../src/data/worldIds';
+import { LEGACY_SHARED_IDS, LOCATIONS, WORLDS } from '../src/games/kh2/data/locations';
+import { TROPHIES } from '../src/games/kh2/data/trophies';
+import { KEYBLADES } from '../src/games/kh2/data/keyblades';
+import { ITEM_BY_ID, ITEMS, SECTION_ITEMS, TROPHY_ITEM_IDS } from '../src/games/kh2/model/items';
+import { WORLD_ROUTE_IDS } from '../src/games/kh2/data/worldIds';
 
 describe('location data', () => {
   it('has 317 chests, 89 rewards and 52 story bosses across 15 worlds', () => {

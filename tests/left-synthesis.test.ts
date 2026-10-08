@@ -1,12 +1,12 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { LOCATION_BY_ID, LOCATIONS, FINAL_XEMNAS_ID } from '../src/data/locations';
-import { splitArea } from '../src/model/areas';
-import { computeRemaining } from '../src/model/remaining';
-import { computeSynthesis, materialIn } from '../src/model/synthesis';
-import { emptyProgress } from '../src/model/progress';
-import { SYN_KEYS } from '../src/data/synthesis';
-import type { Progress } from '../src/model/types';
+import { LOCATION_BY_ID, LOCATIONS, FINAL_XEMNAS_ID } from '../src/games/kh2/data/locations';
+import { splitArea } from '../src/games/kh2/model/areas';
+import { computeRemaining } from '../src/games/kh2/model/remaining';
+import { computeSynthesis, materialIn } from '../src/games/kh2/model/synthesis';
+import { emptyProgress } from '../src/core/progress';
+import { SYN_KEYS } from '../src/games/kh2/data/synthesis';
+import type { Progress } from '../src/core/types';
 
 const loc = (id: string) => {
   const l = LOCATION_BY_ID.get(id);

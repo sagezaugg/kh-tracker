@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { useProgress } from '../state/store';
-import { isOn } from '../model/progress';
+import { useProgress } from '../games/context';
+import { isOn } from '../core/progress';
 import { ChecklistRow, ChecklistRows } from './ChecklistRow';
 import { Section } from './Section';
 import { useCheckToggle } from './hooks';

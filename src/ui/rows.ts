@@ -1,4 +1,4 @@
-import type { Item } from '../model/types';
+import type { Item } from '../core/types';
 import type { RowSpec } from './ItemSection';
 
 /** Checklist rows for registry items. Save-probed items carry the green dot. */

@@ -2,10 +2,10 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { parseSave } from '../src/save/parseSave';
-import { detect } from '../src/save/detect';
-import { LOCATIONS, FINAL_XEMNAS_ID } from '../src/data/locations';
-import { KEYBLADES } from '../src/data/keyblades';
+import { parseSave } from '../src/games/kh2/save/parseSave';
+import { detect } from '../src/games/kh2/save/detect';
+import { LOCATIONS, FINAL_XEMNAS_ID } from '../src/games/kh2/data/locations';
+import { KEYBLADES } from '../src/games/kh2/data/keyblades';
 
 /** Owner-supplied real PC save; not committed. These tests skip when it's missing. */
 const FIXTURE = fileURLToPath(new URL('./fixtures/KHIIFM.png', import.meta.url));

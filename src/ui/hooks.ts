@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useTracker } from '../state/store';
-import { useUi } from '../state/ui';
+import { useTracker } from '../games/context';
+import { useUi } from '../core/ui';
 
 /** `?q=` text filter and `?hide=1` hide-obtained toggle, kept in the URL so views can be shared. */
 export function useFilters() {

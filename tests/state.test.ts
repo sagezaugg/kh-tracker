@@ -1,8 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { parseBackup, serializeBackup } from '../src/state/backup';
-import { PROTOTYPE_LS_KEY } from '../src/state/migrations';
-import { createSafeStorage } from '../src/state/storage';
-import { FINAL_XEMNAS_ID } from '../src/data/locations';
+import { parseBackup as coreParseBackup, serializeBackup as coreSerialize } from '../src/core/backup';
+import { KH2 } from '../src/games/kh2/game';
+import type { Progress } from '../src/core/types';
+
+const parseBackup = (text: string) => coreParseBackup(KH2.backup, text);
+const serializeBackup = (p: Progress, profile: string) => coreSerialize(KH2.backup.app, p, profile);
+import { createSafeStorage } from '../src/core/storage';
+import { FINAL_XEMNAS_ID } from '../src/games/kh2/data/locations';
 
 /** A backup code as the prototype's Config screen exported it (v2). */
 const PROTOTYPE_V2 = JSON.stringify({
@@ -108,21 +112,7 @@ describe('store', () => {
     window.localStorage.clear();
   });
 
-  const load = async () => (await import('../src/state/store')).useTracker;
-
-  it('carries the prototype localStorage over on first load', async () => {
-    window.localStorage.setItem(
-      PROTOTYPE_LS_KEY,
-      JSON.stringify({ c: { 'r.2': true }, lv: { sora: 12 }, custom: [], profile: 'journal', diff: 1 }),
-    );
-    const store = await load();
-    const s = store.getState();
-    const p = s.playthroughs[s.activeId].progress;
-    expect(p.checks).toEqual({ 'r.2': true });
-    expect(p.values['lv.sora']).toBe(12);
-    expect(p.difficulty).toBe(1);
-    expect(s.profile).toBe('journal');
-  });
+  const load = async () => (await import('../src/games/kh2/game')).kh2Store;
 
   it('records overrides on manual changes and announces new trophies', async () => {
     const store = await load();

@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { parseError, parseSave } from '../src/save/parseSave';
-import { detect } from '../src/save/detect';
+import { parseError, parseSave } from '../src/games/kh2/save/parseSave';
+import { detect } from '../src/games/kh2/save/detect';
 import {
   EQUIP_FORM_BASE,
   EQUIP_FORM_STRIDE,
@@ -12,8 +12,8 @@ import {
   PS2_PAGE_DATA,
   PS2_PAGE_RAW,
   SLOT_SIZE,
-} from '../src/save/offsets';
-import { LOCATION_BY_ID } from '../src/data/locations';
+} from '../src/games/kh2/save/offsets';
+import { LOCATION_BY_ID } from '../src/games/kh2/data/locations';
 
 interface SlotOpts {
   version?: number;
@@ -41,7 +41,7 @@ describe('parseSave', () => {
     writeSlot(buf, 0x200);
     const res = parseSave(buf.buffer);
     expect(res.format).toBe('raw');
-    expect(res.vanilla).toBe(0);
+    expect(res.unsupported).toBe(0);
     expect(res.slots).toHaveLength(1);
     const [s] = res.slots;
     expect(s).toMatchObject({
@@ -71,7 +71,7 @@ describe('parseSave', () => {
     writeSlot(buf, 0x4000, { version: 0x2a });
     const res = parseSave(buf);
     expect(res.slots).toHaveLength(0);
-    expect(res.vanilla).toBe(2);
+    expect(res.unsupported).toBe(2);
     expect(parseError(res)).toMatch(/non-Final Mix/);
   });
 
@@ -85,7 +85,7 @@ describe('parseSave', () => {
 
   it('handles an empty file', () => {
     const res = parseSave(new ArrayBuffer(0));
-    expect(res).toEqual({ format: 'raw', slots: [], vanilla: 0 });
+    expect(res).toEqual({ format: 'raw', slots: [], unsupported: 0 });
     expect(parseError(res)).toMatch(/No Kingdom Hearts II Final Mix save data/);
   });
 

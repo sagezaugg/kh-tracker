@@ -1,0 +1,196 @@
+{
+  "$comment": "How-to-obtain notes, written for this project in our own words from each item's KHWiki page (the infobox \"get\" or shop price for this game). wiki is the KHWiki page title. Items without \"how\" show only the link.",
+  "items": {
+    "kb.crabclaw": {
+      "wiki": "Crabclaw",
+      "how": "Reward for sealing the Keyhole in Atlantica."
+    },
+    "kb.diamond-dust": {
+      "wiki": "Diamond Dust",
+      "how": "Clear the Gold Match."
+    },
+    "kb.divine-rose": {
+      "wiki": "Divine Rose",
+      "how": "Talk to Belle in the Hollow Bastion library."
+    },
+    "kb.fairy-harp": {
+      "wiki": "Fairy Harp",
+      "how": "Reward for sealing the Keyhole in Neverland."
+    },
+    "kb.jungle-king": {
+      "wiki": "Jungle King",
+      "how": "Reward for sealing the Keyhole in Deep Jungle."
+    },
+    "kb.kingdom-key": {
+      "wiki": "Kingdom Key",
+      "how": "Received when you talk to Riku after the Heartless attack Destiny Islands."
+    },
+    "kb.lady-luck": {
+      "wiki": "Lady Luck",
+      "how": "From the White Trinity mark in Wonderland's Lotus Forest."
+    },
+    "kb.lionheart": {
+      "wiki": "Lionheart",
+      "how": "Beat Leon and Cloud in the Hades Cup."
+    },
+    "kb.metal-chocobo": {
+      "wiki": "Metal Chocobo",
+      "how": "Beat Cloud in the Hercules Cup."
+    },
+    "kb.oathkeeper": {
+      "wiki": "Oathkeeper",
+      "how": "Talk to Kairi in the Secret Waterway after rescuing her."
+    },
+    "kb.oblivion": {
+      "wiki": "Oblivion",
+      "how": "Chest in the Grand Hall."
+    },
+    "kb.olympia": {
+      "wiki": "Olympia",
+      "how": "Chest in the Coliseum lobby, after you clear the Phil, Pegasus and Hercules Cups."
+    },
+    "kb.one-winged-angel": {
+      "wiki": "One-Winged Angel",
+      "how": "Clear the Platinum Match."
+    },
+    "kb.pumpkinhead": {
+      "wiki": "Pumpkinhead",
+      "how": "Reward for sealing the Keyhole in Halloween Town."
+    },
+    "kb.spellbinder": {
+      "wiki": "Spellbinder",
+      "how": "Talk to Merlin once you've learned all seven first-level spells."
+    },
+    "kb.three-wishes": {
+      "wiki": "Three Wishes",
+      "how": "Reward for sealing the Keyhole in Agrabah."
+    },
+    "kb.ultima-weapon": {
+      "wiki": "Ultima Weapon",
+      "how": "Made through item synthesis."
+    },
+    "kb.wishing-star": {
+      "wiki": "Wishing Star",
+      "how": "Chest in Geppetto's House."
+    },
+    "sh.adamant-shield": {
+      "wiki": "Adamant Shield (KH)",
+      "how": "Sold in shops for 4,000 munny."
+    },
+    "sh.defender": {
+      "wiki": "Defender (shield)",
+      "how": "Rare drop (0.2%) from Defender Heartless."
+    },
+    "sh.dream-shield": {
+      "wiki": "Dream Shield",
+      "how": "Chosen in the Dive to the Heart at the start of the game."
+    },
+    "sh.genji-shield": {
+      "wiki": "Genji Shield",
+      "how": "Beat Yuffie in the Hades Cup."
+    },
+    "sh.gigas-fist": {
+      "wiki": "Gigas Fist",
+      "how": "Sold in shops for 1,200 munny."
+    },
+    "sh.golem-shield": {
+      "wiki": "Golem Shield",
+      "how": "Sold in shops for 1,200 munny."
+    },
+    "sh.herc-s-shield": {
+      "wiki": "Herc's Shield",
+      "how": "Clear the Hercules Cup."
+    },
+    "sh.knight-s-shield": {
+      "wiki": "Knight's Shield",
+      "how": "Goofy's starting shield."
+    },
+    "sh.mighty-shield": {
+      "wiki": "Mighty Shield",
+      "how": "Chest at the World Terminus."
+    },
+    "sh.mythril-shield": {
+      "wiki": "Mythril Shield"
+    },
+    "sh.onyx-shield": {
+      "wiki": "Onyx Shield",
+      "how": "Sold in shops for 2,800 munny."
+    },
+    "sh.save-the-king": {
+      "wiki": "Save the King",
+      "how": "Clear the Hades Cup time trial."
+    },
+    "sh.seven-elements": {
+      "wiki": "Seven Elements",
+      "how": "Made through item synthesis."
+    },
+    "sh.smasher": {
+      "wiki": "Smasher",
+      "how": "Sold in shops for 450 munny."
+    },
+    "sh.stout-shield": {
+      "wiki": "Stout Shield",
+      "how": "Sold in shops for 450 munny."
+    },
+    "st.dream-rod": {
+      "wiki": "Dream Rod",
+      "how": "Chosen in the Dive to the Heart at the start of the game."
+    },
+    "st.fantasista": {
+      "wiki": "Fantasista",
+      "how": "Made through item synthesis."
+    },
+    "st.grand-mallet": {
+      "wiki": "Grand Mallet",
+      "how": "Sold in shops for 4,000 munny."
+    },
+    "st.lord-fortune": {
+      "wiki": "Lord Fortune",
+      "how": "Talk to the Fairy Godmother once you have every summon."
+    },
+    "st.mage-s-staff": {
+      "wiki": "Mage's Staff",
+      "how": "Donald's starting staff."
+    },
+    "st.magus-staff": {
+      "wiki": "Magus Staff",
+      "how": "Sold in shops for 1,200 munny."
+    },
+    "st.meteor-strike": {
+      "wiki": "Meteor Strike",
+      "how": "Chest at the Giant Crevasse."
+    },
+    "st.morning-star": {
+      "wiki": "Morning Star (staff)",
+      "how": "Sold in shops for 300 munny."
+    },
+    "st.save-the-queen": {
+      "wiki": "Save the Queen",
+      "how": "Clear the Hades Cup solo."
+    },
+    "st.shooting-star": {
+      "wiki": "Shooting Star (staff)",
+      "how": "Sold in shops for 800 munny."
+    },
+    "st.silver-mallet": {
+      "wiki": "Silver Mallet",
+      "how": "Sold in shops for 1,200 munny."
+    },
+    "st.violetta": {
+      "wiki": "Violetta",
+      "how": "From the White Trinity mark at the Coliseum Gates."
+    },
+    "st.warhammer": {
+      "wiki": "Warhammer",
+      "how": "Sold in shops for 450 munny."
+    },
+    "st.wisdom-staff": {
+      "wiki": "Wisdom Staff",
+      "how": "Sold in shops for 4,000 munny."
+    },
+    "st.wizard-s-relic": {
+      "wiki": "Wizard's Relic",
+      "how": "Rare drop (0.2%) from Wizard Heartless."
+    }
+  }
+}

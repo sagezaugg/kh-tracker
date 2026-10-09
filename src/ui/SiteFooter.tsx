@@ -33,7 +33,8 @@ export function SiteFooter() {
           Kingdom Save Editor
         </a>{' '}
         (GPL-3.0; offsets referenced, no code copied). Trophy, Journal and synthesis details from KHWiki,
-        Exophase, PSTHC, PlayStation LifeStyle and Gamer Guides. Your save file never leaves your browser.
+        Exophase, PSTHC, PlayStation LifeStyle and Gamer Guides. How-to-obtain notes are written for this
+        project from KHWiki. Your save file never leaves your browser.
       </p>
       <p>
         Mapping a new flag? Try the <Link to="/tools/save-diff">save diff tool</Link>. Source code (MIT) is on{' '}

@@ -1,0 +1,74 @@
+.wrap {
+  position: relative;
+  flex: none;
+  display: flex;
+}
+.btn {
+  width: var(--touch);
+  height: var(--touch);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 22px;
+  background: transparent;
+  color: var(--c-text-sub);
+  cursor: pointer;
+}
+.btn:hover,
+.btn[aria-expanded='true'] {
+  color: var(--c-white);
+  background: var(--c-hover-tint);
+}
+.btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -2px;
+}
+
+/* Hangs below the button, aligned to the row's right edge, above neighbouring rows. */
+.pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 30;
+  width: min(300px, calc(100vw - 40px));
+  padding: 10px 12px;
+  border: 2px solid var(--c-frame);
+  border-radius: 10px;
+  background: var(--c-navy);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.55),
+    0 0 12px var(--c-panel-glow);
+  color: var(--c-text);
+  text-align: left;
+}
+.pop[hidden] {
+  display: none;
+}
+.name {
+  margin: 0 0 4px;
+  color: var(--c-orange);
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+}
+.how {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.link {
+  color: var(--c-ice);
+  font-size: 14px;
+  font-weight: 600;
+}
+.link:hover {
+  color: var(--c-white);
+}
+
+/* Phones: narrower, still full height for tapping, so the row keeps room for the name. */
+@media (max-width: 720px) {
+  .btn {
+    width: 34px;
+  }
+}

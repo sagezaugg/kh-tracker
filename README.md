@@ -137,6 +137,15 @@ items.
 - To take the images down, delete `public/icons/` and empty the three tables in each `icons.json`; every screen
   falls back to text.
 
+## How-to-obtain notes
+
+Rows with an (i) button open a short note on where to get the item, plus a link to its KHWiki page. The notes live
+in `src/games/<game>/data/info.json` (`how` is the note, `wiki` the KHWiki page title). They're written for this
+project in our own words from each page's infobox for that game (its "get" line, or the shop price), not copied, so
+they aren't under KHWiki's CC BY-SA text licence. An item with only `wiki` shows just the link: the Mythril Shield,
+whose page doesn't say where to find it. The first pass covers equipment (Keyblades, staves, shields); other
+groups can be added the same way.
+
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs lint, typecheck, tests and a production build on every pull request and every push

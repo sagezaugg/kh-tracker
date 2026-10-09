@@ -1,0 +1,101 @@
+{
+  "$comment": "How-to-obtain notes, written for this project in our own words from each item's KHWiki page (the infobox \"get\" or shop price for this game). wiki is the KHWiki page title. Items without \"how\" show only the link.",
+  "items": {
+    "kb.bond-of-flame": {
+      "wiki": "Bond of Flame",
+      "how": "Defeat the Nobodies at Betwixt and Between."
+    },
+    "kb.circle-of-life": {
+      "wiki": "Circle of Life",
+      "how": "Talk to Simba at the Oasis in the Pride Lands."
+    },
+    "kb.decisive-pumpkin": {
+      "wiki": "Decisive Pumpkin",
+      "how": "Defeat the Experiment."
+    },
+    "kb.fatal-crest": {
+      "wiki": "Fatal Crest",
+      "how": "Clear the Goddess of Fate Cup."
+    },
+    "kb.fenrir": {
+      "wiki": "Fenrir",
+      "how": "Talk to Cloud after defeating Sephiroth."
+    },
+    "kb.follow-the-wind": {
+      "wiki": "Follow the Wind",
+      "how": "Defeat Captain Barbossa in Port Royal."
+    },
+    "kb.guardian-soul": {
+      "wiki": "Guardian Soul",
+      "how": "Defeat Hades."
+    },
+    "kb.gull-wing": {
+      "wiki": "Gull Wing",
+      "how": "Talk to the Gullwings after the Battle of the 1000 Heartless."
+    },
+    "kb.hero-s-crest": {
+      "wiki": "Hero's Crest",
+      "how": "Defeat the Hydra at Olympus Coliseum."
+    },
+    "kb.hidden-dragon": {
+      "wiki": "Hidden Dragon",
+      "how": "Defeat Shan-Yu in the Land of Dragons."
+    },
+    "kb.kingdom-key": {
+      "wiki": "Kingdom Key",
+      "how": "Gained in the fight with the mysterious enemy at the Old Mansion."
+    },
+    "kb.monochrome": {
+      "wiki": "Monochrome",
+      "how": "Finish Timeless River."
+    },
+    "kb.mysterious-abyss": {
+      "wiki": "Mysterious Abyss",
+      "how": "Finish Ursula's Revenge."
+    },
+    "kb.oathkeeper": {
+      "wiki": "Oathkeeper",
+      "how": "Received after unlocking the gate in Twilight Town."
+    },
+    "kb.oblivion": {
+      "wiki": "Oblivion",
+      "how": "Received on reuniting with Riku in The World That Never Was."
+    },
+    "kb.photon-debugger": {
+      "wiki": "Photon Debugger",
+      "how": "Defeat the Hostile Program."
+    },
+    "kb.rumbling-rose": {
+      "wiki": "Rumbling Rose",
+      "how": "Received when you reunite with the Beast."
+    },
+    "kb.sleeping-lion": {
+      "wiki": "Sleeping Lion",
+      "how": "Talk to Leon before your second trip to Space Paranoids."
+    },
+    "kb.star-seeker": {
+      "wiki": "Star Seeker",
+      "how": "Talk to Flora, Fauna and Merryweather in the Mysterious Tower."
+    },
+    "kb.sweet-memories": {
+      "wiki": "Sweet Memories",
+      "how": "Complete the Expotition."
+    },
+    "kb.two-become-one": {
+      "wiki": "Two Become One",
+      "how": "Defeat Roxas."
+    },
+    "kb.ultima-weapon": {
+      "wiki": "Ultima Weapon",
+      "how": "Made through item synthesis."
+    },
+    "kb.winner-s-proof": {
+      "wiki": "Winner's Proof",
+      "how": "Clear Mushroom XIII No. 13."
+    },
+    "kb.wishing-lamp": {
+      "wiki": "Wishing Lamp",
+      "how": "Defeat Jafar."
+    }
+  }
+}

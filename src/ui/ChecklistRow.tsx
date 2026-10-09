@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { useUi } from '../core/ui';
 import styles from './ChecklistRow.module.css';
 import { ItemIcon } from './GameImage';
+import { InfoButton } from './InfoButton';
 import common from './common.module.css';
 
 interface ChecklistRowProps {
@@ -43,6 +44,7 @@ export function ChecklistRow({ id, name, on, tag, auto, onToggle, onDelete }: Ch
           </>
         )}
       </label>
+      <InfoButton id={id} name={name} />
       {onDelete && (
         <button
           type="button"

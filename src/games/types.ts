@@ -66,6 +66,12 @@ export interface GameIcons {
   worlds: Readonly<Record<string, readonly [string, number, number]>>;
 }
 
+/** How-to-obtain notes (src/games/<game>/data/info.json), written for this project from KHWiki. */
+export interface GameInfo {
+  /** Item id -> note. `wiki` is the KHWiki page title; items without `how` show only the link. */
+  items: Readonly<Record<string, { how?: string; wiki: string }>>;
+}
+
 export interface GameDefinition {
   id: GameId;
   /** "Kingdom Hearts II Final Mix". */
@@ -92,4 +98,5 @@ export interface GameDefinition {
   Wallet: ComponentType;
   summary: (p: Progress, profile: string) => GameSummary;
   icons: GameIcons;
+  info: GameInfo;
 }

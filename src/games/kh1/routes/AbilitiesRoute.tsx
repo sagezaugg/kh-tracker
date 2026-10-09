@@ -50,6 +50,7 @@ export function Kh1AbilitiesRoute() {
                 onChange={(v) => setValue(`lv.${m.key}`, v)}
                 pips
                 icon={<ItemIcon id={`lv.${m.key}`} size={40} />}
+                infoId={`lv.${m.key}`}
               />
             );
           })}

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { InfoButton } from './InfoButton';
 import styles from './Stepper.module.css';
 
 interface StepperProps {
@@ -15,10 +16,24 @@ interface StepperProps {
   big?: boolean;
   /** Decorative icon beside the name. */
   icon?: ReactNode;
+  /** Item id whose how-to-obtain note gets an (i) button, if it has one. */
+  infoId?: string;
 }
 
 /** A level stepper with optional pip gauge, as on the Drive & Magic screen. */
-export function Stepper({ name, sub, value, min, max, valueText, onChange, pips, big, icon }: StepperProps) {
+export function Stepper({
+  name,
+  sub,
+  value,
+  min,
+  max,
+  valueText,
+  onChange,
+  pips,
+  big,
+  icon,
+  infoId,
+}: StepperProps) {
   const set = (v: number) => onChange(Math.max(min, Math.min(max, v)));
   return (
     <div className={styles.stp} role="group" aria-label={name}>
@@ -28,6 +43,7 @@ export function Stepper({ name, sub, value, min, max, valueText, onChange, pips,
           <b>{name}</b>
           <span>{sub}</span>
         </div>
+        {infoId && <InfoButton id={infoId} name={name} />}
       </div>
       <div className={styles.stpC}>
         {big && (

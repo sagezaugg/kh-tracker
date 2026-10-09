@@ -96,6 +96,74 @@
     "kb.wishing-lamp": {
       "wiki": "Wishing Lamp",
       "how": "Defeat Jafar."
+    },
+    "lv.anti": {
+      "wiki": "Antiform",
+      "how": "Possible from the Mysterious Tower on: Sora sometimes turns into Antiform instead of the form you chose. Equipping Light & Darkness makes it happen every time."
+    },
+    "lv.blizzard": {
+      "wiki": "Blizzard",
+      "how": "Each of these gives a Blizzard upgrade: meeting Merlin in Hollow Bastion, defeating Demyx in Hollow Bastion, and completing Atlantica."
+    },
+    "lv.cure": {
+      "wiki": "Cure",
+      "how": "Each of these gives a Cure upgrade: completing Beast's Castle, reuniting with Goofy in Hollow Bastion, and completing the 100 Acre Wood."
+    },
+    "lv.final": {
+      "wiki": "Final Form",
+      "how": "Unlocked after the fight with Roxas, but it first has to trigger by chance: enter a form with at least 5 Drive bars. Equipping Light & Darkness greatly raises the odds. Levels up for every Nobody defeated."
+    },
+    "lv.fire": {
+      "wiki": "Fire",
+      "how": "Each of these gives a Fire upgrade: defending the gate from Nobodies in Hollow Bastion, defeating Scar, and defeating Genie Jafar."
+    },
+    "lv.limit": {
+      "wiki": "Limit Form",
+      "how": "Obtained with the Oathkeeper at the end of the second visit to Twilight Town. Levels up each time a Limit's finishing command is used."
+    },
+    "lv.magnet": {
+      "wiki": "Magnet",
+      "how": "Each of these gives a Magnet upgrade: defeating Oogie Boogie, the Grim Reaper and Luxord (Xigbar in the original release)."
+    },
+    "lv.master": {
+      "wiki": "Master Form",
+      "how": "Obtained when Sora reunites with King Mickey at Hollow Bastion. Levels up from collecting Drive Orbs."
+    },
+    "lv.reflect": {
+      "wiki": "Reflect",
+      "how": "Each of these gives a Reflect upgrade: defeating Pete in Timeless River, Xaldin, and the Master Control Program."
+    },
+    "lv.summon": {
+      "wiki": "Summon",
+      "how": "Shared by every summon. Gains a point for each gauge used up while a summon is out; fighting enemies with a summon out is the fastest way."
+    },
+    "lv.thunder": {
+      "wiki": "Thunder",
+      "how": "Each of these gives a Thunder upgrade: defeating the Hydra, the Storm Rider and the Groundshaker."
+    },
+    "lv.valor": {
+      "wiki": "Valor Form",
+      "how": "Obtained with Sora's new clothes and the Star Seeker at the Mysterious Tower. Levels up every time Sora hits an enemy."
+    },
+    "lv.wisdom": {
+      "wiki": "Wisdom Form",
+      "how": "Obtained with the Monochrome when you clear Timeless River. Levels up for every Heartless defeated."
+    },
+    "sm.chicken": {
+      "wiki": "Summon Charms",
+      "how": "Merlin gives it to Sora in Hollow Bastion after explaining what happened to Pooh's book."
+    },
+    "sm.genie": {
+      "wiki": "Summon Charms",
+      "how": "Genie gives it to Sora after the first visit to Agrabah."
+    },
+    "sm.peter": {
+      "wiki": "Summon Charms",
+      "how": "Chest in the Interceptor's Hold at the Ship Graveyard during the second visit to Port Royal."
+    },
+    "sm.stitch": {
+      "wiki": "Summon Charms",
+      "how": "Chest in Ansem's Study during the second visit to Hollow Bastion."
     }
   }
 }

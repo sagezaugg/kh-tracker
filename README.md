@@ -143,8 +143,10 @@ Rows with an (i) button open a short note on where to get the item, plus a link 
 in `src/games/<game>/data/info.json` (`how` is the note, `wiki` the KHWiki page title). They're written for this
 project in our own words from each page's infobox for that game (its "get" line, or the shop price), not copied, so
 they aren't under KHWiki's CC BY-SA text licence. An item with only `wiki` shows just the link: the Mythril Shield,
-whose page doesn't say where to find it. The first pass covers equipment (Keyblades, staves, shields); other
-groups can be added the same way.
+whose page doesn't say where to find it. Covered so far: equipment (Keyblades, staves, shields) and abilities (Drive
+Forms, Anti Form, magic, summons, summon charms and the KH2 summon level; spell and form notes come from the prose
+of their KHWiki pages, using the Final Mix details where the page notes a difference). Other groups can be added
+the same way. Level steppers take an `infoId` to show the same button.
 
 ## Continuous integration
 

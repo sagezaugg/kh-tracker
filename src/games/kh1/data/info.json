@@ -73,6 +73,34 @@
       "wiki": "Wishing Star",
       "how": "Chest in Geppetto's House."
     },
+    "lv.aero": {
+      "wiki": "Aero",
+      "how": "Each of these gives Aero or an upgrade (Aerora, Aeroga): defeating the Opposite Armor in Traverse Town, the Yellow Trinity mark in the Ship's hold, and rescuing all 99 puppies."
+    },
+    "lv.blizzard": {
+      "wiki": "Blizzard",
+      "how": "Each of these gives Blizzard or an upgrade (Blizzara, Blizzaga): talking to the Cheshire Cat after finding the Claw Marks or defeating the Trickmaster, defeating Jafar, and defeating the Behemoth in the Hades Cup."
+    },
+    "lv.cure": {
+      "wiki": "Cure",
+      "how": "Each of these gives Cure or an upgrade (Cura, Curaga): defeating Clayton and the Stealth Sneak, rescuing Tinker Bell from Captain Hook, and talking to Aerith in the library three times after defeating the Behemoth."
+    },
+    "lv.fire": {
+      "wiki": "Fire",
+      "how": "Each of these gives Fire or an upgrade (Fira, Firaga): defeating the Guard Armor in Traverse Town, defeating Genie Jafar, and talking to the Princesses of Heart after sealing the Final Keyhole."
+    },
+    "lv.gravity": {
+      "wiki": "Gravity",
+      "how": "Each of these gives Gravity or an upgrade (Gravira, Graviga): completing the Phil Cup, clearing Oogie's Manor, and defeating Hades in the Hades Cup."
+    },
+    "lv.stop": {
+      "wiki": "Stop",
+      "how": "Each of these gives Stop or an upgrade (Stopra, Stopga): defeating the Parasite Cage the second time, completing Pooh's Swing, and defeating the Phantom."
+    },
+    "lv.thunder": {
+      "wiki": "Thunder",
+      "how": "Each of these gives Thunder or an upgrade (Thundara, Thundaga): completing Phil's training, defeating the giant Ursula, and defeating Cerberus in the Hades Cup."
+    },
     "sh.adamant-shield": {
       "wiki": "Adamant Shield (KH)",
       "how": "Sold in shops for 4,000 munny."
@@ -131,6 +159,30 @@
     "sh.stout-shield": {
       "wiki": "Stout Shield",
       "how": "Sold in shops for 450 munny."
+    },
+    "sm.bambi": {
+      "wiki": "Bambi",
+      "how": "Summon Gem from completing Pooh's Hunny Hunt; take it to the Fairy Godmother."
+    },
+    "sm.dumbo": {
+      "wiki": "Dumbo",
+      "how": "Summon Gem in a chest in Monstro's Mouth; take it to the Fairy Godmother."
+    },
+    "sm.genie": {
+      "wiki": "Genie",
+      "how": "Unlocked after sealing the Keyhole in Agrabah."
+    },
+    "sm.mushu": {
+      "wiki": "Mushu",
+      "how": "Summon Gem from defeating Dragon Maleficent; take it to the Fairy Godmother."
+    },
+    "sm.simba": {
+      "wiki": "Simba",
+      "how": "Leon gives Sora a Summon Gem at the Secret Waterway; the Fairy Godmother awakens it."
+    },
+    "sm.tinker": {
+      "wiki": "Tinker Bell",
+      "how": "Unlocked after sealing the Keyhole in Neverland."
     },
     "st.dream-rod": {
       "wiki": "Dream Rod",

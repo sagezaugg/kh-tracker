@@ -58,6 +58,7 @@ export function DriveRoute() {
                 onChange={set(f.key)}
                 pips
                 icon={<ItemIcon id={`lv.${f.key}`} size={40} />}
+                infoId={`lv.${f.key}`}
               />
             );
           })}
@@ -75,6 +76,7 @@ export function DriveRoute() {
             onChange={set('summon')}
             pips
             icon={<ItemIcon id="lv.summon" size={40} />}
+            infoId="lv.summon"
           />
         </StepperGrid>
       </Section>
@@ -94,6 +96,7 @@ export function DriveRoute() {
                 onChange={set(m.key)}
                 pips
                 icon={<ItemIcon id={`lv.${m.key}`} size={40} />}
+                infoId={`lv.${m.key}`}
               />
             );
           })}
@@ -110,6 +113,7 @@ export function DriveRoute() {
             valueText={`${anti} / ${ANTI_FORM_MAX}`}
             onChange={set('anti')}
             icon={<ItemIcon id="lv.anti" size={40} />}
+            infoId="lv.anti"
           />
         </StepperGrid>
       </Section>

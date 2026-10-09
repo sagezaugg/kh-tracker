@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axe from 'axe-core';
 import { beforeEach, describe, expect, it } from 'vitest';
@@ -26,17 +26,26 @@ describe.each([KH1, KH2] as GameDefinition[])('$id how-to-obtain notes', (game) 
     expect(equipment.length).toBeGreaterThan(0);
     expect(equipment.filter((i) => !notes[i.id]).map((i) => i.id)).toEqual([]);
   });
+
+  it('covers every ability: forms, magic, summons and charms', () => {
+    const abilities = game.catalog.items.filter((i) =>
+      ['form', 'anti', 'magic', 'summon', 'charm'].includes(i.category),
+    );
+    expect(abilities.length).toBeGreaterThan(0);
+    expect(abilities.filter((i) => !notes[i.id]?.how).map((i) => i.id)).toEqual([]);
+  });
 });
 
 describe('notes coverage', () => {
-  it('has a written note for all 72 items except the Mythril Shield, which KHWiki does not say how to get', () => {
+  it('has a written note for every item except the Mythril Shield, which KHWiki does not say how to get', () => {
     const withoutNote = [KH1, KH2].flatMap((g) =>
       Object.entries(g.info.items)
         .filter(([, n]) => !n.how)
         .map(([id]) => `${g.id}:${id}`),
     );
     expect(withoutNote).toEqual(['kh1:sh.mythril-shield']);
-    expect(Object.keys(KH1.info.items).length + Object.keys(KH2.info.items).length).toBe(72);
+    // 72 equipment + 30 abilities.
+    expect(Object.keys(KH1.info.items).length + Object.keys(KH2.info.items).length).toBe(102);
   });
 
   it('builds KHWiki links from page titles', () => {
@@ -88,6 +97,15 @@ describe('info button', () => {
     screen.getByRole('button', { name: 'About Two Become One' }).focus();
     await userEvent.keyboard('{Enter}');
     expect(screen.getByRole('dialog', { name: 'Two Become One' })).toBeInTheDocument();
+  });
+
+  it('appears on level steppers too', async () => {
+    renderAt('/kh2/drive');
+    const stepper = screen.getByRole('group', { name: 'Valor Form' });
+    await userEvent.click(within(stepper).getByRole('button', { name: 'About Valor Form' }));
+    expect(screen.getByRole('dialog', { name: 'Valor Form' })).toHaveTextContent(
+      KH2.info.items['lv.valor'].how!,
+    );
   });
 
   it('only appears on rows with a note', () => {

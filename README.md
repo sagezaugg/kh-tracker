@@ -142,6 +142,11 @@ like `/kh2/worlds/tt` work on a hard refresh.
 - **CLI:** `npm i -g vercel`, then `vercel login`, then `vercel` for a preview deploy and `vercel --prod` for
   production.
 
+## Contributing
+
+Mapping save flags, fixing content and reporting wrong flags are all welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)
+for the ground rules, how item ids are protected, and a step-by-step guide to finding a flag with the save diff tool.
+
 ## Credits
 
 - Location data: [Archipelago](https://github.com/ArchipelagoMW/Archipelago) KH1 and KH2 worlds (MIT).

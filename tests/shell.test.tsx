@@ -25,8 +25,10 @@ describe('app shell', () => {
   });
 
   it('shows a site-level not-found page for unknown top-level paths', () => {
+    document.title = 'Status · KH2FM 100% Tracker';
     renderAt('/nowhere');
     expect(screen.getByRole('link', { name: 'Return to the game list' })).toHaveAttribute('href', '/');
+    expect(document.title).toBe('Lost in the Darkness · Kingdom Hearts 100% Tracker');
   });
 
   it('treats an unknown world id as not found', () => {

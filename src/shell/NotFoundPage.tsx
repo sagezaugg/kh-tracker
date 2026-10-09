@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Frame } from './Frame';
 import { NotFoundRoute } from './NotFoundRoute';
 import { NOT_FOUND_HELP, NOT_FOUND_TITLE } from './notFound';
@@ -5,6 +6,9 @@ import shell from './Shell.module.css';
 
 /** Full page for unknown paths outside any game. */
 export function NotFoundPage() {
+  useEffect(() => {
+    document.title = `${NOT_FOUND_TITLE} · Kingdom Hearts 100% Tracker`;
+  }, []);
   return (
     <Frame title={NOT_FOUND_TITLE} sub="Kingdom Hearts · 100% Completion Tracker" help={NOT_FOUND_HELP}>
       <div className={shell.body}>

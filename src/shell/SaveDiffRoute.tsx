@@ -38,6 +38,18 @@ function knownBits(cat: Catalog): Map<number, Map<number, string[]>> {
   return m;
 }
 
+type KnownBits = ReturnType<typeof knownBits>;
+const NO_KNOWN_BITS: KnownBits = new Map();
+const knownByCatalog = new WeakMap<Catalog, KnownBits>();
+
+/** knownBits, built once per catalog (catalogs never change, so there's nothing to recompute). */
+function knownBitsFor(cat: Catalog | undefined): KnownBits {
+  if (!cat) return NO_KNOWN_BITS;
+  let m = knownByCatalog.get(cat);
+  if (!m) knownByCatalog.set(cat, (m = knownBits(cat)));
+  return m;
+}
+
 /** Compare two saves byte by byte to find where the game stores a flag or counter. */
 export function SaveDiffRoute() {
   useEffect(() => {
@@ -76,7 +88,7 @@ export function SaveDiffRoute() {
     () => (a && b ? diffBytes(a, b, { start: r?.start, end: r?.end, singleBitOnly: singleBit }) : []),
     [a, b, r?.start, r?.end, singleBit],
   );
-  const known = useMemo(() => (game ? knownBits(game.catalog) : new Map()), [game]);
+  const known = knownBitsFor(game?.catalog);
 
   const label = (c: ByteChange): string => {
     const names = [...c.set, ...c.cleared].flatMap((bit) => known.get(c.offset)?.get(bit) ?? []);

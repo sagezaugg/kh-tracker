@@ -4,7 +4,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import { routes } from '../src/router';
-import { describeError, issueUrl, RouteError } from '../src/shell/RouteError';
+import { RouteError } from '../src/shell/RouteError';
+import { describeError, issueUrl } from '../src/shell/errorInfo';
 
 function Broken(): never {
   throw new Error('kaboom');

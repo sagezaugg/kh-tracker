@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useStore } from 'zustand';
 import { activeProgress } from '../core/store';
 import { GAMES } from '../games/registry';

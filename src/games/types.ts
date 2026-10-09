@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { RouteObject } from 'react-router-dom';
+import type { RouteObject } from 'react-router';
 import type { BackupFormat } from '../core/backup';
 import type { TrackerStore } from '../core/store';
 import type { Catalog, Detected, ParseResult, Progress } from '../core/types';

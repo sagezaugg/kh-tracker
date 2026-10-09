@@ -147,10 +147,11 @@ describe('SaveWatcher', () => {
 
 describe('Config auto re-import setting', () => {
   it('turns the setting off and on', async () => {
-    const { createMemoryRouter, RouterProvider } = await import('react-router-dom');
-    const { routes, routerFuture } = await import('../src/router');
-    const router = createMemoryRouter(routes, { initialEntries: ['/kh2/config'], future: routerFuture });
-    render(<RouterProvider router={router} future={{ v7_startTransition: true }} />);
+    const { createMemoryRouter } = await import('react-router');
+    const { RouterProvider } = await import('react-router/dom');
+    const { routes } = await import('../src/router');
+    const router = createMemoryRouter(routes, { initialEntries: ['/kh2/config'] });
+    render(<RouterProvider router={router} />);
     const btn = await screen.findByRole('button', { name: /Re-import when the save changes/ });
     expect(btn).toHaveAttribute('aria-pressed', 'true');
     act(() => btn.click());

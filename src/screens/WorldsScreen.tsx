@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router';
 import type { Item } from '../core/types';
 import { useGame, useTracker } from '../games/context';
 import { NotFoundRoute } from '../shell/NotFoundRoute';

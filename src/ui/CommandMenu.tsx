@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import { useUi } from '../core/ui';
 import { navHref, useGame } from '../games/context';
 import { HandCursor } from './HandCursor';

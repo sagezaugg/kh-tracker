@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { REPO_URL } from '../site';
 import styles from './SiteFooter.module.css';
 

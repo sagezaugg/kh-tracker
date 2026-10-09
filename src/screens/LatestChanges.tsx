@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import type { ImportReport } from '../core/importReport';
 import { TIER_NAMES } from '../core/rules';
 import { useGame, useGameHref, useTracker } from '../games/context';

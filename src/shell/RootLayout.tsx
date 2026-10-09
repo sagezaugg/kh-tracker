@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router';
 import { SaveWatcher } from '../core/saveWatcher';
 import { GAMES } from '../games/registry';
 

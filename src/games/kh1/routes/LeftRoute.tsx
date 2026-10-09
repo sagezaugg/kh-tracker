@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 import type { Item } from '../../../core/types';
 import { ChecklistRow, ChecklistRows } from '../../../ui/ChecklistRow';
 import { ProgressBar } from '../../../ui/ProgressBar';

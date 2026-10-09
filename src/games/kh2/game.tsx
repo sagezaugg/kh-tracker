@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router';
 import { createTrackerStore } from '../../core/store';
 import type { LocationType } from './data/locations';
 import { FINAL_XEMNAS_ID, LOCATIONS } from './data/locations';

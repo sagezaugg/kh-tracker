@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import { GAMES } from '../games/registry';
 import type { GameDefinition } from '../games/types';
 import styles from './GameSwitcher.module.css';

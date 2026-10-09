@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router';
 import { useStore } from 'zustand';
 import { useUi } from '../core/ui';
 import { GameContext, navForPath } from '../games/context';

@@ -1,4 +1,4 @@
-import { createBrowserRouter, type RouteObject } from 'react-router-dom';
+import { createBrowserRouter, type RouteObject } from 'react-router';
 import { GAMES } from './games/registry';
 import { GameShell } from './shell/GameShell';
 import { HomeRoute } from './shell/HomeRoute';
@@ -24,15 +24,6 @@ export const routes: RouteObject[] = [
   },
 ];
 
-/** Opt in to the v7 behaviours now so the upgrade is a no-op. */
-export const routerFuture = {
-  v7_relativeSplatPath: true,
-  v7_fetcherPersist: true,
-  v7_normalizeFormMethod: true,
-  v7_partialHydration: true,
-  v7_skipActionErrorRevalidation: true,
-} as const;
-
 export function createAppRouter() {
-  return createBrowserRouter(routes, { future: routerFuture });
+  return createBrowserRouter(routes);
 }

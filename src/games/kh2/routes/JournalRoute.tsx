@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { JOURNAL } from '../data/journal';
 import { ITEM_BY_ID, SECTION_ITEMS } from '../model/items';
 import type { Item } from '../../../core/types';

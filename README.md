@@ -1,7 +1,7 @@
 # Kingdom Hearts 100% Tracker
 
 An unofficial, fan-made 100% completion tracker for **Kingdom Hearts Final Mix** and **Kingdom Hearts II Final Mix**,
-with save-file import. It's a single-page app (Vite + React 18 + TypeScript, React Router v6, Zustand) styled after
+with save-file import. It's a single-page app (Vite + React 18 + TypeScript, React Router v7, Zustand) styled after
 the KH2 pause menu. One site, with a game switcher in the header.
 
 **Live site: https://kh-tracker.vercel.app**

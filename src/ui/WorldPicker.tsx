@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { countOn } from '../core/progress';
 import { useGameHref, useProgress } from '../games/context';
 import styles from './WorldPicker.module.css';

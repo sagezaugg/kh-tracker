@@ -1,16 +1,17 @@
 import { act, render } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { createMemoryRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { blankTrackerData } from '../src/core/store';
 import { useUi } from '../src/core/ui';
 import { GAMES } from '../src/games/registry';
 import { kh2Store } from '../src/games/kh2/game';
-import { routerFuture, routes } from '../src/router';
+import { routes } from '../src/router';
 
 export { kh2Store };
 
 export function renderAt(path: string) {
-  const router = createMemoryRouter(routes, { initialEntries: [path], future: routerFuture });
-  render(<RouterProvider router={router} future={{ v7_startTransition: true }} />);
+  const router = createMemoryRouter(routes, { initialEntries: [path] });
+  render(<RouterProvider router={router} />);
   return router;
 }
 

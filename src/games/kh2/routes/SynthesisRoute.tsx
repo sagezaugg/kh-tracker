@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { WORLD_BY_KEY } from '../data/locations';
 import {
   MOOGLE_LEVEL_NEEDED,

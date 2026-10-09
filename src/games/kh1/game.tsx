@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router';
 import { slug } from '../../core/slug';
 import { createTrackerStore } from '../../core/store';
 import { ConfigScreen } from '../../screens/ConfigScreen';

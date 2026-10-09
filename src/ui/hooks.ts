@@ -38,7 +38,7 @@ const POP_MS = 750;
  */
 export function useCheckToggle() {
   const toggle = useTracker((s) => s.toggle);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
   return useCallback(
     (id: string) => {

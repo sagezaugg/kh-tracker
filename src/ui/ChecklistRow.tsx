@@ -23,12 +23,22 @@ export function ChecklistRow({ id, name, on, tag, auto, onToggle, onDelete }: Ch
       <label className={styles.lab}>
         <input type="checkbox" checked={on} onChange={() => onToggle(id)} />
         <span className={styles.box} aria-hidden="true" />
+        {/* The {' '} spaces keep the accessible name readable ("Name TAG (detected…)") without relying
+            on layout; whitespace between flex items isn't rendered, so they don't change the look. */}
         <span className={styles.nm}>{name}</span>
-        {tag && <span className={styles.tag}>{tag}</span>}
+        {tag && (
+          <>
+            {' '}
+            <span className={styles.tag}>{tag}</span>
+          </>
+        )}
         {auto && (
-          <span className={common.autoDot} title="Detected from save files">
-            <span className="sr-only">(detected from save files)</span>
-          </span>
+          <>
+            {' '}
+            <span className={common.autoDot} title="Detected from save files">
+              <span className="sr-only">(detected from save files)</span>
+            </span>
+          </>
         )}
       </label>
       {onDelete && (

@@ -22,6 +22,8 @@ export const KH1_CATALOG: Catalog = {
   sectionItems: KH1_SECTION_ITEMS,
   trophies: KH1_TROPHIES,
   navKeyOf: kh1NavKeyOf,
+  // Old stored id → new id, for any item or `tro.<trophy>` that gets renamed. See Catalog.renamedIds.
+  renamedIds: {},
 };
 
 export { countOn, isOn } from '../../../core/progress';

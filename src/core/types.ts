@@ -140,6 +140,12 @@ export interface Catalog {
   trophies: readonly TrophyDef[];
   /** Menu entry (nav key) that shows an item, for NEW! tags. */
   navKeyOf: (itemId: string) => string;
+  /**
+   * Stored ids that were renamed: old id → current id. Saved progress and backups are moved over when they
+   * load, so renaming an item (or `tro.<trophy id>`) never loses anyone's check. Chains (a → b → c) resolve.
+   * tests/ids.test.ts fails if a stored id disappears without an entry here.
+   */
+  renamedIds?: Readonly<Record<string, string>>;
 }
 
 /** One save slot found in a file. */

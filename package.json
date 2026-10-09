@@ -14,7 +14,8 @@
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "ids:update": "vitest run tests/ids.test.ts --mode update-ids"
   },
   "dependencies": {
     "react": "^18.3.1",

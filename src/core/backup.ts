@@ -51,16 +51,45 @@ export function valuesFrom(cat: Catalog, v: unknown): Record<string, number> {
   return out;
 }
 
+/** The current id for a stored one, following `renamedIds` (chains resolve; a cycle stops where it repeats). */
+export function currentId(cat: Pick<Catalog, 'renamedIds'>, id: string): string {
+  const renames = cat.renamedIds;
+  if (!renames) return id;
+  const seen = new Set<string>();
+  let cur = id;
+  while (renames[cur] !== undefined && !seen.has(cur)) {
+    seen.add(cur);
+    cur = renames[cur];
+  }
+  return cur;
+}
+
+/**
+ * Re-keys a stored record by current ids. When an old and a current id both hold a value, the current
+ * one wins: it was written more recently.
+ */
+function renameKeys(cat: Catalog, rec: Obj): Obj {
+  if (!cat.renamedIds) return rec;
+  const out: Obj = {};
+  for (const [id, v] of Object.entries(rec)) {
+    const to = currentId(cat, id);
+    if (to === id || !(to in rec)) out[to] = v;
+  }
+  return out;
+}
+
 /** Validates a Progress-shaped object from storage or a v3 backup. */
 export function normalizeProgress(cat: Catalog, s: unknown, maxDifficulty: number): Progress {
   const progress = emptyProgress();
   if (!isObj(s)) return progress;
   if (isObj(s.checks)) {
-    for (const [id, on] of Object.entries(s.checks)) if (on === true) progress.checks[id] = true;
+    for (const [id, on] of Object.entries(renameKeys(cat, s.checks)))
+      if (on === true) progress.checks[id] = true;
   }
-  progress.values = valuesFrom(cat, s.values);
+  progress.values = valuesFrom(cat, isObj(s.values) ? renameKeys(cat, s.values) : s.values);
   if (isObj(s.overrides)) {
-    for (const [id, v] of Object.entries(s.overrides)) if (v === 'manual') progress.overrides[id] = 'manual';
+    for (const [id, v] of Object.entries(renameKeys(cat, s.overrides)))
+      if (v === 'manual') progress.overrides[id] = 'manual';
   }
   progress.custom = customGoals(s.custom);
   progress.lastImport = importMetaFrom(s.lastImport);

@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -49,12 +50,12 @@ function pwaPlugin(): Plugin {
 export default defineConfig({
   plugins: [react(), pwaPlugin()],
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         // Libraries change far less often than the app, so they get their own long-lived file and a
         // deploy usually only re-downloads the app chunk. Game data stays in the app chunk: the home page
         // gauges and every game's save watcher need it on every page.
-        manualChunks: (id) => (id.includes('node_modules') ? 'vendor' : undefined),
+        codeSplitting: { groups: [{ name: 'vendor', test: /node_modules/ }] },
       },
     },
   },
@@ -62,5 +63,19 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     css: { modules: { classNameStrategy: 'non-scoped' } },
+    // Vitest resolves packages with ["node", "development", "import"], which picks react-router's CommonJS
+    // build, while `react-router/dom` then pulls in the ESM one: two router contexts, so every router hook
+    // threw. Pin both to the ESM files (absolute paths, past the exports map), which share their chunks.
+    // The app build is unaffected: Vite resolves both to ESM in the browser.
+    alias: [
+      {
+        find: /^react-router$/,
+        replacement: resolve('node_modules/react-router/dist/development/index.mjs'),
+      },
+      {
+        find: /^react-router\/dom$/,
+        replacement: resolve('node_modules/react-router/dist/development/dom-export.mjs'),
+      },
+    ],
   },
 });

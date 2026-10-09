@@ -15,7 +15,7 @@ export function createSafeStorage(): StateStorage {
   };
   return {
     getItem(name) {
-      let v: string | null = null;
+      let v: string | null;
       try {
         v = ls()?.getItem(name) ?? null;
       } catch {

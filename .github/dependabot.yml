@@ -12,6 +12,11 @@ updates:
         update-types: [minor, patch]
     commit-message:
       prefix: deps
+    ignore:
+      # typescript-eslint supports TypeScript below 6.1 only. Remove this once it supports newer
+      # versions (check its peerDependencies), so the TypeScript PR can pass lint.
+      - dependency-name: typescript
+        versions: ['>= 6.1']
 
   - package-ecosystem: github-actions
     directory: /

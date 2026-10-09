@@ -5,12 +5,15 @@ import { HomeRoute } from './shell/HomeRoute';
 import { NotFoundPage } from './shell/NotFoundPage';
 import { NotFoundRoute } from './shell/NotFoundRoute';
 import { RootLayout } from './shell/RootLayout';
+import { RouteError } from './shell/RouteError';
 import { SaveDiffRoute } from './shell/SaveDiffRoute';
 
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: <RootLayout />,
+    // Any page that throws while rendering lands here instead of React Router's bare default screen.
+    errorElement: <RouteError />,
     children: [
       { index: true, element: <HomeRoute /> },
       ...GAMES.map((g): RouteObject => ({

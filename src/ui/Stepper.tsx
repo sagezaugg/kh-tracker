@@ -13,16 +13,21 @@ interface StepperProps {
   pips?: boolean;
   /** Add ±10 buttons (Sora's level). */
   big?: boolean;
+  /** Decorative icon beside the name. */
+  icon?: ReactNode;
 }
 
 /** A level stepper with optional pip gauge, as on the Drive & Magic screen. */
-export function Stepper({ name, sub, value, min, max, valueText, onChange, pips, big }: StepperProps) {
+export function Stepper({ name, sub, value, min, max, valueText, onChange, pips, big, icon }: StepperProps) {
   const set = (v: number) => onChange(Math.max(min, Math.min(max, v)));
   return (
     <div className={styles.stp} role="group" aria-label={name}>
-      <div className={styles.stpN}>
-        <b>{name}</b>
-        <span>{sub}</span>
+      <div className={styles.stpH}>
+        {icon}
+        <div className={styles.stpN}>
+          <b>{name}</b>
+          <span>{sub}</span>
+        </div>
       </div>
       <div className={styles.stpC}>
         {big && (

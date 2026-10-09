@@ -17,6 +17,18 @@
   height: 30px;
   opacity: 0.45;
 }
+/* Real trophy art: dimmed and desaturated until earned, like the cup. */
+.art {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  opacity: 0.5;
+  filter: grayscale(0.85);
+}
+.got .art {
+  opacity: 1;
+  filter: none;
+}
 .got .cup {
   opacity: 1;
   filter: drop-shadow(0 0 6px currentColor);

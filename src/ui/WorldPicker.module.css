@@ -12,11 +12,11 @@
 .wb {
   flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
   min-height: var(--touch);
-  padding: 0 12px;
+  padding: 6px 12px;
   border-radius: 8px;
   border: 2px solid var(--c-frame-dim);
   background: var(--c-navy-2);
@@ -33,6 +33,31 @@
 .sel:hover {
   border-color: var(--c-sel);
   box-shadow: 0 0 10px var(--c-sel-glow);
+}
+.wrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+/* Logos are wide title cards of varying shapes: fit them in a fixed-height band, centred. */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+.logo img {
+  max-width: 100%;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.wname {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-soft);
 }
 .wpct {
   color: var(--c-text-sub);

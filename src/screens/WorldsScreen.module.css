@@ -1,0 +1,17 @@
+/* The open world's logo, above its checklist. Without a logo the name stays for screen readers only. */
+.head {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 8px;
+}
+.head:has(> .sr-only:only-child) {
+  margin: 0;
+}
+.logo {
+  max-width: min(100%, 320px);
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}

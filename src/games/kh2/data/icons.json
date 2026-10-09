@@ -1,61 +1,285 @@
 {
   "items": {
-    "kb.bond-of-flame": "/icons/kh2/bond-of-flame-khii.webp",
-    "kb.circle-of-life": "/icons/kh2/circle-of-life-khii.webp",
-    "kb.decisive-pumpkin": "/icons/kh2/decisive-pumpkin-khii.webp",
-    "kb.fatal-crest": "/icons/kh2/fatal-crest-khii.webp",
-    "kb.fenrir": "/icons/kh2/fenrir-khii.webp",
-    "kb.follow-the-wind": "/icons/kh2/follow-the-wind-khii.webp",
-    "kb.guardian-soul": "/icons/kh2/guardian-soul-khii.webp",
-    "kb.gull-wing": "/icons/kh2/gull-wing-khii.webp",
-    "kb.hero-s-crest": "/icons/kh2/heros-crest-khii.webp",
-    "kb.hidden-dragon": "/icons/kh2/hidden-dragon-khii.webp",
-    "kb.kingdom-key": "/icons/kh2/kingdom-key-khii.webp",
-    "kb.monochrome": "/icons/kh2/monochrome-khii.webp",
-    "kb.mysterious-abyss": "/icons/kh2/mysterious-abyss-khii.webp",
-    "kb.oathkeeper": "/icons/kh2/oathkeeper-khii.webp",
-    "kb.oblivion": "/icons/kh2/oblivion-khii.webp",
-    "kb.photon-debugger": "/icons/kh2/photon-debugger-khii.webp",
-    "kb.rumbling-rose": "/icons/kh2/rumbling-rose-khii.webp",
-    "kb.sleeping-lion": "/icons/kh2/sleeping-lion-khii.webp",
-    "kb.star-seeker": "/icons/kh2/star-seeker-khii.webp",
-    "kb.sweet-memories": "/icons/kh2/sweet-memories-khii.webp",
-    "kb.two-become-one": "/icons/kh2/two-become-one-khiifm.webp",
-    "kb.ultima-weapon": "/icons/kh2/ultima-weapon-khii.webp",
-    "kb.winner-s-proof": "/icons/kh2/winners-proof-khiifm.webp",
-    "kb.wishing-lamp": "/icons/kh2/wishing-lamp-khii.webp",
-    "lv.anti": "/icons/kh2/sora-antiform-khii-top.webp",
-    "lv.final": "/icons/kh2/sora-final-form-khii-top.webp",
-    "lv.limit": "/icons/kh2/sora-limit-form-khiifm-top.webp",
-    "lv.master": "/icons/kh2/sora-master-form-khii-top.webp",
-    "lv.summon": "/icons/kh2/icon-summon-khii.webp",
-    "lv.valor": "/icons/kh2/sora-valor-form-khii-top.webp",
-    "lv.wisdom": "/icons/kh2/sora-wisdom-form-khii-top.webp",
-    "pf.conn": "/icons/kh2/proof-of-connection-khiifm.webp",
-    "pf.non": "/icons/kh2/proof-of-nonexistence-khiifm.webp",
-    "pf.peace": "/icons/kh2/proof-of-peace-khiifm.webp",
-    "pg.1": "/icons/kh2/torn-page-khii.webp",
-    "pg.2": "/icons/kh2/torn-page-khii.webp",
-    "pg.3": "/icons/kh2/torn-page-khii.webp",
-    "pg.4": "/icons/kh2/torn-page-khii.webp",
-    "pg.5": "/icons/kh2/torn-page-khii.webp",
-    "r.1": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.10": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.11": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.12": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.13": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.2": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.3": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.4": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.5": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.6": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.7": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.8": "/icons/kh2/secret-ansems-report-khii.webp",
-    "r.9": "/icons/kh2/secret-ansems-report-khii.webp",
-    "sm.chicken": "/icons/kh2/baseball-charm-khii.webp",
-    "sm.genie": "/icons/kh2/lamp-charm-khii.webp",
-    "sm.peter": "/icons/kh2/feather-charm-khii.webp",
-    "sm.stitch": "/icons/kh2/ukulele-charm-khii.webp"
+    "kb.bond-of-flame": [
+      "/icons/kh2/bond-of-flame-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.circle-of-life": [
+      "/icons/kh2/circle-of-life-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.decisive-pumpkin": [
+      "/icons/kh2/decisive-pumpkin-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.fatal-crest": [
+      "/icons/kh2/fatal-crest-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.fenrir": [
+      "/icons/kh2/fenrir-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.follow-the-wind": [
+      "/icons/kh2/follow-the-wind-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.guardian-soul": [
+      "/icons/kh2/guardian-soul-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.gull-wing": [
+      "/icons/kh2/gull-wing-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.hero-s-crest": [
+      "/icons/kh2/heros-crest-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.hidden-dragon": [
+      "/icons/kh2/hidden-dragon-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.kingdom-key": [
+      "/icons/kh2/kingdom-key-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.monochrome": [
+      "/icons/kh2/monochrome-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.mysterious-abyss": [
+      "/icons/kh2/mysterious-abyss-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.oathkeeper": [
+      "/icons/kh2/oathkeeper-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.oblivion": [
+      "/icons/kh2/oblivion-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.photon-debugger": [
+      "/icons/kh2/photon-debugger-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.rumbling-rose": [
+      "/icons/kh2/rumbling-rose-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.sleeping-lion": [
+      "/icons/kh2/sleeping-lion-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.star-seeker": [
+      "/icons/kh2/star-seeker-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.sweet-memories": [
+      "/icons/kh2/sweet-memories-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.two-become-one": [
+      "/icons/kh2/two-become-one-khiifm-bar.webp",
+      144,
+      48
+    ],
+    "kb.ultima-weapon": [
+      "/icons/kh2/ultima-weapon-khii-bar.webp",
+      144,
+      48
+    ],
+    "kb.winner-s-proof": [
+      "/icons/kh2/winners-proof-khiifm-bar.webp",
+      144,
+      48
+    ],
+    "kb.wishing-lamp": [
+      "/icons/kh2/wishing-lamp-khii-bar.webp",
+      144,
+      48
+    ],
+    "lv.anti": [
+      "/icons/kh2/sora-antiform-khii-top.webp",
+      96,
+      96
+    ],
+    "lv.final": [
+      "/icons/kh2/sora-final-form-khii-top.webp",
+      96,
+      96
+    ],
+    "lv.limit": [
+      "/icons/kh2/sora-limit-form-khiifm-top.webp",
+      96,
+      96
+    ],
+    "lv.master": [
+      "/icons/kh2/sora-master-form-khii-top.webp",
+      96,
+      96
+    ],
+    "lv.summon": [
+      "/icons/kh2/icon-summon-khii.webp",
+      96,
+      96
+    ],
+    "lv.valor": [
+      "/icons/kh2/sora-valor-form-khii-top.webp",
+      96,
+      96
+    ],
+    "lv.wisdom": [
+      "/icons/kh2/sora-wisdom-form-khii-top.webp",
+      96,
+      96
+    ],
+    "pf.conn": [
+      "/icons/kh2/proof-of-connection-khiifm.webp",
+      96,
+      96
+    ],
+    "pf.non": [
+      "/icons/kh2/proof-of-nonexistence-khiifm.webp",
+      96,
+      96
+    ],
+    "pf.peace": [
+      "/icons/kh2/proof-of-peace-khiifm.webp",
+      96,
+      96
+    ],
+    "pg.1": [
+      "/icons/kh2/torn-page-khii.webp",
+      96,
+      96
+    ],
+    "pg.2": [
+      "/icons/kh2/torn-page-khii.webp",
+      96,
+      96
+    ],
+    "pg.3": [
+      "/icons/kh2/torn-page-khii.webp",
+      96,
+      96
+    ],
+    "pg.4": [
+      "/icons/kh2/torn-page-khii.webp",
+      96,
+      96
+    ],
+    "pg.5": [
+      "/icons/kh2/torn-page-khii.webp",
+      96,
+      96
+    ],
+    "r.1": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.10": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.11": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.12": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.13": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.2": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.3": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.4": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.5": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.6": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.7": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.8": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "r.9": [
+      "/icons/kh2/secret-ansems-report-khii.webp",
+      96,
+      96
+    ],
+    "sm.chicken": [
+      "/icons/kh2/baseball-charm-khii.webp",
+      96,
+      96
+    ],
+    "sm.genie": [
+      "/icons/kh2/lamp-charm-khii.webp",
+      96,
+      96
+    ],
+    "sm.peter": [
+      "/icons/kh2/feather-charm-khii.webp",
+      96,
+      96
+    ],
+    "sm.stitch": [
+      "/icons/kh2/ukulele-charm-khii.webp",
+      96,
+      96
+    ]
   },
   "trophies": {
     "ace": "/icons/kh2/ace-pilot-trophy-khiifm.webp",

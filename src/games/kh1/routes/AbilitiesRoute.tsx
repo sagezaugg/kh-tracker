@@ -1,6 +1,7 @@
 import { FilterBar } from '../../../ui/FilterBar';
 import { ItemSection } from '../../../ui/ItemSection';
 import { Section } from '../../../ui/Section';
+import { ItemIcon } from '../../../ui/GameImage';
 import { Stepper, StepperGrid } from '../../../ui/Stepper';
 import { useFilters } from '../../../ui/hooks';
 import { rowsOf } from '../../../ui/rows';
@@ -48,6 +49,7 @@ export function Kh1AbilitiesRoute() {
                 valueText={n ? `LV ${n}` : '—'}
                 onChange={(v) => setValue(`lv.${m.key}`, v)}
                 pips
+                icon={<ItemIcon id={`lv.${m.key}`} size={40} />}
               />
             );
           })}

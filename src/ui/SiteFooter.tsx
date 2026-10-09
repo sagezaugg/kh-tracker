@@ -8,7 +8,12 @@ export function SiteFooter() {
     <footer className={styles.foot}>
       <p>
         <strong>Unofficial fan tool.</strong> Not affiliated with, endorsed by or sponsored by Square Enix or
-        Disney. Kingdom Hearts is a trademark of its respective owners. No game assets are used.
+        Disney. Kingdom Hearts is a trademark of its respective owners. Item icons, trophy images and world
+        logos are © Square Enix and Disney, shown only to identify items under fair use, and sourced from{' '}
+        <a href="https://www.khwiki.com" rel="noreferrer" target="_blank">
+          KHWiki
+        </a>
+        .
       </p>
       <p>
         Credits: location data from the{' '}

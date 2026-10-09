@@ -51,6 +51,10 @@
   border-color: var(--c-gold-pale);
   box-shadow: 0 0 8px rgba(255, 210, 63, 0.8);
 }
+.icon {
+  flex: none;
+  object-fit: contain;
+}
 .lab input:focus-visible + .box {
   outline: var(--focus-ring);
   outline-offset: 3px;

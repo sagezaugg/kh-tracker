@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { useUi } from '../core/ui';
 import styles from './ChecklistRow.module.css';
+import { ItemIcon } from './GameImage';
 import common from './common.module.css';
 
 interface ChecklistRowProps {
@@ -23,6 +24,7 @@ export function ChecklistRow({ id, name, on, tag, auto, onToggle, onDelete }: Ch
       <label className={styles.lab}>
         <input type="checkbox" checked={on} onChange={() => onToggle(id)} />
         <span className={styles.box} aria-hidden="true" />
+        <ItemIcon id={id} className={styles.icon} />
         {/* The {' '} spaces keep the accessible name readable ("Name TAG (detected…)") without relying
             on layout; whitespace between flex items isn't rendered, so they don't change the look. */}
         <span className={styles.nm}>{name}</span>

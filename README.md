@@ -19,8 +19,9 @@ saves (Config, Auto re-import).
 There's also a **save diff tool** at `/tools/save-diff`: load a save from before and after an in-game event to see
 every byte and bit that changed. It's how the remaining unknown flags get mapped.
 
-> Unofficial fan tool. Not affiliated with Square Enix or Disney. No game logos, artwork, fonts, music or sounds are
-> used.
+> Unofficial fan tool. Not affiliated with Square Enix or Disney. Item icons, trophy images and world logos are
+> Square Enix and Disney property, shown only to identify items under fair use (see [Game images](#game-images)).
+> No game fonts, music or sounds are used.
 
 ## Local development
 
@@ -121,6 +122,21 @@ Then run `npm test`: the data tests check totals and id uniqueness, and the fixt
 pwsh scripts/brand/render.ps1
 ```
 
+## Game images
+
+Icons, trophy images and world logos are self-hosted copies of KHWiki files. KHWiki hosts them under fair use and
+doesn't license them for reuse; they're Square Enix and Disney property, used here at icon size only to identify
+items.
+
+- `scripts/icons/manifest.json` lists which wiki file each item, trophy and world uses.
+- `npm run icons:fetch` downloads anything new into a gitignored cache (one request at a time, with a pause), then
+  writes small WebP copies to `public/icons/<game>/` (96px squares, 144x48 bars for Keyblades and staves, rotated
+  level from the diagonal renders, and 80px-tall logos), `src/games/<game>/data/icons.json` and
+  `public/icons/CREDITS.json`. Run `npm run format` afterwards.
+- Spells have no wiki icons, so they use glyphs drawn for this project (`src/ui/icons/`).
+- To take the images down, delete `public/icons/` and empty the three tables in each `icons.json`; every screen
+  falls back to text.
+
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs lint, typecheck, tests and a production build on every pull request and every push
@@ -157,11 +173,15 @@ for the ground rules, how item ids are protected, and a step-by-step guide to fi
   offsets, item ids and enums are referenced; none of its code is copied.
 - Trophy names, tiers and requirements: KHWiki, Exophase, PSTHC, PlayStation LifeStyle, Gamer Guides. Journal
   sections, synthesis lists and Ultima Weapon recipes: KHWiki and Gamer Guides.
+- Game images (item icons, trophy images, world logos): © Square Enix and Disney, sourced from
+  [KHWiki](https://www.khwiki.com). `public/icons/CREDITS.json` links every file's source page. The spell glyphs
+  are drawn for this project.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). Kingdom Hearts is a trademark of its owners; this is an unofficial fan project and
-includes no game assets.
+MIT, see [LICENSE](LICENSE). The MIT license covers this project's code and text only. Kingdom Hearts is a trademark
+of its owners, and the game images in `public/icons/` belong to Square Enix and Disney (see
+[Game images](#game-images)).
 
 ## Open questions (left as TODOs, with manual fallbacks)
 

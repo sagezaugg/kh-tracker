@@ -1,59 +1,275 @@
 {
   "items": {
-    "kb.crabclaw": "/icons/kh1/crabclaw-kh.webp",
-    "kb.diamond-dust": "/icons/kh1/diamond-dust-khfm.webp",
-    "kb.divine-rose": "/icons/kh1/divine-rose-kh.webp",
-    "kb.fairy-harp": "/icons/kh1/fairy-harp-kh.webp",
-    "kb.jungle-king": "/icons/kh1/jungle-king-kh.webp",
-    "kb.kingdom-key": "/icons/kh1/kingdom-key-kh.webp",
-    "kb.lady-luck": "/icons/kh1/lady-luck-kh.webp",
-    "kb.lionheart": "/icons/kh1/lionheart-kh.webp",
-    "kb.metal-chocobo": "/icons/kh1/metal-chocobo-kh.webp",
-    "kb.oathkeeper": "/icons/kh1/oathkeeper-kh.webp",
-    "kb.oblivion": "/icons/kh1/oblivion-kh.webp",
-    "kb.olympia": "/icons/kh1/olympia-kh.webp",
-    "kb.one-winged-angel": "/icons/kh1/one-winged-angel-khfm.webp",
-    "kb.pumpkinhead": "/icons/kh1/pumpkinhead-kh.webp",
-    "kb.spellbinder": "/icons/kh1/spellbinder-kh.webp",
-    "kb.three-wishes": "/icons/kh1/three-wishes-kh.webp",
-    "kb.ultima-weapon": "/icons/kh1/ultima-weapon-kh.webp",
-    "kb.wishing-star": "/icons/kh1/wishing-star-kh.webp",
-    "sh.adamant-shield": "/icons/kh1/adamant-shield-kh.webp",
-    "sh.defender": "/icons/kh1/defender-kh.webp",
-    "sh.dream-shield": "/icons/kh1/dream-shield-kh.webp",
-    "sh.genji-shield": "/icons/kh1/genji-shield-kh.webp",
-    "sh.gigas-fist": "/icons/kh1/gigas-fist-kh.webp",
-    "sh.golem-shield": "/icons/kh1/golem-shield-kh.webp",
-    "sh.herc-s-shield": "/icons/kh1/hercs-shield-kh.webp",
-    "sh.knight-s-shield": "/icons/kh1/knights-shield-kh.webp",
-    "sh.mighty-shield": "/icons/kh1/mighty-shield-khfm.webp",
-    "sh.mythril-shield": "/icons/kh1/mythril-shield-kh.webp",
-    "sh.onyx-shield": "/icons/kh1/onyx-shield-kh.webp",
-    "sh.save-the-king": "/icons/kh1/save-the-king-kh.webp",
-    "sh.seven-elements": "/icons/kh1/seven-elements-khfm.webp",
-    "sh.smasher": "/icons/kh1/smasher-kh.webp",
-    "sh.stout-shield": "/icons/kh1/stout-shield-kh.webp",
-    "sm.bambi": "/icons/kh1/bambi-portrait-khhd.webp",
-    "sm.dumbo": "/icons/kh1/dumbo-portrait-khhd.webp",
-    "sm.genie": "/icons/kh1/genie-portrait-khhd.webp",
-    "sm.mushu": "/icons/kh1/mushu-portrait-khhd.webp",
-    "sm.simba": "/icons/kh1/simba-portrait-khhd.webp",
-    "sm.tinker": "/icons/kh1/tinker-bell-portrait-khhd.webp",
-    "st.dream-rod": "/icons/kh1/dream-rod-kh.webp",
-    "st.fantasista": "/icons/kh1/fantasista-khfm.webp",
-    "st.grand-mallet": "/icons/kh1/grand-mallet-kh.webp",
-    "st.lord-fortune": "/icons/kh1/lord-fortune-kh.webp",
-    "st.mage-s-staff": "/icons/kh1/mages-staff-kh.webp",
-    "st.magus-staff": "/icons/kh1/magus-staff-kh.webp",
-    "st.meteor-strike": "/icons/kh1/meteor-strike-khfm.webp",
-    "st.morning-star": "/icons/kh1/morning-star-kh.webp",
-    "st.save-the-queen": "/icons/kh1/save-the-queen-kh.webp",
-    "st.shooting-star": "/icons/kh1/shooting-star-kh.webp",
-    "st.silver-mallet": "/icons/kh1/silver-mallet-kh.webp",
-    "st.violetta": "/icons/kh1/violetta-kh.webp",
-    "st.warhammer": "/icons/kh1/warhammer-kh.webp",
-    "st.wisdom-staff": "/icons/kh1/wisdom-staff-kh.webp",
-    "st.wizard-s-relic": "/icons/kh1/wizards-relic-kh.webp"
+    "kb.crabclaw": [
+      "/icons/kh1/crabclaw-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.diamond-dust": [
+      "/icons/kh1/diamond-dust-khfm-bar.webp",
+      144,
+      48
+    ],
+    "kb.divine-rose": [
+      "/icons/kh1/divine-rose-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.fairy-harp": [
+      "/icons/kh1/fairy-harp-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.jungle-king": [
+      "/icons/kh1/jungle-king-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.kingdom-key": [
+      "/icons/kh1/kingdom-key-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.lady-luck": [
+      "/icons/kh1/lady-luck-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.lionheart": [
+      "/icons/kh1/lionheart-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.metal-chocobo": [
+      "/icons/kh1/metal-chocobo-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.oathkeeper": [
+      "/icons/kh1/oathkeeper-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.oblivion": [
+      "/icons/kh1/oblivion-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.olympia": [
+      "/icons/kh1/olympia-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.one-winged-angel": [
+      "/icons/kh1/one-winged-angel-khfm-bar.webp",
+      144,
+      48
+    ],
+    "kb.pumpkinhead": [
+      "/icons/kh1/pumpkinhead-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.spellbinder": [
+      "/icons/kh1/spellbinder-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.three-wishes": [
+      "/icons/kh1/three-wishes-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.ultima-weapon": [
+      "/icons/kh1/ultima-weapon-kh-bar.webp",
+      144,
+      48
+    ],
+    "kb.wishing-star": [
+      "/icons/kh1/wishing-star-kh-bar.webp",
+      144,
+      48
+    ],
+    "sh.adamant-shield": [
+      "/icons/kh1/adamant-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.defender": [
+      "/icons/kh1/defender-kh.webp",
+      96,
+      96
+    ],
+    "sh.dream-shield": [
+      "/icons/kh1/dream-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.genji-shield": [
+      "/icons/kh1/genji-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.gigas-fist": [
+      "/icons/kh1/gigas-fist-kh.webp",
+      96,
+      96
+    ],
+    "sh.golem-shield": [
+      "/icons/kh1/golem-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.herc-s-shield": [
+      "/icons/kh1/hercs-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.knight-s-shield": [
+      "/icons/kh1/knights-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.mighty-shield": [
+      "/icons/kh1/mighty-shield-khfm.webp",
+      96,
+      96
+    ],
+    "sh.mythril-shield": [
+      "/icons/kh1/mythril-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.onyx-shield": [
+      "/icons/kh1/onyx-shield-kh.webp",
+      96,
+      96
+    ],
+    "sh.save-the-king": [
+      "/icons/kh1/save-the-king-kh.webp",
+      96,
+      96
+    ],
+    "sh.seven-elements": [
+      "/icons/kh1/seven-elements-khfm.webp",
+      96,
+      96
+    ],
+    "sh.smasher": [
+      "/icons/kh1/smasher-kh.webp",
+      96,
+      96
+    ],
+    "sh.stout-shield": [
+      "/icons/kh1/stout-shield-kh.webp",
+      96,
+      96
+    ],
+    "sm.bambi": [
+      "/icons/kh1/bambi-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "sm.dumbo": [
+      "/icons/kh1/dumbo-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "sm.genie": [
+      "/icons/kh1/genie-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "sm.mushu": [
+      "/icons/kh1/mushu-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "sm.simba": [
+      "/icons/kh1/simba-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "sm.tinker": [
+      "/icons/kh1/tinker-bell-portrait-khhd.webp",
+      96,
+      96
+    ],
+    "st.dream-rod": [
+      "/icons/kh1/dream-rod-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.fantasista": [
+      "/icons/kh1/fantasista-khfm-bar.webp",
+      144,
+      48
+    ],
+    "st.grand-mallet": [
+      "/icons/kh1/grand-mallet-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.lord-fortune": [
+      "/icons/kh1/lord-fortune-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.mage-s-staff": [
+      "/icons/kh1/mages-staff-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.magus-staff": [
+      "/icons/kh1/magus-staff-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.meteor-strike": [
+      "/icons/kh1/meteor-strike-khfm-bar.webp",
+      144,
+      48
+    ],
+    "st.morning-star": [
+      "/icons/kh1/morning-star-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.save-the-queen": [
+      "/icons/kh1/save-the-queen-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.shooting-star": [
+      "/icons/kh1/shooting-star-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.silver-mallet": [
+      "/icons/kh1/silver-mallet-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.violetta": [
+      "/icons/kh1/violetta-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.warhammer": [
+      "/icons/kh1/warhammer-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.wisdom-staff": [
+      "/icons/kh1/wisdom-staff-kh-bar.webp",
+      144,
+      48
+    ],
+    "st.wizard-s-relic": [
+      "/icons/kh1/wizards-relic-kh-bar.webp",
+      144,
+      48
+    ]
   },
   "trophies": {
     "ace": "/icons/kh1/ace-pilot-khfm-trophy-khhd.webp",

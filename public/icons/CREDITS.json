@@ -137,13 +137,13 @@
       "file": "Bond of Flame KHII.png",
       "page": "https://www.khwiki.com/File:Bond_of_Flame_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/bond-of-flame-khii.webp"]
+      "used": ["/icons/kh2/bond-of-flame-khii-bar.webp"]
     },
     {
       "file": "Circle of Life KHII.png",
       "page": "https://www.khwiki.com/File:Circle_of_Life_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/circle-of-life-khii.webp"]
+      "used": ["/icons/kh2/circle-of-life-khii-bar.webp"]
     },
     {
       "file": "Coliseum Champion Trophy KHHD.png",
@@ -185,7 +185,7 @@
       "file": "Crabclaw KH.png",
       "page": "https://www.khwiki.com/File:Crabclaw_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/crabclaw-kh.webp"]
+      "used": ["/icons/kh1/crabclaw-kh-bar.webp"]
     },
     {
       "file": "Craftsman Trophy KHIIFM.png",
@@ -209,7 +209,7 @@
       "file": "Decisive Pumpkin KHII.png",
       "page": "https://www.khwiki.com/File:Decisive_Pumpkin_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/decisive-pumpkin-khii.webp"]
+      "used": ["/icons/kh2/decisive-pumpkin-khii-bar.webp"]
     },
     {
       "file": "Deep Jungle Logo KH.png",
@@ -233,7 +233,7 @@
       "file": "Diamond Dust KHFM.png",
       "page": "https://www.khwiki.com/File:Diamond_Dust_KHFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/diamond-dust-khfm.webp"]
+      "used": ["/icons/kh1/diamond-dust-khfm-bar.webp"]
     },
     {
       "file": "Disney Castle Logo KHII.png",
@@ -245,13 +245,13 @@
       "file": "Divine Rose KH.png",
       "page": "https://www.khwiki.com/File:Divine_Rose_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/divine-rose-kh.webp"]
+      "used": ["/icons/kh1/divine-rose-kh-bar.webp"]
     },
     {
       "file": "Dream Rod KH.png",
       "page": "https://www.khwiki.com/File:Dream_Rod_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/dream-rod-kh.webp"]
+      "used": ["/icons/kh1/dream-rod-kh-bar.webp"]
     },
     {
       "file": "Dream Shield KH.png",
@@ -287,19 +287,19 @@
       "file": "Fairy Harp KH.png",
       "page": "https://www.khwiki.com/File:Fairy_Harp_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/fairy-harp-kh.webp"]
+      "used": ["/icons/kh1/fairy-harp-kh-bar.webp"]
     },
     {
       "file": "Fantasista KHFM.png",
       "page": "https://www.khwiki.com/File:Fantasista_KHFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/fantasista-khfm.webp"]
+      "used": ["/icons/kh1/fantasista-khfm-bar.webp"]
     },
     {
       "file": "Fatal Crest KHII.png",
       "page": "https://www.khwiki.com/File:Fatal_Crest_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/fatal-crest-khii.webp"]
+      "used": ["/icons/kh2/fatal-crest-khii-bar.webp"]
     },
     {
       "file": "Feather Charm KHII.png",
@@ -311,7 +311,7 @@
       "file": "Fenrir KHII.png",
       "page": "https://www.khwiki.com/File:Fenrir_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/fenrir-khii.webp"]
+      "used": ["/icons/kh2/fenrir-khii-bar.webp"]
     },
     {
       "file": "Final Mix Master Trophy KHHD.png",
@@ -335,7 +335,7 @@
       "file": "Follow the Wind KHII.png",
       "page": "https://www.khwiki.com/File:Follow_the_Wind_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/follow-the-wind-khii.webp"]
+      "used": ["/icons/kh2/follow-the-wind-khii-bar.webp"]
     },
     {
       "file": "From Rags to Riches Trophy KHHD.png",
@@ -371,19 +371,19 @@
       "file": "Grand Mallet KH.png",
       "page": "https://www.khwiki.com/File:Grand_Mallet_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/grand-mallet-kh.webp"]
+      "used": ["/icons/kh1/grand-mallet-kh-bar.webp"]
     },
     {
       "file": "Guardian Soul KHII.png",
       "page": "https://www.khwiki.com/File:Guardian_Soul_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/guardian-soul-khii.webp"]
+      "used": ["/icons/kh2/guardian-soul-khii-bar.webp"]
     },
     {
       "file": "Gull Wing KHII.png",
       "page": "https://www.khwiki.com/File:Gull_Wing_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/gull-wing-khii.webp"]
+      "used": ["/icons/kh2/gull-wing-khii-bar.webp"]
     },
     {
       "file": "Gummi Ship Collector Trophy KHHD.png",
@@ -455,13 +455,13 @@
       "file": "Hero's Crest KHII.png",
       "page": "https://www.khwiki.com/File:Hero%27s_Crest_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/heros-crest-khii.webp"]
+      "used": ["/icons/kh2/heros-crest-khii-bar.webp"]
     },
     {
       "file": "Hidden Dragon KHII.png",
       "page": "https://www.khwiki.com/File:Hidden_Dragon_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/hidden-dragon-khii.webp"]
+      "used": ["/icons/kh2/hidden-dragon-khii-bar.webp"]
     },
     {
       "file": "Hollow Bastion Logo KH.png",
@@ -491,7 +491,7 @@
       "file": "Jungle King KH.png",
       "page": "https://www.khwiki.com/File:Jungle_King_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/jungle-king-kh.webp"]
+      "used": ["/icons/kh1/jungle-king-kh-bar.webp"]
     },
     {
       "file": "Junior Hero Trophy KHHD.png",
@@ -521,13 +521,13 @@
       "file": "Kingdom Key KH.png",
       "page": "https://www.khwiki.com/File:Kingdom_Key_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/kingdom-key-kh.webp"]
+      "used": ["/icons/kh1/kingdom-key-kh-bar.webp"]
     },
     {
       "file": "Kingdom Key KHII.png",
       "page": "https://www.khwiki.com/File:Kingdom_Key_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/kingdom-key-khii.webp"]
+      "used": ["/icons/kh2/kingdom-key-khii-bar.webp"]
     },
     {
       "file": "Knight's Shield KH.png",
@@ -539,7 +539,7 @@
       "file": "Lady Luck KH.png",
       "page": "https://www.khwiki.com/File:Lady_Luck_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/lady-luck-kh.webp"]
+      "used": ["/icons/kh1/lady-luck-kh-bar.webp"]
     },
     {
       "file": "Lamp Charm KHII.png",
@@ -581,19 +581,19 @@
       "file": "Lionheart KH.png",
       "page": "https://www.khwiki.com/File:Lionheart_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/lionheart-kh.webp"]
+      "used": ["/icons/kh1/lionheart-kh-bar.webp"]
     },
     {
       "file": "Lord Fortune KH.png",
       "page": "https://www.khwiki.com/File:Lord_Fortune_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/lord-fortune-kh.webp"]
+      "used": ["/icons/kh1/lord-fortune-kh-bar.webp"]
     },
     {
       "file": "Mage's Staff KH.png",
       "page": "https://www.khwiki.com/File:Mage%27s_Staff_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/mages-staff-kh.webp"]
+      "used": ["/icons/kh1/mages-staff-kh-bar.webp"]
     },
     {
       "file": "Magic Lamp Trophy KHHD.png",
@@ -605,7 +605,7 @@
       "file": "Magus Staff KH.png",
       "page": "https://www.khwiki.com/File:Magus_Staff_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/magus-staff-kh.webp"]
+      "used": ["/icons/kh1/magus-staff-kh-bar.webp"]
     },
     {
       "file": "Master Defender Trophy KHHD.png",
@@ -635,13 +635,13 @@
       "file": "Metal Chocobo KH.png",
       "page": "https://www.khwiki.com/File:Metal_Chocobo_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/metal-chocobo-kh.webp"]
+      "used": ["/icons/kh1/metal-chocobo-kh-bar.webp"]
     },
     {
       "file": "Meteor Strike KHFM.png",
       "page": "https://www.khwiki.com/File:Meteor_Strike_KHFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/meteor-strike-khfm.webp"]
+      "used": ["/icons/kh1/meteor-strike-khfm-bar.webp"]
     },
     {
       "file": "Mighty Shield KHFM.png",
@@ -665,7 +665,7 @@
       "file": "Monochrome KHII.png",
       "page": "https://www.khwiki.com/File:Monochrome_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/monochrome-khii.webp"]
+      "used": ["/icons/kh2/monochrome-khii-bar.webp"]
     },
     {
       "file": "Monstro Logo KH.png",
@@ -677,7 +677,7 @@
       "file": "Morning Star KH.png",
       "page": "https://www.khwiki.com/File:Morning_Star_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/morning-star-kh.webp"]
+      "used": ["/icons/kh1/morning-star-kh-bar.webp"]
     },
     {
       "file": "Mushroom Master Trophy KHIIFM.png",
@@ -701,7 +701,7 @@
       "file": "Mysterious Abyss KHII.png",
       "page": "https://www.khwiki.com/File:Mysterious_Abyss_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/mysterious-abyss-khii.webp"]
+      "used": ["/icons/kh2/mysterious-abyss-khii-bar.webp"]
     },
     {
       "file": "Mythril Shield KH.png",
@@ -749,13 +749,13 @@
       "file": "Oathkeeper KH.png",
       "page": "https://www.khwiki.com/File:Oathkeeper_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/oathkeeper-kh.webp"]
+      "used": ["/icons/kh1/oathkeeper-kh-bar.webp"]
     },
     {
       "file": "Oathkeeper KHII.png",
       "page": "https://www.khwiki.com/File:Oathkeeper_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/oathkeeper-khii.webp"]
+      "used": ["/icons/kh2/oathkeeper-khii-bar.webp"]
     },
     {
       "file": "Oathkeeper Trophy KHHD.png",
@@ -767,19 +767,19 @@
       "file": "Oblivion KH.png",
       "page": "https://www.khwiki.com/File:Oblivion_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/oblivion-kh.webp"]
+      "used": ["/icons/kh1/oblivion-kh-bar.webp"]
     },
     {
       "file": "Oblivion KHII.png",
       "page": "https://www.khwiki.com/File:Oblivion_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/oblivion-khii.webp"]
+      "used": ["/icons/kh2/oblivion-khii-bar.webp"]
     },
     {
       "file": "Olympia KH.png",
       "page": "https://www.khwiki.com/File:Olympia_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/olympia-kh.webp"]
+      "used": ["/icons/kh1/olympia-kh-bar.webp"]
     },
     {
       "file": "Olympus Coliseum Logo KH.png",
@@ -797,7 +797,7 @@
       "file": "One-Winged Angel KHFM.png",
       "page": "https://www.khwiki.com/File:One-Winged_Angel_KHFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/one-winged-angel-khfm.webp"]
+      "used": ["/icons/kh1/one-winged-angel-khfm-bar.webp"]
     },
     {
       "file": "One-Winged Angel Trophy KHHD.png",
@@ -821,7 +821,7 @@
       "file": "Photon Debugger KHII.png",
       "page": "https://www.khwiki.com/File:Photon_Debugger_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/photon-debugger-khii.webp"]
+      "used": ["/icons/kh2/photon-debugger-khii-bar.webp"]
     },
     {
       "file": "Pixie Dust Trophy KHHD.png",
@@ -905,7 +905,7 @@
       "file": "Pumpkinhead KH.png",
       "page": "https://www.khwiki.com/File:Pumpkinhead_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/pumpkinhead-kh.webp"]
+      "used": ["/icons/kh1/pumpkinhead-kh-bar.webp"]
     },
     {
       "file": "Puzzler Trophy KHIIFM.png",
@@ -941,7 +941,7 @@
       "file": "Rumbling Rose KHII.png",
       "page": "https://www.khwiki.com/File:Rumbling_Rose_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/rumbling-rose-khii.webp"]
+      "used": ["/icons/kh2/rumbling-rose-khii-bar.webp"]
     },
     {
       "file": "Save the King KH.png",
@@ -953,7 +953,7 @@
       "file": "Save the Queen KH.png",
       "page": "https://www.khwiki.com/File:Save_the_Queen_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/save-the-queen-kh.webp"]
+      "used": ["/icons/kh1/save-the-queen-kh-bar.webp"]
     },
     {
       "file": "Searcher Trophy KHHD.png",
@@ -989,13 +989,13 @@
       "file": "Shooting Star KH.png",
       "page": "https://www.khwiki.com/File:Shooting_Star_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/shooting-star-kh.webp"]
+      "used": ["/icons/kh1/shooting-star-kh-bar.webp"]
     },
     {
       "file": "Silver Mallet KH.png",
       "page": "https://www.khwiki.com/File:Silver_Mallet_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/silver-mallet-kh.webp"]
+      "used": ["/icons/kh1/silver-mallet-kh-bar.webp"]
     },
     {
       "file": "Simba (Portrait) KHHD.png",
@@ -1007,7 +1007,7 @@
       "file": "Sleeping Lion KHII.png",
       "page": "https://www.khwiki.com/File:Sleeping_Lion_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/sleeping-lion-khii.webp"]
+      "used": ["/icons/kh2/sleeping-lion-khii-bar.webp"]
     },
     {
       "file": "Smasher KH.png",
@@ -1067,13 +1067,13 @@
       "file": "Spellbinder KH.png",
       "page": "https://www.khwiki.com/File:Spellbinder_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/spellbinder-kh.webp"]
+      "used": ["/icons/kh1/spellbinder-kh-bar.webp"]
     },
     {
       "file": "Star Seeker KHII.png",
       "page": "https://www.khwiki.com/File:Star_Seeker_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/star-seeker-khii.webp"]
+      "used": ["/icons/kh2/star-seeker-khii-bar.webp"]
     },
     {
       "file": "Storyteller Trophy KHHD.png",
@@ -1109,7 +1109,7 @@
       "file": "Sweet Memories KHII.png",
       "page": "https://www.khwiki.com/File:Sweet_Memories_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/sweet-memories-khii.webp"]
+      "used": ["/icons/kh2/sweet-memories-khii-bar.webp"]
     },
     {
       "file": "Synthesis Amateur Trophy KHHD.png",
@@ -1187,7 +1187,7 @@
       "file": "Three Wishes KH.png",
       "page": "https://www.khwiki.com/File:Three_Wishes_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/three-wishes-kh.webp"]
+      "used": ["/icons/kh1/three-wishes-kh-bar.webp"]
     },
     {
       "file": "Time Attacker Trophy KHHD.png",
@@ -1271,7 +1271,7 @@
       "file": "Two Become One KHIIFM.png",
       "page": "https://www.khwiki.com/File:Two_Become_One_KHIIFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/two-become-one-khiifm.webp"]
+      "used": ["/icons/kh2/two-become-one-khiifm-bar.webp"]
     },
     {
       "file": "Ukulele Charm KHII.png",
@@ -1283,13 +1283,13 @@
       "file": "Ultima Weapon KH.png",
       "page": "https://www.khwiki.com/File:Ultima_Weapon_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/ultima-weapon-kh.webp"]
+      "used": ["/icons/kh1/ultima-weapon-kh-bar.webp"]
     },
     {
       "file": "Ultima Weapon KHII.png",
       "page": "https://www.khwiki.com/File:Ultima_Weapon_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/ultima-weapon-khii.webp"]
+      "used": ["/icons/kh2/ultima-weapon-khii-bar.webp"]
     },
     {
       "file": "Unchanging Armor Trophy KHHD.png",
@@ -1319,13 +1319,13 @@
       "file": "Violetta KH.png",
       "page": "https://www.khwiki.com/File:Violetta_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/violetta-kh.webp"]
+      "used": ["/icons/kh1/violetta-kh-bar.webp"]
     },
     {
       "file": "Warhammer KH.png",
       "page": "https://www.khwiki.com/File:Warhammer_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/warhammer-kh.webp"]
+      "used": ["/icons/kh1/warhammer-kh-bar.webp"]
     },
     {
       "file": "What Friends Are For Trophy KHIIFM.png",
@@ -1343,31 +1343,31 @@
       "file": "Winner's Proof KHIIFM.png",
       "page": "https://www.khwiki.com/File:Winner%27s_Proof_KHIIFM.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/winners-proof-khiifm.webp"]
+      "used": ["/icons/kh2/winners-proof-khiifm-bar.webp"]
     },
     {
       "file": "Wisdom Staff KH.png",
       "page": "https://www.khwiki.com/File:Wisdom_Staff_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/wisdom-staff-kh.webp"]
+      "used": ["/icons/kh1/wisdom-staff-kh-bar.webp"]
     },
     {
       "file": "Wishing Lamp KHII.png",
       "page": "https://www.khwiki.com/File:Wishing_Lamp_KHII.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh2/wishing-lamp-khii.webp"]
+      "used": ["/icons/kh2/wishing-lamp-khii-bar.webp"]
     },
     {
       "file": "Wishing Star KH.png",
       "page": "https://www.khwiki.com/File:Wishing_Star_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/wishing-star-kh.webp"]
+      "used": ["/icons/kh1/wishing-star-kh-bar.webp"]
     },
     {
       "file": "Wizard's Relic KH.png",
       "page": "https://www.khwiki.com/File:Wizard%27s_Relic_KH.png",
       "fetched": "2026-10-09",
-      "used": ["/icons/kh1/wizards-relic-kh.webp"]
+      "used": ["/icons/kh1/wizards-relic-kh-bar.webp"]
     },
     {
       "file": "Wonderland Logo KH.png",

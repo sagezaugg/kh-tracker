@@ -5,6 +5,7 @@ import { useProgress, useTracker } from '../../context';
 import { FilterBar } from '../../../ui/FilterBar';
 import { ItemSection } from '../../../ui/ItemSection';
 import { Section } from '../../../ui/Section';
+import { ItemIcon } from '../../../ui/GameImage';
 import { Stepper, StepperGrid } from '../../../ui/Stepper';
 import { useFilters } from '../../../ui/hooks';
 import { rowsOf } from '../../../ui/rows';
@@ -56,6 +57,7 @@ export function DriveRoute() {
                 valueText={n ? `LV ${n}` : '—'}
                 onChange={set(f.key)}
                 pips
+                icon={<ItemIcon id={`lv.${f.key}`} size={40} />}
               />
             );
           })}
@@ -72,6 +74,7 @@ export function DriveRoute() {
             valueText={`LV ${summon}`}
             onChange={set('summon')}
             pips
+            icon={<ItemIcon id="lv.summon" size={40} />}
           />
         </StepperGrid>
       </Section>
@@ -90,6 +93,7 @@ export function DriveRoute() {
                 valueText={n ? `LV ${n}` : '—'}
                 onChange={set(m.key)}
                 pips
+                icon={<ItemIcon id={`lv.${m.key}`} size={40} />}
               />
             );
           })}
@@ -105,6 +109,7 @@ export function DriveRoute() {
             max={ANTI_FORM_MAX}
             valueText={`${anti} / ${ANTI_FORM_MAX}`}
             onChange={set('anti')}
+            icon={<ItemIcon id="lv.anti" size={40} />}
           />
         </StepperGrid>
       </Section>

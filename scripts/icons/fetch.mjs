@@ -23,6 +23,9 @@ const PAUSE_MS = 400;
 
 /** Square icons: shown at up to 48px, so 96px covers 2x screens. */
 const ICON = 96;
+/** Long weapons (Keyblades, staves): rotated level and fitted to a 3:1 bar, shown at up to 72x24. */
+const BAR_W = 144;
+const BAR_H = 48;
 /** World logos: shown at up to 40px tall. */
 const LOGO_H = 80;
 const LOGO_MAX_W = 360;
@@ -97,6 +100,65 @@ async function squareTop(src) {
     .resize(ICON, ICON);
 }
 
+/**
+ * Weapon renders are drawn diagonally, so fitted into a square they shrink to a thin sliver. This finds the
+ * shape's main axis from its opaque pixels (principal component of the alpha mask), rotates it level, trims
+ * and fits it into a wide bar.
+ */
+async function levelBar(src) {
+  const trimmed = await sharp(src).trim().png().toBuffer();
+  const probe = await sharp(trimmed)
+    .resize(256, 256, { fit: 'inside' })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { data, info } = probe;
+  let n = 0,
+    sx = 0,
+    sy = 0;
+  const pts = [];
+  for (let y = 0; y < info.height; y++)
+    for (let x = 0; x < info.width; x++)
+      if (data[(y * info.width + x) * 4 + 3] > 64) {
+        pts.push(x, y);
+        sx += x;
+        sy += y;
+        n++;
+      }
+  const mx = sx / n,
+    my = sy / n;
+  let cxx = 0,
+    cyy = 0,
+    cxy = 0;
+  for (let i = 0; i < pts.length; i += 2) {
+    const dx = pts[i] - mx,
+      dy = pts[i + 1] - my;
+    cxx += dx * dx;
+    cyy += dy * dy;
+    cxy += dx * dy;
+  }
+  const angle = (0.5 * Math.atan2(2 * cxy, cxx - cyy) * 180) / Math.PI;
+  const level = await sharp(trimmed)
+    .rotate(-angle, { background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
+  // Point them all the same way: the handle end (thin keychain or grip) goes right, the head left. The
+  // thinner end is the one whose outer tenth has fewer opaque pixels.
+  const lv = await sharp(level).trim().png().toBuffer();
+  const m = await sharp(lv).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const band = Math.max(1, Math.floor(m.info.width / 10));
+  const mass = (x0) => {
+    let c = 0;
+    for (let y = 0; y < m.info.height; y++)
+      for (let x = x0; x < x0 + band; x++) if (m.data[(y * m.info.width + x) * 4 + 3] > 64) c++;
+    return c;
+  };
+  const flip = mass(0) < mass(m.info.width - band);
+  return sharp(lv)
+    .flop(flip)
+    .resize(BAR_W, BAR_H, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } });
+}
+
 /** Trims, then scales a wide logo to a fixed height. */
 const logo = (src) =>
   sharp(src).trim().resize({ height: LOGO_H, width: LOGO_MAX_W, fit: 'inside', withoutEnlargement: false });
@@ -131,23 +193,34 @@ async function main() {
     const dir = join(OUT, gameId);
     await mkdir(dir, { recursive: true });
     const cropTop = new Set(g.cropTop ?? []);
+    const isBar = (id) => (g.levelBars ?? []).some((prefix) => id.startsWith(prefix));
     const table = { items: {}, trophies: {}, worlds: {} };
     const written = new Map();
 
     for (const sec of ['items', 'trophies', 'worlds']) {
       for (const [id, file] of Object.entries(g[sec]).sort()) {
         const top = sec === 'items' && cropTop.has(id);
-        const key = `${file}${top ? '#top' : ''}`;
+        const bar = sec === 'items' && isBar(id);
+        const suffix = top ? '-top' : bar ? '-bar' : '';
+        const key = `${file}${suffix}`;
         let entry = written.get(key);
         if (!entry) {
           const src = join(CACHE, file);
-          const pipeline = sec === 'worlds' ? logo(src) : top ? await squareTop(src) : squareFit(src);
+          const pipeline =
+            sec === 'worlds'
+              ? logo(src)
+              : top
+                ? await squareTop(src)
+                : bar
+                  ? await levelBar(src)
+                  : squareFit(src);
           const { data, info } = await pipeline.webp({ quality: 86, alphaQuality: 90, effort: 6 }).toBuffer({
             resolveWithObject: true,
           });
-          const path = `/icons/${gameId}/${slug(file)}${top ? '-top' : ''}.webp`;
-          await writeFile(join(OUT, gameId, `${slug(file)}${top ? '-top' : ''}.webp`), data);
-          entry = sec === 'worlds' ? [path, info.width, info.height] : path;
+          const path = `/icons/${gameId}/${slug(file)}${suffix}.webp`;
+          await writeFile(join(OUT, gameId, `${slug(file)}${suffix}.webp`), data);
+          // Trophies are always square; items and logos carry their size so the app can lay them out.
+          entry = sec === 'trophies' ? path : [path, info.width, info.height];
           written.set(key, entry);
           const c = credits.get(file) ?? { file, page: where.get(file).page, fetched, used: [] };
           c.used.push(path);

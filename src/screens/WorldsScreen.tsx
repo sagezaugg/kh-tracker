@@ -8,6 +8,8 @@ import { WorldPicker, type PickerWorld } from '../ui/WorldPicker';
 import { useFilters } from '../ui/hooks';
 import { rowsOf } from '../ui/rows';
 import common from '../ui/common.module.css';
+import { GameImage } from '../ui/GameImage';
+import styles from './WorldsScreen.module.css';
 
 export interface ScreenWorld extends PickerWorld {
   locations: readonly { id: string; type: string }[];
@@ -26,7 +28,7 @@ export function WorldsScreen({ worlds, sections, short }: WorldsScreenProps) {
   const { worldId } = useParams();
   const [params] = useSearchParams();
   const { needle, hide } = useFilters();
-  const { catalog } = useGame();
+  const { catalog, icons } = useGame();
   const setChecks = useTracker((s) => s.setChecks);
   const world = worlds.find((w) => w.routeId === worldId);
   if (!world) return <NotFoundRoute />;
@@ -34,6 +36,7 @@ export function WorldsScreen({ worlds, sections, short }: WorldsScreenProps) {
   const ids = world.locations.map((l) => l.id);
   const keep = params.get('hide') === '1' ? '?hide=1' : '';
   const label = short(world);
+  const logo = icons.worlds[world.key];
   const itemsOf = (t: string) =>
     world.locations.filter((l) => l.type === t).map((l) => catalog.itemById.get(l.id) as Item);
 
@@ -53,7 +56,10 @@ export function WorldsScreen({ worlds, sections, short }: WorldsScreenProps) {
         </button>
       </div>
       <FilterBar />
-      <h2 className="sr-only">{world.name}</h2>
+      <h2 className={styles.head}>
+        {logo && <GameImage src={logo[0]} width={logo[1]} height={logo[2]} className={styles.logo} />}
+        <span className={logo ? 'sr-only' : undefined}>{world.name}</span>
+      </h2>
       {sections.map(([t, title, note]) => {
         const items = itemsOf(t);
         if (!items.length) return null;

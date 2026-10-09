@@ -53,6 +53,19 @@ export interface GameSummary {
 }
 
 /** Everything the shell needs to host one game. */
+/**
+ * Self-hosted game images (src/games/<game>/data/icons.json, written by scripts/icons/fetch.mjs).
+ * Paths are under /icons. Anything missing simply has no image.
+ */
+export interface GameIcons {
+  /** Item id -> [icon path, width, height]: squares, or 3:1 bars for Keyblades and staves. */
+  items: Readonly<Record<string, readonly [string, number, number]>>;
+  /** Trophy id -> square trophy image. */
+  trophies: Readonly<Record<string, string>>;
+  /** World key -> [logo path, width, height]. */
+  worlds: Readonly<Record<string, readonly [string, number, number]>>;
+}
+
 export interface GameDefinition {
   id: GameId;
   /** "Kingdom Hearts II Final Mix". */
@@ -78,4 +91,5 @@ export interface GameDefinition {
   /** MUNNY / LV / TOTAL box under the menu. */
   Wallet: ComponentType;
   summary: (p: Progress, profile: string) => GameSummary;
+  icons: GameIcons;
 }

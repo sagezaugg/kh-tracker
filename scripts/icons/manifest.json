@@ -131,7 +131,8 @@
         "oc": "Olympus Coliseum Logo KH.png",
         "tt": "Traverse Town Logo KH.png",
         "wl": "Wonderland Logo KH.png"
-      }
+      },
+      "levelBars": ["kb.", "st."]
     },
     "kh2": {
       "items": {
@@ -262,7 +263,8 @@
         "TT": "Twilight Town Logo KHCOM.png",
         "TW": "The World That Never Was Logo KHII.png"
       },
-      "cropTop": ["lv.anti", "lv.final", "lv.limit", "lv.master", "lv.valor", "lv.wisdom"]
+      "cropTop": ["lv.anti", "lv.final", "lv.limit", "lv.master", "lv.valor", "lv.wisdom"],
+      "levelBars": ["kb."]
     }
   }
 }

@@ -1,0 +1,183 @@
+{
+  "items": {
+    "kb.crabclaw": "/icons/kh1/crabclaw-kh.webp",
+    "kb.diamond-dust": "/icons/kh1/diamond-dust-khfm.webp",
+    "kb.divine-rose": "/icons/kh1/divine-rose-kh.webp",
+    "kb.fairy-harp": "/icons/kh1/fairy-harp-kh.webp",
+    "kb.jungle-king": "/icons/kh1/jungle-king-kh.webp",
+    "kb.kingdom-key": "/icons/kh1/kingdom-key-kh.webp",
+    "kb.lady-luck": "/icons/kh1/lady-luck-kh.webp",
+    "kb.lionheart": "/icons/kh1/lionheart-kh.webp",
+    "kb.metal-chocobo": "/icons/kh1/metal-chocobo-kh.webp",
+    "kb.oathkeeper": "/icons/kh1/oathkeeper-kh.webp",
+    "kb.oblivion": "/icons/kh1/oblivion-kh.webp",
+    "kb.olympia": "/icons/kh1/olympia-kh.webp",
+    "kb.one-winged-angel": "/icons/kh1/one-winged-angel-khfm.webp",
+    "kb.pumpkinhead": "/icons/kh1/pumpkinhead-kh.webp",
+    "kb.spellbinder": "/icons/kh1/spellbinder-kh.webp",
+    "kb.three-wishes": "/icons/kh1/three-wishes-kh.webp",
+    "kb.ultima-weapon": "/icons/kh1/ultima-weapon-kh.webp",
+    "kb.wishing-star": "/icons/kh1/wishing-star-kh.webp",
+    "sh.adamant-shield": "/icons/kh1/adamant-shield-kh.webp",
+    "sh.defender": "/icons/kh1/defender-kh.webp",
+    "sh.dream-shield": "/icons/kh1/dream-shield-kh.webp",
+    "sh.genji-shield": "/icons/kh1/genji-shield-kh.webp",
+    "sh.gigas-fist": "/icons/kh1/gigas-fist-kh.webp",
+    "sh.golem-shield": "/icons/kh1/golem-shield-kh.webp",
+    "sh.herc-s-shield": "/icons/kh1/hercs-shield-kh.webp",
+    "sh.knight-s-shield": "/icons/kh1/knights-shield-kh.webp",
+    "sh.mighty-shield": "/icons/kh1/mighty-shield-khfm.webp",
+    "sh.mythril-shield": "/icons/kh1/mythril-shield-kh.webp",
+    "sh.onyx-shield": "/icons/kh1/onyx-shield-kh.webp",
+    "sh.save-the-king": "/icons/kh1/save-the-king-kh.webp",
+    "sh.seven-elements": "/icons/kh1/seven-elements-khfm.webp",
+    "sh.smasher": "/icons/kh1/smasher-kh.webp",
+    "sh.stout-shield": "/icons/kh1/stout-shield-kh.webp",
+    "sm.bambi": "/icons/kh1/bambi-portrait-khhd.webp",
+    "sm.dumbo": "/icons/kh1/dumbo-portrait-khhd.webp",
+    "sm.genie": "/icons/kh1/genie-portrait-khhd.webp",
+    "sm.mushu": "/icons/kh1/mushu-portrait-khhd.webp",
+    "sm.simba": "/icons/kh1/simba-portrait-khhd.webp",
+    "sm.tinker": "/icons/kh1/tinker-bell-portrait-khhd.webp",
+    "st.dream-rod": "/icons/kh1/dream-rod-kh.webp",
+    "st.fantasista": "/icons/kh1/fantasista-khfm.webp",
+    "st.grand-mallet": "/icons/kh1/grand-mallet-kh.webp",
+    "st.lord-fortune": "/icons/kh1/lord-fortune-kh.webp",
+    "st.mage-s-staff": "/icons/kh1/mages-staff-kh.webp",
+    "st.magus-staff": "/icons/kh1/magus-staff-kh.webp",
+    "st.meteor-strike": "/icons/kh1/meteor-strike-khfm.webp",
+    "st.morning-star": "/icons/kh1/morning-star-kh.webp",
+    "st.save-the-queen": "/icons/kh1/save-the-queen-kh.webp",
+    "st.shooting-star": "/icons/kh1/shooting-star-kh.webp",
+    "st.silver-mallet": "/icons/kh1/silver-mallet-kh.webp",
+    "st.violetta": "/icons/kh1/violetta-kh.webp",
+    "st.warhammer": "/icons/kh1/warhammer-kh.webp",
+    "st.wisdom-staff": "/icons/kh1/wisdom-staff-kh.webp",
+    "st.wizard-s-relic": "/icons/kh1/wizards-relic-kh.webp"
+  },
+  "trophies": {
+    "ace": "/icons/kh1/ace-pilot-khfm-trophy-khhd.webp",
+    "armor": "/icons/kh1/unchanging-armor-trophy-khhd.webp",
+    "bestfriend": "/icons/kh1/best-friend-trophy-khhd.webp",
+    "blade": "/icons/kh1/blade-master-trophy-khhd.webp",
+    "collector": "/icons/kh1/gummi-ship-collector-trophy-khhd.webp",
+    "cup1": "/icons/kh1/novice-hero-trophy-khhd.webp",
+    "cup2": "/icons/kh1/artisan-hero-trophy-khhd.webp",
+    "cup3": "/icons/kh1/hero-of-the-coliseum-trophy-khhd.webp",
+    "cup4": "/icons/kh1/coliseum-champion-trophy-khhd.webp",
+    "customizer": "/icons/kh1/customizer-trophy-khhd.webp",
+    "defender": "/icons/kh1/master-defender-trophy-khhd.webp",
+    "flyingace": "/icons/kh1/flying-ace-trophy-khhd.webp",
+    "fmmaster": "/icons/kh1/final-mix-master-trophy-khhd.webp",
+    "hhunter": "/icons/kh1/heartless-hunter-trophy-khhd.webp",
+    "icetitan": "/icons/kh1/the-frosty-giant-trophy-khhd.webp",
+    "kh-ag": "/icons/kh1/magic-lamp-trophy-khhd.webp",
+    "kh-at": "/icons/kh1/master-of-the-seas-trophy-khhd.webp",
+    "kh-aw": "/icons/kh1/poohs-friend-trophy-khhd.webp",
+    "kh-dj": "/icons/kh1/member-of-the-tribe-trophy-khhd.webp",
+    "kh-hb": "/icons/kh1/end-of-the-world-trophy-khhd.webp",
+    "kh-ht": "/icons/kh1/pumpkin-prince-trophy-khhd.webp",
+    "kh-mo": "/icons/kh1/honest-soul-trophy-khhd.webp",
+    "kh-nl": "/icons/kh1/pixie-dust-trophy-khhd.webp",
+    "kh-oc": "/icons/kh1/junior-hero-trophy-khhd.webp",
+    "kh-tt": "/icons/kh1/where-the-bells-toll-trophy-khhd.webp",
+    "kh-wl": "/icons/kh1/the-rabbit-hole-trophy-khhd.webp",
+    "kurt": "/icons/kh1/the-sandy-blade-trophy-khhd.webp",
+    "level": "/icons/kh1/level-master-trophy-khhd.webp",
+    "magician": "/icons/kh1/master-magician-trophy-khhd.webp",
+    "minigame": "/icons/kh1/mini-game-maniac-trophy-khhd.webp",
+    "novice": "/icons/kh1/novice-player-trophy-khhd.webp",
+    "oathkeeper": "/icons/kh1/oathkeeper-trophy-khhd.webp",
+    "phantom": "/icons/kh1/the-cloaked-shadow-trophy-khhd.webp",
+    "plat": "/icons/kh1/kingdom-hearts-master-trophy-khhd.webp",
+    "professor": "/icons/kh1/professor-trophy-khhd.webp",
+    "proud": "/icons/kh1/proud-player-trophy-khhd.webp",
+    "record": "/icons/kh1/record-keeper-trophy-khhd.webp",
+    "riches": "/icons/kh1/from-rags-to-riches-trophy-khhd.webp",
+    "searcher": "/icons/kh1/searcher-trophy-khhd.webp",
+    "seph": "/icons/kh1/one-winged-angel-trophy-khhd.webp",
+    "solo": "/icons/kh1/supreme-soloist-trophy-khhd.webp",
+    "speedster": "/icons/kh1/speedster-trophy-khhd.webp",
+    "story-j": "/icons/kh1/storyteller-trophy-khhd.webp",
+    "synth-1": "/icons/kh1/first-synthesis-trophy-khhd.webp",
+    "synth-15": "/icons/kh1/synthesis-amateur-trophy-khhd.webp",
+    "synth-3": "/icons/kh1/synthesis-novice-trophy-khhd.webp",
+    "synth-30": "/icons/kh1/synthesis-vet-trophy-khhd.webp",
+    "synth-all": "/icons/kh1/synthesis-master-trophy-khhd.webp",
+    "test": "/icons/kh1/test-pilot-trophy-khhd.webp",
+    "timeatk": "/icons/kh1/time-attacker-trophy-khhd.webp",
+    "topdog": "/icons/kh1/top-dog-trophy-khhd.webp",
+    "topgun": "/icons/kh1/top-gun-trophy-khhd.webp",
+    "treasure": "/icons/kh1/treasure-hunter-khfm-trophy-khhd.webp",
+    "undefeated": "/icons/kh1/undefeated-khfm-trophy-khhd.webp",
+    "unknown": "/icons/kh1/he-who-doesnt-exist-trophy-khhd.webp",
+    "veteran": "/icons/kh1/veteran-pilot-trophy-khhd.webp"
+  },
+  "worlds": {
+    "ag": [
+      "/icons/kh1/agrabah-logo-kh.webp",
+      147,
+      80
+    ],
+    "at": [
+      "/icons/kh1/atlantica-logo-kh.webp",
+      237,
+      80
+    ],
+    "aw": [
+      "/icons/kh1/100-acre-wood-logo-kh.webp",
+      127,
+      80
+    ],
+    "di": [
+      "/icons/kh1/destiny-islands-logo-kh.webp",
+      119,
+      80
+    ],
+    "dj": [
+      "/icons/kh1/deep-jungle-logo-kh.webp",
+      177,
+      80
+    ],
+    "ew": [
+      "/icons/kh1/end-of-the-world-logo-kh.webp",
+      360,
+      66
+    ],
+    "hb": [
+      "/icons/kh1/hollow-bastion-logo-kh.webp",
+      128,
+      80
+    ],
+    "ht": [
+      "/icons/kh1/halloween-town-logo-kh.webp",
+      97,
+      80
+    ],
+    "mo": [
+      "/icons/kh1/monstro-logo-kh.webp",
+      336,
+      80
+    ],
+    "nl": [
+      "/icons/kh1/neverland-logo-kh.webp",
+      137,
+      80
+    ],
+    "oc": [
+      "/icons/kh1/olympus-coliseum-logo-kh.webp",
+      291,
+      80
+    ],
+    "tt": [
+      "/icons/kh1/traverse-town-logo-kh.webp",
+      121,
+      80
+    ],
+    "wl": [
+      "/icons/kh1/wonderland-logo-kh.webp",
+      159,
+      80
+    ]
+  }
+}

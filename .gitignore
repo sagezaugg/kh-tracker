@@ -11,3 +11,6 @@ tests/fixtures/*.ps2
 
 # Local tooling
 .claude/
+
+# Original images downloaded by scripts/icons/fetch.mjs (only the small WebP copies are committed)
+scripts/icons/.cache/

@@ -1,0 +1,190 @@
+{
+  "items": {
+    "kb.bond-of-flame": "/icons/kh2/bond-of-flame-khii.webp",
+    "kb.circle-of-life": "/icons/kh2/circle-of-life-khii.webp",
+    "kb.decisive-pumpkin": "/icons/kh2/decisive-pumpkin-khii.webp",
+    "kb.fatal-crest": "/icons/kh2/fatal-crest-khii.webp",
+    "kb.fenrir": "/icons/kh2/fenrir-khii.webp",
+    "kb.follow-the-wind": "/icons/kh2/follow-the-wind-khii.webp",
+    "kb.guardian-soul": "/icons/kh2/guardian-soul-khii.webp",
+    "kb.gull-wing": "/icons/kh2/gull-wing-khii.webp",
+    "kb.hero-s-crest": "/icons/kh2/heros-crest-khii.webp",
+    "kb.hidden-dragon": "/icons/kh2/hidden-dragon-khii.webp",
+    "kb.kingdom-key": "/icons/kh2/kingdom-key-khii.webp",
+    "kb.monochrome": "/icons/kh2/monochrome-khii.webp",
+    "kb.mysterious-abyss": "/icons/kh2/mysterious-abyss-khii.webp",
+    "kb.oathkeeper": "/icons/kh2/oathkeeper-khii.webp",
+    "kb.oblivion": "/icons/kh2/oblivion-khii.webp",
+    "kb.photon-debugger": "/icons/kh2/photon-debugger-khii.webp",
+    "kb.rumbling-rose": "/icons/kh2/rumbling-rose-khii.webp",
+    "kb.sleeping-lion": "/icons/kh2/sleeping-lion-khii.webp",
+    "kb.star-seeker": "/icons/kh2/star-seeker-khii.webp",
+    "kb.sweet-memories": "/icons/kh2/sweet-memories-khii.webp",
+    "kb.two-become-one": "/icons/kh2/two-become-one-khiifm.webp",
+    "kb.ultima-weapon": "/icons/kh2/ultima-weapon-khii.webp",
+    "kb.winner-s-proof": "/icons/kh2/winners-proof-khiifm.webp",
+    "kb.wishing-lamp": "/icons/kh2/wishing-lamp-khii.webp",
+    "lv.anti": "/icons/kh2/sora-antiform-khii-top.webp",
+    "lv.final": "/icons/kh2/sora-final-form-khii-top.webp",
+    "lv.limit": "/icons/kh2/sora-limit-form-khiifm-top.webp",
+    "lv.master": "/icons/kh2/sora-master-form-khii-top.webp",
+    "lv.summon": "/icons/kh2/icon-summon-khii.webp",
+    "lv.valor": "/icons/kh2/sora-valor-form-khii-top.webp",
+    "lv.wisdom": "/icons/kh2/sora-wisdom-form-khii-top.webp",
+    "pf.conn": "/icons/kh2/proof-of-connection-khiifm.webp",
+    "pf.non": "/icons/kh2/proof-of-nonexistence-khiifm.webp",
+    "pf.peace": "/icons/kh2/proof-of-peace-khiifm.webp",
+    "pg.1": "/icons/kh2/torn-page-khii.webp",
+    "pg.2": "/icons/kh2/torn-page-khii.webp",
+    "pg.3": "/icons/kh2/torn-page-khii.webp",
+    "pg.4": "/icons/kh2/torn-page-khii.webp",
+    "pg.5": "/icons/kh2/torn-page-khii.webp",
+    "r.1": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.10": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.11": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.12": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.13": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.2": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.3": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.4": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.5": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.6": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.7": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.8": "/icons/kh2/secret-ansems-report-khii.webp",
+    "r.9": "/icons/kh2/secret-ansems-report-khii.webp",
+    "sm.chicken": "/icons/kh2/baseball-charm-khii.webp",
+    "sm.genie": "/icons/kh2/lamp-charm-khii.webp",
+    "sm.peter": "/icons/kh2/feather-charm-khii.webp",
+    "sm.stitch": "/icons/kh2/ukulele-charm-khii.webp"
+  },
+  "trophies": {
+    "ace": "/icons/kh2/ace-pilot-trophy-khiifm.webp",
+    "ag": "/icons/kh2/what-friends-are-for-trophy-khiifm.webp",
+    "ambitious": "/icons/kh2/ambitious-adventurer-trophy-khiifm.webp",
+    "anti": "/icons/kh2/corroded-by-darkness-trophy-khiifm.webp",
+    "at": "/icons/kh2/kindred-spirits-trophy-khiifm.webp",
+    "aw": "/icons/kh2/always-together-trophy-khiifm.webp",
+    "bc": "/icons/kh2/a-budding-romance-trophy-khiifm.webp",
+    "collector": "/icons/kh2/gummi-ship-collector-trophy-khiifm.webp",
+    "critical": "/icons/kh2/critical-competitor-trophy-khiifm.webp",
+    "cup1": "/icons/kh2/rookie-trophy-khiifm.webp",
+    "cup2": "/icons/kh2/novice-hero-trophy-khiifm.webp",
+    "cup3": "/icons/kh2/artisan-hero-trophy-khiifm.webp",
+    "cup4": "/icons/kh2/true-hero-trophy-khiifm.webp",
+    "cup5": "/icons/kh2/coliseum-competitor-trophy-khiifm.webp",
+    "cup6": "/icons/kh2/coliseum-star-trophy-khiifm.webp",
+    "cup7": "/icons/kh2/hero-of-the-coliseum-trophy-khiifm.webp",
+    "cup8": "/icons/kh2/coliseum-champion-trophy-khiifm.webp",
+    "data": "/icons/kh2/to-rule-them-all-trophy-khiifm.webp",
+    "ht": "/icons/kh2/the-gift-of-love-trophy-khiifm.webp",
+    "j1": "/icons/kh2/searcher-trophy-khiifm.webp",
+    "j10": "/icons/kh2/limit-master-trophy-khiifm.webp",
+    "j11": "/icons/kh2/craftsman-trophy-khiifm.webp",
+    "j12": "/icons/kh2/seeker-trophy-khiifm.webp",
+    "j2": "/icons/kh2/professor-trophy-khiifm.webp",
+    "j3": "/icons/kh2/heartless-highbrow-trophy-khiifm.webp",
+    "j4": "/icons/kh2/nobody-know-it-all-trophy-khiifm.webp",
+    "j5": "/icons/kh2/treasure-hunter-trophy-khiifm.webp",
+    "j6": "/icons/kh2/puzzler-trophy-khiifm.webp",
+    "j7": "/icons/kh2/navigator-trophy-khiifm.webp",
+    "j8": "/icons/kh2/conqueror-trophy-khiifm.webp",
+    "j9": "/icons/kh2/minigame-maniac-trophy-khiifm.webp",
+    "level": "/icons/kh2/level-master-trophy-khiifm.webp",
+    "lod": "/icons/kh2/above-honor-trophy-khiifm.webp",
+    "lw": "/icons/kh2/lingering-will-trophy-khiifm.webp",
+    "mush": "/icons/kh2/mushroom-master-trophy-khiifm.webp",
+    "myhero": "/icons/kh2/my-hero-trophy-khiifm.webp",
+    "oc": "/icons/kh2/hail-the-hero-trophy-khiifm.webp",
+    "pl": "/icons/kh2/return-of-the-king-trophy-khiifm.webp",
+    "plat": "/icons/kh2/kingdom-hearts-ii-master-trophy-khiifm.webp",
+    "pr": "/icons/kh2/lifting-the-curse-trophy-khiifm.webp",
+    "proud": "/icons/kh2/proud-player-trophy-khiifm.webp",
+    "reunion": "/icons/kh2/reunion-trophy-khiifm.webp",
+    "seph": "/icons/kh2/one-winged-angel-trophy-khiifm.webp",
+    "skate": "/icons/kh2/pro-skater-trophy-khiifm.webp",
+    "sp": "/icons/kh2/electric-spark-trophy-khiifm.webp",
+    "struggle": "/icons/kh2/struggle-champion-trophy-khiifm.webp",
+    "stt": "/icons/kh2/summers-end-trophy-khiifm.webp",
+    "topgun": "/icons/kh2/top-gun-trophy-khiifm.webp",
+    "tr": "/icons/kh2/a-timeless-world-trophy-khiifm.webp",
+    "tt": "/icons/kh2/a-taste-of-the-past-trophy-khiifm.webp",
+    "veteran": "/icons/kh2/veteran-pilot-trophy-khiifm.webp"
+  },
+  "worlds": {
+    "AG": [
+      "/icons/kh2/agrabah-logo-khii.webp",
+      143,
+      80
+    ],
+    "AT": [
+      "/icons/kh2/atlantica-logo-khii.webp",
+      165,
+      80
+    ],
+    "AW": [
+      "/icons/kh2/100-acre-wood-logo-khii.webp",
+      83,
+      80
+    ],
+    "BC": [
+      "/icons/kh2/beasts-castle-logo-khii.webp",
+      165,
+      80
+    ],
+    "DC": [
+      "/icons/kh2/disney-castle-logo-khii.webp",
+      109,
+      80
+    ],
+    "HB": [
+      "/icons/kh2/hollow-bastion-logo-khii.webp",
+      87,
+      80
+    ],
+    "HT": [
+      "/icons/kh2/halloween-town-logo-khii.webp",
+      124,
+      80
+    ],
+    "LoD": [
+      "/icons/kh2/the-land-of-dragons-logo-khii.webp",
+      161,
+      80
+    ],
+    "OC": [
+      "/icons/kh2/olympus-coliseum-logo-khii.webp",
+      158,
+      80
+    ],
+    "PL": [
+      "/icons/kh2/pride-lands-logo-khii.webp",
+      165,
+      80
+    ],
+    "PR": [
+      "/icons/kh2/port-royal-logo-khii.webp",
+      261,
+      80
+    ],
+    "SP": [
+      "/icons/kh2/space-paranoids-logo-khii.webp",
+      187,
+      80
+    ],
+    "TR": [
+      "/icons/kh2/timeless-river-logo-khii.webp",
+      105,
+      80
+    ],
+    "TT": [
+      "/icons/kh2/twilight-town-logo-khcom.webp",
+      151,
+      80
+    ],
+    "TW": [
+      "/icons/kh2/the-world-that-never-was-logo-khii.webp",
+      119,
+      80
+    ]
+  }
+}

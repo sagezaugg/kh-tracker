@@ -25,7 +25,7 @@ every byte and bit that changed. It's how the remaining unknown flags get mapped
 
 ## Local development
 
-Requires **Node 22.12+** and npm (Vite 8 and Vitest 5 need it; CI uses Node 22 and Vercel Node 24).
+Requires **Node 22.22+** and npm (React Router 8 needs it; CI uses Node 22 and Vercel Node 24).
 
 ```bash
 npm install

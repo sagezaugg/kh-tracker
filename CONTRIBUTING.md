@@ -16,7 +16,7 @@ items, Journal lists) and bug reports are just as welcome.
 
 ## Setup
 
-Requires Node 22.12+.
+Requires Node 22.22+.
 
 ```bash
 npm ci

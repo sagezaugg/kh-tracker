@@ -1,6 +1,175 @@
 {
   "$comment": "How-to-obtain notes, written for this project in our own words from each item's KHWiki page (the infobox \"get\" or shop price for this game). wiki is the KHWiki page title. Items without \"how\" show only the link.",
+  "trophies": "Trophies#Kingdom_Hearts_II_Final_Mix",
   "items": {
+    "as.larxene": {
+      "wiki": "Absent Silhouette",
+      "how": "Its portal appears at the Rock Face in Port Royal once Sora lands on Isla de Muerta after the gunpowder fight aboard the Interceptor on the first visit."
+    },
+    "as.lexaeus": {
+      "wiki": "Absent Silhouette",
+      "how": "Its portal appears at the Sandlot in Twilight Town after Sora beats the Nobodies there on the second visit. The Sandlot is closed during the third visit, so come back after finishing it if needed."
+    },
+    "as.marluxia": {
+      "wiki": "Absent Silhouette",
+      "how": "Its portal appears in the Beast's Room during the second visit to Beast's Castle, after Beast tells Belle and Sora to leave."
+    },
+    "as.vexen": {
+      "wiki": "Absent Silhouette",
+      "how": "Its portal appears in the Peddler's Shop in Agrabah once the shop is remodeled during the second visit. The fight takes place in a copy of the Old Mansion."
+    },
+    "as.zexion": {
+      "wiki": "Absent Silhouette",
+      "how": "Its portal appears in the Inner Chamber of Olympus Coliseum on the first visit, but you can only take the challenge once The Lock is accessible."
+    },
+    "cup.cerberus-cup": {
+      "wiki": "Cerberus Cup",
+      "how": "Unlocks after finishing the first visits to Agrabah, Halloween Town and the Pride Lands."
+    },
+    "cup.cerberus-paradox-cup": {
+      "wiki": "Cerberus Cup",
+      "how": "Unlocks once every Drive Form except Final Form is level 5 and the Pain and Panic Paradox Cup is open. Enter it by talking to Hades in his chamber."
+    },
+    "cup.goddess-of-fate-cup": {
+      "wiki": "Goddess of Fate Cup",
+      "how": "Unlocks after winning the Pain and Panic, Cerberus and Titan Cups and fighting Xemnas for the first time."
+    },
+    "cup.hades-paradox-cup": {
+      "wiki": "Hades Paradox Cup",
+      "how": "Unlocks after raising every Drive Form and Summon to level 7 and completing the second visit to Space Paranoids. Enter it by talking to Hades in his chamber; it runs 50 matches."
+    },
+    "cup.pain-and-panic-cup": {
+      "wiki": "Pain and Panic Cup",
+      "how": "Unlocks at the Underdrome in Olympus Coliseum after clearing Disney Castle."
+    },
+    "cup.pain-and-panic-paradox-cup": {
+      "wiki": "Pain and Panic Cup",
+      "how": "Unlocks after clearing the Goddess of Fate Cup."
+    },
+    "cup.titan-cup": {
+      "wiki": "Titan Cup",
+      "how": "Unlocks after completing the second visits to the other worlds following the Battle of the 1000 Heartless. Sora fights alone in this cup."
+    },
+    "cup.titan-paradox-cup": {
+      "wiki": "Titan Cup",
+      "how": "Unlocks once Sora's Summon Level reaches 5 and the Cerberus Paradox Cup is open. Enter it by talking to Hades in his chamber."
+    },
+    "do.axel": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Axel has been beaten for the last time. Fought alone in a replica of the Basement Hall."
+    },
+    "do.demyx": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Demyx has been beaten for the last time. Fought in a replica of the Castle Gate."
+    },
+    "do.larxene": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance). Unlocks after beating Larxene's Absent Silhouette; fought at the Station of Remembrance."
+    },
+    "do.lexaeus": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance). Unlocks after beating Lexaeus's Absent Silhouette; fought at the Station of Remembrance."
+    },
+    "do.luxord": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Luxord has been beaten for the last time. Fought alone in a replica of Havoc's Divide."
+    },
+    "do.marluxia": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance). Unlocks after beating Marluxia's Absent Silhouette; fought at the Station of Oblivion."
+    },
+    "do.roxas": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Roxas has been beaten for the last time. Fought alone in a replica of the Station of Awakening."
+    },
+    "do.saix": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Saïx has been beaten for the last time. Fought in a replica of the Addled Impasse."
+    },
+    "do.vexen": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance). Unlocks after beating Vexen's Absent Silhouette; fought in the Old Mansion arena."
+    },
+    "do.xaldin": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Xaldin has been beaten for the last time. Fought in a replica of the Bridge in Beast's Castle."
+    },
+    "do.xemnas": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Xemnas has been beaten for the last time. Fought in replicas of Memory's Contortion and then the World of Nothing, with Riku helping in the final phase."
+    },
+    "do.xigbar": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance) once Xigbar has been beaten for the last time. Fought in a replica of the Hall of Empty Melodies."
+    },
+    "do.zexion": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Use the computer in the Garden of Assemblage (through Hollow Bastion's Cavern of Remembrance). Unlocks after beating Zexion's Absent Silhouette; fought in the Storm-tossed Island arena."
+    },
+    "ex.abilities": {
+      "wiki": "Abilities (KHII)",
+      "how": "Sora learns most Support and Growth abilities by leveling up and Action abilities from story events; Growth abilities improve as Drive Forms level, and allies gain abilities only from events."
+    },
+    "ft.myhero": {
+      "wiki": "Mickey Mouse",
+      "how": "Fall in an eligible boss fight (e.g. Shan-Yu, Cerberus, Hydra, Storm Rider, Xaldin) and pick \"I won't give up!\"; the first rescue is guaranteed."
+    },
+    "ft.skate": {
+      "wiki": "Skateboard",
+      "how": "Chain tricks while airborne or grinding to build a combo; touching the ground or hitting a wall ends it."
+    },
+    "ft.struggle": {
+      "wiki": "Struggle",
+      "how": "As Sora, Trinity Limit knocks every orb out of the opponent at once so you can scoop them up; taking all 200 orbs ends the match early."
+    },
+    "gm.ace": {
+      "wiki": "Gummi Missions",
+      "how": "Missions open after clearing a route once: Mission 1 counts medals, Mission 2 enemies defeated, and Mission 3 (opened by clearing both) is a high-score run."
+    },
+    "gm.alls": {
+      "wiki": "Gummi Missions",
+      "how": "Each of the nine routes has three missions; Mission 3 opens only after Missions 1 and 2 are cleared and needs manual screen rotation."
+    },
+    "gm.collector": {
+      "wiki": "Blueprint",
+      "how": "Sample blueprints unlock once you own the blocks to build them; Special Models come from route treasures or S ranks, mostly on level 2 missions."
+    },
+    "gm.topgun": {
+      "wiki": "Gummi Missions",
+      "how": "EX missions unlock after an S rank on the normal mission and require a ship meeting set criteria (e.g. 50+ speed for Asteroid Sweep level 1)."
+    },
+    "gm.veteran": {
+      "wiki": "Gummi Ship",
+      "how": "Level 1 of a route is ranked on medals collected, level 2 on enemy ships destroyed, and level 3 on points scored."
+    },
+    "js.charfiles": {
+      "wiki": "Jiminy's Journal",
+      "how": "Characters Roxas meets only count once Sora meets them; in Final Mix the Castle Oblivion Organization members are added as you fight each Absent Silhouette."
+    },
+    "js.combos": {
+      "wiki": "Limit",
+      "how": "Use every party member's Limit (their Limit ability must be equipped) and each summon's Limit; Final Mix's Limit Form attacks are not listed in the journal."
+    },
+    "js.heartless": {
+      "wiki": "Jiminy's Journal",
+      "how": "Entries come from defeating each Heartless type; ones Roxas fought in the simulated Twilight Town only register once Sora encounters them."
+    },
+    "js.links": {
+      "wiki": "Jiminy's Journal",
+      "how": "Character Links has a relationship grid for each world plus one for the game as a whole."
+    },
+    "js.missions": {
+      "wiki": "Jiminy's Journal",
+      "how": "Missions are goals tied to mini-games, such as score or time targets (e.g. 1,000+ points in SB Street Rave)."
+    },
+    "js.nobodies": {
+      "wiki": "Jiminy's Journal",
+      "how": "Entries come from defeating each Nobody type; foes Roxas met only register once Sora encounters them, or for Twilight Thorn once Sora enters the simulated Twilight Town."
+    },
+    "js.synthesis": {
+      "wiki": "Synthesis",
+      "how": "Synthesize at any Moogle Shop: Free Development items unlock through Collector's Goals and moogle level-ups, while the rest need recipes found in chests or won from bosses."
+    },
     "kb.bond-of-flame": {
       "wiki": "Bond of Flame",
       "how": "Defeat the Nobodies at Betwixt and Between."
@@ -148,6 +317,234 @@
     "lv.wisdom": {
       "wiki": "Wisdom Form",
       "how": "Obtained with the Monochrome when you clear Timeless River. Levels up for every Heartless defeated."
+    },
+    "mg.a-blustery-rescue": {
+      "wiki": "A Blustery Rescue",
+      "how": "Unlocks with the first Torn Page in the 100 Acre Wood; replay it later by talking to Piglet. Get at least 18,000 points before rescuing Piglet for the Jiminy's Journal entry."
+    },
+    "mg.a-new-day-is-dawning": {
+      "wiki": "A New Day is Dawning",
+      "how": "After getting Thundaga from the Groundshaker fight in the Pride Lands, go back to Atlantica and talk to Sebastian. Score at least 30,000 points to pass."
+    },
+    "mg.balloon-bounce": {
+      "wiki": "Balloon Bounce",
+      "how": "Starts at Kanga's house in the 100 Acre Wood, where you bounce on balloons with Tigger and Pooh. On a replay, score 2,000 points or more across your three tries for the Jiminy's Journal entry."
+    },
+    "mg.bumble-buster": {
+      "wiki": "Bumble Buster",
+      "how": "Play it as Sora at the Tram Common in Twilight Town and wipe out the honey bees. Clear it within 10 seconds for the Jiminy's Journal entry."
+    },
+    "mg.cargo-climb": {
+      "wiki": "Cargo Climb",
+      "how": "Play it as Sora in Twilight Town, knocking the cargo up the hill into the garage with your Keyblade. Finish in under 15 seconds for the Jiminy's Journal entry."
+    },
+    "mg.grandstander": {
+      "wiki": "Grandstander",
+      "how": "Play it as Sora in Twilight Town and keep the ball in the air with aerial combos until it has landed five times. Score 100 points or more for the Jiminy's Journal entry."
+    },
+    "mg.hunny-slider": {
+      "wiki": "Hunny Slider",
+      "how": "Unlocks with the second Torn Page in the 100 Acre Wood; replay it by talking to Rabbit. Collect 8,000 points of hunny before reaching the finish line for the Jiminy's Journal entry."
+    },
+    "mg.junk-sweep": {
+      "wiki": "Junk Sweep",
+      "how": "Check the help wanted sign at the Tram Common in Twilight Town, then knock away all 9 junk piles in as few swings as you can. Clear it with fewer than six points for the Jiminy's Journal entry."
+    },
+    "mg.mail-delivery": {
+      "wiki": "Mail Delivery",
+      "how": "Play it as Sora in Twilight Town, delivering mail to all five recipients on the skateboard. Finish in under 14 seconds to complete the Jiminy's Journal entry."
+    },
+    "mg.part-of-your-world": {
+      "wiki": "Part of Your World",
+      "how": "Unlocks in Atlantica once you use Magnet to move Prince Eric's statue into Ariel's Grotto."
+    },
+    "mg.poster-duty": {
+      "wiki": "Poster Duty",
+      "how": "Play it as Sora around the Tram Common in Twilight Town, putting up posters at the marked spots. Place all 20 within 30 seconds for the Jiminy's Journal entry."
+    },
+    "mg.swim-this-way": {
+      "wiki": "Swim This Way",
+      "how": "After clearing Timeless River and the Splash Island Gummi Route, go to Atlantica and finish the swimming and music practice with Flounder and Sebastian. Pass by hitting four Excellents in a row."
+    },
+    "mg.the-expotition": {
+      "wiki": "The Expotition",
+      "how": "Becomes available once the Spooky Cave in the 100 Acre Wood is unlocked; replay it by talking to Kanga there. Lead Pooh's friends to him in under 90 seconds for the Jiminy's Journal entry."
+    },
+    "mg.the-hunny-pot": {
+      "wiki": "The Hunny Pot",
+      "how": "Talk to Pooh at Starry Hill in the 100 Acre Wood, then swing him around and release to fling the hunny pot off his head. Score at least 8,000 for the Jiminy's Journal entry."
+    },
+    "mg.under-the-sea": {
+      "wiki": "Under the Sea",
+      "how": "Once Sora's Drive Gauge reaches level 5, talk to Sebastian in Atlantica. Press the button only when Ariel appears to raise the mermaid icon to the top."
+    },
+    "mg.ursula-s-revenge": {
+      "wiki": "Ursula's Revenge",
+      "how": "Return to Atlantica after getting Magnera. Bring Ursula's health gauge down to 25% or lower to pass."
+    },
+    "mu.1": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at Memory's Skyscraper in The World That Never Was after Xemnas is beaten. Hit it as many times as you can in 30 seconds."
+    },
+    "mu.10": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at Isla de Muerta: Moonlight Nook in Port Royal during the second visit. Find and defeat the real one among its four shuffling clones within 55 seconds."
+    },
+    "mu.11": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at the Waterway in Timeless River. Land the 99 hits its counter asks for as fast as you can (19 seconds or less for the journal)."
+    },
+    "mu.12": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at The Old Mansion in Twilight Town. Defeat 40 or more of its clones before time runs out."
+    },
+    "mu.2": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at the Christmas Tree Plaza in Halloween Town after the Experiment is beaten. Dodge its magic projectiles without getting hit."
+    },
+    "mu.3": {
+      "wiki": "Mushroom XIII",
+      "how": "Found on the Bridge in Beast's Castle after Xaldin is beaten. Collect as many of the prizes it drops as you can before time runs out."
+    },
+    "mu.4": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at the Palace Gate in The Land of Dragons after Shan-Yu is beaten. Hit 85 of its clones without taking a hit."
+    },
+    "mu.5": {
+      "wiki": "Mushroom XIII",
+      "how": "Found in the Cave of Wonders: Treasure Room in Agrabah. Defeat it within 10 seconds before its HP regenerates."
+    },
+    "mu.6": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at the Underworld Caverns: Atrium in Olympus Coliseum. Defeat all of its clones within 45 seconds."
+    },
+    "mu.7": {
+      "wiki": "Mushroom XIII",
+      "how": "Found in the Tunnelway in Twilight Town. Defeat it within 10 seconds; touching it knocks Sora away."
+    },
+    "mu.8": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at The Tower in Twilight Town. Keep it bouncing with attacks 85 times."
+    },
+    "mu.9": {
+      "wiki": "Mushroom XIII",
+      "how": "Found at the Castle Gate in Hollow Bastion after Demyx is beaten. Hit it 75 times without letting it stop spinning."
+    },
+    "pf.conn": {
+      "wiki": "Proof",
+      "how": "Defeat the Lingering Will, the secret boss found through a portal in Disney Castle."
+    },
+    "pf.non": {
+      "wiki": "Organization XIII's Replica Data",
+      "how": "Defeat all thirteen Organization XIII Replica Data at the Garden of Assemblage; a chest holding the proof then appears."
+    },
+    "pf.peace": {
+      "wiki": "Mushroom XIII",
+      "how": "Complete the challenges of all twelve Mushroom XIII members, then go to The Great Maw and look up to meet No. 13, who hands over the proof."
+    },
+    "pg.1": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages are each in a chest: the Disney Castle Library, the Oasis in the Pride Lands, the Crystal Fissure in Hollow Bastion, the Throne Room in the Land of Dragons and the Ruined Chamber in Agrabah."
+    },
+    "pg.2": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages are each in a chest: the Disney Castle Library, the Oasis in the Pride Lands, the Crystal Fissure in Hollow Bastion, the Throne Room in the Land of Dragons and the Ruined Chamber in Agrabah."
+    },
+    "pg.3": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages are each in a chest: the Disney Castle Library, the Oasis in the Pride Lands, the Crystal Fissure in Hollow Bastion, the Throne Room in the Land of Dragons and the Ruined Chamber in Agrabah."
+    },
+    "pg.4": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages are each in a chest: the Disney Castle Library, the Oasis in the Pride Lands, the Crystal Fissure in Hollow Bastion, the Throne Room in the Land of Dragons and the Ruined Chamber in Agrabah."
+    },
+    "pg.5": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages are each in a chest: the Disney Castle Library, the Oasis in the Pride Lands, the Crystal Fissure in Hollow Bastion, the Throne Room in the Land of Dragons and the Ruined Chamber in Agrabah."
+    },
+    "pz.awakening": {
+      "wiki": "Puzzle",
+      "how": "Collect its 12 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards AP Boost."
+    },
+    "pz.daylight": {
+      "wiki": "Puzzle",
+      "how": "Collect its 48 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards Executive's Ring."
+    },
+    "pz.duality": {
+      "wiki": "Puzzle",
+      "how": "Collect its 12 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards Rare Document."
+    },
+    "pz.frontier": {
+      "wiki": "Puzzle",
+      "how": "Collect its 12 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards Manifest Illusion."
+    },
+    "pz.heart": {
+      "wiki": "Puzzle",
+      "how": "Collect its 12 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards Serenity Crystal."
+    },
+    "pz.sunset": {
+      "wiki": "Puzzle",
+      "how": "Collect its 48 crown-shaped puzzle pieces scattered across the worlds and assemble them in Jiminy's Journal. Completing it rewards Grand Ribbon."
+    },
+    "r.1": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after the Battle of the 1000 Heartless."
+    },
+    "r.10": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained upon arriving in The Other Twilight Town."
+    },
+    "r.11": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained once Riku gets his normal appearance back."
+    },
+    "r.12": {
+      "wiki": "Ansem's Reports",
+      "how": "In Final Mix, obtained after defeating Saïx."
+    },
+    "r.13": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after the first fight against Xemnas."
+    },
+    "r.2": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after meeting King Mickey at the Station Plaza in Twilight Town."
+    },
+    "r.3": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after defeating Xigbar."
+    },
+    "r.4": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after defeating Xaldin."
+    },
+    "r.5": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after beating Demyx the first time."
+    },
+    "r.6": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after beating the Grim Reaper the second time."
+    },
+    "r.7": {
+      "wiki": "Ansem's Reports",
+      "how": "Obtained after fighting off the Nobodies attacking the Hollow Bastion gate on the first visit."
+    },
+    "r.8": {
+      "wiki": "Ansem's Reports",
+      "how": "In Final Mix, obtained after defeating Roxas."
+    },
+    "r.9": {
+      "wiki": "Ansem's Reports",
+      "how": "In Final Mix, obtained after defeating Luxord."
+    },
+    "sb.lw": {
+      "wiki": "Disney Castle",
+      "how": "After clearing the game, enter the dark portal in the Hall of the Cornerstone at Disney Castle to fight it in the Keyblade Graveyard. Beating it earns the Proof of Connection."
+    },
+    "sb.seph": {
+      "wiki": "Sephiroth",
+      "how": "Becomes available after defeating the Master Control Program; find him at the Dark Depths in Hollow Bastion."
     },
     "sm.chicken": {
       "wiki": "Summon Charms",

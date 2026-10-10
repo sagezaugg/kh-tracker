@@ -68,6 +68,8 @@ export interface GameIcons {
 
 /** How-to-obtain notes (src/games/<game>/data/info.json), written for this project from KHWiki. */
 export interface GameInfo {
+  /** KHWiki page (and #section) listing this game's trophies, linked from the Trophies screen. */
+  trophies: string;
   /** Item id -> note. `wiki` is the KHWiki page title; items without `how` show only the link. */
   items: Readonly<Record<string, { how?: string; wiki: string }>>;
 }

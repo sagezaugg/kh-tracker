@@ -44,13 +44,50 @@ describe('notes coverage', () => {
         .map(([id]) => `${g.id}:${id}`),
     );
     expect(withoutNote).toEqual(['kh1:sh.mythril-shield']);
-    // 72 equipment + 30 abilities.
-    expect(Object.keys(KH1.info.items).length + Object.keys(KH2.info.items).length).toBe(102);
+    // 72 equipment, 30 abilities and 173 collectibles, challenges and Journal goals.
+    expect(Object.keys(KH1.info.items).length + Object.keys(KH2.info.items).length).toBe(275);
+  });
+
+  it('covers collectibles and challenges, except the Promise Charm (KHWiki never mentions it)', () => {
+    const groups = [
+      'report',
+      'torn-page',
+      'proof',
+      'puzzle',
+      'minigame',
+      'mushroom',
+      'absent-silhouette',
+      'data-org',
+      'superboss',
+      'cup',
+      'keyhole',
+      'material',
+      'synthesis',
+      'puppies',
+      'trinity',
+      'journal-single',
+    ];
+    const missing = [KH1, KH2].flatMap((g) =>
+      g.catalog.items
+        .filter((i) => groups.includes(i.category) && !g.info.items[i.id]?.how)
+        .map((i) => `${g.id}:${i.id}`),
+    );
+    expect(missing).toEqual(['kh2:pf.charm']);
+  });
+
+  it('gives every Torn Page the same list, since the game does not number them', () => {
+    for (const g of [KH1, KH2]) {
+      const notes = new Set([1, 2, 3, 4, 5].map((n) => g.info.items[`pg.${n}`].how));
+      expect(notes.size, g.id).toBe(1);
+    }
   });
 
   it('builds KHWiki links from page titles', () => {
     expect(khwikiUrl("Winner's Proof")).toBe("https://www.khwiki.com/Winner's_Proof");
     expect(khwikiUrl('Adamant Shield (KH)')).toBe('https://www.khwiki.com/Adamant_Shield_(KH)');
+    expect(khwikiUrl('Trophies#Kingdom_Hearts_II_Final_Mix')).toBe(
+      'https://www.khwiki.com/Trophies#Kingdom_Hearts_II_Final_Mix',
+    );
   });
 });
 
@@ -105,6 +142,14 @@ describe('info button', () => {
     await userEvent.click(within(stepper).getByRole('button', { name: 'About Valor Form' }));
     expect(screen.getByRole('dialog', { name: 'Valor Form' })).toHaveTextContent(
       KH2.info.items['lv.valor'].how!,
+    );
+  });
+
+  it('links each game Trophies screen to its KHWiki trophy list', () => {
+    renderAt('/kh1/trophies');
+    expect(screen.getByRole('link', { name: /Trophy list on KHWiki/ })).toHaveAttribute(
+      'href',
+      'https://www.khwiki.com/Trophies#Kingdom_Hearts_Final_Mix',
     );
   });
 

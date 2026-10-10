@@ -35,6 +35,7 @@ export function Kh1JournalRoute() {
                   valueText={`${v} / ${max}`}
                   onChange={(n) => setValue(counter, n)}
                   big
+                  infoId={counter}
                 />
               </StepperGrid>
             </Section>

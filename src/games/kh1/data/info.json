@@ -1,6 +1,51 @@
 {
   "$comment": "How-to-obtain notes, written for this project in our own words from each item's KHWiki page (the infobox \"get\" or shop price for this game). wiki is the KHWiki page title. Items without \"how\" show only the link.",
+  "trophies": "Trophies#Kingdom_Hearts_Final_Mix",
   "items": {
+    "ft.riches": {
+      "wiki": "Munny",
+      "how": "Besides enemy drops, munny comes from chests, props, selling items, Trinity Marks, and making Heartless slip on a Bouncywild's banana peel."
+    },
+    "ft.speedster": {
+      "wiki": "Trophies",
+      "how": "The World of Chaos is fought in the End of the World; the trophy needs it beaten within 15 hours."
+    },
+    "gm.collector": {
+      "wiki": "Blueprint",
+      "how": "Blueprints drop from enemy ships, are given by Geppetto (at Heartless-defeat milestones) and Pinocchio, and reward Gummi Missions. The 1.5+2.5 trophy needs 30, while the PS3 version needed all of them."
+    },
+    "gm.customizer": {
+      "wiki": "Gummi Ship",
+      "how": "Build or edit a ship in the Gummi Garage with the blocks you own, staying under the block limit."
+    },
+    "gm.mission1": {
+      "wiki": "Kingdom Hearts Final Mix",
+      "how": "Each world has three gummi missions; highlight a world on the world map and press Triangle to view them. Mission 1 is the easiest tier, often a score target such as 80+ for Traverse Town."
+    },
+    "gm.mission2": {
+      "wiki": "Gummi Missions",
+      "how": "Mission 2 goals differ per world (collecting certain blocks, kill counts, or restricted weapons), and many specify which world to set off from."
+    },
+    "gm.mission3": {
+      "wiki": "Gummi Missions",
+      "how": "Mission 3 is the hardest of each world's set and always rewards a blueprint; clearing every mission also earns the Bahamut ship and Crown-G."
+    },
+    "gm.topgun": {
+      "wiki": "Gummi Ship",
+      "how": "Routes are the flights between worlds; some contain Warp Holes that detour you onto other routes."
+    },
+    "js.characters": {
+      "wiki": "Jiminy's Journal",
+      "how": "Characters I holds the main cast and Final Fantasy characters, Characters II the Disney world characters and summons, and each Heartless entry is added once you defeat that type."
+    },
+    "js.minigames": {
+      "wiki": "Mini-games",
+      "how": "The mini-games include the Destiny Islands duels and race with Riku, the Olympus Coliseum training and cups, Deep Jungle's Jungle Slider and vine swinging, and the 100 Acre Wood games."
+    },
+    "js.story": {
+      "wiki": "Jiminy's Journal",
+      "how": "Chronicles fill in world by world as the story advances (Destiny Islands, Traverse Town and End of the World get none), alongside a Sora's Story subsection for major plot events."
+    },
     "kb.crabclaw": {
       "wiki": "Crabclaw",
       "how": "Reward for sealing the Keyhole in Atlantica."
@@ -73,6 +118,34 @@
       "wiki": "Wishing Star",
       "how": "Chest in Geppetto's House."
     },
+    "kh.aw": {
+      "wiki": "100 Acre Wood",
+      "how": "Finish all of the book's stories by returning every Torn Page; the Keyhole on the book's clasp is then sealed."
+    },
+    "kh.hb": {
+      "wiki": "Final Keyhole",
+      "how": "On your return to Hollow Bastion, defeat the Behemoth guarding the Keyhole, then seal it."
+    },
+    "kh.oc": {
+      "wiki": "Olympus Coliseum",
+      "how": "Beat Hercules in the final round of the Hercules Cup, then seal the Keyhole using a yellow Trinity Mark."
+    },
+    "kh.tt": {
+      "wiki": "Opposite Armor",
+      "how": "After sealing Deep Jungle, ring the Second District bell three times to reveal the Keyhole in the fountain. Beat the Guard Armor and then the Opposite Armor to seal it."
+    },
+    "kh.wl": {
+      "wiki": "Wonderland",
+      "how": "Defeat the Trickmaster in the Bizarre Room, then seal the Keyhole hidden in the sleeping Doorknob's mouth."
+    },
+    "kh1.puppies": {
+      "wiki": "99 Puppies",
+      "how": "Puppies are hidden in groups of three in chests across the worlds and go to Pongo and Perdita in Traverse Town, who hand out rewards at milestones; all 99 earns an Aero upgrade and a full gummi block set."
+    },
+    "kh1.trinity": {
+      "wiki": "Trinity",
+      "how": "Stand on a mark with both Donald and Goofy in the party; each of the five colors is learned at a story point (e.g. Blue after the Guard Armor in Traverse Town), and most marks are optional."
+    },
     "lv.aero": {
       "wiki": "Aero",
       "how": "Each of these gives Aero or an upgrade (Aerora, Aeroga): defeating the Opposite Armor in Traverse Town, the Yellow Trinity mark in the Ship's hold, and rescuing all 99 puppies."
@@ -100,6 +173,98 @@
     "lv.thunder": {
       "wiki": "Thunder",
       "how": "Each of these gives Thunder or an upgrade (Thundara, Thundaga): completing Phil's training, defeating the giant Ursula, and defeating Cerberus in the Hades Cup."
+    },
+    "mat.10": {
+      "wiki": "Stormy",
+      "how": "Dropped by Neoshadows, with a 35% chance from the seventh one you defeat."
+    },
+    "mat.9b": {
+      "wiki": "Hungry",
+      "how": "Dropped by the Pink Agaricus; hitting it 100 times guarantees the drop."
+    },
+    "mat.9c": {
+      "wiki": "Dark Matter",
+      "how": "Found in chests (Tea Party Garden, Main Street, Cemetery, Bouncing Spot, Hollow Bastion Waterway, Grand Hall, Giant Crevasse) and Trinity Marks (Hold, Chamber 6). Also won from the Pegasus Cup time trial and 10 fruits on Jade Spiral."
+    },
+    "mat.f6": {
+      "wiki": "Lightning",
+      "how": "Dropped by Aquatanks, Screwdivers, Bambi in Deep Jungle (third gauge fill) and White Mushrooms (cast Thunder on one three times). One is also in a chest at World Terminus."
+    },
+    "mat.fb": {
+      "wiki": "Hungry",
+      "how": "Dropped by the mushroom Heartless: White Mushrooms (cast spells on them), Black Fungus (finish with a combo) and Rare Truffles (keep juggling; 100 juggles guarantees it)."
+    },
+    "pg.1": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages: rescue 51 puppies, find chests in the Dark Chamber, Chamber 6 and Ariel's Grotto, and examine the bookshelves in the Research Lab."
+    },
+    "pg.2": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages: rescue 51 puppies, find chests in the Dark Chamber, Chamber 6 and Ariel's Grotto, and examine the bookshelves in the Research Lab."
+    },
+    "pg.3": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages: rescue 51 puppies, find chests in the Dark Chamber, Chamber 6 and Ariel's Grotto, and examine the bookshelves in the Research Lab."
+    },
+    "pg.4": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages: rescue 51 puppies, find chests in the Dark Chamber, Chamber 6 and Ariel's Grotto, and examine the bookshelves in the Research Lab."
+    },
+    "pg.5": {
+      "wiki": "Old Book",
+      "how": "The five Torn Pages: rescue 51 puppies, find chests in the Dark Chamber, Chamber 6 and Ariel's Grotto, and examine the bookshelves in the Research Lab."
+    },
+    "r.1": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Jafar in his Genie form in Agrabah to get it."
+    },
+    "r.10": {
+      "wiki": "Ansem's Reports",
+      "how": "Speak with Aerith in the Hollow Bastion Library to receive it."
+    },
+    "r.11": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat the Final Mix superboss Kurt Zisa to get it."
+    },
+    "r.12": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Sephiroth to get it."
+    },
+    "r.13": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat the Final Mix superboss known as the Unknown to get it."
+    },
+    "r.2": {
+      "wiki": "Ansem's Reports",
+      "how": "Speak with Aerith in the Hollow Bastion Library to receive it."
+    },
+    "r.3": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Ursula's second form in Atlantica to get it."
+    },
+    "r.4": {
+      "wiki": "Ansem's Reports",
+      "how": "Speak with Aerith in the Hollow Bastion Library to receive it."
+    },
+    "r.5": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Maleficent in Hollow Bastion to get it."
+    },
+    "r.6": {
+      "wiki": "Ansem's Reports",
+      "how": "Speak with Aerith in the Hollow Bastion Library to receive it."
+    },
+    "r.7": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Oogie Boogie in Halloween Town to get it."
+    },
+    "r.8": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Hades at Olympus Coliseum to get it."
+    },
+    "r.9": {
+      "wiki": "Ansem's Reports",
+      "how": "Defeat Captain Hook in Neverland to get it."
     },
     "sh.adamant-shield": {
       "wiki": "Adamant Shield (KH)",
@@ -243,6 +408,138 @@
     "st.wizard-s-relic": {
       "wiki": "Wizard's Relic",
       "how": "Rare drop (0.2%) from Wizard Heartless."
+    },
+    "syn.angel-bangle": {
+      "wiki": "Angel Bangle",
+      "how": "Synthesise from 3 Thunder Shards and 1 Bright Gem (List II at the Item Workshop)."
+    },
+    "syn.ap-up": {
+      "wiki": "AP Boost",
+      "how": "Synthesise from 2 Blaze Gems, 2 Frost Gems, 2 Thunder Gems and 4 Mythril (List III at the Item Workshop)."
+    },
+    "syn.atlas-armlet": {
+      "wiki": "Atlas Armlet",
+      "how": "Synthesise from 5 Blaze Shards, 5 Frost Shards, 5 Thunder Shards, 1 Mystery Goo and 3 Dark Matter (List IV at the Item Workshop)."
+    },
+    "syn.cosmic-arts": {
+      "wiki": "Cosmic Arts",
+      "how": "Synthesise from 5 Bright Shards, 3 Bright Gems, 1 Bright Crystal and 3 Mythril Stones (List V at the Item Workshop)."
+    },
+    "syn.cottage": {
+      "wiki": "Cottage",
+      "how": "Synthesise from 1 Lucid Shard and 1 Bright Shard (List I at the Item Workshop)."
+    },
+    "syn.crystal-crown": {
+      "wiki": "Crystal Crown",
+      "how": "Synthesise from 5 Lucid Crystals, 1 Power Crystal, 1 Shiny Crystal, 3 Blazing Stones and 3 Frost Stones (List IV at the Item Workshop)."
+    },
+    "syn.dark-matter": {
+      "wiki": "Dark Matter",
+      "how": "Synthesise from 9 Lucid Shards, 1 Gale and 2 Mythril (List V at the Item Workshop)."
+    },
+    "syn.dark-ring": {
+      "wiki": "Dark Ring",
+      "how": "Synthesise from 2 Lucid Gems and 2 Bright Gems (List III at the Item Workshop)."
+    },
+    "syn.defense-up": {
+      "wiki": "Defense Boost",
+      "how": "Synthesise from 3 Lucid Shards, 3 Bright Shards, 2 Bright Gems, 1 Power Crystal and 5 Orichalcum (List IV at the Item Workshop)."
+    },
+    "syn.elixir": {
+      "wiki": "Elixir",
+      "how": "Synthesise from 1 Power Crystal, 1 Shiny Crystal, 2 Bright Crystals and 3 Orichalcum (List IV at the Item Workshop)."
+    },
+    "syn.energy-bangle": {
+      "wiki": "Energy Bangle",
+      "how": "Synthesise from 2 Spirit Shards and 1 Bright Shard (List I at the Item Workshop)."
+    },
+    "syn.exp-bracelet": {
+      "wiki": "EXP Bracelet",
+      "how": "Synthesise from 1 Energy Stone, 1 Dazzling Stone, 1 Stormy Stone, 8 Orichalcum and 3 Dark Matter (List V at the Item Workshop)."
+    },
+    "syn.exp-earring": {
+      "wiki": "EXP Earring",
+      "how": "Synthesise from 1 Fury Stone, 1 Power Stone, 1 Mythril Stone, 1 Serenity Power and 3 Dark Matter (List I at the Item Workshop)."
+    },
+    "syn.fantasista": {
+      "wiki": "Fantasista",
+      "how": "Synthesise from 3 Fury Stones, 3 Power Stones, 3 Mythril Stones and 5 Energy Stones (List VI at the Item Workshop)."
+    },
+    "syn.gaia-bangle": {
+      "wiki": "Gaia Bangle",
+      "how": "Synthesise from 5 Lucid Shards, 3 Lucid Gems and 1 Lightning Stone (List III at the Item Workshop)."
+    },
+    "syn.golem-chain": {
+      "wiki": "Golem Chain",
+      "how": "Synthesise from 3 Blaze Shards and 1 Spirit Gem (List II at the Item Workshop)."
+    },
+    "syn.guard-earring": {
+      "wiki": "Guard Earring",
+      "how": "Synthesise from 3 Bright Shards, 1 Frost Shard and 3 Mythril Shards (List II at the Item Workshop)."
+    },
+    "syn.heartguard": {
+      "wiki": "Heartguard",
+      "how": "Synthesise from 3 Lucid Gems, 1 Lucid Crystal and 1 Bright Crystal (List IV at the Item Workshop)."
+    },
+    "syn.magic-armlet": {
+      "wiki": "Magic Armlet",
+      "how": "Synthesise from 3 Blaze Shards, 3 Frost Shards and 3 Thunder Shards (List I at the Item Workshop)."
+    },
+    "syn.master-earring": {
+      "wiki": "Master Earring",
+      "how": "Synthesise from 5 Spirit Shards, 3 Spirit Gems and 1 Fury Stone (List III at the Item Workshop)."
+    },
+    "syn.mega-ether": {
+      "wiki": "Mega-Ether",
+      "how": "Synthesise from 1 Blaze Shard, 1 Frost Shard, 1 Thunder Shard and 2 Mythril (List II at the Item Workshop)."
+    },
+    "syn.mega-potion": {
+      "wiki": "Mega-Potion",
+      "how": "Synthesise from 1 Spirit Shard, 1 Power Shard and 4 Mythril Shards (List I at the Item Workshop)."
+    },
+    "syn.megalixir": {
+      "wiki": "Megalixir",
+      "how": "Synthesise from 5 Lucid Gems, 3 Lucid Crystals, 2 Gale and 1 Dark Matter (List V at the Item Workshop)."
+    },
+    "syn.moogle-badge": {
+      "wiki": "Moogle Badge",
+      "how": "Synthesise from 1 Blazing Stone, 1 Frost Stone, 1 Lightning Stone, 5 Mythril and 3 Orichalcum (List II at the Item Workshop)."
+    },
+    "syn.mythril": {
+      "wiki": "Mythril",
+      "how": "Synthesise from 5 Mythril Shards, 1 Mythril Stone and 1 Mystery Goo (List III at the Item Workshop)."
+    },
+    "syn.power-chain": {
+      "wiki": "Power Chain",
+      "how": "Synthesise from 2 Power Shards and 1 Lucid Shard (List I at the Item Workshop)."
+    },
+    "syn.power-up": {
+      "wiki": "Strength Boost",
+      "how": "Synthesise from 5 Spirit Shards, 3 Spirit Gems, 5 Power Shards, 3 Power Gems and 1 Dark Matter (List V at the Item Workshop)."
+    },
+    "syn.ribbon": {
+      "wiki": "Ribbon",
+      "how": "Synthesise from 5 Blaze Gems, 5 Frost Gems, 5 Thunder Gems, 1 Gale and 3 Serenity Power (List V at the Item Workshop)."
+    },
+    "syn.rune-armlet": {
+      "wiki": "Rune Armlet",
+      "how": "Synthesise from 3 Blaze Gems, 3 Frost Gems and 3 Thunder Gems (List II at the Item Workshop)."
+    },
+    "syn.seven-elements": {
+      "wiki": "Seven Elements",
+      "how": "Synthesise from 3 Blazing Stones, 3 Frost Stones, 3 Lightning Stones and 5 Dazzling Stones (List VI at the Item Workshop)."
+    },
+    "syn.three-stars": {
+      "wiki": "Celestriad",
+      "how": "Synthesise from 5 Power Gems, 3 Mystery Goos and 1 Shiny Crystal (List IV at the Item Workshop)."
+    },
+    "syn.titan-chain": {
+      "wiki": "Titan Chain",
+      "how": "Synthesise from 5 Power Shards, 3 Power Gems and 1 Power Stone (List III at the Item Workshop)."
+    },
+    "syn.ultima-weapon": {
+      "wiki": "Ultima Weapon",
+      "how": "Synthesise from 5 Thunder Gems, 5 Mystery Goos, 3 Serenity Power, 3 Stormy Stones and 3 Dark Matter (List VI at the Item Workshop)."
     }
   }
 }

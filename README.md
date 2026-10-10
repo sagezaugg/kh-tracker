@@ -143,10 +143,12 @@ Rows with an (i) button open a short note on where to get the item, plus a link 
 in `src/games/<game>/data/info.json` (`how` is the note, `wiki` the KHWiki page title). They're written for this
 project in our own words from each page's infobox for that game (its "get" line, or the shop price), not copied, so
 they aren't under KHWiki's CC BY-SA text licence. An item with only `wiki` shows just the link: the Mythril Shield,
-whose page doesn't say where to find it. Covered so far: equipment (Keyblades, staves, shields) and abilities (Drive
-Forms, Anti Form, magic, summons, summon charms and the KH2 summon level; spell and form notes come from the prose
-of their KHWiki pages, using the Final Mix details where the page notes a difference). Other groups can be added
-the same way. Level steppers take an `infoId` to show the same button.
+whose page doesn't say where to find it. Covered: equipment, abilities, collectibles (reports, Torn Pages, Proofs, puzzles, keyholes, materials and
+synthesis recipes) and challenges (mini-games, Mushroom XIII, Absent Silhouettes, Data Organization, cups,
+superbosses, Journal, Gummi and feat goals). Spell, form and challenge notes come from the prose of their KHWiki pages,
+using the Final Mix details where a page notes a difference. Torn Pages share one note per game because the game
+doesn't number them. The Promise Charm and a few self-explanatory KH1 feats have no note. Each game's Trophies screen
+links its KHWiki trophy list (`trophies` in `info.json`). Level steppers take an `infoId` to show the same button.
 
 ## Continuous integration
 

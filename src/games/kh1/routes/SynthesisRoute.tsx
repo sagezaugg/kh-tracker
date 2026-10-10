@@ -58,6 +58,7 @@ export function Kh1SynthesisRoute() {
                   max={(KH1_ITEM_BY_ID.get(id) as Item).max ?? 99}
                   valueText={`${v} / ${m.need}`}
                   onChange={(n) => setValue(id, n)}
+                  infoId={id}
                 />
               );
             })}

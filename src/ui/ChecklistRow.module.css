@@ -23,8 +23,9 @@
   flex: 1;
   min-width: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 2px 10px;
   min-height: var(--touch);
   padding: 4px 4px 4px 10px;
   cursor: pointer;
@@ -183,9 +184,5 @@
 @media (max-width: 720px) {
   .rows {
     grid-template-columns: 1fr;
-  }
-  .lab {
-    flex-wrap: wrap;
-    row-gap: 2px;
   }
 }

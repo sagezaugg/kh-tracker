@@ -6,6 +6,7 @@ import { FilterBar } from '../ui/FilterBar';
 import { TrophyCard } from '../ui/TrophyCard';
 import { useCheckToggle, useFilters } from '../ui/hooks';
 import common from '../ui/common.module.css';
+import { khwikiUrl } from '../ui/khwiki';
 import styles from './TrophiesScreen.module.css';
 
 const TIERS: readonly TrophyTier[] = ['P', 'G', 'S', 'B'];
@@ -17,7 +18,7 @@ interface TrophiesScreenProps {
 
 /** Every trophy for the current game: tier chips, filter, hide earned, manual marks. */
 export function TrophiesScreen({ note }: TrophiesScreenProps) {
-  const { catalog } = useGame();
+  const { catalog, info } = useGame();
   const p = useProgress();
   const { list } = useMemo(() => evaluateTrophies(catalog, p), [catalog, p]);
   const { needle, hide } = useFilters();
@@ -44,7 +45,13 @@ export function TrophiesScreen({ note }: TrophiesScreenProps) {
           );
         })}
       </ul>
-      <p className={common.note}>{note}</p>
+      <p className={common.note}>
+        {note}{' '}
+        <a href={khwikiUrl(info.trophies)} target="_blank" rel="noreferrer">
+          Trophy list on KHWiki<span className="sr-only"> (opens in a new tab)</span>
+        </a>
+        .
+      </p>
       <h2 className="sr-only">Trophy list</h2>
       <div className={styles.trs}>
         {rows.map((t) => (

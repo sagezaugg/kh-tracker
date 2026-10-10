@@ -1,5 +1,5 @@
 import { Redis } from '@upstash/redis';
-import type { SyncRecord, SyncStore } from './sync';
+import type { SyncRecord, SyncStore } from './sync.js';
 
 /**
  * Sync records in Upstash Redis (installed from the Vercel Marketplace, which adds the credentials as
@@ -8,6 +8,10 @@ import type { SyncRecord, SyncStore } from './sync';
  */
 
 const key = (code: string) => `sync:${code}`;
+
+// Returns [rev, updatedAt, games] (nils if the code doesn't exist). A script keeps the reply a plain array:
+// with automatic deserialization off, hgetall would come back as a raw field/value list.
+const READ = `return redis.call('HMGET', KEYS[1], 'rev', 'updatedAt', 'games')`;
 
 // Returns 1 if written, 0 if the code is taken.
 const CREATE = `
@@ -25,6 +29,18 @@ redis.call('HSET', KEYS[1], 'rev', ARGV[2], 'updatedAt', ARGV[3], 'games', ARGV[
 redis.call('EXPIRE', KEYS[1], ARGV[5])
 return 1`;
 
+/** Turns the READ script's reply into a record, or null for a missing or malformed one. */
+export function parseRead(reply: unknown): SyncRecord | null {
+  if (!Array.isArray(reply)) return null;
+  const [rev, updatedAt, games] = reply as unknown[];
+  if (rev === null || rev === undefined || games === null || games === undefined) return null;
+  try {
+    return { rev: Number(rev), updatedAt: String(updatedAt ?? ''), games: JSON.parse(String(games)) };
+  } catch {
+    return null;
+  }
+}
+
 export function createUpstashStore(env: Record<string, string | undefined> = process.env): SyncStore {
   const url = env.UPSTASH_REDIS_REST_URL ?? env.KV_REST_API_URL;
   const token = env.UPSTASH_REDIS_REST_TOKEN ?? env.KV_REST_API_TOKEN;
@@ -33,13 +49,8 @@ export function createUpstashStore(env: Record<string, string | undefined> = pro
 
   return {
     async get(code) {
-      const h = await redis.hgetall<Record<string, string>>(key(code));
-      if (!h || h.rev === undefined) return null;
-      return {
-        rev: Number(h.rev),
-        updatedAt: String(h.updatedAt ?? ''),
-        games: JSON.parse(String(h.games ?? '{}')),
-      };
+      const reply = await redis.eval(READ, [key(code)], []);
+      return parseRead(reply);
     },
     async create(code, record: SyncRecord, ttl) {
       const r = await redis.eval(
@@ -66,7 +77,9 @@ export function createUpstashStore(env: Record<string, string | undefined> = pro
       return r === 1 ? 'ok' : r === -1 ? 'missing' : 'conflict';
     },
     async hit(k, windowSeconds) {
-      const n = await redis.incr(k);
+      // Number(): with deserialization off, replies may arrive as strings, and a missed expire would
+      // leave the counter (and the block) in place forever.
+      const n = Number(await redis.incr(k));
       if (n === 1) await redis.expire(k, windowSeconds);
       return n;
     },

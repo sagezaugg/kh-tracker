@@ -17,6 +17,10 @@ updates:
       # versions (check its peerDependencies), so the TypeScript PR can pass lint.
       - dependency-name: typescript
         versions: ['>= 6.1']
+      # Node's type definitions should match the oldest Node the code runs on (22: CI and engines.node),
+      # or code could typecheck against APIs that don't exist at runtime. Raise this with the Node minimum.
+      - dependency-name: '@types/node'
+        versions: ['>= 23']
 
   - package-ecosystem: github-actions
     directory: /

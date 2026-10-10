@@ -8,6 +8,7 @@ import {
   generateCode,
   normalizeCode,
 } from '../server/sync';
+import { parseRead } from '../server/upstashStore';
 
 const setup = () => {
   const store = createMemoryStore();
@@ -88,6 +89,17 @@ describe('sync API', () => {
     const handle = createSyncHandler(store, { random: () => seq.shift() ?? 0.5 });
     const { code } = await (await handle(req('POST', '', { games: {} }))).json();
     expect(code).not.toBe('222222');
+  });
+
+  it('parses the Upstash read script reply', () => {
+    expect(parseRead(['3', '2026-10-10T00:00:00Z', '{"kh1":{"a":1}}'])).toEqual({
+      rev: 3,
+      updatedAt: '2026-10-10T00:00:00Z',
+      games: { kh1: { a: 1 } },
+    });
+    expect(parseRead([null, null, null])).toBeNull();
+    expect(parseRead(['1', 'x', 'not json'])).toBeNull();
+    expect(parseRead({ rev: '1' })).toBeNull();
   });
 
   it('normalises and generates readable codes', () => {

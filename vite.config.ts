@@ -2,7 +2,8 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig, type Connect, type Plugin } from 'vite';
+import { createMemoryStore, createSyncHandler } from './server/sync';
 import react from '@vitejs/plugin-react';
 
 /** public/ files the offline shell needs. The link-preview image isn't one of them. */
@@ -47,8 +48,38 @@ function pwaPlugin(): Plugin {
   };
 }
 
+/**
+ * Serves /api/sync from memory in `npm run dev` and `npm run preview`, so sync works locally without
+ * Upstash credentials. Production uses the Vercel Function in api/sync.ts.
+ */
+function devSyncApi(): Plugin {
+  const handle = createSyncHandler(createMemoryStore());
+  const middleware: Connect.NextHandleFunction = (req, res, next) => {
+    if (!req.url?.startsWith('/api/sync')) return next();
+    const chunks: Buffer[] = [];
+    req.on('data', (c: Buffer) => chunks.push(c));
+    req.on('end', async () => {
+      const body = chunks.length ? Buffer.concat(chunks) : undefined;
+      const request = new Request(`http://localhost${req.url}`, {
+        method: req.method,
+        headers: req.headers as Record<string, string>,
+        body: req.method === 'GET' || req.method === 'HEAD' ? undefined : body,
+      });
+      const response = await handle(request);
+      res.statusCode = response.status;
+      response.headers.forEach((v, k) => res.setHeader(k, v));
+      res.end(await response.text());
+    });
+  };
+  return {
+    name: 'kh-tracker-dev-sync',
+    configureServer: (server) => void server.middlewares.use(middleware),
+    configurePreviewServer: (server) => void server.middlewares.use(middleware),
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), pwaPlugin()],
+  plugins: [react(), pwaPlugin(), devSyncApi()],
   build: {
     rolldownOptions: {
       output: {

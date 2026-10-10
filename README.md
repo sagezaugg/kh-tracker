@@ -150,6 +150,28 @@ using the Final Mix details where a page notes a difference. Torn Pages share on
 doesn't number them. The Promise Charm and a few self-explanatory KH1 feats have no note. Each game's Trophies screen
 links its KHWiki trophy list (`trophies` in `info.json`). Level steppers take an `infoId` to show the same button.
 
+## Sync between devices
+
+One 6-character code keeps every game's progress in step across devices (Config > Sync between devices). It isn't
+private: anyone with the code can read and change that progress.
+
+- **Server:** `api/sync.ts` is a Vercel Function; the logic is in `server/sync.ts` (create a code, read it, save with
+  the revision you last saw). Data lives in Upstash Redis (`server/upstashStore.ts`), one hash per code, and a small
+  Lua script does the compare-and-write atomically. Limits: 100 KB per code, 60 requests a minute per IP, and codes
+  expire after a year without a save.
+- **Setup:** install the **Upstash Redis** integration from the Vercel Marketplace on the project. It adds
+  `KV_REST_API_URL` / `KV_REST_API_TOKEN` (or the `UPSTASH_REDIS_REST_*` names), which the store reads. Without them
+  the function answers 503 and the app shows that sync is unavailable.
+- **Local:** `npm run dev` and `npm run preview` serve `/api/sync` from memory (a Vite middleware), and the tests use
+  the same in-memory store, so no credentials are needed. Two origins such as `localhost:5173` and
+  `device2.localhost:5173` act as two devices against one dev server.
+- **Client:** `src/sync/engine.ts`. Per game it compares fingerprints of the last synced data, this device and the
+  server: only one side changed means apply or upload; both changed means ask (Config, with a banner on every page).
+  Different games changing on two devices merge automatically. Games added in later versions are stored by id and
+  passed through untouched by older versions. Only playthroughs, the active playthrough and the profile sync; save
+  watching, NEW! tags and the latest-changes card stay per device. `SyncAgent` pulls on start, on focus, when back
+  online and every 5 minutes, and uploads 3 seconds after a change.
+
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs lint, typecheck, tests and a production build on every pull request and every push

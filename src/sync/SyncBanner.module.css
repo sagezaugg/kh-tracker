@@ -1,0 +1,22 @@
+.banner {
+  position: relative;
+  z-index: 2;
+  padding: 8px 20px;
+  background: linear-gradient(180deg, #3a2400, #261600);
+  border-bottom: 2px solid var(--c-gold);
+  color: #ffe9b8;
+  font-size: 15px;
+}
+.banner p {
+  margin: 0;
+}
+.banner strong {
+  color: var(--c-new);
+}
+.banner a {
+  color: var(--c-gold);
+  font-weight: 700;
+}
+.banner a:hover {
+  color: var(--c-white);
+}

@@ -8,6 +8,7 @@ import type { SaveSlot } from '../core/types';
 import { NO_FILE, useUi, type WatchStatus } from '../core/ui';
 import { useGame, useProgress, useTracker } from '../games/context';
 import type { SaveSupport } from '../games/types';
+import { SyncCard } from '../sync/SyncCard';
 import { fmtNum, useCheckToggle } from '../ui/hooks';
 import common from '../ui/common.module.css';
 import styles from './ConfigScreen.module.css';
@@ -315,6 +316,8 @@ export function ConfigScreen() {
           </p>
         </section>
       )}
+
+      <SyncCard />
 
       <section className={common.card} aria-labelledby="cfg-backup">
         <h2 className={common.cardT} id="cfg-backup">

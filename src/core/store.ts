@@ -74,6 +74,8 @@ export interface TrackerActions {
   importSave: (det: Detected, meta: ImportMeta, difficulty: number | null, mode: ImportMode) => ImportSummary;
   setWatch: (patch: Partial<WatchSettings>) => void;
   restore: (r: Restored) => void;
+  /** Replaces the synced part (playthroughs, active playthrough, profile) with data from another device. */
+  applySynced: (raw: unknown) => void;
   reset: () => void;
 }
 
@@ -87,6 +89,14 @@ export interface StoreConfig {
   defaultProfile: string;
   maxDifficulty: number;
 }
+
+/** The part of a game's data that syncs between devices. Watch settings, NEW! tags and reports stay local. */
+export type SyncedData = Pick<TrackerData, 'activeId' | 'playthroughs' | 'profile'>;
+export const syncedPart = (s: TrackerData): SyncedData => ({
+  activeId: s.activeId,
+  playthroughs: s.playthroughs,
+  profile: s.profile,
+});
 
 export const activeProgress = (s: TrackerData): Progress =>
   (s.playthroughs[s.activeId] ?? Object.values(s.playthroughs)[0]).progress;
@@ -270,6 +280,12 @@ export function createTrackerStore(cfg: StoreConfig): TrackerStore {
               reports,
               ...(profile && cfg.profiles.includes(profile) ? { profile } : {}),
             });
+          },
+
+          applySynced(raw) {
+            // Same validation as data loaded from storage: anything malformed falls back to defaults.
+            const n = normalizeData(raw);
+            set({ activeId: n.activeId, playthroughs: n.playthroughs, profile: n.profile });
           },
 
           reset() {

@@ -5,6 +5,7 @@ import { SiteFooter } from '../ui/SiteFooter';
 import { GameSwitcher } from './GameSwitcher';
 import { NoticeBanner } from './NoticeBanner';
 import { UpdateBanner } from './UpdateBanner';
+import { SyncBanner } from '../sync/SyncBanner';
 import styles from './Shell.module.css';
 
 interface FrameProps {
@@ -30,6 +31,7 @@ export function Frame({ title, sub, help, gameId, children }: FrameProps) {
         Skip to content
       </a>
       <UpdateBanner />
+      <SyncBanner />
       <NoticeBanner />
       <header className={styles.top}>
         <div className={styles.menuTag} aria-hidden="true">

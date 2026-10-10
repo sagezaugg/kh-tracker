@@ -1,5 +1,5 @@
 import { Redis } from '@upstash/redis';
-import type { SyncRecord, SyncStore } from './sync';
+import type { SyncRecord, SyncStore } from './sync.js';
 
 /**
  * Sync records in Upstash Redis (installed from the Vercel Marketplace, which adds the credentials as

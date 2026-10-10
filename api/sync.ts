@@ -1,5 +1,5 @@
-import { createSyncHandler } from '../server/sync';
-import { createUpstashStore } from '../server/upstashStore';
+import { createSyncHandler } from '../server/sync.js';
+import { createUpstashStore } from '../server/upstashStore.js';
 
 /** Vercel Function for /api/sync (see server/sync.ts). The store is created per cold start. */
 let handle: ((request: Request) => Promise<Response>) | null = null;

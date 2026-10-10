@@ -1,7 +1,6 @@
 /// <reference types="vitest/config" />
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { defineConfig, type Connect, type Plugin } from 'vite';
 import { createMemoryStore, createSyncHandler } from './server/sync';
 import react from '@vitejs/plugin-react';
@@ -94,19 +93,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     css: { modules: { classNameStrategy: 'non-scoped' } },
-    // Vitest resolves packages with ["node", "development", "import"], which picks react-router's CommonJS
-    // build, while `react-router/dom` then pulls in the ESM one: two router contexts, so every router hook
-    // threw. Pin both to the ESM files (absolute paths, past the exports map), which share their chunks.
-    // The app build is unaffected: Vite resolves both to ESM in the browser.
-    alias: [
-      {
-        find: /^react-router$/,
-        replacement: resolve('node_modules/react-router/dist/development/index.mjs'),
-      },
-      {
-        find: /^react-router\/dom$/,
-        replacement: resolve('node_modules/react-router/dist/development/dom-export.mjs'),
-      },
-    ],
   },
 });
